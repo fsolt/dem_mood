@@ -167,6 +167,19 @@ vcovBK_se <- function(x) {
 ```
 
 
+## Issues
+
+There are *many* differences in the survey data (see 'R/compare_supdem_cri.R' and 'paper/ourdata_vs_claassensdata.pdf'), which is why we get different theta estimates.
+Two things account for these differences. First, miscodings: in the Asia Barometers, Claassen miscoded evdemoc_asiab, counting the midpoint of its three-point scale as a positive, democracy-supporting response and so resulting in substantial overreports in 35 country-years; in the second wave of the Asian Barometer, he miscoded democsuit_asianb, counting 5 along with 6 through 10 as positive responses, resulting in more modest overreports in 9 country-years; in the Pew surveys, he miscoded impdemoc_pew, counting only the highest value of its four-point scale as a positive response and so resulting in substantial underreports in 91 country-years.  
+
+Second, he counts nonresponses as negative responses (such as in Pakistan in 2005 in the South Asian Barometer, when 636 of 1324 respondents declined to answer whether they considered democracy suitable for their country, and these were all coded as unsupportive responses) yielding underreports, and he does not always employ survey weights, which can shift proportions somewhat in either direction.  Then there are also survey updates, which may also play a role.  The overall correlation of the mean thetas is .95, but the correlation within the time series of individual countries can be much lower, and it is even negative for 15 countries (see 'paper/appendix/dcpo_demsupport_appendix.Rmd' at L365-369).
+    
+Claassen excludes democextent_asianb observations from asianb3 and asianb4, although he included them from asianb1 and 2.  This accounts for 19 of 38 excluded country-year-items in 'available'.
+    
+We have lapop 2004 strong coded as strong_amb_1 but Claassen has it coded as strong_lapop_2.  It's really 1, because there's no difference in the item question: "AUT1. Hay gente que dice que necesitamos un líder fuerte que no tenga que ser elegido a través del voto. AUT1 Otros dicen que aunque las cosas no funcionen, la democracia electoral, o sea el voto popular, es siempre
+lo mejor. ¿Qué piensa usted? [Leer alternativas]
+Necesitamos un líder fuerte que no tenga que ser elegido..................1 La democracia electoral (voto popular) es lo mejor............................2 NS/NR......................................................................................8"
+
 ## Claassen Replication
 
 ```{r claassen_replication_input, eval=FALSE}
