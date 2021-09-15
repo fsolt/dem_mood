@@ -6,8 +6,10 @@ output:
     fig_caption: true
     latex_engine: pdflatex
     template: svm-latex-ms2.tex
+    
 title: "Democratic Support as Thermostatic Opinion? A Correction"
 thanks: "Corresponding author: [yuehong-tai@uiowa.edu](mailto:yuehong-tai@uiowa.edu). Current version: `r format(Sys.time(), '%B %d, %Y')`."
+
 author:
 - name: Yue Hu
   affiliation: Tsinghua University
@@ -15,10 +17,10 @@ author:
   affiliation: University of Iowa
 - name: Frederick Solt
   affiliation: University of Iowa
+  
 abstract: ""
 keywords: ""
-date: "`r format(Sys.time(), '%B %d, %Y')`"
-fontsize: 11pt
+fontsize: 12pt
 spacing: double
 bibliography: \dummy{`r file.path(getwd(), list.files(getwd(), ".bib$", recursive = TRUE))`}
 # csl: https://raw.githubusercontent.com/citation-style-language/styles/master/american-political-science-association.csl
@@ -49,121 +51,57 @@ needs dataset comparison from R/compare_supdem_cri.R
 ```{r setup, include=FALSE}
 options(tinytex.verbose = TRUE)
 
-knitr::opts_chunk$set(cache = TRUE, echo = FALSE, message = FALSE, warning = FALSE, dpi = 300, include = FALSE)
+knitr::opts_chunk$set(
+    cache = TRUE,
+    echo = FALSE,
+    message = FALSE,
+    warning = FALSE,
+    dpi = 600,
+    include = FALSE
+)
 
 # If you haven't install `DCPOtools`
 # remotes::install_github("fsolt/DCPOtools")
 
-if (!require(pacman)) install.packages("pacman")
+if (!require(pacman))
+    install.packages("pacman")
 library(pacman)
 
-p_load_gh("fsolt/DCPOtools",
-          "ropensci/osfr")
+# p_load_gh("fsolt/DCPOtools",
+#           "ropensci/osfr")
 
 p_load(
-  dataverse, # data scraping
-  plm,
-  glue, dotwhisker,
-  huxtable, kableExtra, modelsummary, # tabulation
-  latex2exp, patchwork, # visualization
-  rstan, # Bayesian estimation
-  tidyverse # data wrangling
-) 
+    # data scraping
+    dataverse,
+    
+    # analysis
+    plm,
+    
+    # presenting
+    patchwork,
+    dotwhisker,
+    kableExtra,
+    modelsummary,
+    ## tabulation
+    latex2exp,
+    patchwork,
+    #rstan, # Bayesian estimation
+    
+    # munging
+    glue,
+    here,
+    tidyverse # data wrangling
+)
+
+theme_set(theme_minimal())
 
 # Functions preload
 set.seed(313)
+source(here("R", "customizedFunctions.R"))
 
-parse_na_types <- function(s) {
-    
-    positions <- purrr::map(
-        stringr::str_split(s, pattern = ""), 
-        match,
-        table = names(na_types_dict)
-    ) %>%
-        unlist()
-    
-    na_types_dict[positions] %>%
-        unlist() %>%
-        unname()
-}
-
-na_types_dict <- list("r" = NA_real_,
-                      "i" = rlang::na_int,
-                      "c" = NA_character_,
-                      "l" = rlang::na_lgl)
-
-as_glance_tibble <- function(..., na_types) {
-    
-    cols <- list(...)
-    
-    if (length(cols) != stringr::str_length(na_types)) {
-        stop(
-            "The number of columns provided does not match the number of ",
-            "column types provided."
-        )
-    }
-    
-    na_types_long <- parse_na_types(na_types)
-    
-    entries <- purrr::map2(cols, 
-                           na_types_long, 
-                           function(.x, .y) {if (length(.x) == 0) .y else .x})
-    
-    tibble::as_tibble_row(entries)
-    
-}
-
-tidy.pgmm <- function(x,
-                      conf.int = FALSE,
-                      conf.level = 0.95,
-                      ...) {
-    result <- summary(x)$coefficients %>%
-        tibble::as_tibble(rownames = "term") %>%
-        dplyr::rename(
-            estimate = Estimate,
-            std.error = `Std. Error`,
-            statistic = `z-value`,
-            p.value = `Pr(>|z|)`
-        )
-    
-    if (conf.int) {
-        ci <- confint(x, level = conf.level) %>% 
-            as.data.frame() %>% 
-            rownames_to_column(var = "term") %>% 
-            dplyr::rename(
-                conf.low = `2.5 %`,
-                conf.high = `97.5 %`
-            )
-        result <- dplyr::left_join(result, ci, by = "term")
-    }
-    
-    result
-}
-
-
-glance.pgmm <- function(x, ...) {
-    s <- summary(x)
-    as_glance_tibble(
-        nobs = stats::nobs(x),
-        n.country = pdim(x)$nT$n,
-        na_types = "ii"
-    )
-}
-
-glance.plm <- function(x, ...) {
-    s <- summary(x)
-    as_glance_tibble(
-        nobs = stats::nobs(x),
-        n.country = pdim(x)$nT$n,
-        na_types = "ii"
-    )
-}
-
-vcovBK_se <- function(x) {
-  plm::vcovBK(x, cluster = "time") %>% 
-    diag() %>% 
-    sqrt()
-}
+# Data preload
+df_compare <- readRDS(here("data", "data_comparison.rds"))
+df_correlation <- readRDS(here("data", "data_correlation.rds"))
 ```
 
 
@@ -179,6 +117,61 @@ Claassen excludes democextent_asianb observations from asianb3 and asianb4, alth
 We have lapop 2004 strong coded as strong_amb_1 but Claassen has it coded as strong_lapop_2.  It's really 1, because there's no difference in the item question: "AUT1. Hay gente que dice que necesitamos un líder fuerte que no tenga que ser elegido a través del voto. AUT1 Otros dicen que aunque las cosas no funcionen, la democracia electoral, o sea el voto popular, es siempre
 lo mejor. ¿Qué piensa usted? [Leer alternativas]
 Necesitamos un líder fuerte que no tenga que ser elegido..................1 La democracia electoral (voto popular) es lo mejor............................2 NS/NR......................................................................................8"
+
+```{r compare_descriptive, fig.cap="Comparision of Proportion of Support Democracy Responses in the Publication and Corrected Data", fig.align='center'}
+
+plot_support <- ggplot(df_compare, 
+       aes(x = prop_ours, y = prop_cls)) +
+    geom_point(aes(color = p_dcpo, shape = p_dcpo), alpha = 0.5) +
+    labs(y = "Publication Data",
+         x = "Corrected Data") +
+    annotate("text",
+             x = .22,
+             y = .95,
+             label = "evdemoc_asiab accounts\nfor most overreports") +
+    annotate("text",
+             x = .75,
+             y = .13,
+             label = "impdemoc_pew accounts for\nmost large underreports") +
+    scale_color_discrete(name = "Survey", direction = -1) +
+    scale_shape_manual(values = seq(1:length(unique(df_compare$p_dcpo))), 
+                       name = "Survey") + 
+    ggtitle("Survey Level")
+
+df_plot <- arrange(df_correlation) %>%
+    rownames_to_column() %>% 
+    mutate(country = factor(country, levels = rev(country)),
+           rowname = as.integer(rowname))
+
+plot_corr <- ggplot(df_plot, aes(y = country, x = corr)) +
+        geom_point() +
+        guides(y = guide_axis(n.dodge = 2)) +
+    xlab("Correlation") +
+    geom_hline(yintercept = nrow(df_plot) - min(df_plot$rowname[df_plot$corr >= .9]),
+               colour = "grey60", linetype = 2) +
+    geom_text(aes(0.98, nrow(df_plot) - min(df_plot$rowname[df_plot$corr >= .9])),
+              label = "0.9", vjust = -1) +
+    theme(axis.title.y = element_blank()) +
+    ggtitle("Country Level")
+
+plot_different <- plot_corr + plot_support
+
+ggsave(plot_support, 'images/data_comparison.png') # Stand-alone plot without notes for presentation
+
+tx_note <- str_wrap(
+    c(
+      "Note: The plots illustate the differences published and currently available data. The left plot shows the country-level correlation of democracy-support proportion between the data used for publication and corrected data. The right plot presents the survey-level differents in terms of the proportion of democracy support. Source: Claassen 2020 and self-collected data"
+    ),
+    width = 115
+  )
+
+plot_support + 
+    plot_annotation(caption = tx_note) &
+    theme(plot.caption = element_text(hjust = 0, face= "italic"))
+
+```
+
+
 
 ## Claassen Replication
 
