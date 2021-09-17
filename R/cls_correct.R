@@ -1,3 +1,5 @@
+# The profile to generate correct data
+
 if (!require(pacman)) install.packages("pacman")
 library(pacman)
 # load all the packages you will use below 
@@ -54,4 +56,5 @@ df_clsMean <- purrr::map_df(1:1000, function(anEntry) {
     reformat_dcpo_output("theta")}) %>% 
   group_by(country, year) %>% 
   summarise(theta = mean(theta))
-save(df_clsMean, file = here::here("output", "estimates_clsMean.RDS"))
+
+save(df_clsMean, file = here::here("data", "estimates_clsMean.RDS"))
