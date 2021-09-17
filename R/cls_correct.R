@@ -98,5 +98,6 @@ theta_cntrl <- df_clsMean %>%
 
   
 saveRDS(theta_cntrl, file = here::here("data","cls_correct_full.rds"))
+saveRDS(theta_cntrl, file = here::here("output","cls_correct_full.rds"))
 
 
