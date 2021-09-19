@@ -28,6 +28,8 @@ reformat_dcpo_output <- function(x, parameter_name) {
 }
 
 
+##################   Create Mean Theta   #############
+################ From Claassen Correct Data ##########
 load(here::here("data", "claassen_m5_3k_07-27-15-40.rda")) 
 load(here::here("data","claassen_replication_input.rda"))
 claassen_m5_theta <- rstan::extract(claassen_m5, pars = "theta")  ##137*30 
@@ -56,6 +58,8 @@ df_clsMean <- purrr::map_df(1:1000, function(anEntry) {
   summarise(theta = mean(theta))
 
 saveRDS(df_clsMean, file = here::here("output", "estimates_clsMean.RDS"))
+
+#############Create AJPS Data ##############
 
 df_clsMean <- readRDS(here::here("output", "estimates_clsMean.rds"))
 
@@ -99,5 +103,53 @@ theta_cntrl <- df_clsMean %>%
   
 saveRDS(theta_cntrl, file = here::here("data","cls_correct_full.rds"))
 saveRDS(theta_cntrl, file = here::here("output","cls_correct_full.rds"))
+
+
+################################################################
+######## Create Data for Correct Claassen + APSR ###############
+################## APSR: ,correct_cls_apsr #####################
+################################################################
+
+df_clsMean <- readRDS(here::here("output", "estimates_clsMean.rds"))
+load(here("data","cls_apsr_cntrl.rda"))
+load(here::here("data","country_regionUN.rda"))
+cpi_95_19_update <- readRDS(here::here("data","cpi95_19_update.rds")) 
+vdem_cntrl <- readRDS(here::here("data","control_variables_apsr.rds"))  %>%
+  select(1:2,3:6)
+
+
+cpi_95_19 <- cpi_95_19_update %>%
+  select(country,year,cpi_100) %>%
+  mutate(cpi = 100 - cpi_100) %>% ## reverse cpi
+  select(country,year,cpi)
+
+## Standardize cls_libdem_list Libdem_z, poly, liberal, Corrup
+cntrl_z <- vdem_cntrl %>%
+  left_join(cpi_95_19, by=c("country", "year")) %>%
+  left_join(cls_apsr_cntrl, by=c("country", "year"="Year")) %>%
+        mutate(Libdem_z = as.vector(scale(Vdem_libdem)), 
+               Polyarchy_z = as.vector(scale(Vdem_polyarchy)),
+               Liberal_z = as.vector(scale(Vdem_liberal)),
+               Corrup_TI_z = as.vector(scale(cpi))) %>%
+        group_by(country) %>% 
+        arrange(year, .by_group = TRUE) %>% 
+        mutate(Libdem_m1 = lag(Libdem_z)) %>%
+        ungroup() %>%
+        mutate(ChgDem = Libdem_z - Libdem_m1) %>%
+        ungroup() 
+
+saveRDS(cntrl_z, file = here("data","cls_apsr_cntrl.rds"))
+
+
+# merge with theta variable and produce trim data.
+
+correct_cls_apsr <- cntrl_z  %>%
+    filter(year > 1986) %>%
+    left_join(df_clsMean,by = c("year", "country"))  %>% 
+    mutate(SupDem_trim = ifelse(year < First_yr, NA, theta)) %>%
+    select(country, year, First_yr,theta, SupDem_trim,contains("z"),everything()) 
+    
+
+save(correct_cls_apsr, file = here("data","correct_cls_apsr.rda"))
 
 
