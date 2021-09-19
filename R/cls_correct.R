@@ -1,3 +1,5 @@
+# The profile to generate correct data
+
 if (!require(pacman)) install.packages("pacman")
 library(pacman)
 # load all the packages you will use below 
@@ -67,7 +69,7 @@ load(here::here("data","country_regionUN.rda"))
 
 load(here::here("data","cls_ajps_cntrl.rda")) 
 
-cntrl <- readRDS(here::here("data","control_variables_ajps.rds"))  %>%
+cntrl <- readRDS(here::here("data","control_variables_ajps.rds")) %>%
   select(1:2,3:6)
 
 cntrl_full <- cntrl %>%
@@ -101,7 +103,6 @@ theta_cntrl <- df_clsMean %>%
   select(country, year, theta, contains("trim"), everything())
 
   
-saveRDS(theta_cntrl, file = here::here("data","cls_correct_full.rds"))
 saveRDS(theta_cntrl, file = here::here("output","cls_correct_full.rds"))
 
 

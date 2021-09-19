@@ -89,3 +89,9 @@ vcovBK_se <- function(x) {
         diag() %>% 
         sqrt()
 }
+
+vcovHC_se <-  function(x) {
+    plm::vcovHC(x, method="arellano", cluster="group") %>%  #default setting
+        diag() %>% 
+        sqrt()
+}

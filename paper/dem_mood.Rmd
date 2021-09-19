@@ -93,7 +93,7 @@ p_load(
     tidyverse # data wrangling
 )
 
-theme_set(theme_minimal())
+theme_set(theme_bw())
 
 # Functions preload
 set.seed(313)
@@ -102,10 +102,41 @@ source(here("R", "customizedFunctions.R"))
 # Data preload
 df_compare <- readRDS(here("data", "data_comparison.rds"))
 df_correlation <- readRDS(here("data", "data_correlation.rds"))
+
+df_apsr <- readRDS(here("data", "dem_mood_apsr.rds"))
+df_apsrCorrected <- readRDS(here("data", "data_apsr_corrected.rds"))
+
+# dotwhisker::small_multiple hacks (showing the labels with latex signs)
+
+body(small_multiple)[[19]] <- substitute(
+    p <-
+        ggplot(
+            df,
+            aes(
+                y = estimate,
+                ymin = conf.low,
+                ymax = conf.high,
+                x = as.factor(model),
+                colour = submodel
+            )
+        ) +
+        do.call(geom_pointrange, point_args) +
+        ylab("") + xlab("") +
+        facet_grid(
+            term ~ .,
+            scales = "free_y",
+            switch = "y",
+            labeller = label_parsed # enable the fancy label
+        ) +
+        scale_y_continuous(position = "right")
+    
+)
 ```
 
 
-## Issues
+# Data Generation Process Problem in Practice
+
+## Discrepancy of the Published Data from the Full, Available, Correct-Coded Data
 
 There are *many* differences in the survey data (see 'R/compare_supdem_cri.R' and 'paper/ourdata_vs_claassensdata.pdf'), which is why we get different theta estimates.
 Two things account for these differences. First, miscodings: in the Asia Barometers, Claassen miscoded evdemoc_asiab, counting the midpoint of its three-point scale as a positive, democracy-supporting response and so resulting in substantial overreports in 35 country-years; in the second wave of the Asian Barometer, he miscoded democsuit_asianb, counting 5 along with 6 through 10 as positive responses, resulting in more modest overreports in 9 country-years; in the Pew surveys, he miscoded impdemoc_pew, counting only the highest value of its four-point scale as a positive response and so resulting in substantial underreports in 91 country-years.  
@@ -143,13 +174,15 @@ df_plot <- arrange(df_correlation) %>%
     mutate(country = factor(country, levels = rev(country)),
            rowname = as.integer(rowname))
 
+vec_bar <- nrow(df_plot) - min(df_plot$rowname[df_plot$corr >= .9]) # where the line is drawn
+                               
 plot_corr <- ggplot(df_plot, aes(y = country, x = corr)) +
         geom_point() +
         guides(y = guide_axis(n.dodge = 2)) +
     xlab("Correlation") +
-    geom_hline(yintercept = nrow(df_plot) - min(df_plot$rowname[df_plot$corr >= .9]),
+    geom_hline(yintercept = vec_bar,
                colour = "grey60", linetype = 2) +
-    geom_text(aes(0.98, nrow(df_plot) - min(df_plot$rowname[df_plot$corr >= .9])),
+    geom_text(aes(0.98, vec_bar),
               label = "0.9", vjust = -1) +
     theme(axis.title.y = element_blank()) +
     ggtitle("Country Level")
@@ -173,219 +206,128 @@ plot_support +
 
 
 
-## Claassen Replication
+## Consequence of DGP Problem
 
-```{r claassen_replication_input, eval=FALSE}
+```{r regression-result}
+sd.plm <- sd.plm2 <- pdata.frame(df_apsr, index = c("Country", "Year")) 
 
-# dcpo_input_raw <- DCPOtools::dcpo_setup(vars = read_csv(here::here("data-raw", "mood_dem.csv"),
-#                                                         col_types = "cccccc"),
-#                                         file = "data/dcpo_input_raw.csv")
+ls_ivECM <- c("diff(Libdem_z, lag = 1) + plm::lag(Libdem_z, 1)", 
+              "diff(Polyarchy_z, lag = 1) + plm::lag(Polyarchy_z, 1) + diff(Liberal_z, lag = 1) + plm::lag(Liberal_z, 1)")
+ls_ctrlECM <- c("", " + diff(Corrup_TI_z, lag = 1) + plm::lag(Corrup_TI_z, 1)")
 
-dcpo_input_raw1 <- read_csv(here::here("data", "dcpo_input_raw.csv"), col_types = "cdcddcd") %>% 
-  filter(!(str_detect(survey, "army_wvs") & # WVS obs identified as problematic by Claassen 
-             ((country=="Albania" & year==1998) |
-                (country=="Indonesia" & (year==2001 | year==2006)) |
-                (country=="Iran" & year==2000) |
-                (country=="Pakistan" & (year==1997 | year==2001)) | # 1996 in Claassen
-                (country=="Vietnam" & year==2001)) |
-             (str_detect(item, "strong_wvs") &
-                ((country=="Egypt" & year==2012) |
-                   (country=="Iran" & (year==2000 | year==2007)) | # 2005 in Claassen
-                   (country=="India") |
-                   (country=="Pakistan" & (year==1997 | year==2001)) | # 1996 in Claassen
-                   (country=="Kyrgyzstan" & (year==2003 | year==2011)) |
-                   (country=="Romania" & (year==1998 | year==2005 | year==2012)) |
-                   (country=="Vietnam" & year==2001))) |
-             (country %in% c("Puerto Rico", "Northern Ireland", 
-                             "SrpSka Republic", "Hong Kong SAR China")))) %>%
-  with_min_yrs(2)
+ls_eqECM <- glue("diff(SupDem_trim, lag = 1) ~ plm::lag(SupDem_trim, 1:2) + {ls_ivECM} + diff(lnGDP_imp, lag = 1) + plm::lag(lnGDP_imp, 1)") %>% 
+  outer(ls_ctrlECM, paste0) %>% 
+  as.vector()
 
-# Note that before running `dataverse::get_file()` below, one should set their personal token and server in their system environment first: 
-# Sys.setenv("DATAVERSE_KEY" = "exampleToken")
-# Sys.setenv("DATAVERSE_SERVER" = "dataverse.harvard.edu")
-# These values can be set to persist across R sessions using `usethis::edit_r_environ()`
+ls_ivFD <- c("Libdem_z",
+             "Polyarchy_z + Liberal_z")
 
-if (!file.exists(here::here("data", "supdem raw survey marginals.tab"))) {
-  tempfile <- dataverse::get_file("supdem raw survey marginals.tab", "doi:10.7910/DVN/HWLW0J") # AJPS replication file
+ls_ctrlFD <- c("", " + Corrup_TI_z")
+
+ls_eqFD <- glue("SupDem_trim ~ {ls_ivFD} + lnGDP_imp") %>% 
+  outer(ls_ctrlFD, paste0) %>% 
+  as.vector()
+
+ls_mod_original <- c(
+  glue("plm({ls_eqECM}, model = 'pooling', data = sd.plm)"),
+  glue("plm({ls_eqFD}, model = 'fd', index = 'Country', data = sd.plm)")
+)
+ls_mod_correct <- c(
+  glue("plm({ls_eqECM}, model = 'pooling', data = sd.plm2)"),
+  glue("plm({ls_eqFD}, model = 'fd', index = 'Country', data = sd.plm2)")
+)
+
+ls_mod <- c(ls_mod_original, ls_mod_correct)
+
+result_clsAPSR <- map(ls_mod, ~eval(parse(text = .)))
+
+result_clsAPSR_tidy <- map(result_clsAPSR, function(aResult) {
+  tidy_result <- tidy(aResult, conf.int = TRUE) %>% 
+    mutate(std.error = vcovHC_se(aResult))
   
-  writeBin(tempfile, here::here("data", "supdem raw survey marginals.tab"))
-}
-
-supdem <- read_csv(here::here("data", "supdem raw survey marginals.tab"), col_types = "cdcddcdc")
-
-supdem_cy <- supdem %>%                                             # 1390 obs
-  janitor::clean_names() %>% 
-  mutate(old_country = country,
-         country = countrycode::countrycode(old_country, "country.name", "country.name")) %>%
-  dplyr::select(country, year, project) %>% 
-  unique()
-
-claassen_input_cy <- read_csv(here::here("data", "dcpo_input_raw.csv"),
-                              col_types = "cdcddcd") %>%           # 1864 obs
-  mutate(p_dcpo = str_extract(survey, "^[a-z]+"), 
-         project = case_when(p_dcpo == "afrob" ~ "afb",
-                             p_dcpo == "amb" ~ "lapop",
-                             p_dcpo == "arabb" ~ "arb",
-                             p_dcpo == "asiab" ~ "asb",
-                             p_dcpo == "asianb" ~ "asnb",
-                             p_dcpo == "neb" ~ "ndb",
-                             p_dcpo == "sasianb" ~ "sab",
-                             TRUE ~ p_dcpo),
-         y_dcpo = year) %>%
-  dplyr::select(country, year, y_dcpo, survey, project) %>% 
-  unique()
-
-no_problems <- inner_join(supdem_cy, claassen_input_cy)             # 1298 obs
-
-needed <- anti_join(supdem_cy, claassen_input_cy)                   # 93 obs
-
-available <- anti_join(claassen_input_cy, supdem_cy)                # 566 obs
-
-year_fixes <- left_join(needed, available, by = c("country", "project")) %>% # 89 obs
-  mutate(diff = year.x - year.y) %>% 
-  group_by(country, project, year.x) %>% 
-  mutate(closest_to_claassen = min(abs(diff))) %>% 
-  ungroup() %>% 
-  group_by(country, project, year.y) %>% 
-  mutate(closest_to_dcpo = min(abs(diff))) %>% 
-  ungroup() %>% 
-  filter(closest_to_claassen == abs(diff) & closest_to_dcpo == abs(diff) & abs(diff) <= 3) %>% 
-  filter(!(country == "Egypt" & year.x == 2014 & survey == "afrob5")) # double match (it's really afrob6)
-
-cys_crosswalk <- year_fixes %>% 
-  select(country, y_dcpo, y_claassen = year.x, survey)
-
-missing_cyps <- anti_join(needed, year_fixes,  by = c("country", "year" = "year.x", "project")) # 4 obs; listed in issue #5 
-
-cys_to_drop <- anti_join(available, year_fixes, by = c("country", "year" = "year.y", "project")) %>% # 477 obs
-  select(-y_dcpo)
-
-claassen_replication_input_raw1 <- read_csv(here::here("data", "claassen_input_raw.csv"), col_types = "cdcddcd") %>% 
-  filter(!(str_detect(item, "army_wvs") & # WVS obs identified as problematic by Claassen 
-             ((country=="Albania" & year==1998) |
-                (country=="Indonesia" & (year==2001 | year==2006)) |
-                (country=="Iran" & year==2000) |
-                (country=="Pakistan" & (year==1997 | year==2001)) | #in DCPO,it is 1997 instead of 1996
-                (country=="Vietnam" & year==2001)) |
-             (str_detect(item, "strong_wvs") &
-                ((country=="Egypt" & year==2012) |
-                   (country=="Iran" & (year==2000 | year==2007)) | #in DCPO, the year is 2007 rather than 2005
-                   (country=="India") |
-                   (country=="Pakistan" & (year==1997 | year==2001)) | #in DCPO,it is 1997 instead of 1996
-                   (country=="Kyrgyzstan" & (year==2003 | year==2011)) |
-                   (country=="Romania" & (year==1998 | year==2005 | year==2012)) |
-                   (country=="Vietnam" & year==2001))))) %>% 
-  anti_join(cys_to_drop, by = c("country", "year", "survey")) %>% # surveys unused by Claassen
-  left_join(cys_crosswalk, by = c("country", "year" = "y_dcpo", "survey")) %>% 
-  mutate(year = if_else(!is.na(y_claassen), y_claassen, year)) %>% # use Claassen's year codings
-  mutate(item = if_else(item == "strong_amb_1" & year == 2004, "strong_amb_2", item)) %>% # items conflated in amb_combo file
-  with_min_yrs(2)
-
-claassen_replication_input <- DCPOtools::format_claassen(claassen_replication_input_raw1)
-save(claassen_replication_input, file = here::here("data", "claassen_replication_input.rda"))
-```
-
-```{r claassen_m5, eval=FALSE}
-load(here::here("data", "claassen_replication_input.rda"))
-
-claassen_m5 <- rstan::stan(file = 'R/argon/dcpo_demsupport/R/supdem.stan.mod5.stan',
-                           data = claassen_replication_input,
-                           iter = 3000,
-                           chains = 4,
-                           cores = 4,
-                           thin = 3,
-                           pars = c("mu_lambda", "sigma_lambda", "sigma_delta", "sigma_theta", "phi", "lambda", "delta", "theta", "x_pred","log_lik"),
-                           control = list(adapt_delta=0.99, stepsize=0.02, max_treedepth=11))
-
-save(claassen_m5, file = load(here::here("data", "claassen_m5.rda")))
+  glance_result <- glance.plm(aResult)
+  
+  ls_result <- list(tidy_result, glance_result)
+})
 ```
 
 
-```{r apsr_mean}
-if (!file.exists(here::here("data", "dem_mood_apsr.csv"))) {
-  tempfile <- dataverse::get_file("dem_mood_apsr.tab", "doi:10.7910/DVN/FECIO3", 
-                                  format = "original") # Claassen's APSR replication file
-  
-  writeBin(tempfile, here::here("data", "dem_mood_apsr.csv"))
-}
+```{r regression-plot, fig.cap= "The Effect of Democracy on Change in Public Support with Uncertainty", fig.width=7, fig.height=10}
 
-sd_controls_apsr <- read_csv(here::here("data", "dem_mood_apsr.csv"), 
-                        col_types = cols(.default = col_double(),
-                                         Country = col_character(),
-                                         ISO_code = col_character(),
-                                         Region_UN = col_character())) %>% 
-  mutate(country = countrycode::countrycode(as.character(Country), "country.name", "country.name"),
-         year = as.numeric(as.character(Year))) %>% 
-  left_join(first_years, by = "country") %>% 
-  filter(year >= first_year)
+txt_models <- paste0("Model ",
+                     rep(1:2, each = 4), ".", rep(1:4, 2),
+                     " (",
+                     rep(c("ECM", "ECM", "FD", "FD"), 2),
+                     ")")
 
-df_theta_mean_apsr <- purrr::map_df(1:1000, function(x) {
-  claassen_m5_theta_std[x,,] %>% 
-    as_tibble() %>% 
-    rename_with(~ls_country, .cols = starts_with("V")) %>% 
-    mutate(year = first_year + row_number() - 1) %>% 
-    pivot_longer(cols = !year,
-                 names_to = "country",
-                 values_to = "theta") %>%
-    arrange(country, year)
-}) %>% 
-  group_by(country, year) %>% 
-  summarize(theta_mean = mean(theta)) %>% 
-  right_join(sd_controls_apsr, by = c("country", "year")) %>% 
-  plm::pdata.frame(index = c("country", "year"))
+vec_numCoef <- map_dbl(c(1, 2, 5, 6, 3, 4, 7, 8), # ECM ECM FD FD
+                       ~nrow(result_clsAPSR_tidy[[.]][[1]])) - 1 # subtract the intercepts
 
-cor(df_theta_mean$theta_mean, df_theta_mean_apsr$theta_mean) # 1
+txt_model_lab <- map2(txt_models, vec_numCoef, ~rep(.x, times = .y)) %>% 
+    unlist # model lists
+txt_model_lab <- c(txt_model_lab[str_which(txt_model_lab, "ECM")], 
+                   txt_model_lab[str_which(txt_model_lab, "FD")])
+# Modify the orders to match the dataset
 
-ls_dv_apsr <- c("theta_mean", "SupDem_trim")
+index_coefName <- c(
+    `plm::lag(SupDem_trim, 1:2)1` = "Democratic~Support[t-1]",
+    `plm::lag(SupDem_trim, 1:2)2` = "Democratic~Support[t-2]",
+    `diff(Libdem_z, lag = 1)` = "Delta~Liberal~democracy",
+    `Libdem_z` = "Delta~Liberal~democracy",
+    `plm::lag(Libdem_z, 1)` = "Liberal~Democracy[t-1]",
+    `diff(Liberal_z, lag = 1)` = "Delta~Electoral~Democracy",
+    `Liberal_z` = "Delta~Electoral~Democracy",
+    `plm::lag(Liberal_z, 1)` = "Electoral~Democracy[t-1]",
+    `diff(Polyarchy_z, lag = 1)` = "Delta~Minoritarian~Democracy",
+    `Polyarchy_z` = "Delta~Minoritarian~Democracy",
+    `plm::lag(Polyarchy_z, 1)` = "Minoritarian~Democracy[t-1]",
+    `diff(lnGDP_imp, lag = 1)` = "Delta~Log~GDP~per~capita",
+    `lnGDP_imp` = "Delta~Log~GDP~per~capita",
+    `plm::lag(lnGDP_imp, 1)` = "Log~GDP~per~capita[t-1]",
+    `diff(Corrup_TI_z, lag = 1)` = "Delta~Corruption",
+    `Corrup_TI_z` = "Delta~Corruption",
+    `plm::lag(Corrup_TI_z, 1)` = "Corruption[t-1]"
+)
 
-ls_eq_apsr <- glue::glue("diff({ls_dv_apsr}, lag=1) ~ plm::lag({ls_dv_apsr}, 1:2) + diff(Libdem_z, lag=1) + plm::lag(Libdem_z, 1) + diff(lnGDP_imp, lag=1) + plm::lag(lnGDP_imp, 1)")
+df_plot <- map_dfr(result_clsAPSR_tidy, ~.[[1]]) %>% 
+    filter(term != "(Intercept)") %>%
+    mutate(
+        type = ifelse(str_detect(term, "(_z|imp)$"), "FD", "ECM"),
+        term = index_coefName[term],
+        term = factor(term, levels = unique(index_coefName)),
+        submodel = rep(c("Published", "Corrected"), each = nrow(.)/2),
+        submodel = factor(submodel, levels = c("Published","Corrected")),
+        model = rep(txt_model_lab, times = 2),
+        model = factor(model, levels = txt_models)
+    )
 
-ls_mod_apsr <- glue::glue("plm({ls_eq_apsr}, model = 'pooling', data = df_theta_mean_apsr)")
+txt_caption <- strwrap("Note: Replications of Claassen (2020), Table 1, 47, and Table 2, 49.  Models denoted 'ECM' are error-correction models; those marked 'FD' are first-difference models.", width = 85) %>% 
+  paste0(sep="", collapse="\n")
 
-df_result_cls_apsr <- map(ls_mod_apsr, function(mod) {
-  result <- eval(parse(text = mod))
-})
+small_multiple(df_plot, axis_switch = TRUE, dot_args = list(size = .9, fatten = 1)) +
+    geom_hline(yintercept = 0, colour = "grey50", linetype = 2) +
+    scale_color_grey(start = 0.8, end = 0.4, 
+                     name = "Replication",
+                     breaks = c("Published",
+                              "Corrected"),
+                     labels = c("Publication data",
+                              "Full, corrected data")) +
+    theme(axis.text.x  = element_text(angle = 90, hjust = .5),
+          strip.text.y.left = element_text(angle = 0),
+          legend.position = c(0.006, -.01),
+          legend.justification = c(1, 1), 
+          legend.title = element_text(size = 9, face = "bold"),
+          legend.title.align = 0.5,
+          legend.text = element_text(size = 8),
+          legend.background = element_rect(color="gray90"),
+          legend.spacing = unit(-5, "pt"),
+          legend.key.width = unit(4.5, "mm"),
+          legend.key.height = unit(7, "mm"),
+          plot.caption = element_text(size = 10, hjust = 0.2, margin = margin(t=15))) +
+  guides(color = guide_legend(override.aes = list(size=.3))) +
+  ggtitle("Dependent Variable: Change in Public Democratic Support") +
+  labs(caption = txt_caption)
 
-tidy_cls_apsr <- map(df_result_cls_apsr, function(result) {
-  df_result <- tidy(result, conf.int = TRUE)
-  
-  if (class(result)[[1]] == "plm") {
-     mutate(df_result, std.error = vcovBK_se(result))
-  } else {
-    mutate(df_result, std.error = vcovHC_se(result))
-  }
-})
-
-glance_cls_apsr <- map(df_result_cls_apsr, function(aResult) {
-  if (class(aResult)[[1]] == "plm") { 
-    glance.plm(aResult) # using the customized glance function
-  } else {
-    glance(aResult)
-  }
-})
-
-result_cls_apsr <- map2(tidy_cls_apsr, glance_cls_apsr, ~ list(.x, .y))
-#names(result_cls) <- c("pooled", "pooled-regime", "gmm", "gmm-regime")
-
-apsr_mean_plot <- map_df(1:2, function(a) {
-  result_cls_apsr[[a]][[1]] %>% 
-    mutate(model = if_else(a==1, "Ours", "Claassen's")) %>% 
-    filter(!str_detect(term, "(Intercept)"))
-}) %>% 
-  dotwhisker::dwplot() %>% 
-  relabel_predictors(c(`plm::lag(theta_mean, 1:2)1` = "Support[t-1]",
-                       `plm::lag(theta_mean, 1:2)2` = "Support[t-2]",
-                       `plm::lag(SupDem_trim, 1:2)1` = "Support[t-1]",
-                       `plm::lag(SupDem_trim, 1:2)2` = "Support[t-2]",
-                       `diff(Libdem_z, lag = 1)` = "Delta~Liberal~democracy",
-                       `plm::lag(Libdem_z, 1)` = "Liberal~democracy[t-1]",
-                       `diff(lnGDP_imp, lag = 1)` = "Delta~Log GDP per capita",
-                       `plm::lag(lnGDP_imp, 1)` = "Log GDP per capita[t-1]")) +
-  geom_vline(xintercept = 0, colour = "grey80", linetype = 2) +
-  theme_minimal() +
-  ggtitle("Dependent Variable: Delta Support for Democracy") + 
-  xlab("Coefficient Estimate") +
-  scale_color_discrete(name="Dataset", breaks=c("Claassen's","Ours"))
 ```
 
 
