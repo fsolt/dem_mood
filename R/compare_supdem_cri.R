@@ -244,3 +244,9 @@ claassen_m5 <- rstan::stan(file = 'R/argon/dcpo_demsupport/R/supdem.stan.mod5.st
                            control = list(adapt_delta=0.99, stepsize=0.02, max_treedepth=11))
 
 save(claassen_m5, file = load(here::here("data", "claassen_m5.rda")))
+
+
+# Preparing apsr data --------------------------------------------------------------
+
+load(here::here("output", "correct_cls_apsr.rda"))
+saveRDS(correct_cls_apsr, here::here("data", "correct_cls_apsr.rds"))

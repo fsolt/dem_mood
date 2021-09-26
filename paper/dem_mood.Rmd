@@ -104,7 +104,8 @@ df_compare <- readRDS(here("data", "data_comparison.rds"))
 df_correlation <- readRDS(here("data", "data_correlation.rds"))
 
 df_apsr <- readRDS(here("data", "dem_mood_apsr.rds"))
-df_apsrCorrected <- readRDS(here("data", "data_apsr_corrected.rds"))
+df_apsrCorrected <- readRDS(here("data", "correct_cls_apsr.rds")) %>% 
+    rename(Country = country, Year = year)
 
 # dotwhisker::small_multiple hacks (showing the labels with latex signs)
 
@@ -209,7 +210,8 @@ plot_support +
 ## Consequence of DGP Problem
 
 ```{r regression-result}
-sd.plm <- sd.plm2 <- pdata.frame(df_apsr, index = c("Country", "Year")) 
+sd.plm <- pdata.frame(df_apsr, index = c("Country", "Year")) 
+sd.plm2 <- pdata.frame(df_apsrCorrected, index = c("Country", "Year"))
 
 ls_ivECM <- c("diff(Libdem_z, lag = 1) + plm::lag(Libdem_z, 1)", 
               "diff(Polyarchy_z, lag = 1) + plm::lag(Polyarchy_z, 1) + diff(Liberal_z, lag = 1) + plm::lag(Liberal_z, 1)")
