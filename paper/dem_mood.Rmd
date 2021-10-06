@@ -188,7 +188,8 @@ There are two potential miscoding types.
 One is operation-based miscoding.
 Researchers may mistakenly coded the values reversely, incompletely, or recognizing the value to mark missing response to a true variable value.
 For instance, we found in @Claassen2020b that the author coded the option "Necesitamos un líder fuerte que no tenga que ser elegid" as "Strong_lapop_1" for the question in AmericasBarometer: 
-> AUT1:Hay gente que dice que necesitamos un líder fuerte que no tenga que ser elegido a través del voto. AUT1 Otros dicen que aunque las cosas no funcionen, la democracia electoral, o sea el voto popular, es siempre
+
+>AUT1:Hay gente que dice que necesitamos un líder fuerte que no tenga que ser elegido a través del voto. AUT1 Otros dicen que aunque las cosas no funcionen, la democracia electoral, o sea el voto popular, es siempre
 lo mejor. ¿Qué piensa usted? [Leer alternativas]
 
 However, according to the publication's supplementary materials, "Strong_lapop_1" refers to the question in AmericasBarometer with wording, "On some occasions, democracy doesn't work. When that happens there are people that say we need a strong leader who doesn't have to be elected through voting. Others say that even if things don't function, democracy is always the best. What do you think?". 
