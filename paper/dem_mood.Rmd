@@ -116,7 +116,8 @@ df_compare <- readRDS(here("data", "data_comparison.rds"))
 df_correlation <- readRDS(here("data", "data_correlation.rds"))
 
 df_apsr <- readRDS(here("data", "dem_mood_apsr.rds"))
-df_apsrCorrected <- readRDS(here("data", "correct_cls_apsr.rds")) %>% 
+load(here("data", "correct_cls_apsr.rda"))
+df_apsrCorrected <- correct_cls_apsr %>% 
     rename(Country = country, Year = year)
 
 df_plot <- arrange(df_correlation) %>%
