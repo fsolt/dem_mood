@@ -116,7 +116,8 @@ df_compare <- readRDS(here("data", "data_comparison.rds"))
 df_correlation <- readRDS(here("data", "data_correlation.rds"))
 
 df_apsr <- readRDS(here("data", "dem_mood_apsr.rds"))
-df_apsrCorrected <- readRDS(here("data", "correct_cls_apsr.rds")) %>% 
+load(here("data", "correct_cls_apsr.rda"))
+df_apsrCorrected <- correct_cls_apsr %>% 
     rename(Country = country, Year = year)
 
 df_plot <- arrange(df_correlation) %>%
@@ -174,7 +175,7 @@ To measure the mood, the author uses existing survey questions about the "approp
 undemocratic alternative, or evaluate one of these undemocratic forms of government" to draw a latent variable with a dynamic IRT method [@Claassen2020b, p.40].
 After the DGP, he collected 3,768 nationally aggregated opinions from 52 different survey questions of 14 survey projects. 
 We reproduced the same process one year after the paper was published (2021) and found `r scales::percent((nrow(df_apsrCorrected) - nrow(df_apsr))/ nrow(df_apsr), accuracy = 0.1)` more data. 
-For instance, the original study excludes `democextent_asianb` observations from the third and fourth waves of Asian Barometers (the data were released in 2009 and 2017), although it included them from the first and second waves. 
+For instance, the original study excludes observations from the third and fourth waves of Asian Barometers (the data were released in 2009 and 2017) on questions about to what extent people want their country to be democratic now, although it included them from the first and second waves. 
 This accounts for 19 of 38 excluded country-year-items in 'available'.
 
 The miscoding problem is caused by researchers' inconsistent coding.
@@ -186,20 +187,22 @@ Howerver, the same problem can also occur even when only one measurement is used
 There are two potential miscoding types.
 One is operation-based miscoding.
 Researchers may mistakenly coded the values reversely, incompletely, or recognizing the value to mark missing response to a true variable value.
-For instance, we found in @Claassen2020b that the author coded the option "Necesitamos un líder fuerte que no tenga que ser elegid" as "strong_lapop_2" for the question:
+For instance, we found in @Claassen2020b that the author coded the option "Necesitamos un líder fuerte que no tenga que ser elegid" as "Strong_lapop_1" for the question in AmericasBarometer: 
 
-> Hay gente que dice que necesitamos un líder fuerte que no tenga que ser elegido a través del voto. AUT1 Otros dicen que aunque las cosas no funcionen, la democracia electoral, o sea el voto popular, es siempre
+>AUT1:Hay gente que dice que necesitamos un líder fuerte que no tenga que ser elegido a través del voto. AUT1 Otros dicen que aunque las cosas no funcionen, la democracia electoral, o sea el voto popular, es siempre
 lo mejor. ¿Qué piensa usted? [Leer alternativas]
 
-But according to the description of the question, this ought to be "strong_amb_1."
+However, according to the publication's supplementary materials, "Strong_lapop_1" refers to the question in AmericasBarometer with wording, "On some occasions, democracy doesn't work. When that happens there are people that say we need a strong leader who doesn't have to be elected through voting. Others say that even if things don't function, democracy is always the best. What do you think?". 
+"Strong_lapop_2" refers to the question with wording "There are people who say we need a strong leader who does not have to be elected. Others say that although things may not work, electoral democracy, or the popular vote,is always the best. What do you think?"
+Therefore, this question should be coded as "Strong_lapop_2" instead of "Strong_lapop_1".
 
 The other type of problem is design-based mis(re)coding.
 Researchers conduct consistent method during the coding but the method per se under-represent or stretch the variance of the variables.
-For examples, when recoding "evdemoc_asiab" in the Asian Barometer, @Claassen2020b counted the midpoint of its three-point scale as a positive, democracy-supporting response.
+For examples, when recoding the questions about how people evaluate democracy ^[The question wording is "I’m going to describe various types of political systems. Please indicate for each system whether you think it would be very good, fairly good or bad for this country – A democratic political system"] in the Asia Barometer, @Claassen2020b counted the midpoint of its three-point scale as a positive, democracy-supporting response.
 The coding results in substantial overreports in 35 country-years.
-Similarly, in the second wave of the Asian Barometer, the study counts 5 along with 6 through 10 as positive responses.
+Similarly, in the *second* wave of the Asian Barometer, the study counts 5 along with 6 through 10 as positive responses for questions about the suitability of democracy^[The question is "Here is a similar scale of 1 to 10 measuring the extent to which people think democracy is suitable for our country. If 1 means that democracy is completely unsuitable for [name of country] today and 10 means that it is completely suitable, where would you place our country today?"] and desire for democracy^[The questions is "To what extent do you want our country to be democratic now?"].
 This coding produces more modest overreports in 9 country-years.
-A third example in recoding Pew surveys, the researcher counted only the highest value of the four-point scale of "impdemoc_pew" as a positive response and so leading to substantial underreports in 91 country-years.  
+A third example in recoding Pew Global Attitudes surveys, the researcher counted only the highest value of the four-point scale of the question on how important to live in a courntry with regular elections ^[The question wording is "How important is it to you to live in a country where honest elections are held regularly with a choice of at least two political parties? Is it very important, somewhate important, not too important or not important at all?"] as a positive response and so leading to substantial underreports in 91 country-years.  
 A final example we found that the 2020 study counts nonresponses as negative responses (such as in Pakistan in 2005 in the South Asian Barometer, when 636 of 1324 respondents declined to answer whether they considered democracy suitable for their country, and these were all coded as unsupportive responses) yielding under-reports. 
 Moreover, the study does not always employ survey weights, which can shift proportions somewhat in either direction.
 
@@ -211,9 +214,10 @@ The minimum correlation is `r round(min(df_plot$corr), digits = 2)`.
 
 The correlation within the time series of individual countries can be much lower, and it is even negative for 15 countries.[HOW TO PRESENT THEEVIDENCE?]
 
-In Figure \@ref(fig:compare2), we compared democracy support from the publication and corrected data across surveys. 
+In Figure \@ref(fig:compare2), we compared democracy support from the publication and corrected data across surveys^[afrob:Afrobarometer, amb:AmericasBarometer, arabb:Arab Barometer, asiab:AsiaBarometer, asianb:Asian Barometer, cses:Comparative Study of Electoral Systems, eb:Eurobarometer, ess:European Social Survey, evs:European Value Survey, lb:Latinobarómetro, neb:New Democracies Barometer, pew:Pew Global Attitudes Survey, sasianb:South Asian Barometer, wvs:World Values Survey.]. 
 The extent the points in the plot deviating from the 45&deg; diagonal represents the discrepancy of the publication data from the full, corrected-coding data.
-The comparison witnesses a large amount of data from various surveys were underreported and a fair amount of data (mainly from the Asian barometers) were overreported.
+The comparison witnesses a large amount of data from various surveys, especially from Pew Global Attitudes Survey, were underreported and a fair amount of data, mainly from the Asia barometers, were overreported.
+
 
 In the next section, we illustrate how these DGP errors causes unreliable conclusion for substantive research question.
 
