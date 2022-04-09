@@ -186,7 +186,7 @@ Howerver, the same problem can also occur even when only one measurement is used
 There are two potential miscoding types.
 One is operation-based miscoding.
 Researchers may mistakenly coded the values reversely, incompletely, or recognizing the value to mark missing response to a true variable value.
-For instance, we found in @Claassen2020b that the author coded the option "Necesitamos un líder fuerte que no tenga que ser elegid" as "strong_lapop_2" for the questio:n 
+For instance, we found in @Claassen2020b that the author coded the option "Necesitamos un líder fuerte que no tenga que ser elegid" as "strong_lapop_2" for the question:
 
 > Hay gente que dice que necesitamos un líder fuerte que no tenga que ser elegido a través del voto. AUT1 Otros dicen que aunque las cosas no funcionen, la democracia electoral, o sea el voto popular, es siempre
 lo mejor. ¿Qué piensa usted? [Leer alternativas]
