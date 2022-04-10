@@ -8,7 +8,7 @@ output:
     latex_engine: xelatex
     # pandoc_args: --lua-filter=multiple-bibliographies.lua
     
-title: "Democratic Support as Thermostatic Opinion? A Correction"
+title: "On the Importance of 'Janitor Work' in Political Science: The Case of Thermostatic Democratic Support"
 thanks: "Corresponding author: [yuehong-tai@uiowa.edu](mailto:yuehong-tai@uiowa.edu). Current version: `r format(Sys.time(), '%B %d, %Y')`."
 
 # author:
