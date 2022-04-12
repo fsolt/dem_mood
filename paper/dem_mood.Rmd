@@ -8,7 +8,10 @@ output:
     latex_engine: xelatex
     # pandoc_args: --lua-filter=multiple-bibliographies.lua
     
-title: "On the Importance of 'Janitor Work' in Political Science: The Case of Thermostatic Democratic Support"
+title: |
+  | On the Importance of
+  | 'Janitor Work' in Political Science:
+  | The Case of Thermostatic Democratic Support
 thanks: "Corresponding author: [yuehong-tai@uiowa.edu](mailto:yuehong-tai@uiowa.edu). Current version: `r format(Sys.time(), '%B %d, %Y')`."
 
 # author:
@@ -79,8 +82,8 @@ if (!require(pacman))
     install.packages("pacman")
 library(pacman)
 
-# p_load_gh("fsolt/DCPOtools",
-#           "ropensci/osfr")
+p_load_gh("fsolt/DCPOtools",
+          "ropensci/osfr")
 
 p_load(
     # data scraping
@@ -112,18 +115,17 @@ set.seed(313)
 source(here("R", "customizedFunctions.R"))
 
 # Data preload
-df_compare <- readRDS(here("data", "data_comparison.rds"))
-df_correlation <- readRDS(here("data", "data_correlation.rds"))
+# df_correlation <- readRDS(here("data", "data_correlation.rds"))
 
-df_apsr <- readRDS(here("data", "dem_mood_apsr.rds"))
-load(here("data", "correct_cls_apsr.rda"))
-df_apsrCorrected <- correct_cls_apsr %>% 
-    rename(Country = country, Year = year)
-
-df_plot <- arrange(df_correlation) %>%
-    rownames_to_column() %>% 
-    mutate(country = factor(country, levels = rev(country)),
-           rowname = as.integer(rowname))
+# df_apsr <- readRDS(here("data", "dem_mood_apsr.rds"))
+# load(here("data", "correct_cls_apsr.rda"))
+# df_apsrCorrected <- correct_cls_apsr %>% 
+#     rename(Country = country, Year = year)
+# 
+# df_plot <- arrange(df_correlation) %>%
+#     rownames_to_column() %>% 
+#     mutate(country = factor(country, levels = rev(country)),
+#            rowname = as.integer(rowname))
 
 # dotwhisker::small_multiple hacks (showing the labels with latex signs)
 
@@ -152,6 +154,125 @@ body(small_multiple)[[19]] <- substitute(
 )
 ```
 
+```{r data_comparison, include=FALSE}
+if (!file.exists(here::here("data", "supdem raw survey marginals.tab"))) {
+    tempfile <- dataverse::get_file("supdem raw survey marginals.tab", "doi:10.7910/DVN/HWLW0J") # AJPS replication file
+    
+    writeBin(tempfile, here::here("data", "supdem raw survey marginals.tab"))
+    rm(tempfile)
+}
+
+sd <- read_csv(here::here("data", "supdem raw survey marginals.tab"), col_types = "cdcddcdc") %>% 
+    mutate(item_fam = str_extract(tolower(Item), "^[a-z]+"),
+           country = countrycode::countrycode(Country, "country.name", "country.name"),
+           dataset = "supdem") %>% 
+    rename(year = Year, project = Project) %>% 
+    with_min_yrs(2) # Selecting data w. at least two years
+
+if (!file.exists(here::here("data", "claassen_input_raw.csv"))) {
+claassen_input_raw <- DCPOtools:::claassen_setup(vars = read_csv(here::here("data-raw", "mood_dem.csv"),
+                                                                 col_types = "cccccc"),
+                                                 file = "data/claassen_input_raw.csv")
+}
+
+claassen_input_raw <- read_csv(here::here("data", "claassen_input_raw.csv"),
+                               col_types = "cdcddcd")
+
+claassen_input_raw1 <- claassen_input_raw %>%
+    filter(!((
+        str_detect(item, "army_wvs") &
+            # WVS obs identified as problematic by Claassen
+            ((country == "Albania" & year == 1998) |
+                 (country == "Indonesia" &
+                      (year == 2001 | year == 2006)) |
+                 (country == "Iran" & year == 2000) |
+                 (country == "Pakistan" &
+                      (year == 1997 | year == 2001)) | # 1996 in Claassen
+                 (country == "Vietnam" & year == 2001)
+            )
+    ) |
+        (
+            str_detect(item, "strong_wvs") &
+                ((country == "Egypt" & year == 2012) |
+                     (country == "Iran" &
+                          (year == 2000 | year == 2007)) | # 2005 in Claassen
+                     (country == "India") |
+                     (country == "Pakistan" &
+                          (year == 1997 | year == 2001)) | # 1996 in Claassen
+                     (country == "Kyrgyzstan" &
+                          (year == 2003 | year == 2011)) |
+                     (country == "Romania" &
+                          (year == 1998 | year == 2005 | year == 2012)) |
+                     (country == "Vietnam" & year == 2001)
+                )
+        ) |
+        (
+            country %in% c(
+                "Puerto Rico",
+                "Northern Ireland",
+                "SrpSka Republic",
+                "Hong Kong SAR China"
+            )
+        ))) %>%
+    with_min_yrs(2)
+
+claassen_input <- DCPOtools:::format_claassen(claassen_input_raw)
+
+cri <- claassen_input$data %>% 
+    mutate(p_dcpo = str_extract(survey, "^[a-z]+"), 
+           project = case_when(p_dcpo == "afrob" ~ "afb",
+                               p_dcpo == "amb" ~ "lapop",
+                               p_dcpo == "arabb" ~ "arb",
+                               p_dcpo == "asiab" ~ "asb",
+                               p_dcpo == "asianb" ~ "asnb",
+                               p_dcpo == "neb" ~ "ndb",
+                               p_dcpo == "sasianb" ~ "sab",
+                               TRUE ~ p_dcpo),
+           item_fam = str_extract(item, "^[a-z]+"),
+           item_fam = if_else(item_fam == "election", "elec", item_fam),
+           dataset = "cri")
+
+supdem_cri <- full_join(sd, cri, by = c("country", "year", "item_fam", "project"))
+
+# While DCPO assigns actual year of survey, Claassen used nominal year of wave,
+# so some corrections are required to match observations (~8% of obs)
+no_problems <- inner_join(sd %>% select(-dataset), 
+                          cri %>% select(-dataset),
+                          by = c("country", "year", "item_fam", "project")) %>% # 3409 obs
+    mutate(prop_cls = Response/Sample,
+           prop_ours = x/samp,
+           diff = prop_cls - prop_ours,
+           diff_x = round(Response - x),
+           diff_samp = round(Sample - samp)) %>% 
+    select(-CAbb, -COWCode)
+
+needed <- anti_join(sd %>% select(-dataset),
+                    cri %>% select(-dataset))                   # 307 obs
+
+available <- anti_join(cri %>% select(-dataset),
+                       sd %>% select(-dataset))                # 1418 obs
+
+year_fixes <- left_join(needed,    # 304 obs
+                        available,
+                        by = c("country", "project", "item_fam")) %>% 
+  mutate(diff = year.x - year.y) %>% 
+  group_by(country, project, item_fam, year.x) %>% 
+  mutate(closest_to_claassen = min(abs(diff))) %>% 
+  ungroup() %>% 
+  group_by(country, project, item_fam, year.y) %>% 
+  mutate(closest_to_dcpo = min(abs(diff))) %>% 
+  ungroup() %>% 
+  filter(closest_to_claassen == abs(diff) & closest_to_dcpo == abs(diff) & abs(diff) <= 3) %>% 
+  filter(!(country == "Egypt" & year.x == 2014 & survey == "afrob5")) %>%  # double matches (it's really afrob6)
+  mutate(year = year.y)
+
+data_comparison <- bind_rows(no_problems, year_fixes) %>% 
+  mutate(prop_cls = round(Response/Sample, 3),
+         prop_ours = round(x/samp, 3))
+
+saveRDS(data_comparison, here("data", "data_comparison.rds"))
+```
+
 
 # DGP Problem and Consequences
 
@@ -174,7 +295,10 @@ In our illustrative case, the 2020 paper, the point of interest is the influence
 To measure the mood, the author uses existing survey questions about the "appropriateness or desirability of democracy, compare democracy to some
 undemocratic alternative, or evaluate one of these undemocratic forms of government" to draw a latent variable with a dynamic IRT method [@Claassen2020b, p.40].
 After the DGP, he collected 3,768 nationally aggregated opinions from 52 different survey questions of 14 survey projects. 
-We reproduced the same process one year after the paper was published (2021) and found `r scales::percent((nrow(df_apsrCorrected) - nrow(df_apsr))/ nrow(df_apsr), accuracy = 0.1)` more data. 
+``` {r, eval=FALSE}
+We reproduced the same process one year after the paper was published (2021) and found `r scales::percent((nrow(df_apsrCorrected) - nrow(df_apsr))/ nrow(df_apsr), accuracy = 0.1)` more data.
+```
+
 For instance, the original study excludes observations from the third and fourth waves of Asian Barometers (the data were released in 2009 and 2017) on questions about to what extent people want their country to be democratic now, although it included them from the first and second waves. 
 This accounts for 19 of 38 excluded country-year-items in 'available'.
 
@@ -209,8 +333,10 @@ Moreover, the study does not always employ survey weights, which can shift propo
 Both the data-discrepancy problem and design-based mis(re)coding are covert DGP problems that are often difficult to be detected merely through reproductions of the replication files. 
 However, the discrepancy they cause could be substantial.
 We compare the distributions of the core explanatory variable, democracy support, from the replication data of the publication and a version that fixed all the problems discussed above at both country and survey levels.
-The overall correlation of the mean estimates seems tolerable as `r round(cor(df_compare$prop_ours, df_compare$prop_cls), digits = 2)`, but as Figure \@ref(fig:comparison1) shows over one third of countries have lower correlations. 
+``` {r, eval=FALSE}
+The overall correlation of the mean estimates seems tolerable as `r round(cor(df_compare$prop_ours, df_compare$prop_cls), digits = 2)`, but as Figure \@ref(fig:comparison1) shows over one third of countries have lower correlations.
 The minimum correlation is `r round(min(df_plot$corr), digits = 2)`.
+```
 
 The correlation within the time series of individual countries can be much lower, and it is even negative for 15 countries.[HOW TO PRESENT THEEVIDENCE?]
 
@@ -222,9 +348,9 @@ The comparison witnesses a large amount of data from various surveys, especially
 In the next section, we illustrate how these DGP errors causes unreliable conclusion for substantive research question.
 
 \newpage
-\blandscape
+<!-- \blandscape -->
 
-```{r comparison1, fig.cap="Country-Level Comparision of Support Democracy Responses in the Publication and Corrected Data", fig.align='center', fig.height=8, fig.width=9}
+```{r comparison1, fig.cap="Country-Level Comparision of Support Democracy Responses in the Publication and Corrected Data", fig.align='center', fig.height=8, fig.width=9, eval=FALSE}
 vec_bar <- nrow(df_plot) - min(df_plot$rowname[df_plot$corr >= cor(df_compare$prop_ours, df_compare$prop_cls)]) # where the line is drawn
                                
 plot_corr <- ggplot(df_plot, aes(y = country, x = corr)) +
@@ -253,39 +379,45 @@ plot_corr +
 ```
 
 ```{r comparison2, fig.cap="Survey Comparision of Support Democracy Responses in the Publication and Corrected Data", fig.align='center', fig.height=8, fig.width=9}
-plot_support <- ggplot(df_compare, 
-       aes(x = prop_ours, y = prop_cls)) +
-    geom_point(aes(color = p_dcpo, shape = p_dcpo), alpha = 0.5) +
+bad_items <- c("Asia Barometer:\nEvaluation of Democracy",
+               "Pew Global Attitudes:\nImportance of Democracy",
+               "Other Items")
+
+plot_support <- data_comparison %>% 
+  mutate(p_dcpo3 = case_when(Item == "EvDemoc_asb" ~ "Asia Barometer:\nEvaluation of Democracy",
+                             Item == "ImpDemoc_pew" ~ "Pew Global Attitudes:\nImportance of Democracy",
+                             TRUE ~ "Other Items") %>% 
+           factor(levels = bad_items)) %>% 
+  ggplot(aes(x = prop_ours, y = prop_cls)) +
+    geom_point(aes(color = p_dcpo3, shape = p_dcpo3), size = 1.5) +
     labs(y = "Publication Data",
          x = "Corrected Data") +
-    annotate("text",
-             x = .22,
-             y = .95,
-             label = "evdemoc_asiab accounts\nfor most overreports") +
-    annotate("text",
-             x = .75,
-             y = .13,
-             label = "impdemoc_pew accounts for\nmost large underreports") +
-    scale_color_discrete(name = "Survey", direction = -1) +
-    scale_shape_manual(values = seq(1:length(unique(df_compare$p_dcpo))), 
-                       name = "Survey")
+  theme_bw() +
+  theme(legend.justification=c(1,0), 
+        legend.position=c(.99,.01),
+        legend.background = element_rect(size=.1,
+                                         linetype="solid",
+                                         color = "black")) +
+  scale_colour_manual(name = element_blank(),
+                        values = alpha(c("blue", "red", "gray50"),
+                                       c(1, 1, .3)),
+                        breaks = bad_items) +
+  scale_shape_discrete(name = element_blank(),
+                       breaks = bad_items)
 
 ggsave('images/data_comparison1.png') # Stand-alone plot without notes for presentation
 
 tx_note <- str_wrap(
     c(
-      " Source: Claassen 2020 and self-collected data"
+      " Sources: Publication data from Claassen (2020a); corrected data collected from original surveys.  Asia Barometer's item on the evaluation of democracy accounts for most overreports, and the Pew Global Attitude's item on the importance of democracy accounts for most large underreports.  In both cases, these problems can be attributed to errors in transcribing the data."
     ),
-    width = 115
+    width = 150
   )
 
 plot_support + 
-    plot_annotation(caption = tx_note) &
+    patchwork::plot_annotation(caption = tx_note) &
     theme(plot.caption = element_text(hjust = 0, face= "italic"))
 ```
-
-
-\elandscape
 
 ## Consequence of DGP Problem
 
@@ -303,7 +435,7 @@ In the plot, the dots are point estimates and the whiskers represent 95% confide
 The light dot-whiskers are from the original work, and the dark ones are the estimates from the corrected data.
 Each facet row represents a variable's performance in its own scale across models.
 
-```{r regressionResult}
+```{r regressionResult, eval=FALSE}
 sd.plm <- pdata.frame(df_apsr, index = c("Country", "Year")) 
 sd.plm2 <- pdata.frame(df_apsrCorrected, index = c("Country", "Year"))
 
@@ -347,7 +479,7 @@ result_clsAPSR_tidy <- map(result_clsAPSR, function(aResult) {
 })
 ```
 
-```{r regressionPlot, fig.cap= "The Effect of Democracy on Change in Public Support with Uncertainty", fig.width=7, fig.height=10}
+```{r regressionPlot, fig.cap= "The Effect of Democracy on Change in Public Support with Uncertainty", fig.width=7, fig.height=10, eval=FALSE}
 
 txt_models <- paste0("Model ",
                      rep(1:2, each = 4), ".", rep(1:4, 2),
