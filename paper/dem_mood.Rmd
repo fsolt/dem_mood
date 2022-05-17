@@ -7,32 +7,28 @@ output:
     number_sections: yes
     latex_engine: xelatex
     # pandoc_args: --lua-filter=multiple-bibliographies.lua
-    
+
 title: |
   | On the Importance of
   | 'Janitor Work' in Political Science:
-  | The Case of Thermostatic Democratic Support
+  | The Case of Thermostatic Support for Democracy
 thanks: "Corresponding author: [yuehong-tai@uiowa.edu](mailto:yuehong-tai@uiowa.edu). Current version: `r format(Sys.time(), '%B %d, %Y')`."
-
-# author:
-# - name: Yue Hu
-#   affiliation: Tsinghua University
-# - name: Yuehong 'Cassandra' Tai
-#   affiliation: University of Iowa
-# - name: Frederick Solt
-#   affiliation: University of Iowa
-  
+author:
+- Yue Hu
+  # affiliation: Tsinghua University
+- Yuehong 'Cassandra' Tai
+  # affiliation: University of Iowa
+- Frederick Solt
+  # affiliation: University of Iowa
+anonymous: false  
 abstract: ""
 keywords: ""
-editor_options: 
-  markdown: 
-    wrap: sentence
 tables: true # enable longtable and booktabs
 citation_package: natbib
 fontsize: 12pt
 indent: true
 linestretch: 1.5 # double spacing using linestretch 1.5
-bibliography: dcpo_demsupport_text.bib
+bibliography: dem_mood_text.bib
 # \dummy{`r file.path(getwd(), list.files(getwd(), ".bib$", recursive = TRUE))`}
 # csl: https://raw.githubusercontent.com/citation-style-language/styles/master/american-political-science-association.csl
 biblio-style: apsr
@@ -51,18 +47,7 @@ header-includes:
       - \usepackage{tabularx}
       - \usepackage{threeparttable}
       - \usepackage{wrapfig}
-      - \usepackage{fullpage}
-      - \usepackage{pdflscape} #\usepackage{lscape} better for printing, page displayed vertically, content in landscape mode, \usepackage{pdflscape} better for screen, page displayed horizontally, content in landscape mode
-      - \newcommand{\blandscape}{\begin{landscape}}
-      - \newcommand{\elandscape}{\end{landscape}}
-      - \usepackage{titlesec}
-      - \titleformat*{\section}{\normalsize\bfseries}
-      - \titleformat*{\subsection}{\normalsize\itshape}
 ---
-
-Currently from dcpo_dem_mood/paper/dcpo_demsupport_appendix.Rmd; dataset replication code in dcpo_dem_mood/paper/dcpo_demsupport.Rmd may be better
-
-needs dataset comparison from R/compare_supdem_cri.R
 
 
 ```{r setup, include=FALSE}
@@ -75,60 +60,149 @@ knitr::opts_chunk$set(
     dpi = 300
 )
 
-# If you haven't install `DCPOtools`
-# remotes::install_github("fsolt/DCPOtools")
-
 if (!require(pacman))
     install.packages("pacman")
 library(pacman)
 
-p_load_gh("fsolt/DCPOtools",
-          "ropensci/osfr")
+p_install(janitor, force = FALSE)
+p_install_gh(c("fsolt/DCPOtools"), force = FALSE)
 
+# load all the packages you will use below
 p_load(
-    # data scraping
-    dataverse,
-    
     # analysis
     plm,
     
-    # presenting
-    patchwork,
-    dotwhisker,
-    kableExtra,
+    # presentation
+    gridExtra,
     modelsummary,
-    ## tabulation
+    dotwhisker,
     latex2exp,
-    patchwork,
-    #rstan, # Bayesian estimation
     
-    # munging
-    glue,
+    # data wrangling
+    DCPOtools,
+    janitor,
     here,
-    tidyverse # data wrangling
-)
-
-theme_set(theme_bw())
+    broom,
+    tidyverse,
+    glue)
 
 # Functions preload
 set.seed(313)
-source(here("R", "customizedFunctions.R"))
+
+## analyzing and presenting functions
+# Variance Calculation ------------------------------------------------------------------
+
+## Beck-Katz panel-corrected standard errors
+vcovHC_se <-  function(x) {
+    plm::vcovHC(x, method="arellano", cluster="group") %>%  #default setting
+        diag() %>% 
+        sqrt()
+}
+
+# Tabulation -----------------------------------------------------------------------
+na_types_dict <- list("r" = NA_real_,
+                      "i" = rlang::na_int,
+                      "c" = NA_character_,
+                      "l" = rlang::na_lgl)
+
+# A function that converts a string to a vector of NA types.
+# e.g. "rri" -> c(NA_real_, NA_real_, rlang::na_int)
+parse_na_types <- function(s) {
+    
+    positions <- purrr::map(
+        stringr::str_split(s, pattern = ""), 
+        match,
+        table = names(na_types_dict)
+    ) %>%
+        unlist()
+    
+    na_types_dict[positions] %>%
+        unlist() %>%
+        unname()
+}
+
+# A function that, given named arguments, will make a one-row
+# tibble, switching out NULLs for the appropriate NA type.
+as_glance_tibble <- function(..., na_types) {
+    
+    cols <- list(...)
+    
+    if (length(cols) != stringr::str_length(na_types)) {
+        stop(
+            "The number of columns provided does not match the number of ",
+            "column types provided."
+        )
+    }
+    
+    na_types_long <- parse_na_types(na_types)
+    
+    entries <- purrr::map2(cols, 
+                           na_types_long, 
+                           function(.x, .y) {if (length(.x) == 0) .y else .x})
+    
+    tibble::as_tibble_row(entries)
+    
+}
+
+tidy.pgmm <- function(x,
+                      conf.int = FALSE,
+                      conf.level = 0.95,
+                      ...) {
+    result <- summary(x)$coefficients %>%
+        tibble::as_tibble(rownames = "term") %>%
+        dplyr::rename(
+            estimate = Estimate,
+            std.error = `Std. Error`,
+            statistic = `z-value`,
+            p.value = `Pr(>|z|)`
+        )
+    
+    if (conf.int) {
+        ci <- confint(x, level = conf.level) %>% 
+            as.data.frame() %>% 
+            rownames_to_column(var = "term") %>% 
+            dplyr::rename(
+                conf.low = `2.5 %`,
+                conf.high = `97.5 %`
+            )
+        result <- dplyr::left_join(result, ci, by = "term")
+    }
+    
+    result
+}
+
+glance.plm <- function(x, ...) {
+    s <- summary(x)
+    as_glance_tibble(
+        nobs = stats::nobs(x),
+        n.country = pdim(x)$nT$n,
+        na_types = "ii"
+    )
+}
+
+glance.pgmm <- function(x, ...) {
+    s <- summary(x)
+    as_glance_tibble(nobs = stats::nobs(x),
+        n.country = pdim(x)$nT$n,
+        n.inst = dim(x$W[[1]])[2],
+        na_types = "iii"
+    )
+}
+
+theme_set(theme_bw())
 
 # Data preload
+df_compare <- readRDS(here("data", "data_comparison.rds"))
 # df_correlation <- readRDS(here("data", "data_correlation.rds"))
-
-# df_apsr <- readRDS(here("data", "dem_mood_apsr.rds"))
-# load(here("data", "correct_cls_apsr.rda"))
-# df_apsrCorrected <- correct_cls_apsr %>% 
-#     rename(Country = country, Year = year)
-# 
+df_apsr <- rio::import(here("data", "dem_mood_apsr.rda"))
+df_apsrCorrected <- rio::import(here("data", "correct_cls_apsr.rda")) %>% 
+    rename(Country = country, Year = year)
 # df_plot <- arrange(df_correlation) %>%
 #     rownames_to_column() %>% 
 #     mutate(country = factor(country, levels = rev(country)),
 #            rowname = as.integer(rowname))
 
-# dotwhisker::small_multiple hacks (showing the labels with latex signs)
-
+## dotwhisker::small_multiple() hacks
 body(small_multiple)[[19]] <- substitute(
     p <-
         ggplot(
@@ -145,13 +219,15 @@ body(small_multiple)[[19]] <- substitute(
         ylab("") + xlab("") +
         facet_grid(
             term ~ .,
-            scales = "free_y",
-            switch = "y",
-            labeller = label_parsed # enable the fancy label
-        ) +
-        scale_y_continuous(position = "right")
-    
+            scales = "free",
+            labeller = label_parsed,
+            # enable LaTeX facet labels
+            switch = "y"
+        ) +             # put facet labels on left
+        scale_y_continuous(position = "right") # put axis label on right
 )
+
+
 ```
 
 ```{r data_comparison, include=FALSE}
@@ -289,7 +365,7 @@ We tend to use this case to show that the current consensus of publication repli
 
 The problem of data discrepancy refers to the practice that researchers consciously or unconsciously select to use only a part of data that are available.
 When hypothesis tests rely on statistical estimates, both frequentist and Bayesian methodologists have emphasized the importance of the sufficiency of qualified data for producing unbiased and efficient estimates [XXX].
-Empirical studies have also well documented that the insufficient use of available data would cause lethal misunderstanding of data trends and unreliable conclusions [@SoltEtAl2016; @SoltEtAl2017].
+Empirical studies have also well documented that the insufficient use of available data would cause lethal misunderstanding of data trends and unreliable conclusions [@SoltHuHudsonSongYu2016; @SoltHuHudsonSongYu2017].
 
 In our illustrative case, the 2020 paper, the point of interest is the influence of the institutional democracy on people's support of democracy, i.e., "democracy mood."
 To measure the mood, the author uses existing survey questions about the "appropriateness or desirability of democracy, compare democracy to some
@@ -305,7 +381,7 @@ This accounts for 19 of 38 excluded country-year-items in 'available'.
 The miscoding problem is caused by researchers' inconsistent coding.
 Here we are not talking about the coding manipulations for "p-hiking" or "p-fishing," but that scholars apply invalid or variant coding method on the data that should be coded consistently [XXXX].
 The problems easily occur when scholars intend to use multiple measurements for the same variable.
-In @SoltEtAl2016, the authors show that how three seemingly valid measurements produce considerably different outcome estimates [-@SoltEtAl2016, p.4].
+In @SoltHuHudsonSongYu2016, the authors show that how three seemingly valid measurements produce considerably different outcome estimates [-@SoltHuHudsonSongYu2016, p.4].
 Howerver, the same problem can also occur even when only one measurement is used.
 
 There are two potential miscoding types.
@@ -326,7 +402,7 @@ For examples, when recoding the questions about how people evaluate democracy ^[
 The coding results in substantial overreports in 35 country-years.
 Similarly, in the *second* wave of the Asian Barometer, the study counts 5 along with 6 through 10 as positive responses for questions about the suitability of democracy^[The question is "Here is a similar scale of 1 to 10 measuring the extent to which people think democracy is suitable for our country. If 1 means that democracy is completely unsuitable for [name of country] today and 10 means that it is completely suitable, where would you place our country today?"] and desire for democracy^[The questions is "To what extent do you want our country to be democratic now?"].
 This coding produces more modest overreports in 9 country-years.
-A third example in recoding Pew Global Attitudes surveys, the researcher counted only the highest value of the four-point scale of the question on how important to live in a courntry with regular elections ^[The question wording is "How important is it to you to live in a country where honest elections are held regularly with a choice of at least two political parties? Is it very important, somewhate important, not too important or not important at all?"] as a positive response and so leading to substantial underreports in 91 country-years.  
+A third example in recoding Pew Global Attitudes surveys, the researcher counted only the highest value of the four-point scale of the question on how important to live in a courntry with regular elections^[The question wording is "How important is it to you to live in a country where honest elections are held regularly with a choice of at least two political parties? Is it very important, somewhate important, not too important or not important at all?"] as a positive response and so leading to substantial underreports in 91 country-years.  
 A final example we found that the 2020 study counts nonresponses as negative responses (such as in Pakistan in 2005 in the South Asian Barometer, when 636 of 1324 respondents declined to answer whether they considered democracy suitable for their country, and these were all coded as unsupportive responses) yielding under-reports. 
 Moreover, the study does not always employ survey weights, which can shift proportions somewhat in either direction.
 
@@ -340,7 +416,7 @@ The minimum correlation is `r round(min(df_plot$corr), digits = 2)`.
 
 The correlation within the time series of individual countries can be much lower, and it is even negative for 15 countries.[HOW TO PRESENT THEEVIDENCE?]
 
-In Figure \@ref(fig:compare2), we compared democracy support from the publication and corrected data across surveys^[afrob:Afrobarometer, amb:AmericasBarometer, arabb:Arab Barometer, asiab:AsiaBarometer, asianb:Asian Barometer, cses:Comparative Study of Electoral Systems, eb:Eurobarometer, ess:European Social Survey, evs:European Value Survey, lb:Latinobarómetro, neb:New Democracies Barometer, pew:Pew Global Attitudes Survey, sasianb:South Asian Barometer, wvs:World Values Survey.]. 
+In Figure \@ref(fig:compare2), we compared democracy support from the publication and corrected data across surveys. 
 The extent the points in the plot deviating from the 45&deg; diagonal represents the discrepancy of the publication data from the full, corrected-coding data.
 The comparison witnesses a large amount of data from various surveys, especially from Pew Global Attitudes Survey, were underreported and a fair amount of data, mainly from the Asia barometers, were overreported.
 
@@ -378,7 +454,7 @@ plot_corr +
     theme(plot.caption = element_text(hjust = 0, face= "italic"))
 ```
 
-```{r comparison2, fig.cap="Survey Comparision of Support Democracy Responses in the Publication and Corrected Data", fig.align='center', fig.height=8, fig.width=9}
+```{r comparison2, fig.cap="Comparing Democracy-Supporting Responses in the Publication Data and the Corrected Data", fig.align='center', fig.height=8, fig.width=9}
 bad_items <- c("Asia Barometer:\nEvaluation of Democracy",
                "Pew Global Attitudes:\nImportance of Democracy",
                "Other Items")
@@ -409,14 +485,15 @@ ggsave('images/data_comparison1.png') # Stand-alone plot without notes for prese
 
 tx_note <- str_wrap(
     c(
-      " Sources: Publication data from Claassen (2020a); corrected data collected from original surveys.  Asia Barometer's item on the evaluation of democracy accounts for most overreports, and the Pew Global Attitude's item on the importance of democracy accounts for most large underreports.  In both cases, these problems can be attributed to errors in transcribing the data."
+      "Notes: Each point represents the proportion of respondents in a country-year to give a democracy-supporting response to a particular item.  Publication data is as reported in Claassen (2020a); the corrected data was collected directly from the original surveys.  The Asia Barometer's item on the evaluation of democracy accounts for most overreports, and the Pew Global Attitudes item on the importance of democracy accounts for most large underreports.  In both cases, these problems can be easily explained by errors in transcribing the data.  Deviations in other items result from inconsistent treatment of missing data and/or survey weights."
     ),
     width = 150
   )
 
 plot_support + 
     patchwork::plot_annotation(caption = tx_note) &
-    theme(plot.caption = element_text(hjust = 0, face= "italic"))
+    theme(plot.caption = element_text(hjust = 0))
+
 ```
 
 ## Consequence of DGP Problem
@@ -435,7 +512,7 @@ In the plot, the dots are point estimates and the whiskers represent 95% confide
 The light dot-whiskers are from the original work, and the dark ones are the estimates from the corrected data.
 Each facet row represents a variable's performance in its own scale across models.
 
-```{r regressionResult, eval=FALSE}
+```{r regressionResult}
 sd.plm <- pdata.frame(df_apsr, index = c("Country", "Year")) 
 sd.plm2 <- pdata.frame(df_apsrCorrected, index = c("Country", "Year"))
 
@@ -479,7 +556,7 @@ result_clsAPSR_tidy <- map(result_clsAPSR, function(aResult) {
 })
 ```
 
-```{r regressionPlot, fig.cap= "The Effect of Democracy on Change in Public Support with Uncertainty", fig.width=7, fig.height=10, eval=FALSE}
+```{r regressionPlot, fig.cap= "The Effect of Democracy on Change in Public Support", fig.width=7, fig.height=10}
 
 txt_models <- paste0("Model ",
                      rep(1:2, each = 4), ".", rep(1:4, 2),
@@ -528,7 +605,7 @@ df_plot <- map_dfr(result_clsAPSR_tidy, ~.[[1]]) %>%
         model = factor(model, levels = txt_models)
     )
 
-txt_caption <- strwrap("Note: Replications of Claassen (2020), Table 1, 47, and Table 2, 49.  Models denoted 'EC' are error-correction models; those marked 'FD' are first-difference models.", width = 85) %>% 
+txt_caption <- strwrap("Notes: Replications of Claassen (2020), Table 1, 47, and Table 2, 49.  Models denoted 'EC' are error-correction models; those marked 'FD' are first-difference models.", width = 115) %>% 
   paste0(sep="", collapse="\n")
 
 small_multiple(df_plot, axis_switch = TRUE, dot_args = list(size = .9, fatten = 1)) +
@@ -537,8 +614,8 @@ small_multiple(df_plot, axis_switch = TRUE, dot_args = list(size = .9, fatten = 
                      name = "Replication",
                      breaks = c("Published",
                               "Corrected"),
-                     labels = c("Publication data",
-                              "Corrected data")) +
+                     labels = c("Publication Data",
+                              "Corrected Data")) +
     theme(axis.text.x  = element_text(angle = 90, hjust = .5),
           strip.text.y.left = element_text(angle = 0),
           legend.position = c(0.006, -.01),
@@ -550,11 +627,14 @@ small_multiple(df_plot, axis_switch = TRUE, dot_args = list(size = .9, fatten = 
           legend.spacing = unit(-5, "pt"),
           legend.key.width = unit(4.5, "mm"),
           legend.key.height = unit(7, "mm"),
-          plot.caption = element_text(size = 10, hjust = 0.2, margin = margin(t=15))) +
+          plot.title.position = "plot",
+          plot.caption.position = "plot",
+          plot.caption = element_text(size = 10, hjust = 0)) +
   guides(color = guide_legend(override.aes = list(size=.3))) +
   ggtitle("Dependent Variable: Change in Public Democratic Support") +
   labs(caption = txt_caption)
 
+ggsave("images/results.png")
 ```
 
 According to the plot, the consequence of DGP problem is evident.
@@ -576,9 +656,11 @@ Here we give researchers four suggestions to minimize DGP problems in their rese
 First three are for the authors, and the last one is for the reviewers.
 
 First, automatic downloading.
-We suggest researchers to maximumly utilize the data scrapping functions of programming languages (such as R and Python) to collect data through with widecard searching and directly from the original sources.
+We suggest researchers to maximumly utilize the data scraping functions of programming languages (such as R and Python) to collect data through with widecard searching and directly from the original sources.
 For instance, you can easily use the package [`icpsrdata`](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwj9-56bu6jzAhWYGDQIHaG4DxkQFnoECAIQAQ&url=https%3A%2F%2Fwww.icpsr.umich.edu%2Fweb%2Fpages%2Fdatamanagement%2Fdmp%2Fplan.html&usg=AOvVaw37vSc0BTKmgmesx-1ZFrOC) to obtain all the latest data from ICPSR or use [`pewdata`] to access all types of data published by Pew.
 Instead of manually updates, the programming way collect data directly from the datasets, which reduces the missing probability.
+
+Related: @Troeger2019 [, 285] says, "Another potential measure is to make all data publicly available. Again many journals require data and code to be made available to the public before publication. But often there are no requirements whether source data has to be included. When source data is original, confidential, or personalized, publication might not be possible or undesirable. However, new avenues to make this kind of data available for replication need to be explored." 
 
 Second, automatic coding. 
 We suggest researchers to process their data coding as automatically as possible. 
@@ -589,7 +671,10 @@ By this way, the authors can ensure every variable is treated in the same manner
 Of course, the actual data cleaning process is complicated that maybe not all the steps can be packed into functions or batched as a process. 
 In this scenario, we gives the following suggestion.
 
-Third, replication from the scratch.
+Maybe also something about the documentation by @HerndonAshPollin2014 of the problematic data selection in @ReinhartRogoff2010
+
+
+Third, replication from scratch. (Possibly roll this in with "first")
 Given the complication of the data management, we suggest researchers to provide fully replication codes on the raw data.
 Researchers ought to provide not only replication files that can reproduce the results in the publications but concrete coding programs or coding books that others can replicate the DGP process. 
 This is an advanced requirement for data transparency and replicability.
