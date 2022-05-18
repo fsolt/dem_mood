@@ -49,7 +49,6 @@ header-includes:
       - \usepackage{wrapfig}
 ---
 
-
 ```{r setup, include=FALSE}
 options(tinytex.verbose = TRUE)
 
@@ -350,6 +349,15 @@ saveRDS(data_comparison, here("data", "data_comparison.rds"))
 ```
 
 
+Many facets of Computational social science 
+Data wrangling, the task of getting the needed data into the format required to perform analyses.
+
+[@Wickham2017, xi]
+
+Such data 'janitor work' is often viewed as tiresome and as better performed by anyone else.^[
+As [@Torres2017] wrote, recounting her experience as a research assistant, "Me: Shouldn't there be someone in a basement that we just pay to do all this awful data cleaning? Advisor: That's who you are."
+]
+
 # DGP Problem and Consequences
 
 We illustrate above DGP problems and their potential consequences with @Claassen2020b. 
@@ -416,7 +424,7 @@ The minimum correlation is `r round(min(df_plot$corr), digits = 2)`.
 
 The correlation within the time series of individual countries can be much lower, and it is even negative for 15 countries.[HOW TO PRESENT THEEVIDENCE?]
 
-In Figure \@ref(fig:compare2), we compared democracy support from the publication and corrected data across surveys. 
+In Figure \@ref(fig:comparison2), we compared democracy support from the publication and corrected data across surveys. 
 The extent the points in the plot deviating from the 45&deg; diagonal represents the discrepancy of the publication data from the full, corrected-coding data.
 The comparison witnesses a large amount of data from various surveys, especially from Pew Global Attitudes Survey, were underreported and a fair amount of data, mainly from the Asia barometers, were overreported.
 
@@ -485,7 +493,7 @@ ggsave('images/data_comparison1.png') # Stand-alone plot without notes for prese
 
 tx_note <- str_wrap(
     c(
-      "Notes: Each point represents the proportion of respondents in a country-year to give a democracy-supporting response to a particular item.  Publication data is as reported in Claassen (2020a); the corrected data was collected directly from the original surveys.  The Asia Barometer's item on the evaluation of democracy accounts for most overreports, and the Pew Global Attitudes item on the importance of democracy accounts for most large underreports.  In both cases, these problems can be easily explained by errors in transcribing the data.  Deviations in other items result from inconsistent treatment of missing data and/or survey weights."
+      "Notes: Each point represents the proportion of respondents in a country-year to give a democracy-supporting response to a particular item.  Publication data is as reported in Claassen (2020a); the corrected data was collected directly from the original surveys.  The Asia Barometer's item on the evaluation of democracy accounts for most overreports, and the Pew Global Attitudes item on the importance of democracy accounts for most large underreports.  In both cases, these issues can be easily explained by errors in transcribing the data.  Deviations in other items result from inconsistent treatment of missing data and/or survey weights, reflecting in part differences in codebook reporting practices across surveys."
     ),
     width = 150
   )
@@ -507,30 +515,33 @@ The empirical result support the author's argument that the minoritarian measure
 
 We replicate these findings with corrected data and parallel them together with original results.
 We include all the explanatory and control variables and use exactly the same models structures and software to conduct the analysis.
-Figure \@ref(fig:regressionPlot) presents the results with a "small_multiple" plot for a clear comparison of each variable across models [@SoltHu2015]. 
+Figure \@ref(fig:regressionPlot) presents the results with a "small multiple" plot for a clear comparison of each variable across models [@SoltHu2015]. 
 In the plot, the dots are point estimates and the whiskers represent 95% confidence intervals.
-The light dot-whiskers are from the original work, and the dark ones are the estimates from the corrected data.
-Each facet row represents a variable's performance in its own scale across models.
+Each row represents a variable's performance in its own scale across models.
+The lighter entries replicate those reported in the original work, and the darker ones are the estimates obtained when using the corrected data.
 
 ```{r regressionResult}
 sd.plm <- pdata.frame(df_apsr, index = c("Country", "Year")) 
 sd.plm2 <- pdata.frame(df_apsrCorrected, index = c("Country", "Year"))
 
-ls_ivECM <- c("diff(Libdem_z, lag = 1) + plm::lag(Libdem_z, 1)", 
-              "diff(Polyarchy_z, lag = 1) + plm::lag(Polyarchy_z, 1) + diff(Liberal_z, lag = 1) + plm::lag(Liberal_z, 1)")
-ls_ctrlECM <- c("", " + diff(Corrup_TI_z, lag = 1) + plm::lag(Corrup_TI_z, 1)")
+ls_ivECM <- rep(c("diff(Libdem_z, lag = 1) + plm::lag(Libdem_z, 1)", 
+                  "diff(Polyarchy_z, lag = 1) + plm::lag(Polyarchy_z, 1) + diff(Liberal_z, lag = 1) + plm::lag(Liberal_z, 1)"),
+                each = 2) %>% 
+  paste0(rep(c("",
+               " + diff(Corrup_TI_z, lag = 1) + plm::lag(Corrup_TI_z, 1)"),
+             times = 2))
 
 ls_eqECM <- glue("diff(SupDem_trim, lag = 1) ~ plm::lag(SupDem_trim, 1:2) + {ls_ivECM} + diff(lnGDP_imp, lag = 1) + plm::lag(lnGDP_imp, 1)") %>% 
-  outer(ls_ctrlECM, paste0) %>% 
   as.vector()
 
-ls_ivFD <- c("Libdem_z",
-             "Polyarchy_z + Liberal_z")
-
-ls_ctrlFD <- c("", " + Corrup_TI_z")
+ls_ivFD <- rep(c("Libdem_z",
+                 "Polyarchy_z + Liberal_z"), 
+               each = 2) %>% 
+  paste0(rep(c("",
+               " + Corrup_TI_z"),
+             times = 2))
 
 ls_eqFD <- glue("SupDem_trim ~ {ls_ivFD} + lnGDP_imp") %>% 
-  outer(ls_ctrlFD, paste0) %>% 
   as.vector()
 
 ls_mod_original <- c(
@@ -576,8 +587,8 @@ txt_model_lab <- c(txt_model_lab[str_which(txt_model_lab, "EC")],
 index_coefName <- c(
     `plm::lag(SupDem_trim, 1:2)1` = "Democratic~Support[t-1]",
     `plm::lag(SupDem_trim, 1:2)2` = "Democratic~Support[t-2]",
-    `diff(Libdem_z, lag = 1)` = "Delta~Liberal~democracy",
-    `Libdem_z` = "Delta~Liberal~democracy",
+    `diff(Libdem_z, lag = 1)` = "Delta~Liberal~Democracy",
+    `Libdem_z` = "Delta~Liberal~Democracy",
     `plm::lag(Libdem_z, 1)` = "Liberal~Democracy[t-1]",
     `diff(Polyarchy_z, lag = 1)` = "Delta~Electoral~Democracy",
     `Polyarchy_z` = "Delta~Electoral~Democracy",
@@ -641,9 +652,15 @@ According to the plot, the consequence of DGP problem is evident.
 In particular, the estimates of the core explanatory variable &Delta; `Liberal Democracy` are no longer statistically significant in none of the EC, EC with corruption perception, or FD model (Row 3, Figure \@ref(fig:regressionPlot)).
 In other words, when the data is sufficient and corrected coded, it does not draw evidence to support the thermostatic effect. 
 Similar changes are observe in the models with separate-democracy measures.
-&Delta; `Minoritarian Democracy`&Delta; does not perform that different from `Electoral Democracy` as the theory expects (Row 7, Figure \@ref(fig:regressionPlot)).
+&Delta; `Minoritarian Democracy` does not perform that different from `Electoral Democracy` as the theory expects (Row 7, Figure \@ref(fig:regressionPlot)).
 
-# Discussion and Suggestions
+# Discussion
+
+We draw two conclusions from the foregoing.
+First, researchers should minimize reliance on manual data entry and maximize the extent to which data collection and wrangling---the 'janitor work' of data analysis---is performed computationally.
+When manual data entry cannot be avoided, double entry 
+
+Second, 
 
 With the previous sections, we identified two types of DGP problems, data discrepency and miscoding.
 The former refers to the problem that not all available data are included in the analysis.
@@ -685,8 +702,6 @@ It is usually the very first empirical step for a research and a crucial step de
 We appeal to both the academic journals and reviewers to pay more attention to this phase when assess a manuscript. 
 The substantive difference elaborated in this paper demonstrate that the DGP problem is no less vital than reproduction or any other important methodological problems.
 
-
 \pagebreak
 
-
-# Reference
+# References
