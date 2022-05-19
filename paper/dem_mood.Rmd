@@ -423,46 +423,17 @@ The overall correlation of the mean estimates seems tolerable as `r round(cor(df
 The minimum correlation is `r round(min(df_plot$corr), digits = 2)`.
 ```
 
-The correlation within the time series of individual countries can be much lower, and it is even negative for 15 countries.[HOW TO PRESENT THEEVIDENCE?]
 
-In Figure \@ref(fig:comparison2), we compared democracy support from the publication and corrected data across surveys. 
+
+In Figure \@ref(fig:comparison), we compared democracy support from the publication and corrected data across surveys. 
 The extent the points in the plot deviating from the 45&deg; diagonal represents the discrepancy of the publication data from the full, corrected-coding data.
 The comparison witnesses a large amount of data from various surveys, especially from Pew Global Attitudes Survey, were underreported and a fair amount of data, mainly from the Asia barometers, were overreported.
 
 
-In the next section, we illustrate how these DGP errors causes unreliable conclusion for substantive research question.
-
-\newpage
-
-```{r comparison1, fig.cap="Country-Level Comparision of Support Democracy Responses in the Publication and Corrected Data", fig.align='center', fig.height=8, fig.width=9, eval=FALSE}
-vec_bar <- nrow(df_plot) - min(df_plot$rowname[df_plot$corr >= cor(df_compare$prop_ours, df_compare$prop_cls)]) # where the line is drawn
-                               
-plot_corr <- ggplot(df_plot, aes(y = country, x = corr)) +
-        geom_point() +
-        guides(y = guide_axis(n.dodge = 2)) +
-    xlab("Correlation") +
-    geom_hline(yintercept = vec_bar,
-               colour = "grey60", linetype = 2) +
-    geom_text(aes(0.75, vec_bar),
-              label = paste0("Cor. = ", round(cor(df_compare$prop_ours, df_compare$prop_cls), digits = 2)), vjust = -1) +
-    theme(axis.title.y = element_blank())
-
-ggsave('images/data_comparison2.png') # Stand-alone plot without notes for presentation
 
 
-tx_note <- str_wrap(
-    c(
-      " Source: Claassen 2020 and self-collected data"
-    ),
-    width = 115
-  )
 
-plot_corr + 
-    plot_annotation(caption = tx_note) &
-    theme(plot.caption = element_text(hjust = 0, face= "italic"))
-```
-
-```{r comparison2, fig.cap="Comparing Democracy-Supporting Responses in the Publication Data and the Corrected Data", fig.align='center', fig.height=8, fig.width=9}
+```{r comparison, fig.cap="Comparing Democracy-Supporting Responses in the Publication Data and the Corrected Data", fig.align='center', fig.width=6.5, fig.height=6.5}
 bad_items <- c("Asia Barometer:\nEvaluation of Democracy",
                "Pew Global Attitudes:\nImportance of Democracy",
                "Other Items")
@@ -506,7 +477,7 @@ plot_support +
 
 ## Consequences
 
-Data entry errors of this sort can yield erroneous conclusions.
+Data-entry errors of this sort can yield erroneous conclusions.
 A now-classic literature maintains that experience with democratic governance generates robust public support for democracy [see, e.g., @Lipset1959a].
 @Claassen2020b argued instead that democratic support behaves thermostatically, that is, that increases in democracy yield an authoritarian backlash in the public, while democratic backsliding prompts the public to rally to democracy's cause.
 We replicated each of the models presented in @Claassen2020b exactly, first with the article's original dataset and then making the corrections to the errors in the data we described above.
@@ -565,7 +536,7 @@ result_clsAPSR_tidy <- map(result_clsAPSR, function(aResult) {
 })
 ```
 
-```{r regressionPlot, fig.cap= "The Effect of Democracy on Change in Public Support", fig.width=7, fig.height=10}
+```{r regressionPlot, fig.cap= "The Effect of Democracy on Change in Public Support", fig.width=7, fig.height=9.5}
 
 txt_models <- paste0("Model ",
                      rep(1:2, each = 4), ".", rep(1:4, 2),
@@ -653,12 +624,12 @@ When using the original data with data-entry errors, the coefficients estimated 
 The positive and statistically significant result for the lagged level of liberal democracy found in Model 1.1---supporting the classic theory---disappears when corruption is taken into account in Model 1.2, indicating that "this effect is not particularly robust" [@Claassen2020b, 47].
 
 When the data-entry errors are corrected, however, the results for these models suggest a different set of conclusions.
-The standard errors shrink across the board, indicating the models are better estimated in the corrected data, but so do the coefficients.
+The standard errors shrink across the board---indicating that the models are better estimated in the corrected data---but so do the coefficients.
 The estimate for the change in liberal democracy remains negative and statistically significant only in the first-difference specification employed by Model 1.3.
 It fails to reach statistical significance in Claassen's [-@Claassen2020b] preferred error-correction Models 1.1 and 1.2, and it likewise disappears when corruption is added to the first-difference model in Model 1.4.
 
 Models 2.1 through 2.4, which break liberal democracy into its electoral democracy and minoritarian democracy components, follow the same pattern.
-The finding reached in analyses of the original dataset with its data-entry errors intact that public democratic support responds thermostatically to changes in minoritarian democracy evaporates when the data-entry errors are corrected.
+The finding reached in analyses of the publication dataset that public democratic support responds thermostatically to changes in minoritarian democracy evaporates when the data-entry errors are corrected.
 Only in Model 2.3 is this coefficient negative and statistically significant, and even then it is much smaller than the published result.
 When the data-entry errors in the publication dataset are corrected, the evidence for the thermostatic theory is not robust.
 
