@@ -4,7 +4,7 @@ output:
     fig_caption: yes
     keep_tex: yes
     toc: no
-    number_sections: yes
+    number_sections: no
     latex_engine: xelatex
     # pandoc_args: --lua-filter=multiple-bibliographies.lua
 
@@ -354,8 +354,8 @@ Data wrangling, the task of getting the needed data into the format required to 
 
 [@Wickham2017, xi]
 
-Such data 'janitor work' is often viewed as tiresome and as better performed by anyone else.^[
-As [@Torres2017] wrote, recounting her experience as a research assistant, "Me: Shouldn't there be someone in a basement that we just pay to do all this awful data cleaning? Advisor: That's who you are."
+Such data 'janitor work' is often viewed as tiresome and as better performed by someone, anyone, else.^[
+As @Torres2017 wrote, recounting her experience as a research assistant, "Me: Shouldn't there be someone in a basement that we just pay to do all this awful data cleaning? Advisor: That's who you are."
 ]
 
 # DGP Problem and Consequences
@@ -392,6 +392,7 @@ The problems easily occur when scholars intend to use multiple measurements for 
 In @SoltHuHudsonSongYu2016, the authors show that how three seemingly valid measurements produce considerably different outcome estimates [-@SoltHuHudsonSongYu2016, p.4].
 Howerver, the same problem can also occur even when only one measurement is used.
 
+<!-- Move discussion of amb to appendix? -->
 There are two potential miscoding types.
 One is operation-based miscoding.
 Researchers may mistakenly coded the values reversely, incompletely, or recognizing the value to mark missing response to a true variable value.
@@ -432,7 +433,6 @@ The comparison witnesses a large amount of data from various surveys, especially
 In the next section, we illustrate how these DGP errors causes unreliable conclusion for substantive research question.
 
 \newpage
-<!-- \blandscape -->
 
 ```{r comparison1, fig.cap="Country-Level Comparision of Support Democracy Responses in the Publication and Corrected Data", fig.align='center', fig.height=8, fig.width=9, eval=FALSE}
 vec_bar <- nrow(df_plot) - min(df_plot$rowname[df_plot$corr >= cor(df_compare$prop_ours, df_compare$prop_cls)]) # where the line is drawn
@@ -504,21 +504,19 @@ plot_support +
 
 ```
 
-## Consequence of DGP Problem
+## Consequences
 
-@Claassen2020b claimed a vital challenge against the existing literature of public support of democracy and common knowledge with a negative thermostatic mechanism that the enhancement of institutional democracy depresses the support of the government (or "democracy mood"), whereas the reduction cheer it. 
-The author also argued that there is also a regime relativity of the effect that it affects the minoritarian rather than electoral aspect of democracy.
-In the empirical part, the study used an error-correction model (EC) to test the relationship between the changes of the liberal-democracy degree of a country and the then-moment public support together with a model including the dynamics of public corruption perception and a first-difference model (FD) as robustness checks.
-The results show a negative effect of the institutional-democracy changes on the public democracy support with statistical significant at the 0.05 level in both EC and FD [@Claassen2020b, p.47 and Table 1].
-Moreover, the author built up separated measurements for the minoritarian and electoral aspects of democracy and included them into the original model.
-The empirical result support the author's argument that the minoritarian measurement remains statistically significant but not the electoral one [@Claassen2020b, p.49 and Table 2].
+Data entry errors of this sort can yield erroneous conclusions.
+A now-classic literature maintains that experience with democratic governance generates robust public support for democracy [see, e.g., @Lipset1959a].
+@Claassen2020b argued instead that democratic support behaves thermostatically, that is, that increases in democracy yield an authoritarian backlash in the public, while democratic backsliding prompts the public to rally to democracy's cause.
+We replicated each of the models presented in @Claassen2020b exactly, first with the article's original dataset and then making the corrections to the errors in the data we described above.
+The results provide little support for either the classic or the thermostatic argument.
 
-We replicate these findings with corrected data and parallel them together with original results.
-We include all the explanatory and control variables and use exactly the same models structures and software to conduct the analysis.
-Figure \@ref(fig:regressionPlot) presents the results with a "small multiple" plot for a clear comparison of each variable across models [@SoltHu2015]. 
+Figure \@ref(fig:regressionPlot) presents our results with a "small multiple" plot [@SoltHu2015] for a clear comparison of the coefficients of each variable across the models. 
 In the plot, the dots are point estimates and the whiskers represent 95% confidence intervals.
-Each row represents a variable's performance in its own scale across models.
-The lighter entries replicate those reported in the original work, and the darker ones are the estimates obtained when using the corrected data.
+Each row represents a variable's performance in its own scale across all of the models.
+The lighter entries replicate those reported in the published article; the darker ones are the estimates obtained when using the corrected data.
+
 
 ```{r regressionResult}
 sd.plm <- pdata.frame(df_apsr, index = c("Country", "Year")) 
@@ -622,7 +620,7 @@ txt_caption <- strwrap("Notes: Replications of Claassen (2020), Table 1, 47, and
 small_multiple(df_plot, axis_switch = TRUE, dot_args = list(size = .9, fatten = 1)) +
     geom_hline(yintercept = 0, colour = "grey50", linetype = 2) +
     scale_color_grey(start = 0.8, end = 0.4, 
-                     name = "Replication",
+                     name = NULL,
                      breaks = c("Published",
                               "Corrected"),
                      labels = c("Publication Data",
@@ -648,11 +646,22 @@ small_multiple(df_plot, axis_switch = TRUE, dot_args = list(size = .9, fatten = 
 ggsave("images/results.png")
 ```
 
-According to the plot, the consequence of DGP problem is evident.
-In particular, the estimates of the core explanatory variable &Delta; `Liberal Democracy` are no longer statistically significant in none of the EC, EC with corruption perception, or FD model (Row 3, Figure \@ref(fig:regressionPlot)).
-In other words, when the data is sufficient and corrected coded, it does not draw evidence to support the thermostatic effect. 
-Similar changes are observe in the models with separate-democracy measures.
-&Delta; `Minoritarian Democracy` does not perform that different from `Electoral Democracy` as the theory expects (Row 7, Figure \@ref(fig:regressionPlot)).
+Consider first Models 1.1 through 1.4, which replicate those presented in Table 1 of @Claassen2020b [, 47].
+These models examine the effects of overall liberal democracy using error-correction models (labeled EC in Figure~\@ref(fig:regressionPlot)) and first-difference models (labeled FD).
+As @Claassen2020b [, 46] notes, the thermostatic theory predicts that the estimated coefficient of the change in liberal democracy will be negative, while the classic theory suggests that lagged levels of liberal democracy will be positive.
+When using the original data with data-entry errors, the coefficients estimated for the change in liberal democracy are large, negative, and statistically significant across all four models, as predicted by the thermostatic theory. 
+The positive and statistically significant result for the lagged level of liberal democracy found in Model 1.1---supporting the classic theory---disappears when corruption is taken into account in Model 1.2, indicating that "this effect is not particularly robust" [@Claassen2020b, 47].
+
+When the data-entry errors are corrected, however, the results for these models suggest a different set of conclusions.
+The standard errors shrink across the board, indicating the models are better estimated in the corrected data, but so do the coefficients.
+The estimate for the change in liberal democracy remains negative and statistically significant only in the first-difference specification employed by Model 1.3.
+It fails to reach statistical significance in Claassen's [-@Claassen2020b] preferred error-correction Models 1.1 and 1.2, and it likewise disappears when corruption is added to the first-difference model in Model 1.4.
+
+Models 2.1 through 2.4, which break liberal democracy into its electoral democracy and minoritarian democracy components, follow the same pattern.
+The finding reached in analyses of the original dataset with its data-entry errors intact that public democratic support responds thermostatically to changes in minoritarian democracy evaporates when the data-entry errors are corrected.
+Only in Model 2.3 is this coefficient negative and statistically significant, and even then it is much smaller than the published result.
+When the data-entry errors in the publication dataset are corrected, the evidence for the thermostatic theory is not robust.
+
 
 # Discussion
 
