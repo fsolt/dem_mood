@@ -231,7 +231,7 @@ body(small_multiple)[[19]] <- substitute(
 
 ```{r data_comparison, include=FALSE}
 if (!file.exists(here::here("data", "supdem raw survey marginals.tab"))) {
-    tempfile <- dataverse::get_file("supdem raw survey marginals.tab", "doi:10.7910/DVN/HWLW0J") # AJPS replication file
+    tempfile <- dataverse::get_file("supdem raw survey marginals.tab", "doi:10.7910/DVN/HWLW0J") # AJPS replication file, not included in APSR replication
     
     writeBin(tempfile, here::here("data", "supdem raw survey marginals.tab"))
     rm(tempfile)
@@ -291,7 +291,7 @@ claassen_input_raw1 <- claassen_input_raw %>%
         ))) %>%
     with_min_yrs(2)
 
-claassen_input <- DCPOtools:::format_claassen(claassen_input_raw)
+claassen_input <- DCPOtools:::format_claassen(claassen_input_raw1)
 
 cri <- claassen_input$data %>% 
     mutate(p_dcpo = str_extract(survey, "^[a-z]+"), 
@@ -313,13 +313,7 @@ supdem_cri <- full_join(sd, cri, by = c("country", "year", "item_fam", "project"
 # so some corrections are required to match observations (~8% of obs)
 no_problems <- inner_join(sd %>% select(-dataset), 
                           cri %>% select(-dataset),
-                          by = c("country", "year", "item_fam", "project")) %>% # 3409 obs
-    mutate(prop_cls = Response/Sample,
-           prop_ours = x/samp,
-           diff = prop_cls - prop_ours,
-           diff_x = round(Response - x),
-           diff_samp = round(Sample - samp)) %>% 
-    select(-CAbb, -COWCode)
+                          by = c("country", "year", "item_fam", "project")) # 3409 obs
 
 needed <- anti_join(sd %>% select(-dataset),
                     cri %>% select(-dataset))                   # 307 obs
@@ -339,11 +333,17 @@ year_fixes <- left_join(needed,    # 304 obs
   ungroup() %>% 
   filter(closest_to_claassen == abs(diff) & closest_to_dcpo == abs(diff) & abs(diff) <= 3) %>% 
   filter(!(country == "Egypt" & year.x == 2014 & survey == "afrob5")) %>%  # double matches (it's really afrob6)
-  mutate(year = year.y)
+  mutate(year = year.y) %>% 
+  select(names(no_problems))
 
 data_comparison <- bind_rows(no_problems, year_fixes) %>% 
-  mutate(prop_cls = round(Response/Sample, 3),
-         prop_ours = round(x/samp, 3))
+  mutate(perc_cls = Response/Sample*100,
+         perc_ours = x/samp*100,
+         diff_perc = perc_cls - perc_ours,
+         diff_perc_abs = abs(diff_perc),
+         diff_x = round(Response - x),
+         diff_samp = round(Sample - samp)) %>% 
+  select(-CAbb, -COWCode)
 
 saveRDS(data_comparison, here("data", "data_comparison.rds"))
 ```
@@ -407,13 +407,6 @@ Therefore, this question should be coded as "Strong_lapop_2" instead of "Strong_
 
 The other type of problem is design-based mis(re)coding.
 Researchers conduct consistent method during the coding but the method per se under-represent or stretch the variance of the variables.
-For examples, when recoding the questions about how people evaluate democracy ^[The question wording is "I’m going to describe various types of political systems. Please indicate for each system whether you think it would be very good, fairly good or bad for this country – A democratic political system"] in the Asia Barometer, @Claassen2020b counted the midpoint of its three-point scale as a positive, democracy-supporting response.
-The coding results in substantial overreports in 35 country-years.
-Similarly, in the *second* wave of the Asian Barometer, the study counts 5 along with 6 through 10 as positive responses for questions about the suitability of democracy^[The question is "Here is a similar scale of 1 to 10 measuring the extent to which people think democracy is suitable for our country. If 1 means that democracy is completely unsuitable for [name of country] today and 10 means that it is completely suitable, where would you place our country today?"] and desire for democracy^[The questions is "To what extent do you want our country to be democratic now?"].
-This coding produces more modest overreports in 9 country-years.
-A third example in recoding Pew Global Attitudes surveys, the researcher counted only the highest value of the four-point scale of the question on how important to live in a courntry with regular elections^[The question wording is "How important is it to you to live in a country where honest elections are held regularly with a choice of at least two political parties? Is it very important, somewhate important, not too important or not important at all?"] as a positive response and so leading to substantial underreports in 91 country-years.  
-A final example we found that the 2020 study counts nonresponses as negative responses (such as in Pakistan in 2005 in the South Asian Barometer, when 636 of 1324 respondents declined to answer whether they considered democracy suitable for their country, and these were all coded as unsupportive responses) yielding under-reports. 
-Moreover, the study does not always employ survey weights, which can shift proportions somewhat in either direction.
 
 Both the data-discrepancy problem and design-based mis(re)coding are covert DGP problems that are often difficult to be detected merely through reproductions of the replication files. 
 However, the discrepancy they cause could be substantial.
@@ -423,27 +416,25 @@ The overall correlation of the mean estimates seems tolerable as `r round(cor(df
 The minimum correlation is `r round(min(df_plot$corr), digits = 2)`.
 ```
 
+Claassen's coding rule
 
-
-In Figure \@ref(fig:comparison), we compared democracy support from the publication and corrected data across surveys. 
-The extent the points in the plot deviating from the 45&deg; diagonal represents the discrepancy of the publication data from the full, corrected-coding data.
-The comparison witnesses a large amount of data from various surveys, especially from Pew Global Attitudes Survey, were underreported and a fair amount of data, mainly from the Asia barometers, were overreported.
-
-
-
-
+In Figure \@ref(fig:comparison), we compare the percentage of respondents to give a democracy-supporting response in the publication's replication data with the percentage we found when we automated the process of wrangling these same data from their original surveys.
+When points fall along the 45&deg; diagonal, it indicates that the two data-wrangling processes yielded the same percentages.
+Points above this diagonal represent observations for which the publication data overestimated the actual percentage of respondents who offered a democracy-supporting response, while points below this line are observations where the publication data underestimated this percentage.
 
 ```{r comparison, fig.cap="Comparing Democracy-Supporting Responses in the Publication Data and the Corrected Data", fig.align='center', fig.width=6.5, fig.height=6.5}
 bad_items <- c("Asia Barometer:\nEvaluation of Democracy",
+               "Asian Barometer II:\nSuitability of Democracy",
                "Pew Global Attitudes:\nImportance of Democracy",
                "Other Items")
 
 plot_support <- data_comparison %>% 
   mutate(p_dcpo3 = case_when(Item == "EvDemoc_asb" ~ "Asia Barometer:\nEvaluation of Democracy",
+                             Item == "DemocSuit_asnb" & between(year, 2005, 2008) ~ "Asian Barometer II:\nSuitability of Democracy",
                              Item == "ImpDemoc_pew" ~ "Pew Global Attitudes:\nImportance of Democracy",
                              TRUE ~ "Other Items") %>% 
            factor(levels = bad_items)) %>% 
-  ggplot(aes(x = prop_ours, y = prop_cls)) +
+  ggplot(aes(x = perc_ours, y = perc_cls)) +
     geom_point(aes(color = p_dcpo3, shape = p_dcpo3), size = 1.5) +
     labs(y = "Publication Data",
          x = "Corrected Data") +
@@ -452,10 +443,11 @@ plot_support <- data_comparison %>%
         legend.position=c(.99,.01),
         legend.background = element_rect(size=.1,
                                          linetype="solid",
-                                         color = "black")) +
+                                         color = "black"),
+        legend.key.size = unit(1.4, 'lines')) +
   scale_colour_manual(name = element_blank(),
-                        values = alpha(c("blue", "red", "gray50"),
-                                       c(1, 1, .3)),
+                        values = alpha(c("blue", "green", "red", "gray50"),
+                                       c(1, 1, 1, .3)),
                         breaks = bad_items) +
   scale_shape_discrete(name = element_blank(),
                        breaks = bad_items)
@@ -464,9 +456,9 @@ ggsave('images/data_comparison1.png') # Stand-alone plot without notes for prese
 
 tx_note <- str_wrap(
     c(
-      "Notes: Each point represents the proportion of respondents in a country-year to give a democracy-supporting response to a particular item.  Publication data is as reported in Claassen (2020a); the corrected data was collected directly from the original surveys.  The Asia Barometer's item on the evaluation of democracy accounts for most overreports, and the Pew Global Attitudes item on the importance of democracy accounts for most large underreports.  In both cases, these issues can be easily explained by errors in transcribing the data.  Deviations in other items result from inconsistent treatment of missing data and/or survey weights, reflecting in part differences in codebook reporting practices across surveys."
+      "Notes: Each point represents the proportion of respondents in a country-year to give a democracy-supporting response to a particular item.  Publication data is as reported in Claassen (2020a); the corrected data was collected directly from the original surveys.  The Asia Barometer's item on the evaluation of democracy accounts for most overreports, and the Pew Global Attitudes item on the importance of democracy accounts for most substantial underreports.  In both cases, as well as the overreports of the suitability of democracy item in the second wave of the Asian Barometer, the issues can be easily explained by errors in transcribing the data.  Deviations in other items result from inconsistent treatment of missing data and/or survey weights, reflecting in part differences in codebook reporting practices across surveys."
     ),
-    width = 150
+    width = 110
   )
 
 plot_support + 
@@ -474,6 +466,43 @@ plot_support +
     theme(plot.caption = element_text(hjust = 0))
 
 ```
+
+For `r {mean(data_comparison$diff_perc_abs < .5)*100} %>% round()`% of the country-year-item observations, the difference between these percentages was negligible---less than half a percent---yielding points approximately along the 45&deg; diagonal.
+But for the remaining observations, as a result of data-entry errors, the difference was often substantial.
+For example, the Asia Barometer asked respondents in 35 country-years to indicate whether they thought "a democratic political system" would be very good, fairly good, or bad for their country.
+According the study's coding rules [see @Claassen2020b, Appendix 1.3], only answers above the median response category should be considered as democracy supporting, yet in this case the lukewarm intermediate category was coded as supporting democracy as well.^[
+Although this may be interpreted as an exercise of researcher judgment as to what constitutes a democracy-supporting response rather than a data-entry error, examination of similar answers to similar questions, e.g., in the Arab Barometer, shows that similarly lukewarm responses at and below the median response category  (e.g., "somewhat appropriate") were coded as not supporting democracy.
+]
+This led to overestimations of the percentage of democracy-supporting responses ranging from `r data_comparison %>% filter(item=="evdemoc_asiab") %>% pull(diff_perc) %>% min() %>% round()` to `r data_comparison %>% filter(item=="evdemoc_asiab") %>% pull(diff_perc) %>% max() %>% round()` percentage points and averaging `r data_comparison %>% filter(item=="evdemoc_asiab") %>% pull(diff_perc) %>% mean() %>% round()` points.
+
+Similarly, the four waves of the Asian Barometer included the following item: "Here is a similar scale of 1 to 10 measuring the extent to which people think democracy is suitable for our country. If 1 means that democracy is completely unsuitable for [name of country] today and 10 means that it is completely suitable, where would you place our country today?"
+In accordance with the coding rules of the study, responses of 6 through 10 are considered democracy supporting, and that is how the first, third, and fourth waves of the survey are coded.
+For the second wave, however, 5 was erroneously included.
+This data-entry error resulted in overestimates of as much as `r data_comparison %>% filter(item=="democsuit_asianb" & (year==2005|year==2006|year==2008)) %>% pull(diff_perc) %>% max() %>% round(1)`% in 9 country-years. 
+
+A third example comes from the Pew Global Attitudes surveys' four-point item asking about the importance of living in a country with regular and fair contested elections.^[
+The question wording is "How important is it to you to live in a country where honest elections are held regularly with a choice of at least two political parties? Is it very important, somewhat important, not too important or not important at all?"
+] 
+In this case, rather than including respondents who gave both responses above the median---"very important" and "somewhat important"---only those respondents who answered "very important" were entered as supporting democracy.
+This error caused substantial underreporting of the extent of democratic support in 91 country-years.
+
+While these issues involve mistakes in recording the numerator of the percentage, the number of respondents who provided a democracy-supporting answer, entering the denominator, the total number of respondents asked a question, was also occasionally problematic.
+When the Americas Barometer surveyed Canada in 2010, it included an item asking whether, when "democracy doesn't work," Canadians "need a strong leader who doesn’t have to be elected through voting."
+It only posed this question to half of its sample.
+Those who were not asked the question, however, were included in the total number of respondents as if they had refused to answer.
+According to the study's coding rules, refusing to answer is equivalent to answering in a fashion not supporting democracy, that is, in this case, agreeing that Canada needed a strong leader who need not bother with elections.
+This may be a reasonable choice, but including those who were never asked at all in this category is clearly a mistake in data entry.
+
+
+Other issues arose in the treatment
+
+Other difficulties with these data are perhaps less in accurately recording the percentage of respondents to supply
+
+A final example we found that the 2020 study counts nonresponses as negative responses (such as in Pakistan in 2005 in the South Asian Barometer, when 636 of 1324 respondents declined to answer whether they considered democracy suitable for their country, and these were all coded as unsupportive responses) yielding under-reports. 
+Moreover, the study does not always employ survey weights, which can shift proportions somewhat in either direction.
+
+
+
 
 ## Consequences
 
@@ -483,10 +512,10 @@ A now-classic literature maintains that experience with democratic governance ge
 We replicated each of the models presented in @Claassen2020b exactly, first with the article's original dataset and then making the corrections to the errors in the data we described above.
 The results provide little support for either the classic or the thermostatic argument.
 
-Figure \@ref(fig:regressionPlot) presents our results with a "small multiple" plot [@SoltHu2015] for a clear comparison of the coefficients of each variable across the models. 
-In the plot, the dots are point estimates and the whiskers represent 95% confidence intervals.
-Each row represents a variable's performance in its own scale across all of the models.
-The lighter entries replicate those reported in the published article; the darker ones are the estimates obtained when using the corrected data.
+Figure \@ref(fig:regressionPlot) presents our results in a "small multiple" plot [@SoltHu2015] for a clear comparison of the coefficients of each variable across the models. 
+In the plot, the dots represent point estimates and the whiskers show the associated 95% confidence intervals.
+Each row depicts a variable's performance in its own scale across all of the models.
+The lighter dots and whiskers replicate those reported in the published article; the darker ones are the estimates obtained when using the corrected data.
 
 
 ```{r regressionResult}
@@ -600,7 +629,7 @@ small_multiple(df_plot, axis_switch = TRUE, dot_args = list(size = .9, fatten = 
           strip.text.y.left = element_text(angle = 0),
           legend.position = c(0.006, -.01),
           legend.justification = c(1, 1), 
-          legend.title = element_text(size = 9, face = "bold"),
+          legend.title = element_blank(),
           legend.title.align = 0.5,
           legend.text = element_text(size = 8),
           legend.background = element_rect(color="gray90"),
