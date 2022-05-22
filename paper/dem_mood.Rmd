@@ -471,7 +471,7 @@ For `r {mean(data_comparison$diff_perc_abs < .5)*100} %>% round()`% of the count
 But for the remaining observations, as a result of data-entry errors, the difference was often substantial.
 For example, the Asia Barometer asked respondents in 35 country-years to indicate whether they thought "a democratic political system" would be very good, fairly good, or bad for their country.
 According the study's coding rules [see @Claassen2020b, Appendix 1.3], only answers above the median response category should be considered as democracy supporting, yet in this case the lukewarm intermediate category was coded as supporting democracy as well.^[
-Although this may be interpreted as an exercise of researcher judgment as to what constitutes a democracy-supporting response rather than a data-entry error, examination of similar answers to similar questions, e.g., in the Arab Barometer, shows that similarly lukewarm responses at and below the median response category  (e.g., "somewhat appropriate") were coded as not supporting democracy.
+Although this may be interpreted as an exercise of researcher judgment as to what constitutes a democracy-supporting response rather than a data-entry error, examination of similar answers to similar questions shows that similarly lukewarm responses at and below the median response category  (e.g., in the Arab Barometer, that democracy was "somewhat appropriate" for the country) were coded as not supporting democracy.
 ]
 This led to overestimations of the percentage of democracy-supporting responses ranging from `r data_comparison %>% filter(item=="evdemoc_asiab") %>% pull(diff_perc) %>% min() %>% round()` to `r data_comparison %>% filter(item=="evdemoc_asiab") %>% pull(diff_perc) %>% max() %>% round()` percentage points and averaging `r data_comparison %>% filter(item=="evdemoc_asiab") %>% pull(diff_perc) %>% mean() %>% round()` points.
 
@@ -480,26 +480,22 @@ In accordance with the coding rules of the study, responses of 6 through 10 are 
 For the second wave, however, 5 was erroneously included.
 This data-entry error resulted in overestimates of as much as `r data_comparison %>% filter(item=="democsuit_asianb" & (year==2005|year==2006|year==2008)) %>% pull(diff_perc) %>% max() %>% round(1)`% in 9 country-years. 
 
-A third example comes from the Pew Global Attitudes surveys' four-point item asking about the importance of living in a country with regular and fair contested elections.^[
-The question wording is "How important is it to you to live in a country where honest elections are held regularly with a choice of at least two political parties? Is it very important, somewhat important, not too important or not important at all?"
-] 
+A third example comes from the Pew Global Attitudes surveys' four-point item asking about the importance of living in a country with regular and fair contested elections:
+the question wording is "How important is it to you to live in a country where honest elections are held regularly with a choice of at least two political parties? Is it very important, somewhat important, not too important or not important at all?"
 In this case, rather than including respondents who gave both responses above the median---"very important" and "somewhat important"---only those respondents who answered "very important" were entered as supporting democracy.
 This error caused substantial underreporting of the extent of democratic support in 91 country-years.
 
-While these issues involve mistakes in recording the numerator of the percentage, the number of respondents who provided a democracy-supporting answer, entering the denominator, the total number of respondents asked a question, was also occasionally problematic.
+While these issues involve mistakes in recording the numerator of the percentage, the number of respondents who provided a democracy-supporting answer, entering the denominator, the total number of respondents asked a question, was also problematic on occasion.
 When the Americas Barometer surveyed Canada in 2010, it included an item asking whether, when "democracy doesn't work," Canadians "need a strong leader who doesn’t have to be elected through voting."
 It only posed this question to half of its sample.
 Those who were not asked the question, however, were included in the total number of respondents as if they had refused to answer.
 According to the study's coding rules, refusing to answer is equivalent to answering in a fashion not supporting democracy, that is, in this case, agreeing that Canada needed a strong leader who need not bother with elections.
-This may be a reasonable choice, but including those who were never asked at all in this category is clearly a mistake in data entry.
+This might be a reasonable coding choice, but including in this category those who were never asked the question at all is clearly a mistake in data entry.
 
-
-Other issues arose in the treatment
-
-Other difficulties with these data are perhaps less in accurately recording the percentage of respondents to supply
-
-A final example we found that the 2020 study counts nonresponses as negative responses (such as in Pakistan in 2005 in the South Asian Barometer, when 636 of 1324 respondents declined to answer whether they considered democracy suitable for their country, and these were all coded as unsupportive responses) yielding under-reports. 
-Moreover, the study does not always employ survey weights, which can shift proportions somewhat in either direction.
+Another source of data-entry errors in this study involves survey weights.
+Weighting raw survey results to maximize the extent to which they are representative of the target population is important.
+Relying on the toplines reported in survey codebooks rather than the survey data itself evidently caused some mistakes in correctly entering the needed information here, as codebooks do not always take survey weights into account.
+These data-entry errors shifted the percentage of democracy-supporting responses in both directions, typically by relatively small amounts.
 
 
 
