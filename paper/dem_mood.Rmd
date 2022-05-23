@@ -369,52 +369,11 @@ We apply the same methods on the full available data with consistent coding.
 By comparing the results with the original paper, we identify two primary problems of DGP, data discrepancy and coding inconsistency, which lead to results implying substantively different conclusions from the original publications.
 We tend to use this case to show that the current consensus of publication replication for sure progress the scientificness of political science, whereas it does not prevent research from DGP problems and that may lead to severe consequences.
 
-## Identification of Data and Coding Problems
+Maybe also something about the documentation by @HerndonAshPollin2014 of the problematic data selection in @ReinhartRogoff2010
 
-The problem of data discrepancy refers to the practice that researchers consciously or unconsciously select to use only a part of data that are available.
-When hypothesis tests rely on statistical estimates, both frequentist and Bayesian methodologists have emphasized the importance of the sufficiency of qualified data for producing unbiased and efficient estimates [XXX].
-Empirical studies have also well documented that the insufficient use of available data would cause lethal misunderstanding of data trends and unreliable conclusions [@SoltHuHudsonSongYu2016; @SoltHuHudsonSongYu2017].
+Related: @Troeger2019 [, 285] says, "Another potential measure is to make all data publicly available. Again many journals require data and code to be made available to the public before publication. But often there are no requirements whether source data has to be included. When source data is original, confidential, or personalized, publication might not be possible or undesirable. However, new avenues to make this kind of data available for replication need to be explored." 
 
-In our illustrative case, the 2020 paper, the point of interest is the influence of the institutional democracy on people's support of democracy, i.e., "democracy mood."
-To measure the mood, the author uses existing survey questions about the "appropriateness or desirability of democracy, compare democracy to some
-undemocratic alternative, or evaluate one of these undemocratic forms of government" to draw a latent variable with a dynamic IRT method [@Claassen2020b, p.40].
-After the DGP, he collected 3,768 nationally aggregated opinions from 52 different survey questions of 14 survey projects. 
-``` {r, eval=FALSE}
-We reproduced the same process one year after the paper was published (2021) and found `r scales::percent((nrow(df_apsrCorrected) - nrow(df_apsr))/ nrow(df_apsr), accuracy = 0.1)` more data.
-```
-
-For instance, the original study excludes observations from the third and fourth waves of Asian Barometers (the data were released in 2009 and 2017) on questions about to what extent people want their country to be democratic now, although it included them from the first and second waves. 
-This accounts for 19 of 38 excluded country-year-items in 'available'.
-
-The miscoding problem is caused by researchers' inconsistent coding.
-Here we are not talking about the coding manipulations for "p-hiking" or "p-fishing," but that scholars apply invalid or variant coding method on the data that should be coded consistently [XXXX].
-The problems easily occur when scholars intend to use multiple measurements for the same variable.
-In @SoltHuHudsonSongYu2016, the authors show that how three seemingly valid measurements produce considerably different outcome estimates [-@SoltHuHudsonSongYu2016, p.4].
-Howerver, the same problem can also occur even when only one measurement is used.
-
-<!-- Move discussion of amb to appendix? -->
-There are two potential miscoding types.
-One is operation-based miscoding.
-Researchers may mistakenly coded the values reversely, incompletely, or recognizing the value to mark missing response to a true variable value.
-For instance, we found in @Claassen2020b that the author coded the option "Necesitamos un líder fuerte que no tenga que ser elegid" as "Strong_lapop_1" for the question in AmericasBarometer: 
-
->AUT1:Hay gente que dice que necesitamos un líder fuerte que no tenga que ser elegido a través del voto. AUT1 Otros dicen que aunque las cosas no funcionen, la democracia electoral, o sea el voto popular, es siempre
-lo mejor. ¿Qué piensa usted? [Leer alternativas]
-
-However, according to the publication's supplementary materials, "Strong_lapop_1" refers to the question in AmericasBarometer with wording, "On some occasions, democracy doesn't work. When that happens there are people that say we need a strong leader who doesn't have to be elected through voting. Others say that even if things don't function, democracy is always the best. What do you think?". 
-"Strong_lapop_2" refers to the question with wording "There are people who say we need a strong leader who does not have to be elected. Others say that although things may not work, electoral democracy, or the popular vote,is always the best. What do you think?"
-Therefore, this question should be coded as "Strong_lapop_2" instead of "Strong_lapop_1".
-
-The other type of problem is design-based mis(re)coding.
-Researchers conduct consistent method during the coding but the method per se under-represent or stretch the variance of the variables.
-
-Both the data-discrepancy problem and design-based mis(re)coding are covert DGP problems that are often difficult to be detected merely through reproductions of the replication files. 
-However, the discrepancy they cause could be substantial.
-We compare the distributions of the core explanatory variable, democracy support, from the replication data of the publication and a version that fixed all the problems discussed above at both country and survey levels.
-``` {r, eval=FALSE}
-The overall correlation of the mean estimates seems tolerable as `r round(cor(df_compare$prop_ours, df_compare$prop_cls), digits = 2)`, but as Figure \@ref(fig:comparison1) shows over one third of countries have lower correlations.
-The minimum correlation is `r round(min(df_plot$corr), digits = 2)`.
-```
+## Data-Entry Errors: The Case of Thermostatic Democratic Support
 
 Claassen's coding rule
 
@@ -486,7 +445,7 @@ In this case, rather than including respondents who gave both responses above th
 This error caused substantial underreporting of the extent of democratic support in 91 country-years.
 
 While these issues involve mistakes in recording the numerator of the percentage, the number of respondents who provided a democracy-supporting answer, entering the denominator, the total number of respondents asked a question, was also problematic on occasion.
-When the Americas Barometer surveyed Canada in 2010, it included an item asking whether, when "democracy doesn't work," Canadians "need a strong leader who doesn’t have to be elected through voting."
+For example, when the Americas Barometer surveyed Canada in 2010, it included an item asking whether, when "democracy doesn't work," Canadians "need a strong leader who doesn’t have to be elected through voting."
 It only posed this question to half of its sample.
 Those who were not asked the question, however, were included in the total number of respondents as if they had refused to answer.
 According to the study's coding rules, refusing to answer is equivalent to answering in a fashion not supporting democracy, that is, in this case, agreeing that Canada needed a strong leader who need not bother with elections.
@@ -496,8 +455,6 @@ Another source of data-entry errors in this study involves survey weights.
 Weighting raw survey results to maximize the extent to which they are representative of the target population is important.
 Relying on the toplines reported in survey codebooks rather than the survey data itself evidently caused some mistakes in correctly entering the needed information here, as codebooks do not always take survey weights into account.
 These data-entry errors shifted the percentage of democracy-supporting responses in both directions, typically by relatively small amounts.
-
-
 
 
 ## Consequences
@@ -645,68 +602,31 @@ ggsave("images/results.png")
 Consider first Models 1.1 through 1.4, which replicate those presented in Table 1 of @Claassen2020b [, 47].
 These models examine the effects of overall liberal democracy using error-correction models (labeled EC in Figure~\@ref(fig:regressionPlot)) and first-difference models (labeled FD).
 As @Claassen2020b [, 46] notes, the thermostatic theory predicts that the estimated coefficient of the change in liberal democracy will be negative, while the classic theory suggests that lagged levels of liberal democracy will be positive.
-When using the original data with data-entry errors, the coefficients estimated for the change in liberal democracy are large, negative, and statistically significant across all four models, as predicted by the thermostatic theory. 
+When using the original publication data with their data-entry errors, the coefficients estimated for the change in liberal democracy are large, negative, and statistically significant across all four models, as predicted by the thermostatic theory. 
 The positive and statistically significant result for the lagged level of liberal democracy found in Model 1.1---supporting the classic theory---disappears when corruption is taken into account in Model 1.2, indicating that "this effect is not particularly robust" [@Claassen2020b, 47].
 
 When the data-entry errors are corrected, however, the results for these models suggest a different set of conclusions.
-The standard errors shrink across the board---indicating that the models are better estimated in the corrected data---but so do the coefficients.
-The estimate for the change in liberal democracy remains negative and statistically significant only in the first-difference specification employed by Model 1.3.
-It fails to reach statistical significance in Claassen's [-@Claassen2020b] preferred error-correction Models 1.1 and 1.2, and it likewise disappears when corruption is added to the first-difference model in Model 1.4.
-
-Models 2.1 through 2.4, which break liberal democracy into its electoral democracy and minoritarian democracy components, follow the same pattern.
-The finding reached in analyses of the publication dataset that public democratic support responds thermostatically to changes in minoritarian democracy evaporates when the data-entry errors are corrected.
-Only in Model 2.3 is this coefficient negative and statistically significant, and even then it is much smaller than the published result.
-When the data-entry errors in the publication dataset are corrected, the evidence for the thermostatic theory is not robust.
+The standard errors shrink across the board---indicating that the models are better estimated in the corrected data---but so do the magnitudes of the coefficients.
+The positive and statistically significant result for the lagged level of liberal democracy remains in Model 1.1.
+The estimate is only slightly smaller than in the publication data, and as with the publication data, it disappears when corruption is added in Model 1.2: the evidence for the classic theory, such as it is, remains substantively unchanged.
+On the other hand, the estimates for the change in liberal democracy that provided support for the thermostatic theory are much smaller---very nearly exactly zero---and fail to reach statistical significance in any of these four models.
+Models 2.1 through 2.4, which break liberal democracy into its electoral democracy and minoritarian democracy components, similarly undermine claims for the thermostatic theory.
+The strong and statistically significant negative coefficients for the change in minoritarian democracy on public democratic support that are found using the publication dataset evaporate when the data-entry errors are corrected.
+There is no support for the thermostatic theory.
 
 
 # Discussion
 
-We draw two conclusions from the foregoing.
+We draw three conclusions from the foregoing.
 First, researchers should minimize reliance on manual data entry and maximize the extent to which data collection and wrangling---the 'janitor work' of data analysis---is performed computationally.
-When manual data entry cannot be avoided, double entry 
+While automating 'janitor work' will sometimes require considerable programming effort, often software is available that makes the task straightforward, such as the `readtext` R package for formatting the contents of text files for text analysis [@Benoit2021] or the `DCPOtools` R package for wrangling survey data to be used in latent variable analyses [@Solt2018].^[
+In addition to minimizing data-entry errors, writing computer code that starts from the raw source material and works forward has the added benefit of making research much more replicable [see, e.g., @Benoit2016].
+]
 
-Second, 
+Second, when manual data entry cannot be avoided, each entry should be made twice, either by different people working independently or by the same person working at a different time, to allow for cross-checking.
+Double entry is labor intensive, but experiments have shown that while visually inspecting entered data is no better at catching mistakes than simply entering the data once and making no checks, the double-entry approach reduces error rates by thirty-fold [@Barchard2011, 1837].
+Given that, as shown above, data-entry errors can completely undermine the validity of our conclusions, double entry is worth the extra effort.
 
-With the previous sections, we identified two types of DGP problems, data discrepency and miscoding.
-The former refers to the problem that not all available data are included in the analysis.
-The latter relates to human or design errors to (re)code information from the original data source inconsistently or unvaildly. 
-We use @Claassen2020b to illustrate these issues in practice and how correcting them would substantively change the conclusions of hypothesis tests. 
-
-The DGP problems are often too convert to be detected merely through reproduction of the results, but they can lead to severe misunderstanding of the empirical outcomes of scientific inquiries.
-A better way to deal with the DGP problems is more doing with the design than post-estimate phases.
-Here we give researchers four suggestions to minimize DGP problems in their research.
-First three are for the authors, and the last one is for the reviewers.
-
-First, automatic downloading.
-We suggest researchers to maximumly utilize the data scraping functions of programming languages (such as R and Python) to collect data through with widecard searching and directly from the original sources.
-For instance, you can easily use the package [`icpsrdata`](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwj9-56bu6jzAhWYGDQIHaG4DxkQFnoECAIQAQ&url=https%3A%2F%2Fwww.icpsr.umich.edu%2Fweb%2Fpages%2Fdatamanagement%2Fdmp%2Fplan.html&usg=AOvVaw37vSc0BTKmgmesx-1ZFrOC) to obtain all the latest data from ICPSR or use [`pewdata`] to access all types of data published by Pew.
-Instead of manually updates, the programming way collect data directly from the datasets, which reduces the missing probability.
-
-Related: @Troeger2019 [, 285] says, "Another potential measure is to make all data publicly available. Again many journals require data and code to be made available to the public before publication. But often there are no requirements whether source data has to be included. When source data is original, confidential, or personalized, publication might not be possible or undesirable. However, new avenues to make this kind of data available for replication need to be explored." 
-
-Second, automatic coding. 
-We suggest researchers to process their data coding as automatically as possible. 
-Instead of coding every variables with separate codes, building up packed-up functions or even packages for doing batch coding.
-For instance, if you work with R, you can find functions such as `stm::textProcessor` or packages like [`DCPOtools`](https://github.com/fsolt/DCPOtools).
-The former prepares raw text data for more complex text-analysis tasks, and the latter transfer different survey questions into a consistent format ready for analysis and comparison.
-By this way, the authors can ensure every variable is treated in the same manner. 
-Of course, the actual data cleaning process is complicated that maybe not all the steps can be packed into functions or batched as a process. 
-In this scenario, we gives the following suggestion.
-
-Maybe also something about the documentation by @HerndonAshPollin2014 of the problematic data selection in @ReinhartRogoff2010
-
-
-Third, replication from scratch. (Possibly roll this in with "first")
-Given the complication of the data management, we suggest researchers to provide fully replication codes on the raw data.
-Researchers ought to provide not only replication files that can reproduce the results in the publications but concrete coding programs or coding books that others can replicate the DGP process. 
-This is an advanced requirement for data transparency and replicability.
-Yet as we showed, there could be serious drawbacks to ignore this step, especially for studies based on existing datasets. 
-
-Finally, we hope this replication can alert not only the researchers but also the reviewers of the importance of DGP. 
-It is usually the very first empirical step for a research and a crucial step determining the validity of all the outcomes and conclusions. 
-We appeal to both the academic journals and reviewers to pay more attention to this phase when assess a manuscript. 
-The substantive difference elaborated in this paper demonstrate that the DGP problem is no less vital than reproduction or any other important methodological problems.
-
-\pagebreak
+Finally...
 
 # References
