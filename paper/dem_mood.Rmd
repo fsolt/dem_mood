@@ -348,32 +348,25 @@ data_comparison <- bind_rows(no_problems, year_fixes) %>%
 saveRDS(data_comparison, here("data", "data_comparison.rds"))
 ```
 
+@Claassen2020c
 
 Many facets of Computational social science 
 Data wrangling, the task of getting the needed data into the format required to perform analyses.
 
 [@Wickham2017, xi]
 
-Such data 'janitor work' is often viewed as tiresome and as better performed by someone, anyone, else.^[
-As @Torres2017 wrote, recounting her experience as a research assistant, "Me: Shouldn't there be someone in a basement that we just pay to do all this awful data cleaning? Advisor: That's who you are."
-]
+Such data 'janitor work' is often viewed as tiresome and as something to be delegated to research assistants---to someone, anyone, else [see @Torres2017].
+
 
 # DGP Problem and Consequences
 
-We illustrate above DGP problems and their potential consequences with @Claassen2020b. 
-The study published in a very prestige journal of political science with clear replication requirements.
-Similar or relative data were also used in publications in other top journals of the field.
-We appreciate the author's replication materials to enable the this scientific scrutiny.
-Based on them and the author's description in the paper, we can largely infer how the measurements of variables are constructed.
-We apply the same methods on the full available data with consistent coding.
-By comparing the results with the original paper, we identify two primary problems of DGP, data discrepancy and coding inconsistency, which lead to results implying substantively different conclusions from the original publications.
-We tend to use this case to show that the current consensus of publication replication for sure progress the scientificness of political science, whereas it does not prevent research from DGP problems and that may lead to severe consequences.
 
-Maybe also something about the documentation by @HerndonAshPollin2014 of the problematic data selection in @ReinhartRogoff2010
 
-Related: @Troeger2019 [, 285] says, "Another potential measure is to make all data publicly available. Again many journals require data and code to be made available to the public before publication. But often there are no requirements whether source data has to be included. When source data is original, confidential, or personalized, publication might not be possible or undesirable. However, new avenues to make this kind of data available for replication need to be explored." 
+<!-- Maybe also something about the documentation by @HerndonAshPollin2014 of the problematic data selection in @ReinhartRogoff2010 -->
 
-## Data-Entry Errors: The Case of Thermostatic Democratic Support
+<!-- Related: @Troeger2019 [, 285] says, "Another potential measure is to make all data publicly available. Again many journals require data and code to be made available to the public before publication. But often there are no requirements whether source data has to be included. When source data is original, confidential, or personalized, publication might not be possible or undesirable. However, new avenues to make this kind of data available for replication need to be explored."  -->
+
+## Data-Entry Errors: An Example
 
 Claassen's coding rule
 
@@ -381,7 +374,7 @@ In Figure \@ref(fig:comparison), we compare the percentage of respondents to giv
 When points fall along the 45&deg; diagonal, it indicates that the two data-wrangling processes yielded the same percentages.
 Points above this diagonal represent observations for which the publication data overestimated the actual percentage of respondents who offered a democracy-supporting response, while points below this line are observations where the publication data underestimated this percentage.
 
-```{r comparison, fig.cap="Comparing Democracy-Supporting Responses in the Publication Data and the Corrected Data", fig.align='center', fig.width=6.5, fig.height=6.5}
+```{r comparison, fig.cap="Comparing Democracy-Supporting Responses in the Publication Data and the Corrected Data", fig.align='center', fig.width=5.25, fig.height=5.6}
 bad_items <- c("Asia Barometer:\nEvaluation of Democracy",
                "Asian Barometer II:\nSuitability of Democracy",
                "Pew Global Attitudes:\nImportance of Democracy",
@@ -400,10 +393,11 @@ plot_support <- data_comparison %>%
   theme_bw() +
   theme(legend.justification=c(1,0), 
         legend.position=c(.99,.01),
+        legend.text = element_text(size = 6),
         legend.background = element_rect(size=.1,
                                          linetype="solid",
                                          color = "black"),
-        legend.key.size = unit(1.4, 'lines')) +
+        legend.key.size = unit(1.1, 'lines')) +
   scale_colour_manual(name = element_blank(),
                         values = alpha(c("blue", "green", "red", "gray50"),
                                        c(1, 1, 1, .3)),
@@ -415,9 +409,9 @@ ggsave('images/data_comparison1.png') # Stand-alone plot without notes for prese
 
 tx_note <- str_wrap(
     c(
-      "Notes: Each point represents the proportion of respondents in a country-year to give a democracy-supporting response to a particular item.  Publication data is as reported in Claassen (2020a); the corrected data was collected directly from the original surveys.  The Asia Barometer's item on the evaluation of democracy accounts for most overreports, and the Pew Global Attitudes item on the importance of democracy accounts for most substantial underreports.  In both cases, as well as the overreports of the suitability of democracy item in the second wave of the Asian Barometer, the issues can be easily explained by errors in transcribing the data.  Deviations in other items result from inconsistent treatment of missing data and/or survey weights, reflecting in part differences in codebook reporting practices across surveys."
+      "Notes: Each point represents the percentage of respondents in a country-year to give a democracy-supporting response to a particular survey item.  Publication data is as reported in Claassen (2020b); the corrected data was collected directly from the original surveys.  The Asia Barometer's item on the evaluation of democracy accounts for most overreports, and the Pew Global Attitudes item on the importance of democracy accounts for most substantial underreports.  In both cases, as well as the overreports of the suitability of democracy item in the second wave of the Asian Barometer, the issues can be easily explained by errors in transcribing the data.  Deviations in other items result from inconsistent treatment of missing data and/or survey weights, reflecting in part differences in codebook reporting practices across surveys."
     ),
-    width = 110
+    width = 90
   )
 
 plot_support + 
@@ -457,13 +451,13 @@ Relying on the toplines reported in survey codebooks rather than the survey data
 These data-entry errors shifted the percentage of democracy-supporting responses in both directions, typically by relatively small amounts.
 
 
-## Consequences
+## Consequences for Inference
 
 Data-entry errors of this sort can yield erroneous conclusions.
 A now-classic literature maintains that experience with democratic governance generates robust public support for democracy [see, e.g., @Lipset1959a].
 @Claassen2020b argued instead that democratic support behaves thermostatically, that is, that increases in democracy yield an authoritarian backlash in the public, while democratic backsliding prompts the public to rally to democracy's cause.
 We replicated each of the models presented in @Claassen2020b exactly, first with the article's original dataset and then making the corrections to the errors in the data we described above.
-The results provide little support for either the classic or the thermostatic argument.
+The results provide only limited support for the classic argument and none at all for a thermostatic relationship.
 
 Figure \@ref(fig:regressionPlot) presents our results in a "small multiple" plot [@SoltHu2015] for a clear comparison of the coefficients of each variable across the models. 
 In the plot, the dots represent point estimates and the whiskers show the associated 95% confidence intervals.
@@ -619,11 +613,11 @@ There is no support for the thermostatic theory.
 
 We draw three conclusions from the foregoing.
 First, researchers should minimize reliance on manual data entry and maximize the extent to which data collection and wrangling---the 'janitor work' of data analysis---is performed computationally.
-While automating 'janitor work' will sometimes require considerable programming effort, often software is available that makes the task straightforward, such as the `readtext` R package for formatting the contents of text files for text analysis [@Benoit2021] or the `DCPOtools` R package for wrangling survey data to be used in latent variable analyses [@Solt2018].^[
+Automating 'janitor work' will sometimes require considerable programming effort, but often software is available that makes the task straightforward, such as the `readtext` R package for formatting the contents of text files for text analysis [@Benoit2021] or the `DCPOtools` R package for wrangling survey data to be used in latent variable analyses [@Solt2018].
 In addition to minimizing data-entry errors, writing computer code that starts from the raw source material and works forward has the added benefit of making research much more replicable [see, e.g., @Benoit2016].
-]
+As @Christensen2019 [, 197] admonish, ``Write code instead of working by hand . . . don't use Microsoft Excel if it can be avoided."
 
-Second, when manual data entry cannot be avoided, each entry should be made twice, either by different people working independently or by the same person working at a different time, to allow for cross-checking.
+Second, when manual data entry _cannot_ be avoided, each entry should be made twice, either by different people working independently or by the same person working at a different time, to allow for cross-checking.
 Double entry is labor intensive, but experiments have shown that while visually inspecting entered data is no better at catching mistakes than simply entering the data once and making no checks, the double-entry approach reduces error rates by thirty-fold [@Barchard2011, 1837].
 Given that, as shown above, data-entry errors can completely undermine the validity of our conclusions, double entry is worth the extra effort.
 
