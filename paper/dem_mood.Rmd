@@ -21,7 +21,7 @@ author:
 - Frederick Solt
   # affiliation: University of Iowa
 anonymous: false  
-abstract: ""
+abstract: "Data 'janitor work', the task of getting data into a format appropriate for analysis, has grown increasingly important as political science research has come to depend on data drawn from hundreds and thousands of sources.  One tempting solution is to simply enter the data by hand, but this approach raises serious risks of data-entry error, a difficult-to-catch problem with the potential to fatally undermine our conclusions.  Underscoring these points, we identify data-entry errors in a prominent recent article, the 2020 study by Claassen that examines the effect of changes in democracy on public support for democracy.  We then show that when these errors are corrected, the work's models provide no support for its conclusion that publics react thermostatically to changes in democracy.  Researchers should refrain from hand-entering data as much as possible, and we offer suggestions for avoiding the practice."
 keywords: ""
 tables: true # enable longtable and booktabs
 citation_package: natbib
@@ -361,29 +361,29 @@ For such projects, data wrangling, the task of getting these data into the forma
 Such data 'janitor work' is often viewed as tiresome, as something to be delegated to research assistants, to someone---indeed anyone---else [see @Torres2017].
 Data wrangling is, however, critically important.
 Without wrangling our data, we cannot work with it, and without wrangling it _correctly_, we risk reaching mistaken conclusions.
-This is not, we think, particularly controversial.
+None of this is, we think, particularly controversial.
 
-We nevertheless seek to draw attention to a single, particularly insidious and perhaps common way in which data 'janitor work' can go wrong: data-entry errors.
+We nevertheless seek to draw attention to one particularly insidious and perhaps common way in which data 'janitor work' can go wrong: data-entry errors.
 Faced with the task of getting data into the correct format, even some very sophisticated researchers will conclude that the most straightforward means to that end is to simply copy the needed data into a spreadsheet manually.
-Straightforward though this technique may be, it is very much prone to errors: @Barchard2011 found that 'research assistants' assigned in an experiment to carefully enter data manually, even those instructed to double-check their entries against the original, had error rates approaching 1% in just one roughly half-hour session.
+Straightforward though this technique may be, it is very much prone to errors: @Barchard2011 found that 'research assistants' assigned in an experiment to carefully enter data manually, even those instructed to double-check their entries against the original, had error rates approaching 1% in just a single roughly half-hour session.
 Rates likely go up as the tedious task goes on.
 
 Here, we document data-entry errors in a prominent recent work, @Claassen2020b, that examines how changes in democracy affect democratic support among the public.
-After correcting these errors and re-running the article's models, we find that there is no empirical support for the paper's main conclusion that public support responds thermostatically to changes in democracy.
-There is no reason to think that, "should elected leaders start dismantling democratic institutions and rights, public mood is likely to swing rapidly toward democracy again, providing something of an obstacle to democratic backsliding," as @Claassen2020b [, 51] concluded.
-Using these findings as a cautionary tale, we then offer suggestions to minimize data-entry errors and their impact.
+After correcting these errors and re-running the article's models, we find no empirical support for the paper's conclusion that public support responds thermostatically to changes in democracy.
+There is no reason to think that when "elected leaders start dismantling democratic institutions and rights, public mood is likely to swing rapidly toward democracy again, providing something of an obstacle to democratic backsliding," as @Claassen2020b [, 51] concludes.
+On this basis, we then offer suggestions to minimize data-entry errors and their impact.
 
 
 ## Data-Entry Errors and Democratic Support
 
 With democracy under increasing threat in countries around the world, how the public reacts is a crucial question.
 According to a now-classic literature, it is experience with democratic governance that generates robust public support for democracy [see, e.g., @Lipset1959a].
-A prominent recent study, @Claassen2020b, argues instead that democratic support behaves thermostatically, that is, that increases in democracy yield an authoritarian backlash in the public, while democratic backsliding prompts the public to rally to democracy's cause.
-The evidence it offered in support of this argument takes advantage of recent advances in modeling public opinion as a latent variable to provide its dependent variable, estimates of democratic support for over one hundred countries for up to nearly three decades, constituting a much larger evidentiary base than any previous study.
+@Claassen2020b argues instead that democratic support behaves thermostatically, that is, that increases in democracy yield an authoritarian backlash in the public, while democratic backsliding prompts the public to rally to democracy's cause.
+The evidence it offers in support of this argument takes advantage of recent advances in modeling public opinion as a latent variable to provide its dependent variable, estimates of democratic support for over one hundred countries for up to nearly three decades, constituting a much larger evidentiary base than any previous study.
 
 These latent variable estimates of democratic support are based on source material consisting of thousands of nationally aggregated responses to dozens of different questions from cross-national survey projects [@Claassen2020b, 40].
-Two pieces of data were collected for each distinct survey item in each country and year it was asked: the number of respondents to give a democracy-supporting response---defined, for ordinal responses, as those above the median value of the scale---and the total number of respondents to whom the question was posed [@Claassen2020b, Appendix 1.3].
-Each of these pieces of source data is recorded in a spreadsheet.^[
+Two pieces of data were collected for each distinct survey item in each country and year it was asked: the number of respondents to give a democracy-supporting response---defined, for ordinal responses, as those above the median value of the scale [@Claassen2020b, Appendix 1.3]---and the total number of respondents to whom the question was posed.
+Each of these 7538 pieces of source data is recorded in a spreadsheet.^[
 The article's replication materials include only the latent variable estimates without the original survey aggregates that serve as their source data [see @Claassen2020c]. 
 Fortunately, however, the spreadsheet recording these original source data is included in the replication materials for a companion piece that employed the identical estimates [see @Claassen2020d].
 ]
@@ -464,24 +464,24 @@ For example, when the Americas Barometer surveyed Canada in 2010, it included an
 It posed this question to only half of its sample.
 Those who were not asked the question, however, were included in the total number of respondents as if they had refused to answer.
 According to the study's coding rules, refusing to answer is equivalent to answering in a fashion not supporting democracy, that is, in this case, agreeing that Canada needed a strong leader who need not bother with elections [see @Claassen2020b, Appendix 1.3].
-This rule might be a reasonable coding choice, but including in this category those who were never asked the question at all is clearly a mistake in data entry.
+This rule may be a reasonable coding choice, but including in this category those who were never asked the question at all is clearly a data-entry error.
 
-Another source of data-entry errors in this study involves survey weights.
+Another source of data-entry errors here involves survey weights.
 Weighting raw survey results to maximize the extent to which they are representative of the target population is important.
-Relying on the toplines reported in survey codebooks rather than the survey data itself evidently caused some mistakes in correctly entering the needed information here, as codebooks do not always take survey weights into account.
-These data-entry errors shifted the percentage of democracy-supporting responses in both directions, typically by relatively small amounts.
+Relying on toplines reported in codebooks rather than the survey data itself evidently caused some mistakes in correctly entering the needed information here, as codebooks do not always take survey weights into account.
+These errors shifted the percentage of democracy-supporting responses in both directions, typically by relatively small amounts.
 
 
 ## Consequences for Inference
 
 Data-entry errors of this sort can yield erroneous conclusions.
-After replicating the latent variable of democratic support with first the article's original data and then with the corrections to the errors we describe above, we replicated each of the models presented in @Claassen2020b exactly using both versions of the latent variable.
+After replicating the latent variable of democratic support with first the article's original data and then with the corrections to the errors we describe above, we replicated each of the models presented in @Claassen2020b exactly using both of these versions of the latent variable.
 The results provide only limited support for the classic argument that democracy generates its own demand, at least in the short run, and none at all for a thermostatic relationship.
 
 Figure \@ref(fig:regressionPlot) presents our results in a "small multiple" plot [@SoltHu2015] for a clear comparison of the coefficients of each variable in the article's models. 
 In the plot, the dots represent point estimates and the whiskers show the associated 95% confidence intervals.
 Each row depicts a variable's performance in its own scale across all of the models.
-The lighter dots and whiskers replicate those reported in the published article; the darker ones are the estimates obtained when using the corrected data.
+The lighter dots and whiskers replicate those reported in the published article; the darker ones are the estimates obtained with the corrected data.
 
 
 ```{r regressionResult}
@@ -531,7 +531,7 @@ result_clsAPSR_tidy <- map(result_clsAPSR, function(aResult) {
 })
 ```
 
-```{r regressionPlot, fig.cap= "The Effect of Democracy on Change in Public Support", fig.width=7, fig.height=9.5}
+```{r regressionPlot, fig.cap= "The Effect of Democracy on Change in Public Support", fig.width=7, fig.height=6}
 
 txt_models <- paste0("Model ",
                      rep(1:2, each = 4), ".", rep(1:4, 2),
@@ -612,10 +612,9 @@ small_multiple(df_plot, axis_switch = TRUE, dot_args = list(size = .9, fatten = 
 ggsave("images/results.png")
 ```
 
-Consider first Models 1.1 through 1.4, which replicate those presented in Table 1 of @Claassen2020b [, 47].
-These models examine the effects of overall liberal democracy using error-correction models (labeled EC in Figure \@ref(fig:regressionPlot)) and first-difference models (labeled FD).
+Models 1.1 through 1.4, which replicate those presented in Table 1 of @Claassen2020b [, 47], examine the effects of overall liberal democracy using error-correction models (labeled EC in Figure \@ref(fig:regressionPlot)) and first-difference models (labeled FD).
 As @Claassen2020b [, 46] notes, the thermostatic theory predicts that the estimated coefficient of the change in liberal democracy will be negative, while the classic theory suggests that lagged levels of liberal democracy will be positive.
-When using the original publication data with their data-entry errors, we replicate the results of the article exactly: the coefficients estimated for the change in liberal democracy are large, negative, and statistically significant across all four models, just as predicted by the thermostatic theory. 
+When using the original publication data with their data-entry errors, we replicate the results of the article exactly: the coefficients estimated for the change in liberal democracy are large, negative, and statistically significant across all four models, just as the thermostatic theory predicts. 
 The positive and statistically significant result for the lagged level of liberal democracy found in Model 1.1---supporting the classic theory---disappears when corruption is taken into account in Model 1.2, suggesting that "this effect is not particularly robust" [@Claassen2020b, 47].
 
 When the data-entry errors are corrected, however, the results for these models suggest a very different set of conclusions.
@@ -630,7 +629,7 @@ There is no support for the thermostatic theory.
 This is not, we contend, a particularly surprising finding.
 As much as those who favor democracy might wish it were so, and as well as the thermostatic theory performs with regard to many other topics in public opinion, it is not a particularly likely candidate for explaining trends in democratic support---the mechanism required for it to operate is not present.
 In its original formulation, the theory requires citizens to possess a level of knowledge of politics that a long line of public opinion research shows is unrealistic; and as recently re-elaborated it requires the issue in question to be debated by political parties so as to provide cues to the broader public as to what is going on  [@Atkinson2021, 5-6].
-But virtually no party engaged in eroding democracy actually puts their actions in such terms: instead they claim to be defending democracy, or saving democracy, or putting forth a different model of democracy that better suits the nation's needs.
+But few parties actually engaged in eroding democracy put their actions in such terms: instead they claim to be defending democracy, or saving democracy, or putting forth a different model of democracy that better suits the nation's needs.
 And to the extent they succeed, their opponents are increasingly unable to make their case to the public at all.
 Absent its mechanism, the thermostat cannot operate on the public's democratic support.
 
@@ -640,15 +639,15 @@ Absent its mechanism, the thermostat cannot operate on the public's democratic s
 We draw several conclusions from this case.
 First, data-entry errors are an especially pernicious threat to the credibility of our results.
 Although failure to find support for a research hypothesis may prompt us to undertake a close review of the dataset to confirm that it is free of data-entry errors, an analysis that yields statistical significance is unlikely to trigger what may be, as in the above example, a time-consuming and difficult effort.
-This difference in the course taken depending on our data places us within 'the garden of forking paths,' rendering our findings suspect even when we only ever perform a single analysis [@Gelman2014, 464].
+These different courses put us in 'the garden of forking paths,' rendering our findings suspect even when we only ever perform a single analysis [@Gelman2014, 464].
 
 This leads to our second conclusion: to reduce the possibility of data-entry errors, researchers should minimize reliance on manual data entry and maximize the extent to which data wrangling---the 'janitor work' of data science---is performed computationally.
-Automating 'janitor work' will sometimes require considerable programming effort, but often software is available that makes the task straightforward, such as the `readtext` R package [@Benoit2021] for formatting the contents of text files for content analysis or the `DCPOtools` R package [@Solt2018] that we employed in our example.
+Automating 'janitor work' will sometimes require considerable programming effort, but often software is available that makes the task straightforward, such as the `readtext` R package [@Benoit2021] for formatting the contents of text files for text analysis or the `DCPOtools` R package [@Solt2018] that we employed in our example.
 In addition to minimizing data-entry errors, writing computer code that starts from the raw source material and works forward has the added benefit of making research much more reproducible [see, e.g., @Benoit2016] and hence more credible [see, e.g., @Wuttke2019].
 As @Christensen2019 [, 197] admonish, "Write code instead of working by hand . . . don't use Microsoft Excel if it can be avoided."
 
 Third, when manual data entry _cannot_ be avoided, each entry should be made twice, either by different people working independently or by the same person working at a different time, to allow for cross-checking.
-Double entry is labor intensive, but experiments have shown that while visually inspecting entered data is no better at catching mistakes than simply entering the data once and making no checks, the double-entry approach reduces error rates by thirty-fold [@Barchard2011, 1837].
+Double entry is labor intensive, but experiments have shown that the double-entry approach reduces error rates by thirty-fold [@Barchard2011, 1837].
 Given that data-entry errors can completely undermine the validity of our conclusions, as in the example above, double entry is worth the extra effort.
 
 Our final point is for manuscript reviewers.
