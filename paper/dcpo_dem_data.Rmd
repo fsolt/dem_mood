@@ -364,7 +364,7 @@ The problem a mistaken wrangling causes may be more lethal than researchers comm
 
 
 <!-- This problem hasn't been researched -->
-While political methodologists have spent decades to develop methods to reduce measurement and specification errors, the equivalently fatal (if not more) problems in data wrangling are rarely systematically detected and researched.^[See a couple of exceptions in @SoltEtAl2016; @SoltEtAl2017.]
+While political methodologists have spent decades to develop methods to reduce measurement and specification errors, the equivalently fatal (if not more) problems in data wrangling are rarely systematically detected and researched.
 The issue is largely conceived in the lament of old-day works [A citation about _Civic culture_] and gossips of academic scandals [A citation of the fake data scandal]. 
 In this letter, we go beyond stories of sloppy collectors or intentional p-fishing and uncover the consequences of mistaken data wrangling through a restrict replication.
 
@@ -383,7 +383,7 @@ Thanks to that and the author's serious effort on research transparency, we were
 In the following sections, we explain the frequency and magnitude of the data-entry errors and show how the empirics and their inferences change after correcting the errors. 
 In this paper about mass democracy mood across countries, @Claassen2020b[p.51] argued that when "elected leaders start dismantling democratic institutions and rights, public mood is likely to swing rapidly toward democracy again, providing something of an obstacle to democratic backsliding."
 After correcting the data-entry errors, no empirical evidence supports that public support responds thermostatically to changes in democracy.
-On this basis, we provide three practical suggestions to help researchers to reduce data-entry errors and their impact.
+On this basis, we provide four practical suggestions to help researchers to reduce data-entry errors and their impact.
 
 
 ## Data-Entry Errors in a Democratic-Support Context
@@ -450,7 +450,9 @@ Relying on toplines reported in codebooks rather than the survey data itself evi
 
 ## Consequences for Inference
 
-In Figure \@ref(fig:comparison), we compare the percentage of respondents to give a democracy-supporting response in the publication spreadsheet with the percentage we found using our automated process of wrangling these same data.
+The accumulation of the above issues can lead to salient deviation of the output data from what researchers initially design.
+We illustrate such difference by comparing the percentage of respondents to give a democracy-supporting response in the publication spreadsheet with the percentage we found using our automated process of wrangling these same data.
+The result is visualized in Figure \@ref(fig:comparison).
 When points fall along the plot's dotted line, it indicates that the publication's source data and our own automated workflow reported the same percentages.
 Points above this diagonal represent observations for which the publication data overestimated the actual percentage of respondents who offered a democracy-supporting response, while points below this line are observations where the publication data underestimated this percentage.
 
@@ -505,11 +507,7 @@ plot_support +
 For `r {mean(data_comparison$diff_perc_abs < .5)*100} %>% round()`% of the country-year-item observations, the difference between these percentages was negligible---less than half a percent---yielding points approximately along the plot's dotted line.
 But for the remaining observations, the difference was often substantial as a result of data-entry errors in the publication data.
 
-
-
-
-
-Data-entry errors of this sort can yield erroneous conclusions.
+If using estimates based on such data can yield erroneous conclusions.
 After replicating the latent variable of democratic support with first the article's original data and then with the corrections to the errors we describe above, we replicated each of the models presented in @Claassen2020b exactly using both of these versions of the latent variable.
 The results provide only limited support for the classic argument that democracy generates its own demand, at least in the short run, and none at all for a thermostatic relationship.
 
@@ -671,23 +669,45 @@ Absent its mechanism, the thermostat cannot operate on the public's democratic s
 
 ## Discussion
 
-We draw several conclusions from this case.
-First, data-entry errors are an especially pernicious threat to the credibility of our results.
+The above analyses illustrate that data-entry errors are an especially pernicious threat to the credibility of our results.
+They are not only fatal but also sneaky---much sneaker than other errors.
+There is almost no way to find them unless through a scrutiny of the data collection process.
+Unfortunately, in practice, such scrutiny rarely happens. 
 Although failure to find support for a research hypothesis may prompt us to undertake a close review of the dataset to confirm that it is free of data-entry errors, an analysis that yields statistical significance is unlikely to trigger what may be, as in the above example, a time-consuming and difficult effort.
 These different courses put us in 'the garden of forking paths,' rendering our findings suspect even when we only ever perform a single analysis [@GelmanLoken2014, p.464].
 
-This leads to our second conclusion: to reduce the possibility of data-entry errors, researchers should minimize reliance on manual data entry and maximize the extent to which data wrangling---the 'janitor work' of data science---is performed computationally.
-Automating 'janitor work' will sometimes require considerable programming effort, but often software is available that makes the task straightforward, such as the `readtext` R package [@BenoitEtAl2016a] for formatting the contents of text files for text analysis or the `DCPOtools` R package [@Solt2020] that we employed in our example.
-In addition to minimizing data-entry errors, writing computer code that starts from the raw source material and works forward has the added benefit of making research much more reproducible [see, e.g., @BenoitEtAl2016] and hence more credible [see, e.g., @Wuttke2019].
-As @ChristensenEtAl2019 [p.197] admonish, "Write code instead of working by hand . . . don't use Microsoft Excel if it can be avoided."
+To avoid staying at this position, we provide three practical suggestions for researchers to minimize the data-entry from the design stage
+**1. Automating the data entries.**
+Researchers should minimize reliance on manual entry and maximize the extent to which the "janitor work" of data science is performed computationally.
+Such work sometimes require considerable programming effort, but often software is available that makes the task straightforward, such as the `readtext` R package [@BenoitEtAl2016a] for formatting the contents of text files for text analysis or the `DCPOtools` R package [@Solt2020] that we employed in our example.
+An additional benefit of programming the data-entry process is to make research much more reproducible [see, e.g., @BenoitEtAl2016] and hence more credible [see, e.g., @Wuttke2019].
+@ChristensenEtAl2019 [p.197] admonish at a more specific level, "Write code instead of working by hand . . . don't use Microsoft Excel if it can be avoided."
 
-Third, when manual data entry _cannot_ be avoided, each entry should be made twice, either by different people working independently or by the same person working at a different time, to allow for cross-checking.
-Double entry is labor intensive, but experiments have shown that the double-entry approach reduces error rates by thirty-fold [@BarchardPace2011, 1837].
+**2. Cross-checking**, especially for large data-entry projects.
+When manual data entry _cannot_ be avoided, each entry should be made twice.
+Double entry is labor intensive, but experiments have shown that the double-entry approach reduces error rates by thirty-fold [@BarchardPace2011, p.1837].
 Given that data-entry errors can completely undermine the validity of our conclusions, as in the example above, double entry is worth the extra effort.
+Even a cross-checking by the same author can be helpful.
+We suggest a certain period between the initial entry and the checking.
+On the other hand, if the researchers are resourceful, we highly suggest the cross-checking to be conducted by separate persons.
+This relates to our next suggestion:
 
-Our final point is for manuscript reviewers.
+**3. Team work, if possible.**
+For any project involving data entries, a team work is often preferred than a single-person work. 
+Except for labors to conduct more reliable cross-checking, splitting the tasks can reduce the risk of human entry errors due to tiredness and ignorance. 
+Each researchers (and RAs) are also more likely to read the codebook and instructions of the sources carefully and comprehensively than processing the entire process by oneself.
+
+**4. Being aware of the dangers of data-entry errors and common types**.
+This is a suggestion especially for manuscript reviewers.
 If data-entry errors are invisible to the authors themselves, they are doubly so to reviewers (though if editors provided reviewers with replication materials at the time of the review it may help them to better assess the work's credibility).
 But the case described above nevertheless suggests a valuable heuristic: when a work's conclusions suggest that a difficult problem will be easily solved---that democratic erosion will reflexively trigger a backlash and a renewed public support for democracy, in the present instance---it warrants especially careful scrutiny.
 
+
+The last but not least, some readers may reach a conclusion that, after reading this piece, researchers would be scared by the difficulty to conduct "errorless" data-entries or tend to provide a less transparent pile of replication files to prevent others to discover errors potential data janitor work.
+They are wrong.
+Looking back the history of political science, researchers gradually level up their requirement for an acceptable research, from single-variable analysis to multiple regression, from merely reporting the result to preregistration and *Data Access & Research Transparency*.
+Along the same line, five years ago, political scientists fought for data misconduct that the academia has reached a consensus now as an absolute "no-no" [@SoltEtAl2016; @SoltEtAl2017].
+Today, we propose a new movement to level up the requirement and self awareness at the data-entry stage. 
+We hope the effort can promote scientific quality of the research in the discipline further.
 
 ## References
