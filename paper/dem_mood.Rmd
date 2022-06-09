@@ -9,8 +9,7 @@ output:
     # pandoc_args: --lua-filter=multiple-bibliographies.lua
 
 title: |
-  | On the Importance of
-  | 'Janitor Work' in Political Science:
+  | On Data 'Janitor Work' in Political Science:
   | The Case of Thermostatic Support for Democracy
 thanks: "Corresponding author: [yuehong-tai@uiowa.edu](mailto:yuehong-tai@uiowa.edu). Current version: `r format(Sys.time(), '%B %d, %Y')`."
 author:
@@ -198,15 +197,9 @@ glance.pgmm <- function(x, ...) {
 theme_set(theme_bw())
 
 # Data preload
-df_compare <- readRDS(here("data", "data_comparison.rds"))
-# df_correlation <- readRDS(here("data", "data_correlation.rds"))
 df_apsr <- rio::import(here("data", "dem_mood_apsr.rda"))
 df_apsrCorrected <- rio::import(here("data", "correct_cls_apsr.rda")) %>% 
     rename(Country = country, Year = year)
-# df_plot <- arrange(df_correlation) %>%
-#     rownames_to_column() %>% 
-#     mutate(country = factor(country, levels = rev(country)),
-#            rowname = as.integer(rowname))
 
 ## dotwhisker::small_multiple() hacks
 body(small_multiple)[[19]] <- substitute(
@@ -475,8 +468,8 @@ These errors shifted the percentage of democracy-supporting responses in both di
 ## Consequences for Inference
 
 Data-entry errors of this sort can yield erroneous conclusions.
-After replicating the latent variable of democratic support with first the article's original data and then with the corrections to the errors we describe above, we replicated each of the models presented in @Claassen2020b exactly using both of these versions of the latent variable.
-The results provide only limited support for the classic argument that democracy generates its own demand, at least in the short run, and none at all for a thermostatic relationship.
+After generating the latent variable of democratic support with the corrections to the errors we describe above, we replicated each of the models presented in @Claassen2020b exactly using both the original and the new versions of the latent variable.
+The results using the corrected data reveal only limited support for the classic argument that democracy generates its own demand, at least in the short run, and none at all for a thermostatic relationship.
 
 Figure \@ref(fig:regressionPlot) presents our results in a "small multiple" plot [@SoltHu2015] for a clear comparison of the coefficients of each variable in the article's models. 
 In the plot, the dots represent point estimates and the whiskers show the associated 95% confidence intervals.
