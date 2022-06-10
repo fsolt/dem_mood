@@ -1,0 +1,5 @@
+cd dcpo_demsupport_kfold
+qsub -cwd -j y -o data/ -t 1-10 -M frederick-solt@uiowa.edu -m bea -q all.q -pe smp 8 -l cpu_arch=cascadelake_gold R/processing.sh
+
+# to retrieve files (from *local*)
+scp -r fsolt@argon.hpc.uiowa.edu:/Users/fsolt/dcpo_demsup_kfold/data/fold* ~/Documents/Projects/dcpo_article/data/kfold/

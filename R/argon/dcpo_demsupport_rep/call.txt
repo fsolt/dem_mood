@@ -1,0 +1,7 @@
+cd dcpo_demsupport_rep
+qsub -cwd -j y -o data/ -M frederick-solt@uiowa.edu -m bea -q all.q -pe smp 8 -l cpu_arch=cascadelake_gold R/processing_rep.sh
+
+qsub -cwd -j y -o data/ -M frederick-solt@uiowa.edu -m bea -q all.q -pe smp 8 -l cpu_arch=cascadelake_gold R/claassen_m5_rep.sh
+
+# to retrieve files (from *local*)
+scp -r fsolt@argon.hpc.uiowa.edu:/Users/fsolt/dcpo_demsupport_rep/data/church* ~/Documents/Projects/dcpo_demsupport/data/replication/

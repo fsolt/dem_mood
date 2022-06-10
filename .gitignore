@@ -15,3 +15,6 @@
 dev/*
 framed.sty
 data/*
+.idea/
+reference/
+output/

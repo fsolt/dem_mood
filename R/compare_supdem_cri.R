@@ -4,14 +4,21 @@ library(here)
 
 # Data cleaning and checking ---------------------------------------------------------
 
-sd <- read_csv(here::here("data", "supdem raw survey marginals.tab"), col_types = "cdcddcdc") %>% 
+if (!file.exists(here("data", "supdem raw survey marginals.tab"))) {
+  tempfile <- dataverse::get_file("supdem raw survey marginals.tab", "doi:10.7910/DVN/HWLW0J") # AJPS replication file, not included in APSR replication
+  
+  writeBin(tempfile, here("data", "supdem raw survey marginals.tab"))
+  rm(tempfile)
+}
+
+sd <- read_csv(here("data", "supdem raw survey marginals.tab"), col_types = "cdcddcdc") %>% 
     mutate(item_fam = str_extract(tolower(Item), "^[a-z]+"),
            country = countrycode::countrycode(Country, "country.name", "country.name"),
            dataset = "supdem") %>% 
     rename(year = Year, project = Project) %>% 
     with_min_yrs(2) # Selecting data w. at least two years
 
-claassen_input_raw <- read_csv(here::here("data", "claassen_input_raw.csv"),
+claassen_input_raw <- read_csv(here("data", "claassen_input_raw.csv"),
                                col_types = "cdcddcd")
 
 claassen_input_raw <- claassen_input_raw %>%
@@ -101,12 +108,14 @@ saveRDS(corrs, here("data", "data_correlation.rds"))
 
 ## Does Claassen use the exact same data in both articles?  Yep
 
-# load(here("data", "dem_mood_apsr.rda"))
-# saveRDS(dem_mood_apsr, here("data", "dem_mood_apsr.rds")) # using rds for later reading as an object
+if (!file.exists(here("data", "dem_mood_apsr.rds"))) {
+  load(here("data", "dem_mood_apsr.RData"))
+  saveRDS(x, here("data", "dem_mood_apsr.rds")) # using rds for later reading as an object
+}
 
 compare_supdem <- readRDS(here("data", "dem_mood_apsr.rds")) %>%
     select(Country, Year, apsr_supdem_trim = SupDem_trim) %>%
-    full_join(read.csv(here::here("data", "Support_democracy_ajps.csv")) %>%
+    full_join(read.csv(here("data", "Support_democracy_ajps.csv")) %>%
                   select(Country, Year, ajps_supdem_trim = SupDem_trim)) %>%
     mutate(diff = apsr_supdem_trim - ajps_supdem_trim)
 
@@ -128,7 +137,7 @@ df_theta <- map_dfr(correct_cls_apsr, ~select(., country, year, theta)) %>%
 df_apsr <- left_join(df_theta, df_control)
 saveRDS(df_apsr, here("data", "data_apsr_corrected.rds"))
 
-dcpo_input_raw1 <- read_csv(here::here("data", "dcpo_input_raw.csv"), col_types = "cdcddcd") %>% 
+dcpo_input_raw1 <- read_csv(here("data", "dcpo_input_raw.csv"), col_types = "cdcddcd") %>% 
     filter(!(str_detect(survey, "army_wvs") & # WVS obs identified as problematic by Claassen 
                  ((country=="Albania" & year==1998) |
                       (country=="Indonesia" & (year==2001 | year==2006)) |
@@ -152,13 +161,13 @@ dcpo_input_raw1 <- read_csv(here::here("data", "dcpo_input_raw.csv"), col_types 
 # Sys.setenv("DATAVERSE_SERVER" = "dataverse.harvard.edu")
 # These values can be set to persist across R sessions using `usethis::edit_r_environ()`
 
-if (!file.exists(here::here("data", "supdem raw survey marginals.tab"))) {
+if (!file.exists(here("data", "supdem raw survey marginals.tab"))) {
     tempfile <- dataverse::get_file("supdem raw survey marginals.tab", "doi:10.7910/DVN/HWLW0J") # AJPS replication file
     
-    writeBin(tempfile, here::here("data", "supdem raw survey marginals.tab"))
+    writeBin(tempfile, here("data", "supdem raw survey marginals.tab"))
 }
 
-supdem <- read_csv(here::here("data", "supdem raw survey marginals.tab"), col_types = "cdcddcdc")
+supdem <- read_csv(here("data", "supdem raw survey marginals.tab"), col_types = "cdcddcdc")
 
 supdem_cy <- supdem %>%                                             # 1390 obs
     janitor::clean_names() %>% 
@@ -167,7 +176,7 @@ supdem_cy <- supdem %>%                                             # 1390 obs
     dplyr::select(country, year, project) %>% 
     unique()
 
-claassen_input_cy <- read_csv(here::here("data", "dcpo_input_raw.csv"),
+claassen_input_cy <- read_csv(here("data", "dcpo_input_raw.csv"),
                               col_types = "cdcddcd") %>%           # 1864 obs
     mutate(p_dcpo = str_extract(survey, "^[a-z]+"), 
            project = case_when(p_dcpo == "afrob" ~ "afb",
@@ -207,7 +216,7 @@ missing_cyps <- anti_join(needed, year_fixes,  by = c("country", "year" = "year.
 cys_to_drop <- anti_join(available, year_fixes, by = c("country", "year" = "year.y", "project")) %>% # 477 obs
     select(-y_dcpo)
 
-claassen_replication_input_raw1 <- read_csv(here::here("data", "claassen_input_raw.csv"), col_types = "cdcddcd") %>% 
+claassen_replication_input_raw1 <- read_csv(here("data", "claassen_input_raw.csv"), col_types = "cdcddcd") %>% 
     filter(!(str_detect(item, "army_wvs") & # WVS obs identified as problematic by Claassen 
                  ((country=="Albania" & year==1998) |
                       (country=="Indonesia" & (year==2001 | year==2006)) |
@@ -230,9 +239,9 @@ claassen_replication_input_raw1 <- read_csv(here::here("data", "claassen_input_r
 
 claassen_replication_input <- DCPOtools::format_claassen(claassen_replication_input_raw1)
 
-# save(claassen_replication_input, file = here::here("data", "claassen_replication_input.rda"))
+# save(claassen_replication_input, file = here("data", "claassen_replication_input.rda"))
 # 
-# load(here::here("data", "claassen_replication_input.rda"))
+# load(here("data", "claassen_replication_input.rda"))
 
 claassen_m5 <- rstan::stan(file = 'R/argon/dcpo_demsupport/R/supdem.stan.mod5.stan',
                            data = claassen_replication_input,
@@ -243,10 +252,10 @@ claassen_m5 <- rstan::stan(file = 'R/argon/dcpo_demsupport/R/supdem.stan.mod5.st
                            pars = c("mu_lambda", "sigma_lambda", "sigma_delta", "sigma_theta", "phi", "lambda", "delta", "theta", "x_pred","log_lik"),
                            control = list(adapt_delta=0.99, stepsize=0.02, max_treedepth=11))
 
-save(claassen_m5, file = load(here::here("data", "claassen_m5.rda")))
+save(claassen_m5, file = load(here("data", "claassen_m5.rda")))
 
 
 # Preparing apsr data --------------------------------------------------------------
 
-load(here::here("output", "correct_cls_apsr.rda"))
-saveRDS(correct_cls_apsr, here::here("data", "correct_cls_apsr.rds"))
+load(here("output", "correct_cls_apsr.rda"))
+saveRDS(correct_cls_apsr, here("data", "correct_cls_apsr.rds"))
