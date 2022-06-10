@@ -50,6 +50,9 @@ header-includes:
       - \renewcommand{\bottomfraction}{.7}
       - \renewcommand{\textfraction}{.15}
       - \renewcommand{\floatpagefraction}{.66}
+      - \usepackage{pdflscape} #\usepackage{lscape} better for printing, page displayed vertically, content in landscape mode, \usepackage{pdflscape} better for screen, page displayed horizontally, content in landscape mode
+      - \newcommand{\blandscape}{\begin{landscape}}
+      - \newcommand{\elandscape}{\end{landscape}}
       - \setcounter{topnumber}{3}
       - \setcounter{bottomnumber}{3}
       - \setcounter{totalnumber}{4}
@@ -384,8 +387,7 @@ Fortunately, however, the spreadsheet recording these original source data is in
 ]
 
 We re-collected all of the source data for the publication from the original surveys.
-We identified the variables of the survey items used by the article within each survey dataset then used an automated process to collect the needed data from the survey datasets while avoiding data-entry errors [see @Solt2018].
-
+We identified the variables of the survey items used by the article within each survey dataset, and then we used an automated process to collect the needed data from the survey datasets while avoiding data-entry errors [see @Solt2018].
 In Figure \@ref(fig:comparison), we compare the percentage of respondents to give a democracy-supporting response in the publication spreadsheet with the percentage we found using our automated process of wrangling these same data.
 When points fall along the plot's dotted line, it indicates that the publication's source data and our own automated workflow reported the same percentages.
 Points above this diagonal represent observations for which the publication data overestimated the actual percentage of respondents who offered a democracy-supporting response, while points below this line are observations where the publication data underestimated this percentage.
@@ -622,7 +624,7 @@ There is no support for the thermostatic theory.
 
 This is not, we contend, a particularly surprising finding.
 As much as those who favor democracy might wish it were so, and as well as the thermostatic theory performs with regard to many other topics in public opinion, it is not a particularly likely candidate for explaining trends in democratic support---the mechanism required for it to operate is not present.
-In its original formulation, the theory requires citizens to possess a level of knowledge of politics that a long line of public opinion research shows is unrealistic; and as recently re-elaborated it requires the issue in question to be debated by political parties so as to provide cues to the broader public as to what is going on  [@Atkinson2021, 5-6].
+In its original formulation, the theory requires citizens to possess a level of knowledge of politics that a long line of public opinion research shows is unrealistic, and as recently re-elaborated it requires the issue in question to be debated by political parties so as to provide cues to the broader public as to what is going on  [@Atkinson2021, 5-6].
 But few parties actually engaged in eroding democracy put their actions in such terms: instead they claim to be defending democracy, or saving democracy, or putting forth a different model of democracy that better suits the nation's needs.
 And to the extent they succeed, their opponents are increasingly unable to make their case to the public at all.
 Absent its mechanism, the thermostat cannot operate on the public's democratic support.
@@ -655,6 +657,189 @@ If data-entry errors are invisible to the authors themselves, they are doubly so
 But the case described above nevertheless suggests a valuable heuristic: when a work's conclusions suggest that a difficult problem will be easily solved---that democratic erosion will reflexively trigger a backlash and a renewed public support for democracy, in the present instance---it warrants especially careful scrutiny.
 
 Data-entry errors are inevitable, and even following these recommendations is unlikely to eliminate them entirely.
-With careful attention, however, the threat of data-entry errors to our research and our understanding of the world can be minimized.
+With careful attention, however, the threat of data-entry errors to our 'janitor work', our research, and our understanding of the world can be minimized.
 
 ## References
+
+::: {#refs}
+:::
+
+\pagebreak
+
+# (APPENDIX) Appendix {-}
+## Online Supplementary Materials {-}
+\setcounter{page}{1}
+\renewcommand{\thepage}{A\arabic{page}}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{A.\arabic{figure}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{A.\arabic{table}}
+\listoftables
+
+\newpage
+\blandscape
+```{r num-labelAPSR}
+names_coef <- c(
+  "(Intercept)" = "(Intercept)",
+  "plm::lag(SupDem_trim, 1:2)1" = "Democratic Mood (t-1)",
+  "plm::lag(SupDem_trim, 1:2)2" = "Democratic Mood (t-2)",
+  "diff(Libdem_z, lag = 1)" = "Liberal Democracy (Difference)",
+  "Libdem_z" = "Liberal Democracy (Difference)",
+  "plm::lag(Libdem_z, 1)" = "Liberal Democracy (t-1)",
+  "diff(Polyarchy_z, lag = 1)" = "Electoral Democracy (Difference)",
+  "Polyarchy_z" = "Electoral Democracy (Difference)",
+  "plm::lag(Polyarchy_z, 1)" = "Electoral Democracy (t-1)",
+  "diff(Liberal_z, lag = 1)" = "Minoritarian Democracy (Difference)",
+  "Liberal_z" = "Minoritarian Democracy (Difference)",
+  "plm::lag(Liberal_z, 1)" = "Minoritarian Democracy (t-1)",
+  "diff(lnGDP_imp, lag = 1)" = "Log GDP Per Capita (Difference)",
+  "lnGDP_imp" = "Log GDP per capita (Difference)",
+  "plm::lag(lnGDP_imp, 1)" = "Log GDP (t-1)",
+  "diff(Corrup_TI_z, lag = 1)" = "Corruption (Difference)",
+  "Corrup_TI_z" = "Corruption (Difference)",
+  "plm::lag(Corrup_TI_z, 1)" = "Corruption (t-1)"
+)
+
+names_gof <- tibble::tribble(
+         ~raw,           ~clean, ~fmt,
+       "nobs", "N observations",    0,
+  "n.country",    "N countries",    0,
+     "n.inst",  "N instruments",    0
+  )
+```
+```{r tabulatingFun-APSR}
+## function to extract statistics of MOC models
+extract_statsAPSR <- function(input_data){
+    # Reproducing the chunk `pointAPSR` with updated data
+    sd.plm <- pdata.frame(input_data, index = c("country", "year")) 
+    
+    ls_ivECM <- c("diff(Libdem_z, lag = 1) + plm::lag(Libdem_z, 1)", 
+                  "diff(Polyarchy_z, lag = 1) + plm::lag(Polyarchy_z, 1) + diff(Liberal_z, lag = 1) + plm::lag(Liberal_z, 1)")
+    ls_ctrlECM <- c("", " + diff(Corrup_TI_z, lag = 1) + plm::lag(Corrup_TI_z, 1)")
+    
+    ls_eqECM <- glue("diff(SupDem_trim, lag = 1) ~ plm::lag(SupDem_trim, 1:2) + {ls_ivECM} + diff(lnGDP_imp, lag = 1) + plm::lag(lnGDP_imp, 1)") %>% 
+      outer(ls_ctrlECM, paste0) %>% 
+      as.vector()
+    
+    ls_ivFD <- c("Libdem_z",
+                 "Polyarchy_z + Liberal_z")
+    
+    ls_ctrlFD <- c("", " + Corrup_TI_z")
+    
+    ls_eqFD <- glue("SupDem_trim ~ {ls_ivFD} + lnGDP_imp") %>% 
+      outer(ls_ctrlFD, paste0) %>% 
+      as.vector()
+    
+    ls_mod <- c(
+      glue("plm({ls_eqECM}, model = 'pooling', data = sd.plm)"),
+      glue("plm({ls_eqFD}, model = 'fd', index = 'country', data = sd.plm)")
+    )
+    
+    df_result_clsAPSR <- map(ls_mod, function(mod) {
+      result <- eval(parse(text = mod))
+      glance_result <- glance.plm(result)
+      return(glance_result)
+    })
+    
+    names(df_result_clsAPSR) <- c("pooled1", "pooled-regime1", "pooled2", "pooled-regime2", "fd1", "fd-regime1", "fd2", "fd-regime2")
+    
+    return(df_result_clsAPSR)
+}
+
+# function to produce data formated to fit `modelsummary`
+format_resultAPSR <- function(condition, input_data){
+    tidy_mocAPSR1 <-
+        filter(result_APSR1, submodel == condition)
+    tidy_mocRegAPSR1 <-
+        filter(result_RegAPSR1, submodel == condition)
+    tidy_mocAPSR2 <-
+        filter(result_APSR2, submodel == condition)
+    tidy_mocRegAPSR2 <-
+        filter(result_RegAPSR2, submodel == condition)
+    
+    tidy_mocAPSR <-
+        bind_rows(tidy_mocAPSR1,
+                  tidy_mocRegAPSR1,
+                  tidy_mocAPSR2,
+                  tidy_mocRegAPSR2)
+    
+    vec_names <- levels(tidy_mocAPSR$model)
+    
+    tidy_mocAPSR <- group_split(tidy_mocAPSR, model)
+    names(tidy_mocAPSR) <- vec_names
+    tidy_mocAPSR <-
+        tidy_mocAPSR[c(
+            "Model 1.1 (ECM)",
+            "Model 2.1 (ECM)",
+            "Model 1.3 (FD)",
+            "Model 2.3 (FD)",
+            "Model 1.2 (ECM)",
+            "Model 2.2 (ECM)",
+            "Model 1.4 (FD)",
+            "Model 2.4 (FD)"
+        )]
+    
+    glance_mocAPSR <- extract_statsAPSR(input_data)
+    glance_mocAPSR <-
+        glance_mocAPSR[c(
+            "pooled1",
+            "pooled-regime1",
+            "fd1",
+            "fd-regime1",
+            "pooled2",
+            "pooled-regime2",
+            "fd2",
+            "fd-regime2"
+        )]
+    
+    tb_pureAPSR <- map2(tidy_mocAPSR, glance_mocAPSR, ~ {
+        result <- list(tidy = .x,
+                       glance = .y)
+        class(result) <- "modelsummary_list"
+        return(result)
+    })
+    
+    names(tb_pureAPSR) <-
+        c(
+            "ECM",
+            "ECM-Regime",
+            "FD",
+            "FD-Regime",
+            "ECM Corrup",
+            "ECM Corrup-Regime",
+            "FD Corrup",
+            "FD Corrup-Regime"
+        ) 
+    
+    return(tb_pureAPSR)
+}
+```
+```{r num-pointAPSR, results='asis'}
+tb_result_clsAPSR <- map(result_clsAPSR_tidy, ~ {
+  names(.) <- c("tidy", "glance")
+  class(.) <- "modelsummary_list"
+  return(.)}) 
+
+names(tb_result_clsAPSR) <- unique(txt_model_lab) %>% rep(times = 2)
+
+modelsummary(tb_result_clsAPSR[1:8], 
+             stars = TRUE,
+             coef_map = names_coef,
+             gof_map = names_gof, 
+             coef_omit = "Int",
+             output = "latex", 
+             title = "The Effect of Democracy on Change in Public Support (Publication Data)") %>% 
+  kableExtra::kable_styling(font_size = 7) %>% 
+  kableExtra::kable_styling(latex_options = "HOLD_position")
+
+modelsummary(tb_result_clsAPSR[9:16], 
+             stars = TRUE,
+             coef_map = names_coef,
+             gof_map = names_gof, 
+             coef_omit = "Int",
+             output = "latex", 
+             title = "The Effect of Democracy on Change in Public Support (Corrected Data)") %>% 
+  kableExtra::kable_styling(font_size = 7) %>% 
+  kableExtra::kable_styling(latex_options = "HOLD_position")
+```
+\elandscape
