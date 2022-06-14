@@ -15,7 +15,7 @@ thanks: "Corresponding author: [yuehong-tai@uiowa.edu](mailto:yuehong-tai@uiowa.
 author:
 - Yue Hu
   # affiliation: Tsinghua University
-- Yuehong 'Cassandra' Tai
+- Yuehong Cassandra Tai
   # affiliation: University of Iowa
 - Frederick Solt
   # affiliation: University of Iowa
@@ -68,16 +68,24 @@ knitr::opts_chunk$set(
     dpi = 300
 )
 
+if (!require(cmdstanr)) {
+  install.packages("cmdstanr", repos = c("https://mc-stan.org/r-packages/",
+                                         getOption("repos")))
+  library(cmdstanr)
+  install_cmdstan() # C++ toolchain required; see https://mc-stan.org/cmdstanr/articles/cmdstanr.html
+}
+
 if (!require(pacman))
     install.packages("pacman")
 library(pacman)
-
+  
 p_install(janitor, force = FALSE)
 p_install_gh(c("fsolt/DCPOtools"), force = FALSE)
 
 # load all the packages you will use below
 p_load(
     # analysis
+    cmdstanr,
     plm,
     
     # presentation
@@ -199,11 +207,6 @@ glance.pgmm <- function(x, ...) {
 
 theme_set(theme_bw())
 
-# Data preload
-df_apsr <- rio::import(here("data", "dem_mood_apsr.rda"))
-df_apsrCorrected <- rio::import(here("data", "correct_cls_apsr.rda")) %>% 
-    rename(Country = country, Year = year)
-
 ## dotwhisker::small_multiple() hacks
 body(small_multiple)[[19]] <- substitute(
     p <-
@@ -240,6 +243,7 @@ if (!file.exists(here::here("data", "supdem raw survey marginals.tab"))) {
     rm(tempfile)
 }
 
+# publication data
 sd <- read_csv(here::here("data", "supdem raw survey marginals.tab"), col_types = "cdcddcdc") %>% 
     mutate(item_fam = str_extract(tolower(Item), "^[a-z]+"),
            country = countrycode::countrycode(Country, "country.name", "country.name"),
@@ -247,6 +251,7 @@ sd <- read_csv(here::here("data", "supdem raw survey marginals.tab"), col_types 
     rename(year = Year, project = Project) %>% 
     with_min_yrs(2) # Selecting data w. at least two years
 
+# corrected data
 if (!file.exists(here::here("data", "claassen_input_raw.csv"))) {
 claassen_input_raw <- DCPOtools:::claassen_setup(vars = read_csv(here::here("data-raw", "mood_dem.csv"),
                                                                  col_types = "cccccc"),
@@ -472,13 +477,286 @@ These errors shifted the percentage of democracy-supporting responses in both di
 
 ## Consequences for Inference
 
+```{r corrected_cm5, eval=FALSE, cache=FALSE, include=FALSE, results=FALSE}
+iter <- 500
+
+cm5 <- cmdstan_model("R/supdem.stan.mod5.stan")
+corrected_output <- cm5$sample(
+    data = claassen_input[1:11], 
+    max_treedepth = 11,
+    adapt_delta = 0.99,
+    step_size = 0.02,
+    seed = 324, 
+    chains = 4, 
+    parallel_chains = 4,
+    iter_warmup = iter/2,
+    iter_sampling = iter/2,
+    refresh = iter/50
+)
+results_path <- here::here(file.path("data", 
+                                     "corrected", 
+                                     {str_replace_all(Sys.time(), "[- :]", "") %>%
+                                         str_replace("\\d{2}$", "")}))
+dir.create(results_path, 
+           showWarnings = FALSE, 
+           recursive = TRUE)
+corrected_output$save_data_file(dir = results_path,
+                           random = FALSE)
+corrected_output$save_output_files(dir = results_path,
+                              random = FALSE)
+```
+
+```{r corrected_cm5_results, cache=TRUE}
+if (!exists("results_path")) {
+  latest <- "202205211148"
+  results_path <- here::here("data", "corrected", latest)
+  
+  # Define OSF_PAT in .Renviron: https://docs.ropensci.org/osfr/articles/auth
+  if (!file.exists(file.path(results_path, paste0("supdem.stan.mod5-", latest, "-1.csv")))) {
+    dir.create(results_path, showWarnings = FALSE, recursive = TRUE)
+    osf_retrieve_node("vmxkn") %>%
+      osf_ls_files() %>% 
+      filter(name == latest) %>% 
+      osf_download(path = here::here("data", "corrected"))
+  }
+}
+
+corrected_output <- as_cmdstan_fit(here::here(results_path,
+                                         list.files(results_path, pattern = "csv$")))
+
+```
+
+```{r corrected_cm5_results_summary, cache=TRUE}
+summarize_cm5_results <- function(cm5_input,
+                             cm5_output,
+                             pars = c("theta"),
+                             probs = c(.1, .9)) {
+
+    question <- country <- year <- parameter <- variable <- kk <- tt <- qq <- rr <- NULL
+
+    dat <- cm5_input$data
+
+    qcodes <- dat %>%
+        dplyr::transmute(item = item,
+                         qq = as.numeric(as.factor(item))) %>% 
+        unique()
+
+    kcodes <- dat %>%
+        dplyr::transmute(country = country,
+                         kk = as.numeric(as.factor(country))) %>% 
+        unique()
+
+    tcodes <- dat %>%
+        dplyr::transmute(year = year,
+                         tt = as.numeric(as.factor(year))) %>% 
+        unique() %>% 
+        arrange(year)
+
+
+    ktcodes <- dat %>%
+        dplyr::group_by(country) %>%
+        dplyr::summarize(first_yr = min(year),
+                         last_yr = max(year))
+
+    if ("R6" %in% class(cm5_output)) {
+        fit <- cm5_output
+
+        summary_measures <- c("mean", "median", "sd", "mad", "rhat", "ess_bulk", "ess_tail")
+
+        res <- map_df(pars, function(par) {
+            if (par == "theta") {
+                fit$summary("theta",
+                            ~posterior::quantile2(., probs = probs),
+                            summary_measures) %>%
+                    dplyr::mutate(tt = as.numeric(gsub("theta\\[(\\d+),\\d+\\]",
+                                                       "\\1",
+                                                       variable)),
+                                  kk = as.numeric(gsub("theta\\[\\d+,(\\d+)\\]",
+                                                       "\\1",
+                                                       variable))) %>%
+                    dplyr::left_join(kcodes, by = "kk") %>%
+                    dplyr::left_join(tcodes, by = "tt") %>%
+                    dplyr::left_join(ktcodes, by = "country") %>%
+                    dplyr::filter(year >= first_yr & year <= last_yr) %>%
+                    dplyr::arrange(kk, tt) %>%
+                    dplyr::select(country, year,
+                                  starts_with("me"),
+                                  sd, mad, starts_with("q"),
+                                  rhat, starts_with("ess"),
+                                  variable, kk, tt)
+            } else if (par == "sigma") {
+                fit$summary("sigma",
+                            ~posterior::quantile2(., probs = probs),
+                            summary_measures) %>%
+                    dplyr::mutate(tt = as.numeric(gsub("sigma\\[(\\d+),\\d+\\]",
+                                                       "\\1",
+                                                       variable)),
+                                  kk = as.numeric(gsub("sigma\\[\\d+,(\\d+)\\]",
+                                                       "\\1",
+                                                       variable))) %>%
+                    dplyr::left_join(kcodes, by = "kk") %>%
+                    dplyr::left_join(tcodes, by = "tt") %>%
+                    dplyr::mutate(year = if_else(tt == 1,
+                                                 as.integer(year),
+                                                 as.integer(min(year, na.rm = TRUE) + tt - 1))) %>%
+                    dplyr::left_join(ktcodes, by = "country") %>%
+                    dplyr::filter(year >= first_yr & year <= last_yr) %>%
+                    dplyr::arrange(kk, tt) %>%
+                    dplyr::select(country, year,
+                                  starts_with("me"),
+                                  sd, mad, starts_with("q"),
+                                  rhat, starts_with("ess"),
+                                  variable, kk, tt)
+            } else if (par == "alpha") {
+                fit$summary("alpha",
+                            ~posterior::quantile2(., probs = probs),
+                            summary_measures) %>%
+                    dplyr::mutate(qq = as.numeric(gsub("alpha\\[(\\d+)]",
+                                                       "\\1",
+                                                       variable))) %>%
+                    dplyr::left_join(qcodes, by = "qq") %>%
+                    dplyr::arrange(qq) %>%
+                    dplyr::select(question, n, everything())
+            } else if (par == "beta") {
+                fit$summary("beta",
+                          ~posterior::quantile2(., probs = probs),
+                          summary_measures) %>%
+                    dplyr::mutate(rr = as.numeric(gsub("beta\\[(\\d+),\\d+\\]",
+                                                       "\\1",
+                                                       variable)),
+                                  qq = as.numeric(gsub("beta\\[\\d+,(\\d+)\\]",
+                                                       "\\1",
+                                                       variable)))%>%
+                    dplyr::left_join(qcodes, by = "qq") %>%
+                    dplyr::arrange(qq, rr) %>%
+                    dplyr::filter(rr <= rr_max) %>%
+                    dplyr::select(question, n, everything())
+            } else if (par == "delta") {
+                fit$summary("delta",
+                            ~posterior::quantile2(., probs = probs),
+                            summary_measures) %>%
+                    dplyr::mutate(qq = as.numeric(gsub("delta\\[(\\d+),\\d+\\]",
+                                                       "\\1",
+                                                       parameter)),
+                                  kk = as.numeric(gsub("delta\\[\\d+,(\\d+)\\]",
+                                                       "\\1",
+                                                       parameter)))%>%
+                    dplyr::left_join(qcodes, by = "qq") %>%
+                    dplyr::left_join(kcodes, by = "kk") %>%
+                    dplyr::arrange(qq) %>%
+                    dplyr::select(question, n, country, everything())
+            }
+        })
+    } else {
+        res <- map_df(pars, function(par) {
+            if (par == "theta") {
+                rstan::summary(dcpo_output, pars = "theta", probs = probs) %>%
+                    dplyr::first() %>%
+                    as.data.frame() %>%
+                    tibble::rownames_to_column("parameter") %>%
+                    tibble::as_tibble() %>%
+                    dplyr::mutate(tt = as.numeric(gsub("theta\\[(\\d+),\\d+\\]",
+                                                       "\\1",
+                                                       parameter)),
+                                  kk = as.numeric(gsub("theta\\[\\d+,(\\d+)\\]",
+                                                       "\\1",
+                                                       parameter))) %>%
+                    dplyr::left_join(kcodes, by = "kk") %>%
+                    dplyr::left_join(tcodes, by = "tt") %>%
+                    dplyr::mutate(year = if_else(tt == 1,
+                                                 as.integer(year),
+                                                 as.integer(min(year, na.rm = TRUE) + tt - 1))) %>%
+                    dplyr::left_join(ktcodes, by = "country") %>%
+                    dplyr::filter(year >= first_yr & year <= last_yr) %>%
+                    dplyr::arrange(kk, tt) %>%
+                    dplyr::select(-first_yr, -last_yr)
+            } else if (par == "sigma") {
+                rstan::summary(dcpo_output, pars = "sigma", probs = probs) %>%
+                    dplyr::first() %>%
+                    as.data.frame() %>%
+                    tibble::rownames_to_column("parameter") %>%
+                    tibble::as_tibble() %>%
+                    dplyr::mutate(tt = as.numeric(gsub("sigma\\[(\\d+),\\d+\\]",
+                                                       "\\1",
+                                                       parameter)),
+                                  kk = as.numeric(gsub("sigma\\[\\d+,(\\d+)\\]",
+                                                       "\\1",
+                                                       parameter))) %>%
+                    dplyr::left_join(kcodes, by = "kk") %>%
+                    dplyr::left_join(tcodes, by = "tt") %>%
+                    dplyr::arrange(kk, tt)
+            } else if (par == "alpha") {
+                rstan::summary(dcpo_output, pars = "alpha", probs = probs) %>%
+                    dplyr::first() %>%
+                    as.data.frame() %>%
+                    tibble::rownames_to_column("parameter") %>%
+                    tibble::as_tibble() %>%
+                    dplyr::mutate(qq = as.numeric(gsub("alpha\\[(\\d+)]",
+                                                       "\\1",
+                                                       parameter))) %>%
+                    dplyr::left_join(qcodes, by = "qq") %>%
+                    dplyr::arrange(qq)
+            } else if (par == "beta") {
+                rstan::summary(dcpo_output, pars = "beta", probs = probs) %>%
+                    dplyr::first() %>%
+                    as.data.frame() %>%
+                    tibble::rownames_to_column("parameter") %>%
+                    tibble::as_tibble() %>%
+                    dplyr::mutate(rr = as.numeric(gsub("beta\\[(\\d+),\\d+\\]",
+                                                       "\\1",
+                                                       parameter)),
+                                  qq = as.numeric(gsub("beta\\[\\d+,(\\d+)\\]",
+                                                       "\\1",
+                                                       parameter)))%>%
+                    dplyr::left_join(qcodes, by = "qq") %>%
+                    dplyr::arrange(qq, rr)
+            } else if (par == "delta") {
+                rstan::summary(dcpo_output, pars = "delta", probs = probs) %>%
+                    dplyr::first() %>%
+                    as.data.frame() %>%
+                    tibble::rownames_to_column("parameter") %>%
+                    tibble::as_tibble() %>%
+                    dplyr::mutate(qq = as.numeric(gsub("delta\\[(\\d+),\\d+\\]",
+                                                       "\\1",
+                                                       parameter)),
+                                  kk = as.numeric(gsub("delta\\[\\d+,(\\d+)\\]",
+                                                       "\\1",
+                                                       parameter)))%>%
+                    dplyr::left_join(qcodes, by = "qq") %>%
+                    dplyr::left_join(kcodes, by = "kk") %>%
+                    dplyr::arrange(qq)
+            }
+        })
+    }
+
+    return(res)
+}
+
+
+theta_summary <- summarize_cm5_results(claassen_input,
+                                       corrected_output,
+                                       "theta")
+
+if (!file.exists(here::here("data", "dem_mood_apsr.csv"))) {
+    tempfile <- dataverse::get_file_by_doi(filedoi = "doi:10.7910/DVN/FECIO3/ACMGQG") # APSR replication
+    
+    writeBin(tempfile, here::here("data", "dem_mood_apsr.csv"))
+    rm(tempfile)
+}
+
+df_apsr <- read_csv(here::here("data", "dem_mood_apsr.csv")) %>%
+  left_join(theta_summary, by = c("Year" = "year", "Country" = "country"))
+```
+
 Data-entry errors of this sort can yield erroneous conclusions.
 After generating the latent variable of democratic support with the corrections to the errors we describe above, we replicated each of the models presented in @Claassen2020b exactly using both the original and the new version of the latent variable.
 The results using the corrected data reveal only limited support for the classic argument that democracy generates its own demand, at least in the short run, and none at all for a thermostatic relationship.
 
 ```{r regressionResult}
 sd.plm <- pdata.frame(df_apsr, index = c("Country", "Year")) 
-sd.plm2 <- pdata.frame(df_apsrCorrected, index = c("Country", "Year"))
+sd.plm2 <- pdata.frame(df_apsr %>% 
+                         mutate(SupDem_trim = mean),
+                       index = c("Country", "Year"))
 
 ls_ivECM <- rep(c("diff(Libdem_z, lag = 1) + plm::lag(Libdem_z, 1)", 
                   "diff(Polyarchy_z, lag = 1) + plm::lag(Polyarchy_z, 1) + diff(Liberal_z, lag = 1) + plm::lag(Liberal_z, 1)"),
@@ -535,7 +813,7 @@ vec_numCoef <- map_dbl(c(1, 2, 5, 6, 3, 4, 7, 8), # ECM ECM FD FD
                        ~nrow(result_clsAPSR_tidy[[.]][[1]])) - 1 # subtract the intercepts
 
 txt_model_lab <- map2(txt_models, vec_numCoef, ~rep(.x, times = .y)) %>% 
-    unlist # model lists
+    unlist() # model lists
 txt_model_lab <- c(txt_model_lab[str_which(txt_model_lab, "EC")], 
                    txt_model_lab[str_which(txt_model_lab, "FD")])
 # Modify the orders to match the dataset
@@ -693,7 +971,7 @@ names_coef <- c(
   "Liberal_z" = "Minoritarian Democracy (Difference)",
   "plm::lag(Liberal_z, 1)" = "Minoritarian Democracy (t-1)",
   "diff(lnGDP_imp, lag = 1)" = "Log GDP Per Capita (Difference)",
-  "lnGDP_imp" = "Log GDP per capita (Difference)",
+  "lnGDP_imp" = "Log GDP Per Capita (Difference)",
   "plm::lag(lnGDP_imp, 1)" = "Log GDP (t-1)",
   "diff(Corrup_TI_z, lag = 1)" = "Corruption (Difference)",
   "Corrup_TI_z" = "Corruption (Difference)",
