@@ -57,7 +57,8 @@ header-includes:
       - \setcounter{bottomnumber}{3}
       - \setcounter{totalnumber}{4}
 ---
-
+	
+\captionsetup[figure]{list=no}
 ```{r setup, include=FALSE}
 options(tinytex.verbose = TRUE)
 
@@ -97,6 +98,7 @@ p_load(
     # data wrangling
     DCPOtools,
     janitor,
+    countrycode,
     here,
     broom,
     tidyverse,
@@ -236,98 +238,101 @@ body(small_multiple)[[19]] <- substitute(
 ```
 
 ```{r data_comparison, include=FALSE}
-if (!file.exists(here::here("data", "supdem raw survey marginals.tab"))) {
-    tempfile <- dataverse::get_file("supdem raw survey marginals.tab", "doi:10.7910/DVN/HWLW0J") # AJPS replication file, not included in APSR replication
-    
-    writeBin(tempfile, here::here("data", "supdem raw survey marginals.tab"))
-    rm(tempfile)
+if (!file.exists(here::here("data", "supdem raw survey marginals.csv"))) {
+  tempfile <- dataverse::get_file_by_doi("doi:10.7910/DVN/HWLW0J/RA8IJC") # AJPS replication file, not included in APSR replication
+
+  writeBin(tempfile, here::here("data", "supdem raw survey marginals.csv"))
+  rm(tempfile)
 }
 
 # publication data
-sd <- read_csv(here::here("data", "supdem raw survey marginals.tab"), col_types = "cdcddcdc") %>% 
-    mutate(item_fam = str_extract(tolower(Item), "^[a-z]+"),
-           country = countrycode::countrycode(Country, "country.name", "country.name"),
-           dataset = "supdem") %>% 
-    rename(year = Year, project = Project) %>% 
-    with_min_yrs(2) # Selecting data w. at least two years
+sd <- read_csv(here::here("data", "supdem raw survey marginals.csv"), col_types = "cdcddcdc") %>% 
+  mutate(item_fam = str_extract(tolower(Item), "^[a-z]+"),
+         country = countrycode::countrycode(Country, "country.name", "country.name"),
+         dataset = "supdem") %>% 
+  rename(year = Year, project = Project) %>% 
+  with_min_yrs(2) # Selecting data w. at least two years
 
 # corrected data
 if (!file.exists(here::here("data", "claassen_input_raw.csv"))) {
-claassen_input_raw <- DCPOtools:::claassen_setup(vars = read_csv(here::here("data-raw", "mood_dem.csv"),
-                                                                 col_types = "cccccc"),
-                                                 file = "data/claassen_input_raw.csv")
+  claassen_input_raw <- DCPOtools:::claassen_setup(
+    vars = read_csv(here::here("data-raw", "mood_dem.csv"),
+                    col_types = "cccccc"),
+    file = "data/claassen_input_raw.csv")
 }
 
 claassen_input_raw <- read_csv(here::here("data", "claassen_input_raw.csv"),
                                col_types = "cdcddcd")
 
 claassen_input_raw1 <- claassen_input_raw %>%
-    filter(!((
-        str_detect(item, "army_wvs") &
-            # WVS obs identified as problematic by Claassen
-            ((country == "Albania" & year == 1998) |
-                 (country == "Indonesia" &
-                      (year == 2001 | year == 2006)) |
-                 (country == "Iran" & year == 2000) |
-                 (country == "Pakistan" &
-                      (year == 1997 | year == 2001)) | # 1996 in Claassen
-                 (country == "Vietnam" & year == 2001)
-            )
+  filter(!((
+    str_detect(item, "army_wvs") &
+      # WVS obs identified as problematic by Claassen
+      ((country == "Albania" & year == 1998) |
+         (country == "Indonesia" &
+            (year == 2001 | year == 2006)) |
+         (country == "Iran" & year == 2000) |
+         (country == "Pakistan" &
+            (year == 1997 | year == 2001)) | # 1996 in Claassen
+         (country == "Vietnam" & year == 2001)
+      )
+  ) |
+    (
+      str_detect(item, "strong_wvs") &
+        ((country == "Egypt" & year == 2012) |
+           (country == "Iran" &
+              (year == 2000 | year == 2007)) | # 2005 in Claassen
+           (country == "India") |
+           (country == "Pakistan" &
+              (year == 1997 | year == 2001)) | # 1996 in Claassen
+           (country == "Kyrgyzstan" &
+              (year == 2003 | year == 2011)) |
+           (country == "Romania" &
+              (year == 1998 | year == 2005 | year == 2012)) |
+           (country == "Vietnam" & year == 2001)
+        )
     ) |
-        (
-            str_detect(item, "strong_wvs") &
-                ((country == "Egypt" & year == 2012) |
-                     (country == "Iran" &
-                          (year == 2000 | year == 2007)) | # 2005 in Claassen
-                     (country == "India") |
-                     (country == "Pakistan" &
-                          (year == 1997 | year == 2001)) | # 1996 in Claassen
-                     (country == "Kyrgyzstan" &
-                          (year == 2003 | year == 2011)) |
-                     (country == "Romania" &
-                          (year == 1998 | year == 2005 | year == 2012)) |
-                     (country == "Vietnam" & year == 2001)
-                )
-        ) |
-        (
-            country %in% c(
-                "Puerto Rico",
-                "Northern Ireland",
-                "SrpSka Republic",
-                "Hong Kong SAR China"
-            )
-        ))) %>%
-    with_min_yrs(2)
+    (
+      country %in% c(
+        "Puerto Rico",
+        "Northern Ireland",
+        "SrpSka Republic",
+        "Hong Kong SAR China"
+      )
+    ))) %>%
+  with_min_yrs(2)
 
-claassen_input <- DCPOtools:::format_claassen(claassen_input_raw1)
+claassen_input0 <- DCPOtools::format_claassen(claassen_input_raw1)
 
-cri <- claassen_input$data %>% 
-    mutate(p_dcpo = str_extract(survey, "^[a-z]+"), 
-           project = case_when(p_dcpo == "afrob" ~ "afb",
-                               p_dcpo == "amb" ~ "lapop",
-                               p_dcpo == "arabb" ~ "arb",
-                               p_dcpo == "asiab" ~ "asb",
-                               p_dcpo == "asianb" ~ "asnb",
-                               p_dcpo == "neb" ~ "ndb",
-                               p_dcpo == "sasianb" ~ "sab",
-                               TRUE ~ p_dcpo),
-           item_fam = str_extract(item, "^[a-z]+"),
-           item_fam = if_else(item_fam == "election", "elec", item_fam),
-           dataset = "cri")
+cri <- claassen_input0$data %>% 
+  mutate(p_dcpo = str_extract(survey, "^[a-z]+"), 
+         project = case_when(p_dcpo == "afrob" ~ "afb",
+                             p_dcpo == "amb" ~ "lapop",
+                             p_dcpo == "arabb" ~ "arb",
+                             p_dcpo == "asiab" ~ "asb",
+                             p_dcpo == "asianb" ~ "asnb",
+                             p_dcpo == "neb" ~ "ndb",
+                             p_dcpo == "sasianb" ~ "sab",
+                             TRUE ~ p_dcpo),
+         item_fam = str_extract(item, "^[a-z]+"),
+         item_fam = if_else(item_fam == "election", "elec", item_fam),
+         dataset = "cri")
 
 supdem_cri <- full_join(sd, cri, by = c("country", "year", "item_fam", "project"))
 
-# While DCPO assigns actual year of survey, Claassen used nominal year of wave,
-# so some corrections are required to match observations (~8% of obs)
+# While DCPO assigns actual year of survey, Claassen (2020) often uses nominal year
+# of wave, so some corrections are required to match observations (~8% of obs);
+# we could write about this as a data-entry error, too, but no space to spare,
+# so we'll adopt those years instead to facilitate straight-up comparison
 no_problems <- inner_join(sd %>% select(-dataset), 
                           cri %>% select(-dataset),
-                          by = c("country", "year", "item_fam", "project")) # 3409 obs
+                          by = c("country", "year", "item_fam", "project")) # 3403 obs
 
 needed <- anti_join(sd %>% select(-dataset),
-                    cri %>% select(-dataset))                   # 307 obs
+                    cri %>% select(-dataset))                   # 313 obs
 
 available <- anti_join(cri %>% select(-dataset),
-                       sd %>% select(-dataset))                # 1418 obs
+                       sd %>% select(-dataset))                # 1310 obs
 
 year_fixes <- left_join(needed,    # 304 obs
                         available,
@@ -341,8 +346,55 @@ year_fixes <- left_join(needed,    # 304 obs
   ungroup() %>% 
   filter(closest_to_claassen == abs(diff) & closest_to_dcpo == abs(diff) & abs(diff) <= 3) %>% 
   filter(!(country == "Egypt" & year.x == 2014 & survey == "afrob5")) %>%  # double matches (it's really afrob6)
-  mutate(year = year.y) %>% 
-  select(names(no_problems))
+  mutate(year = year.y)
+
+cys_crosswalk <- year_fixes %>% 
+  select(country, y_dcpo = year.y, y_claassen = year.x, survey) %>% 
+  distinct()
+
+claassen_input_raw2 <- claassen_input_raw1 %>%
+  # left_join(cys_crosswalk, by = c("country", "year" = "y_dcpo", "survey")) %>% 
+  # mutate(year = if_else(is.na(y_claassen), year, y_claassen),
+  #        p_dcpo = str_extract(survey, "^[a-z]+"), 
+  #        project = case_when(p_dcpo == "afrob" ~ "afb",
+  #                            p_dcpo == "amb" ~ "lapop",
+  #                            p_dcpo == "arabb" ~ "arb",
+  #                            p_dcpo == "asiab" ~ "asb",
+  #                            p_dcpo == "asianb" ~ "asnb",
+  #                            p_dcpo == "neb" ~ "ndb",
+  #                            p_dcpo == "sasianb" ~ "sab",
+  #                            TRUE ~ p_dcpo)) %>% 
+  # right_join(sd %>% 
+  #             distinct(country, year, project),
+  #           by = c("country", "year", "project")) %>% 
+  right_join(sd %>% distinct(country), by = "country")
+
+claassen_input <- DCPOtools:::format_claassen(claassen_input_raw2)
+
+cri2 <- claassen_input$data %>% 
+  mutate(p_dcpo = str_extract(survey, "^[a-z]+"), 
+         project = case_when(p_dcpo == "afrob" ~ "afb",
+                             p_dcpo == "amb" ~ "lapop",
+                             p_dcpo == "arabb" ~ "arb",
+                             p_dcpo == "asiab" ~ "asb",
+                             p_dcpo == "asianb" ~ "asnb",
+                             p_dcpo == "neb" ~ "ndb",
+                             p_dcpo == "sasianb" ~ "sab",
+                             TRUE ~ p_dcpo),
+         item_fam = str_extract(item, "^[a-z]+"),
+         item_fam = if_else(item_fam == "election", "elec", item_fam),
+         dataset = "cri2")
+
+supdem_cri2 <- full_join(sd, 
+                         cri2, 
+                         by = c("country", "year", "item_fam", "project"))
+
+no_problems2 <- inner_join(sd %>% select(-dataset), 
+                          cri2 %>% select(-dataset),
+                          by = c("country", "year", "item_fam", "project")) # 3706 obs
+
+needed2 <- anti_join(sd %>% select(-dataset),
+                    cri2 %>% select(-dataset))                   # 10 obs; these are not in the surveys
 
 data_comparison <- bind_rows(no_problems, year_fixes) %>% 
   mutate(perc_cls = Response/Sample*100,
@@ -352,8 +404,6 @@ data_comparison <- bind_rows(no_problems, year_fixes) %>%
          diff_x = round(Response - x),
          diff_samp = round(Sample - samp)) %>% 
   select(-CAbb, -COWCode)
-
-saveRDS(data_comparison, here("data", "data_comparison.rds"))
 ```
 
 
@@ -379,7 +429,7 @@ On this basis, we conclude with four practical suggestions to help political sci
 ## Data-Entry Errors and Democratic Support
 
 With democracy under increasing threat in countries around the world, how the public reacts is a crucial question.
-According to a now-classic literature, it is experience with democratic governance that generates robust public support for democracy [see, e.g., @Lipset1959a].
+According to a classic and still vibrant literature, growing experience with democratic governance helps generate robust public support for democracy [see, e.g., @Lipset1959a; @Welzel2013; @Wuttke2022].
 @Claassen2020b argues instead that democratic support behaves thermostatically: that increases in democracy yield an authoritarian backlash in the public, while democratic backsliding prompts the public to rally to democracy's cause.
 
 The evidence it offers in support of this latter argument takes advantage of recent advances in modeling public opinion as a latent variable to measure democratic support.
@@ -454,7 +504,7 @@ This led to overestimations of the percentage of democracy-supporting responses 
 
 Similarly, the four waves of the Asian Barometer included the following item: "Here is a similar scale of 1 to 10 measuring the extent to which people think democracy is suitable for our country. If 1 means that democracy is completely unsuitable for [name of country] today and 10 means that it is completely suitable, where would you place our country today?"
 In accordance with the coding rules of the study, responses of 6 through 10 are considered democracy supporting, and that is how the first, third, and fourth waves of the survey are coded.
-For the second wave, however, 5 was erroneously also included among the democracy supporting-response.
+For the second wave, however, 5 was erroneously also included among the democracy-supporting responses.
 This data-entry error resulted in overestimates of as much as `r data_comparison %>% filter(item=="democsuit_asianb" & (year==2005|year==2006|year==2008)) %>% pull(diff_perc) %>% max() %>% round()` percentage points in 9 country-years. 
 
 A third example comes from the Pew Global Attitudes surveys' four-point item asking about the importance of living in a country with regular and fair contested elections:
@@ -472,15 +522,21 @@ This rule may be a reasonable coding choice, but including in this category thos
 Another source of data-entry errors here involves survey weights.
 Weighting raw survey results to maximize the extent to which they are representative of the target population is important.
 Relying on toplines reported in codebooks rather than the survey data itself evidently caused some mistakes in correctly entering the needed information here, as codebooks do not always take survey weights into account.
-These errors shifted the percentage of democracy-supporting responses in both directions, typically by relatively small amounts.
+These errors shifted the percentage of democracy-supporting responses in both directions, typically by relatively small amounts.^[
+Although not depicted on this plot, data-entry errors were also evident in the variable recording the year in which a survey was conducted: these typically reflected differences between the nominal year of a survey wave and when the survey was actually in the field in a particular country.
+This was an issue for some `r {nrow(needed)/nrow(sd) * 100} %>% round()`% of the country-year observations.
+Correcting these mistakes led the corrected nalysis dataset to be slightly smaller than in @Claassen2020b as the actual first observed year for several countries was later than recorded in the published data.
+]
 
 
 ## Consequences for Inference
 
 ```{r corrected_cm5, eval=FALSE, cache=FALSE, include=FALSE, results=FALSE}
+# omit eval=FALSE to re-generate the corrected democracy support series
+# not evaluated by default because it takes a long while on most machines
 iter <- 500
 
-cm5 <- cmdstan_model("R/supdem.stan.mod5.stan")
+cm5 <- cmdstan_model(here::here("R", "supdem.stan.mod5.stan"))
 corrected_output <- cm5$sample(
     data = claassen_input[1:11], 
     max_treedepth = 11,
@@ -508,7 +564,7 @@ corrected_output$save_output_files(dir = results_path,
 
 ```{r corrected_cm5_results, cache=TRUE}
 if (!exists("results_path")) {
-  latest <- "202205211148"
+  latest <- "202206151125"
   results_path <- here::here("data", "corrected", latest)
   
   # Define OSF_PAT in .Renviron: https://docs.ropensci.org/osfr/articles/auth
@@ -546,12 +602,8 @@ summarize_cm5_results <- function(cm5_input,
                          kk = as.numeric(as.factor(country))) %>% 
         unique()
 
-    tcodes <- dat %>%
-        dplyr::transmute(year = year,
-                         tt = as.numeric(as.factor(year))) %>% 
-        unique() %>% 
-        arrange(year)
-
+    tcodes <- tibble(year = min(dat$year):max(dat$year),
+                     tt = year - min(year) + 1)
 
     ktcodes <- dat %>%
         dplyr::group_by(country) %>%
@@ -577,7 +629,7 @@ summarize_cm5_results <- function(cm5_input,
                     dplyr::left_join(kcodes, by = "kk") %>%
                     dplyr::left_join(tcodes, by = "tt") %>%
                     dplyr::left_join(ktcodes, by = "country") %>%
-                    dplyr::filter(year >= first_yr & year <= last_yr) %>%
+                    dplyr::filter(year >= first_yr) %>% # & year <= last_yr
                     dplyr::arrange(kk, tt) %>%
                     dplyr::select(country, year,
                                   starts_with("me"),
@@ -745,12 +797,14 @@ if (!file.exists(here::here("data", "dem_mood_apsr.csv"))) {
 }
 
 df_apsr <- read_csv(here::here("data", "dem_mood_apsr.csv")) %>%
-  left_join(theta_summary, by = c("Year" = "year", "Country" = "country"))
+  # filter(!is.na(SupDem_trim)) %>% 
+  mutate(Country = countrycode::countrycode(Country, "country.name", "country.name")) %>% 
+  right_join(theta_summary, by = c("Year" = "year", "Country" = "country"))
 ```
 
 Data-entry errors of this sort can yield erroneous conclusions.
 After generating the latent variable of democratic support with the corrections to the errors we describe above, we replicated each of the models presented in @Claassen2020b exactly using both the original and the new version of the latent variable.
-The results using the corrected data reveal only limited support for the classic argument that democracy generates its own demand, at least in the short run, and none at all for a thermostatic relationship.
+The results using the corrected data reveal some support for the classic argument that democracy generates its own demand through the long-run processes of socialization and learning and none at all for a thermostatic relationship.
 
 ```{r regressionResult}
 sd.plm <- pdata.frame(df_apsr, index = c("Country", "Year")) 
@@ -801,7 +855,7 @@ result_clsAPSR_tidy <- map(result_clsAPSR, function(aResult) {
 })
 ```
 
-```{r regressionPlot, fig.cap= "The Effect of Democracy on Change in Public Support", fig.width=7, fig.height=6}
+```{r regressionPlot, fig.cap= "The Effect of Democracy on Change in Public Support", fig.width=7, fig.height=7}
 
 txt_models <- paste0("Model ",
                      rep(1:2, each = 4), ".", rep(1:4, 2),
@@ -863,6 +917,7 @@ small_multiple(df_plot, axis_switch = TRUE, dot_args = list(size = .9, fatten = 
                               "Corrected Data")) +
     theme(axis.text.x  = element_text(angle = 90, hjust = .5),
           strip.text.y.left = element_text(angle = 0),
+          strip.background = element_rect(colour="white", fill="white"),
           legend.position = c(0.006, -.01),
           legend.justification = c(1, 1), 
           legend.title = element_blank(),
@@ -889,16 +944,239 @@ In the plot, the dots represent point estimates and the whiskers show the associ
 Models 1.1 through 1.4, which replicate those presented in Table 1 of @Claassen2020b [, 47], examine the effects of overall liberal democracy using error-correction models and first-difference models.
 As @Claassen2020b [, 46] notes, the thermostatic theory predicts that the estimated coefficient of the change in liberal democracy will be negative, while the classic theory suggests that lagged levels of liberal democracy will be positive.
 When using the original publication data with their data-entry errors, we replicate the results of the article exactly: the coefficients estimated for the change in liberal democracy are large, negative, and statistically significant across all four models, just as the thermostatic theory predicts. 
-The positive and statistically significant result for the lagged level of liberal democracy found in Model 1.1---supporting the classic theory---disappears when corruption is taken into account in Model 1.2, suggesting that "this effect is not particularly robust" [@Claassen2020b, 47].
+The positive and statistically significant result for the lagged level of liberal democracy found in Model 1.1---supporting the classic theory---disappears when corruption is taken into account in Model 1.2.
 
 When the data-entry errors are corrected, however, the results for these models suggest a very different set of conclusions.
-The standard errors shrink across the board---indicating that the models are better estimated in the corrected data---but so do the magnitudes of the coefficients.
-The positive and statistically significant result for the lagged level of liberal democracy remains in Model 1.1.
-The estimate is only slightly smaller than in the publication data, and as with the publication data, it disappears when corruption is added in Model 1.2: the evidence, such as it is, for the classic theory, operationalized as a short-run process, remains substantively unchanged.
-On the other hand, the estimates for the change in liberal democracy that provided support for the thermostatic theory are much smaller---very nearly exactly zero---and fail to reach statistical significance in any of these four models.
-Models 2.1 through 2.4, which break liberal democracy into its electoral democracy and minoritarian democracy components, similarly undermine claims for the thermostatic theory.
-The strong and statistically significant negative coefficients for the change in minoritarian democracy on public democratic support that are found using the publication dataset evaporate when the data-entry errors are corrected.
-There is no support for the thermostatic theory.
+The standard errors shrink across the board, indicating that the models are better estimated in the corrected data.
+The positive and statistically significant result for the lagged level of liberal democracy remains in Model 1.1, and the estimate is only slightly smaller than in the publication data.
+When corruption is added in Model 1.2, or when the focus shifts from overall liberal democracy to its minoritarian component in Models 2.1 and 2.2, this coefficient estimate actually grows slightly larger when using the corrected data rather than the publication data, although it still fails to reach statistical significance.
+On the other hand, the estimates for the change in liberal democracy that provided support for the thermostatic theory are much smaller in all of the models.
+Models 2.1 through 2.4, which break liberal democracy into its electoral democracy and minoritarian democracy components, similarly yield smaller coefficients for the change in democracy than those found when using the publication data.
+
+```{r simulations}
+# Model 1.1
+mod <- result_clsAPSR[[9]]
+
+n.coef =  length(coef(mod))
+n.yrs = 230
+n.burn = 200
+pred.data = data.frame(Intercept=1,
+                       SupDem_m1=0,
+                       SupDem_m2=0, 
+                       ChgDem=0,
+                       Libdem_m1=c(rep(-.5, n.burn),
+                                   rep(.5, n.yrs-n.burn)), 
+                       ChglogGDP=0,
+                       lnGDP_m1=mean(df_apsr$lnGDP_imp, na.rm=TRUE),
+                       ChgSup=NA,
+                       SupDem=NA)
+
+for(i in 1:(n.yrs-1)) {
+  pred.data[i, "ChgDem"] = pred.data[i+1, "Libdem_m1"] - pred.data[i, "Libdem_m1"]
+  pred.data[i, "ChgSup"] = sum(pred.data[i, 1:n.coef] * coef(mod))
+  pred.data[i, "SupDem"] = pred.data[i, "SupDem_m1"] + pred.data[i, "ChgSup"]
+  pred.data[i+1, "SupDem_m1"] = pred.data[i, "SupDem"]
+  pred.data[i+1, "SupDem_m2"] = pred.data[i, "SupDem_m1"]
+}
+
+n.sims = 1e4
+mod.sims = MASS::mvrnorm(n=n.sims, mu=coef(mod), Sigma=plm::vcovHC(mod))
+yhat = matrix(NA, ncol=n.yrs, nrow=n.sims)
+sup.hat = matrix(NA, ncol=n.yrs, nrow=n.sims)
+for(i in 1:(n.yrs-1)) {
+  yhat[, i] = mod.sims %*% t(pred.data[i, 1:n.coef])
+  sup.hat[, i] = pred.data[i, "SupDem_m1"] + yhat[, i] + rnorm(n.sims, 0, sigma(mod))
+}
+
+sup_hat <- sup.hat - apply(sup.hat, 2, mean, na.rm=TRUE)[n.burn-1]
+
+sim_data11 <- tibble(fd = apply(sup_hat, 2, mean, na.rm=TRUE),
+                     u95 = apply(sup_hat, 2, quantile, 0.975, na.rm=TRUE),
+                     l95 = apply(sup_hat, 2, quantile, 0.025, na.rm=TRUE),
+                     model = "Model 1.1",
+                     dem = "Liberal Democracy") %>% 
+  mutate(year = row_number() - n.burn) %>% 
+  filter(year > -5 & !is.na(fd))
+
+# Model 1.2
+mod <- result_clsAPSR[[10]]
+
+n.coef =  length(coef(mod))
+
+pred.data = data.frame(Intercept=1,
+                       SupDem_m1=0,
+                       SupDem_m2=0, 
+                       ChgDem=0, 
+                       Libdem_m1=c(rep(-0.5,n.burn), rep(0.5,n.yrs-n.burn)), 
+                       ChglogGDP=0,
+                       lnGDP_m1=mean(df_apsr$lnGDP_imp, na.rm=TRUE),
+                       ChgCorr=0,
+                       Corrup_m1=0,
+                       ChgSup=NA,
+                       SupDem=NA)
+
+for(i in 1:(n.yrs-1)) {
+  pred.data[i, "ChgDem"] = pred.data[i+1, "Libdem_m1"] - pred.data[i, "Libdem_m1"]
+  pred.data[i, "ChgSup"] = sum(pred.data[i, 1:n.coef] * coef(mod))
+  pred.data[i, "SupDem"] = pred.data[i, "SupDem_m1"] + pred.data[i, "ChgSup"]
+  pred.data[i+1, "SupDem_m1"] = pred.data[i, "SupDem"]
+  pred.data[i+1, "SupDem_m2"] = pred.data[i, "SupDem_m1"]
+}
+
+mod.sims = MASS::mvrnorm(n=n.sims, mu=coef(mod), Sigma=plm::vcovHC(mod))
+yhat = matrix(NA, ncol=n.yrs, nrow=n.sims)
+sup.hat = matrix(NA, ncol=n.yrs, nrow=n.sims)
+for(i in 1:(n.yrs-1)) {
+  yhat[, i] = mod.sims %*% t(pred.data[i, 1:n.coef])
+  sup.hat[, i] = pred.data[i, "SupDem_m1"] + yhat[, i] + rnorm(n.sims, 0, sigma(mod))
+}
+
+sup_hat <- sup.hat - apply(sup.hat, 2, mean, na.rm=TRUE)[n.burn-1]
+
+sim_data12 <- tibble(fd = apply(sup_hat, 2, mean, na.rm=TRUE),
+                     u95 = apply(sup_hat, 2, quantile, 0.975, na.rm=TRUE),
+                     l95 = apply(sup_hat, 2, quantile, 0.025, na.rm=TRUE),
+                     model = "Model 1.2",
+                     dem = "Liberal Democracy") %>% 
+  mutate(year = row_number() - n.burn) %>% 
+  filter(year > -5 & !is.na(fd))
+
+# Model 2.1
+mod = plm(diff(SupDem_trim, lag=1) ~ plm::lag(SupDem_trim, 1:2) + diff(Polyarchy_z, lag=1) 
+          + plm::lag(Polyarchy_z, 1) + diff(Liberal_z, lag=1) + plm::lag(Liberal_z, 1) 
+          + diff(lnGDP_imp, lag=1) + plm::lag(lnGDP_imp, 1), sd.plm, model="pooling")
+
+n.coef =  length(coef(mod))
+
+pred.data = data.frame(Intercept=1,
+                       SupDem_m1=0,
+                       SupDem_m2=0, 
+                       ChgPoly=0, 
+                       Poly_m1=0, 
+                       ChgLib=0, 
+                       Liberal_m1=c(rep(-0.5,n.burn),
+                                    rep(0.5,n.yrs-n.burn)),                        
+                       ChglogGDP=0,
+                       lnGDP_m1=mean(df_apsr$lnGDP_imp, na.rm=TRUE),
+                       ChgCorr=0,
+                       Corrup_m1=mean(df_apsr$Corrup_TI_z, na.rm=TRUE),
+                       ChgSup=NA,
+                       SupDem=NA)
+
+for(i in 1:(n.yrs-1)) {
+  pred.data[i, "ChgLib"] = pred.data[i+1, "Liberal_m1"] - pred.data[i, "Liberal_m1"]
+  pred.data[i, "ChgSup"] = sum(pred.data[i, 1:n.coef] * coef(mod))
+  pred.data[i, "SupDem"] = pred.data[i, "SupDem_m1"] + pred.data[i, "ChgSup"]
+  pred.data[i+1, "SupDem_m1"] = pred.data[i, "SupDem"]
+  pred.data[i+1, "SupDem_m2"] = pred.data[i, "SupDem_m1"]
+}
+
+mod.sims = MASS::mvrnorm(n=n.sims, mu=coef(mod), Sigma=plm::vcovHC(mod))
+yhat = matrix(NA, ncol=n.yrs, nrow=n.sims)
+sup.hat = matrix(NA, ncol=n.yrs, nrow=n.sims)
+for(i in 1:(n.yrs-1)) {
+  yhat[, i] = mod.sims %*% t(pred.data[i, 1:n.coef])
+  sup.hat[, i] = pred.data[i, "SupDem_m1"] + yhat[, i] + rnorm(n.sims, 0, sigma(mod))
+}
+
+sup_hat <- sup.hat - apply(sup.hat, 2, mean, na.rm=TRUE)[n.burn-1]
+
+sim_data21 <- tibble(fd = apply(sup_hat, 2, mean, na.rm=TRUE),
+                     u95 = apply(sup_hat, 2, quantile, 0.975, na.rm=TRUE),
+                     l95 = apply(sup_hat, 2, quantile, 0.025, na.rm=TRUE),
+                     model = "Model 2.1",
+                     dem = "Minoritarian Democracy") %>% 
+  mutate(year = row_number() - n.burn) %>% 
+  filter(year > -5 & !is.na(fd))
+
+# Model 2.2: corruption included
+
+mod = plm(diff(SupDem_trim, lag=1) ~ plm::lag(SupDem_trim, 1:2) + diff(Polyarchy_z, lag=1) 
+          + plm::lag(Polyarchy_z, 1) + diff(Liberal_z, lag=1) + plm::lag(Liberal_z, 1) 
+          + diff(lnGDP_imp, lag=1) + plm::lag(lnGDP_imp, 1) + diff(Corrup_TI_z, lag=1) 
+          + plm::lag(Corrup_TI_z, 1), sd.plm, model="pooling")
+
+n.coef =  length(coef(mod))
+
+pred.data = data.frame(Intercept=1,
+                       SupDem_m1=0,
+                       SupDem_m2=0, 
+                       ChgPoly=0, 
+                       Poly_m1=0, 
+                       ChgLib=0, 
+                       Liberal_m1=c(rep(-0.5,n.burn),
+                                    rep(0.5,n.yrs-n.burn)),                        
+                       ChglogGDP=0,
+                       lnGDP_m1=mean(df_apsr$lnGDP_imp, na.rm=TRUE),
+                       ChgCorr=0,
+                       Corrup_m1=mean(df_apsr$Corrup_TI_z, na.rm=TRUE),
+                       ChgSup=NA,
+                       SupDem=NA)
+
+for(i in 1:(n.yrs-1)) {
+  pred.data[i, "ChgLib"] = pred.data[i+1, "Liberal_m1"] - pred.data[i, "Liberal_m1"]
+  pred.data[i, "ChgSup"] = sum(pred.data[i, 1:n.coef] * coef(mod))
+  pred.data[i, "SupDem"] = pred.data[i, "SupDem_m1"] + pred.data[i, "ChgSup"]
+  pred.data[i+1, "SupDem_m1"] = pred.data[i, "SupDem"]
+  pred.data[i+1, "SupDem_m2"] = pred.data[i, "SupDem_m1"]
+}
+
+mod.sims = MASS::mvrnorm(n=n.sims, mu=coef(mod), Sigma=plm::vcovHC(mod))
+yhat = matrix(NA, ncol=n.yrs, nrow=n.sims)
+sup.hat = matrix(NA, ncol=n.yrs, nrow=n.sims)
+for(i in 1:(n.yrs-1)) {
+  yhat[, i] = mod.sims %*% t(pred.data[i, 1:n.coef])
+  sup.hat[, i] = pred.data[i, "SupDem_m1"] + yhat[, i] + rnorm(n.sims, 0, sigma(mod))
+}
+
+sup_hat <- sup.hat - apply(sup.hat, 2, mean, na.rm=TRUE)[n.burn-1]
+
+sim_data22 <- tibble(fd = apply(sup_hat, 2, mean, na.rm=TRUE),
+                     u95 = apply(sup_hat, 2, quantile, 0.975, na.rm=TRUE),
+                     l95 = apply(sup_hat, 2, quantile, 0.025, na.rm=TRUE),
+                     model = "Model 2.2",
+                     dem = "Minoritarian Democracy") %>% 
+  mutate(year = row_number() - n.burn) %>% 
+  filter(year > -5 & !is.na(fd))
+```
+
+```{r differencePlots, fig.cap= "Simulated Effects of Change in Democracy on Public Support", fig.width=6, fig.height=4}
+txt_caption <- strwrap("Notes: Simulated effects are estimated using coefficients from the models presented in Figure 2 with corrected data. The solid lines indicate the mean simulated effect; the shaded regions indicate the 95% confidence intervals of these effects.", width = 90) %>% 
+  paste0(sep="", collapse="\n")
+
+ggplot(data = bind_rows(sim_data11, sim_data12)) +
+  geom_hline(aes(yintercept = 0), colour="gray50", linetype="dashed") +
+  geom_line(aes(x = year, y = fd)) +
+  geom_ribbon(aes(x = year, ymin = l95, ymax = u95, alpha = .6)) +
+  facet_wrap(~ model, ncol = 2) +
+  scale_y_continuous(position = "right") +
+  theme(strip.background = element_rect(colour="white", fill="white"),
+        legend.position = "none",
+        plot.caption.position = "plot",
+        plot.caption = element_text(size = 10, hjust = 0)) +
+  ylab(NULL) +
+  xlab("Year") +
+  ggtitle("Change in Public Democratic Support:\n1 SD Increase in Liberal Democracy at Year 0") +
+  labs(caption = txt_caption)
+```
+
+The shift in the relative magnitudes of the coefficients for the lagged level of democracy and the change in democracy in these error-correction models is important, because like those for terms of a multiplicative interaction [see, e.g., @Brambor2006], they are not straightforwardly interpreted independently [see @Williams2012].
+In Figure \@ref(fig:differencePlots), similar to Figures 5 and 6 in @Claassen2020b, we simulate the effects of a one standard deviation increase in democracy on the public's support for democracy.^[
+Some `r {(df_apsr %>% filter(abs(Libdem_z) >= 1) %>% pull(Libdem_z) %>% length())/(df_apsr %>% pull(Libdem_z) %>% length()) * 100} %>% round()`% of the country-years in the dataset experienced a change in democracy at least this large.
+]
+To facilitate interpretation, we plot the changes in the level of democratic support over time rather than the levels themselves.
+More details on these simulations can be found in the online Supplemental Information.
+
+The left panel of Figure \@ref(fig:differencePlots) depicts simulated results from Model 1.1 using the corrected data.
+After the increase in democracy, the mean of the simulations of public democratic support falls only slightly and briefly.
+This drop is just `r sim_data11 %>% filter(year == 0) %>% pull(fd) %>% round(2) %>% abs()` of the variable's standard deviation immediately, its greatest extent is only `r sim_data11 %>% filter(fd == min(fd)) %>% pull(fd) %>% round(2) %>% abs()` in year `r sim_data11 %>% filter(fd == min(fd)) %>% pull(year)`, and it rebounds to its original level after just five years.
+Moreover, as the shaded confidence intervals indicate, this hint of a thermostatic effect never reaches statistical significance.
+On the other hand, the long-run effect of exposure to democracy hypothesized by the classic argument is positive and statistically significant after `r sim_data11 %>% filter(l95 > 0) %>% pull(year) %>% min()` years---that is, within the span of a generation---and it continues to grow from there.
+
+The drop in democratic support's mean estimate lingers longer in the right panel, which is based on Model 2.1 and the assumption that the new democracy remains as corrupt as the old authoritarian regime it supplanted, but it never reaches statistical significance; perhaps as we should expect [see @Lipset1959a, 86–89], there is no convincing sign of growing support over time under such circumstances either.^[
+Similarly, shifting the focus to the minoritarian protections of democracy as in Models 2.1 and 2.2 yields no evidence of a thermostatic effect (see the online Supplemental Information, Figure A.1).
+]
+When the data-entry errors are corrected, the evidentiary support for the conclusions of @Claassen2020b vanishes.
 
 This is not, we contend, a particularly surprising finding.
 As much as those who favor democracy might wish it were so, and as well as the thermostatic theory performs with regard to many other topics in public opinion, it is not a particularly likely candidate for explaining trends in democratic support---the mechanism required for it to operate is not present.
@@ -913,14 +1191,14 @@ Absent its mechanism, the thermostat cannot operate on the public's democratic s
 The analysis above reveals that data-entry errors are an especially pernicious threat to the credibility of our results.
 The threat is a subtle one that is not easily detected.
 To discern it requires close scrutiny of every manual entry; merely examining the data and their distribution will uncover few errors [@Barchard2011, 1837-1838].
-Although failure to find support for a research hypothesis may prompt us to undertake a such a close review, an analysis that yields statistical significance is unlikely to trigger what will likely be, as in the above example, a time-consuming and difficult effort [see @Gelman2014, 464].
-<!-- These different courses put us in 'the garden of forking paths,' rendering our findings suspect even when we only ever perform a single analysis [@Gelman2014, 464]. -->
+Although failure to find support for a research hypothesis may prompt us to undertake a such a close review, an analysis that yields statistical significance is unlikely to trigger what will likely be, as in the above example, a time-consuming and difficult effort.
+These different courses put us in 'the garden of forking paths,' rendering our findings suspect even when we only ever perform a single analysis [@Gelman2014, 464].
 
 This leads us to recommend researchers take the following steps to reduce the possibility of data-entry errors.
 First, __automate data entry__: researchers should minimize reliance on manual data entry and maximize the extent to which data wrangling is performed computationally.
 Automating 'janitor work' will sometimes require considerable programming effort, but often software is available that makes the task straightforward, such as the `readtext` R package [@Benoit2021] for formatting the contents of text files for text analysis or the `DCPOtools` R package [@Solt2018] that we employed above.
 In addition to minimizing data-entry errors, writing computer code that starts from the raw source material and works forward has the added benefit of making research much more reproducible [see, e.g., @Benoit2016] and hence more credible [see, e.g., @Wuttke2019].
-<!-- "Write code instead of working by hand," as @Christensen2019 [, 197] admonish, "don't use Microsoft Excel if it can be avoided." -->
+"Write code instead of working by hand," as @Christensen2019 [, 197] admonish, "don't use Microsoft Excel if it can be avoided."
 
 Second, __use the double-entry method__: when manual data entry _cannot_ be avoided, each entry should be made twice.
 Double entry is labor intensive, but experiments have shown that it reduces error rates by thirty-fold even when done immediately after the initial collection and by the same person [@Barchard2011, 1837].
@@ -944,16 +1222,21 @@ With careful attention, however, the threat of data-entry errors to our 'janitor
 
 \pagebreak
 
-# (APPENDIX) Appendix {-}
-## Online Supplementary Materials {-}
-\setcounter{page}{1}
-\renewcommand{\thepage}{A\arabic{page}}
-\setcounter{figure}{0}
-\renewcommand{\thefigure}{A.\arabic{figure}}
-\setcounter{table}{0}
-\renewcommand{\thetable}{A.\arabic{table}}
-\listoftables
+\newpage
+\appendix
 
+# Online Supplementary Materials
+\captionsetup[figure]{list=yes}
+\setcounter{page}{1}
+\renewcommand{\thepage}{SI-\arabic{page}}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{SI.\arabic{figure}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{SI.\arabic{table}}
+\listoftables
+\listoffigures
+
+# Tabular Results
 \newpage
 \blandscape
 ```{r num-labelAPSR}
@@ -1109,7 +1392,8 @@ modelsummary(tb_result_clsAPSR[1:8],
              title = "The Effect of Democracy on Change in Public Support (Publication Data)") %>% 
   kableExtra::kable_styling(font_size = 7) %>% 
   kableExtra::kable_styling(latex_options = "HOLD_position")
-
+```
+```{r num-pointAPSRcorrected, results='asis'}
 modelsummary(tb_result_clsAPSR[9:16], 
              stars = TRUE,
              coef_map = names_coef,
@@ -1121,3 +1405,33 @@ modelsummary(tb_result_clsAPSR[9:16],
   kableExtra::kable_styling(latex_options = "HOLD_position")
 ```
 \elandscape
+
+# Calculating Effects Via Simulation
+
+As in @Claassen2020b [, 48-50] we estimate the effects of changes in democracy on public support for democracy in the error-correction models using simulation [see @Williams2012].
+All independent variables were set to the same moderate values as in @Claassen2020b and allowed to run for 200 years, long enough for the system of equations to stabilize.
+The level of democracy was then increased from half a standard deviation below the mean to half a standard deviation above; then the system of equations was allowed to run for 30 more years; these three decades those are depicted in Figure \@ref(fig:firstDifferencePlots).
+Per @Claassen2020b [, Supplemental Information 3] and @Claassen2020c, the uncertainty in the model was captured by taking 10,000 draws from a multivariate normal distribution with expectation being the vector of model coefficients and variance being the robust covariance matrix, $\tilde{\Theta} ∼ MVN(\Theta, \Sigma)$, and adding the noise estimated in the regression standard error, $\tilde{Y}_i ∼ N(X_k \tilde{\Theta}_{ki}, \sigma)$.
+To get first differences, the mean value of $\tilde{Y}_i$ in the year before the increase in democracy ($t = -1$) was subtracted from each $\tilde{Y}_i$, and the 0.025 and 0.975 quantiles of the first difference were used as its lower and upper confidence bounds.
+
+\newpage
+## First Difference Plots for Models 2.1 and 2.2
+```{r firstDifferencePlots2, fig.cap= "Simulated Effects of Change in Minoritarian Democracy on Public Support", fig.width=6, fig.height=4}
+txt_caption <- strwrap("Notes: Simulated effects are estimated using coefficients from the models presented in Figure 2 with corrected data. The solid lines indicate the mean simulated effect; the shaded regions indicate the 95% confidence intervals of these effects.", width = 90) %>% 
+  paste0(sep="", collapse="\n")
+
+ggplot(data = bind_rows(sim_data21, sim_data22)) +
+  geom_hline(aes(yintercept = 0), colour="gray50", linetype="dashed") +
+  geom_line(aes(x = year, y = fd)) +
+  geom_ribbon(aes(x = year, ymin = l95, ymax = u95, alpha = .6)) +
+  facet_wrap(~ model, ncol = 2) +
+  scale_y_continuous(position = "right") +
+  theme(strip.background = element_rect(colour="white", fill="white"),
+        legend.position = "none",
+        plot.caption.position = "plot",
+        plot.caption = element_text(size = 10, hjust = 0)) +
+  ylab(NULL) +
+  xlab("Year") +
+  ggtitle("Change in Public Democratic Support:\n1 SD Increase in Minoritarian Democracy at Year 0") +
+  labs(caption = txt_caption)
+```
