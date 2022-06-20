@@ -525,7 +525,7 @@ Relying on toplines reported in codebooks rather than the survey data itself evi
 These errors shifted the percentage of democracy-supporting responses in both directions, typically by relatively small amounts.^[
 Although not depicted on this plot, data-entry errors were also evident in the variable recording the year in which a survey was conducted: these typically reflected differences between the nominal year of a survey wave and when the survey was actually in the field in a particular country.
 This was an issue for some `r {nrow(needed)/nrow(sd) * 100} %>% round()`% of the country-year observations.
-Correcting these mistakes led the corrected nalysis dataset to be slightly smaller than in @Claassen2020b as the actual first observed year for several countries was later than recorded in the published data.
+Correcting these mistakes led the corrected analysis dataset to encompass a slightly different sample than in @Claassen2020b as the actual first observed year for several countries was earlier or later than recorded in the published data.
 ]
 
 
@@ -796,10 +796,11 @@ if (!file.exists(here::here("data", "dem_mood_apsr.csv"))) {
     rm(tempfile)
 }
 
-df_apsr <- read_csv(here::here("data", "dem_mood_apsr.csv")) %>%
-  # filter(!is.na(SupDem_trim)) %>% 
+df_apsr0 <- read_csv(here::here("data", "dem_mood_apsr.csv"))
+df_apsr1 <- df_apsr0 %>%
   mutate(Country = countrycode::countrycode(Country, "country.name", "country.name")) %>% 
-  right_join(theta_summary, by = c("Year" = "year", "Country" = "country"))
+  right_join(theta_summary, by = c("Year" = "year", "Country" = "country")) %>% 
+  mutate(SupDem_trim = mean)
 ```
 
 Data-entry errors of this sort can yield erroneous conclusions.
@@ -807,9 +808,9 @@ After generating the latent variable of democratic support with the corrections 
 The results using the corrected data reveal some support for the classic argument that democracy generates its own demand through the long-run processes of socialization and learning and none at all for a thermostatic relationship.
 
 ```{r regressionResult}
-sd.plm <- pdata.frame(df_apsr, index = c("Country", "Year")) 
-sd.plm2 <- pdata.frame(df_apsr %>% 
-                         mutate(SupDem_trim = mean),
+sd.plm <- pdata.frame(df_apsr0, 
+                      index = c("Country", "Year")) 
+sd.plm2 <- pdata.frame(df_apsr1,
                        index = c("Country", "Year"))
 
 ls_ivECM <- rep(c("diff(Libdem_z, lag = 1) + plm::lag(Libdem_z, 1)", 
@@ -939,8 +940,8 @@ ggsave("images/results.png")
 
 Figure \@ref(fig:regressionPlot) presents our results in a "small multiple" plot [@SoltHu2015] for a clear comparison of the coefficients of each variable in the article's models. 
 In the plot, the dots represent point estimates and the whiskers show the associated 95% confidence intervals.
-<!-- Each row depicts a variable's performance in its own scale across all of the models. -->
-<!-- The lighter dots and whiskers replicate those reported in the published article; the darker ones are the estimates obtained with the corrected data. -->
+Each row depicts a variable's performance in its own scale across all of the models.
+The lighter dots and whiskers replicate those reported in the published article; the darker ones are the estimates obtained with the corrected data.
 Models 1.1 through 1.4, which replicate those presented in Table 1 of @Claassen2020b [, 47], examine the effects of overall liberal democracy using error-correction models and first-difference models.
 As @Claassen2020b [, 46] notes, the thermostatic theory predicts that the estimated coefficient of the change in liberal democracy will be negative, while the classic theory suggests that lagged levels of liberal democracy will be positive.
 When using the original publication data with their data-entry errors, we replicate the results of the article exactly: the coefficients estimated for the change in liberal democracy are large, negative, and statistically significant across all four models, just as the thermostatic theory predicts. 
@@ -967,7 +968,7 @@ pred.data = data.frame(Intercept=1,
                        Libdem_m1=c(rep(-.5, n.burn),
                                    rep(.5, n.yrs-n.burn)), 
                        ChglogGDP=0,
-                       lnGDP_m1=mean(df_apsr$lnGDP_imp, na.rm=TRUE),
+                       lnGDP_m1=mean(df_apsr1$lnGDP_imp, na.rm=TRUE),
                        ChgSup=NA,
                        SupDem=NA)
 
@@ -1009,7 +1010,7 @@ pred.data = data.frame(Intercept=1,
                        ChgDem=0, 
                        Libdem_m1=c(rep(-0.5,n.burn), rep(0.5,n.yrs-n.burn)), 
                        ChglogGDP=0,
-                       lnGDP_m1=mean(df_apsr$lnGDP_imp, na.rm=TRUE),
+                       lnGDP_m1=mean(df_apsr1$lnGDP_imp, na.rm=TRUE),
                        ChgCorr=0,
                        Corrup_m1=0,
                        ChgSup=NA,
@@ -1057,9 +1058,9 @@ pred.data = data.frame(Intercept=1,
                        Liberal_m1=c(rep(-0.5,n.burn),
                                     rep(0.5,n.yrs-n.burn)),                        
                        ChglogGDP=0,
-                       lnGDP_m1=mean(df_apsr$lnGDP_imp, na.rm=TRUE),
+                       lnGDP_m1=mean(df_apsr1$lnGDP_imp, na.rm=TRUE),
                        ChgCorr=0,
-                       Corrup_m1=mean(df_apsr$Corrup_TI_z, na.rm=TRUE),
+                       Corrup_m1=mean(df_apsr1$Corrup_TI_z, na.rm=TRUE),
                        ChgSup=NA,
                        SupDem=NA)
 
@@ -1107,9 +1108,9 @@ pred.data = data.frame(Intercept=1,
                        Liberal_m1=c(rep(-0.5,n.burn),
                                     rep(0.5,n.yrs-n.burn)),                        
                        ChglogGDP=0,
-                       lnGDP_m1=mean(df_apsr$lnGDP_imp, na.rm=TRUE),
+                       lnGDP_m1=mean(df_apsr1$lnGDP_imp, na.rm=TRUE),
                        ChgCorr=0,
-                       Corrup_m1=mean(df_apsr$Corrup_TI_z, na.rm=TRUE),
+                       Corrup_m1=mean(df_apsr1$Corrup_TI_z, na.rm=TRUE),
                        ChgSup=NA,
                        SupDem=NA)
 
@@ -1162,7 +1163,7 @@ ggplot(data = bind_rows(sim_data11, sim_data12)) +
 
 The shift in the relative magnitudes of the coefficients for the lagged level of democracy and the change in democracy in these error-correction models is important, because like those for terms of a multiplicative interaction [see, e.g., @Brambor2006], they are not straightforwardly interpreted independently [see @Williams2012].
 In Figure \@ref(fig:differencePlots), similar to Figures 5 and 6 in @Claassen2020b, we simulate the effects of a one standard deviation increase in democracy on the public's support for democracy.^[
-Some `r {(df_apsr %>% filter(abs(Libdem_z) >= 1) %>% pull(Libdem_z) %>% length())/(df_apsr %>% pull(Libdem_z) %>% length()) * 100} %>% round()`% of the country-years in the dataset experienced a change in democracy at least this large.
+Some `r {(df_apsr1 %>% filter(abs(Libdem_z) >= 1) %>% pull(Libdem_z) %>% length())/(df_apsr1 %>% pull(Libdem_z) %>% length()) * 100} %>% round()`% of the country-years in the dataset experienced a change in democracy at least this large.
 ]
 To facilitate interpretation, we plot the changes in the level of democratic support over time rather than the levels themselves.
 More details on these simulations can be found in the online Supplemental Information.
@@ -1200,7 +1201,7 @@ Automating 'janitor work' will sometimes require considerable programming effort
 In addition to minimizing data-entry errors, writing computer code that starts from the raw source material and works forward has the added benefit of making research much more reproducible [see, e.g., @Benoit2016] and hence more credible [see, e.g., @Wuttke2019].
 "Write code instead of working by hand," as @Christensen2019 [, 197] admonish, "don't use Microsoft Excel if it can be avoided."
 
-Second, __use the double-entry method__: when manual data entry _cannot_ be avoided, each entry should be made twice.
+Second, __use the double-entry method__: when manual data entry can\emph{not} be avoided, each entry should be made twice.
 Double entry is labor intensive, but experiments have shown that it reduces error rates by thirty-fold even when done immediately after the initial collection and by the same person [@Barchard2011, 1837].
 Given that data-entry errors can completely undermine the validity of our conclusions, as in the example above, double entry is worth the extra effort.
 
@@ -1410,7 +1411,7 @@ modelsummary(tb_result_clsAPSR[9:16],
 
 As in @Claassen2020b [, 48-50] we estimate the effects of changes in democracy on public support for democracy in the error-correction models using simulation [see @Williams2012].
 All independent variables were set to the same moderate values as in @Claassen2020b and allowed to run for 200 years, long enough for the system of equations to stabilize.
-The level of democracy was then increased from half a standard deviation below the mean to half a standard deviation above; then the system of equations was allowed to run for 30 more years; these three decades those are depicted in Figure \@ref(fig:firstDifferencePlots).
+The level of democracy was then increased from half a standard deviation below the mean to half a standard deviation above; then the system of equations was allowed to run for 30 more years; these three decades those are depicted in Figure \@ref(fig:DifferencePlots).
 Per @Claassen2020b [, Supplemental Information 3] and @Claassen2020c, the uncertainty in the model was captured by taking 10,000 draws from a multivariate normal distribution with expectation being the vector of model coefficients and variance being the robust covariance matrix, $\tilde{\Theta} ∼ MVN(\Theta, \Sigma)$, and adding the noise estimated in the regression standard error, $\tilde{Y}_i ∼ N(X_k \tilde{\Theta}_{ki}, \sigma)$.
 To get first differences, the mean value of $\tilde{Y}_i$ in the year before the increase in democracy ($t = -1$) was subtracted from each $\tilde{Y}_i$, and the 0.025 and 0.975 quantiles of the first difference were used as its lower and upper confidence bounds.
 
