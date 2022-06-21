@@ -7,18 +7,17 @@ output:
     number_sections: no
     latex_engine: xelatex
     # pandoc_args: --lua-filter=multiple-bibliographies.lua
-
 title: |
   | On Data 'Janitor Work' in Political Science:
   | The Case of Thermostatic Support for Democracy
-# thanks: "Corresponding author: [yuehong-tai@uiowa.edu](mailto:yuehong-tai@uiowa.edu). Current version: `r format(Sys.time(), '%B %d, %Y')`."
+thanks: "Corresponding author: [yuehong-tai@uiowa.edu](mailto:yuehong-tai@uiowa.edu). Current version: `r format(Sys.time(), '%B %d, %Y')`.  Replication materials and complete revision history may be found at [https://github.com/fsolt/dem_mood](https://github.com/fsolt/dem_mood)."
 author:
-# - Yue Hu
-#   # affiliation: Tsinghua University
-# - Yuehong Cassandra Tai
-#   # affiliation: University of Iowa
-# - Frederick Solt
-#   # affiliation: University of Iowa
+- Yue Hu
+  # affiliation: Tsinghua University
+- Yuehong Cassandra Tai
+  # affiliation: University of Iowa
+- Frederick Solt
+  # affiliation: University of Iowa
 anonymous: true  
 abstract: "Data 'janitor work', the task of getting data into a format appropriate for analysis, has grown increasingly important as political science research has come to depend on data drawn from hundreds and thousands of sources.  One tempting solution is to simply enter the data by hand, but this approach raises serious risks of data-entry error, a difficult-to-catch problem with the potential to fatally undermine our conclusions.  Underscoring these points, we identify data-entry errors in a prominent recent article, the 2020 study by Claassen that examines the effect of changes in democracy on public support for democracy.  We then show that when these errors are corrected, the work's models provide no support for its conclusion that publics react thermostatically to changes in democracy.  Researchers should refrain from hand-entering data as much as possible, and we offer additional suggestions for avoiding errors."
 keywords: ""
@@ -447,7 +446,7 @@ In Figure \@ref(fig:comparison), we compare the percentage of respondents to giv
 <!-- When points fall along the plot's dotted line, it indicates that the publication's source data and our own automated workflow reported the same percentages. -->
 <!-- Points above this diagonal represent observations for which the publication data overestimated the actual percentage of respondents who offered a democracy-supporting response, while points below this line are observations where the publication data underestimated this percentage. -->
 
-```{r comparison, fig.cap="Comparing Democracy-Supporting Responses in the Publication Data and the Corrected Data", fig.align='center', fig.width=7, fig.height=5.25}
+```{r comparison, fig.cap="Comparing Democracy-Supporting Responses in the Publication Data and the Corrected Data", fig.align='center', fig.width=7, fig.height=5.5}
 bad_items <- c("Asia Barometer:\nEvaluation of Democracy",
                "Asian Barometer II:\nSuitability of Democracy",
                "Pew Global Attitudes:\nImportance of Democracy",
@@ -495,8 +494,7 @@ plot_support +
 ```
 
 For `r {mean(data_comparison$diff_perc_abs < .5)*100} %>% round()`% of the country-year-item observations, the difference between these percentages was negligible---less than half a percent---yielding points approximately along the plot's dotted line.
-<!-- But for the remaining observations, data-entry errors in the publication data caused often-substantial differences. -->
-But for the remaining observations, the difference was often substantial as a result of data-entry errors in the publication data.
+But for the remaining observations, the difference was often substantial due to data-entry errors in the publication data.
 For example, the Asia Barometer asked respondents in 35 country-years to indicate whether they thought "a democratic political system" would be very good, fairly good, or bad for their country.
 According the study's coding rules [see @Claassen2020b, Appendix 1.3], only answers above the median of the response categories should be considered as democracy supporting, yet in this case the lukewarm intermediate category was coded as supporting democracy as well.^[
 Although this may be interpreted as an exercise of researcher judgment as to what constitutes a democracy-supporting response rather than a data-entry error, examination of similar answers to similar questions shows that similarly lukewarm responses at and below the median response category  (e.g., in the Arab Barometer, that democracy was "somewhat appropriate" for the country) were coded as not supportive.
