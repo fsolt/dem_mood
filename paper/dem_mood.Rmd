@@ -11,7 +11,7 @@ output:
 title: |
   | On Data 'Janitor Work' in Political Science:
   | The Case of Thermostatic Support for Democracy
-thanks: "Corresponding author: [yuehong-tai@uiowa.edu](mailto:yuehong-tai@uiowa.edu). Current version: `r format(Sys.time(), '%B %d, %Y')`."
+# thanks: "Corresponding author: [yuehong-tai@uiowa.edu](mailto:yuehong-tai@uiowa.edu). Current version: `r format(Sys.time(), '%B %d, %Y')`."
 author:
 # - Yue Hu
 #   # affiliation: Tsinghua University
