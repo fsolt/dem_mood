@@ -7,11 +7,10 @@ output:
     number_sections: no
     latex_engine: xelatex
     # pandoc_args: --lua-filter=multiple-bibliographies.lua
-
 title: |
   | On Data 'Janitor Work' in Political Science:
   | The Case of Thermostatic Support for Democracy
-thanks: "Corresponding author: [yuehong-tai@uiowa.edu](mailto:yuehong-tai@uiowa.edu). Current version: `r format(Sys.time(), '%B %d, %Y')`."
+thanks: "Corresponding author: [yuehong-tai@uiowa.edu](mailto:yuehong-tai@uiowa.edu). Current version: `r format(Sys.time(), '%B %d, %Y')`.  Replication materials and complete revision history may be found at [https://github.com/fsolt/dem_mood](https://github.com/fsolt/dem_mood)."
 author:
 - Yue Hu
   # affiliation: Tsinghua University
@@ -19,8 +18,8 @@ author:
   # affiliation: University of Iowa
 - Frederick Solt
   # affiliation: University of Iowa
-anonymous: false  
-abstract: "Data 'janitor work', the task of getting data into a format appropriate for analysis, has grown increasingly important as political science research has come to depend on data drawn from hundreds and thousands of sources.  One tempting solution is to simply enter the data by hand, but this approach raises serious risks of data-entry error, a difficult-to-catch problem with the potential to fatally undermine our conclusions.  Underscoring these points, we identify data-entry errors in a prominent recent article, the 2020 study by Claassen that examines the effect of changes in democracy on public support for democracy.  We then show that when these errors are corrected, the work's models provide no support for its conclusion that publics react thermostatically to changes in democracy.  Researchers should refrain from hand-entering data as much as possible, and we offer additional suggestions for avoiding errors."
+anonymous: true  
+abstract: "'Janitor work'---getting data into a format appropriate for analysis---has grown increasingly important as political science research has come to depend on data drawn from hundreds of sources.  One tempting solution is to simply enter data by hand, but this approach raises serious risks of data-entry error, a difficult-to-catch problem with the potential to fatally undermine our conclusions.  Underscoring these points, we identify data-entry errors in a prominent recent article, Claassen's 2020 study examining how changes in democracy influence public support for democracy, and show that when these errors are corrected, its models provide no support for its conclusions.  Researchers should refrain from hand-entering data as much as possible, and we offer additional suggestions for avoiding errors."
 keywords: ""
 tables: true # enable longtable and booktabs
 citation_package: natbib
@@ -433,7 +432,7 @@ According to a classic and still vibrant literature, growing experience with dem
 @Claassen2020b argues instead that democratic support behaves thermostatically: that increases in democracy yield an authoritarian backlash in the public, while democratic backsliding prompts the public to rally to democracy's cause.
 
 The evidence it offers in support of this latter argument takes advantage of recent advances in modeling public opinion as a latent variable to measure democratic support.
-This approach provided estimates of the paper's dependent variable for over one hundred countries for up to nearly three decades, constituting a much larger evidentiary base than any previous study.
+This approach provides estimates of the paper's dependent variable for over one hundred countries for up to nearly three decades, constituting a much larger evidentiary base than any previous study.
 These latent-variable estimates, in turn, were based on thousands of nationally aggregated responses to dozens of different questions from cross-national survey projects [@Claassen2020b, 40].
 Two pieces of data were collected for each distinct survey item in each country and year it was asked: the number of respondents to give a democracy-supporting response---defined, for ordinal responses, as those above the median value of the scale [@Claassen2020b, Appendix 1.3]---and the total number of respondents to whom the question was posed.
 Each of these 7,538 pieces of source data is recorded in a spreadsheet.^[
@@ -444,10 +443,10 @@ Fortunately, however, the spreadsheet recording these original source data is in
 We re-collected all of the source data for the publication from the original surveys.
 We identified the variables of the survey items used by the article within each survey dataset, and then we used an automated process to collect the needed data from the survey datasets while avoiding data-entry errors [see @Solt2018].
 In Figure \@ref(fig:comparison), we compare the percentage of respondents to give a democracy-supporting response in the publication spreadsheet with the percentage we found using our automated process of wrangling these same data.
-When points fall along the plot's dotted line, it indicates that the publication's source data and our own automated workflow reported the same percentages.
-Points above this diagonal represent observations for which the publication data overestimated the actual percentage of respondents who offered a democracy-supporting response, while points below this line are observations where the publication data underestimated this percentage.
+<!-- When points fall along the plot's dotted line, it indicates that the publication's source data and our own automated workflow reported the same percentages. -->
+<!-- Points above this diagonal represent observations for which the publication data overestimated the actual percentage of respondents who offered a democracy-supporting response, while points below this line are observations where the publication data underestimated this percentage. -->
 
-```{r comparison, fig.cap="Comparing Democracy-Supporting Responses in the Publication Data and the Corrected Data", fig.align='center', fig.width=7, fig.height=5.25}
+```{r comparison, fig.cap="Comparing Democracy-Supporting Responses in the Publication Data and the Corrected Data", fig.align='center', fig.width=7, fig.height=5.5}
 bad_items <- c("Asia Barometer:\nEvaluation of Democracy",
                "Asian Barometer II:\nSuitability of Democracy",
                "Pew Global Attitudes:\nImportance of Democracy",
@@ -495,9 +494,9 @@ plot_support +
 ```
 
 For `r {mean(data_comparison$diff_perc_abs < .5)*100} %>% round()`% of the country-year-item observations, the difference between these percentages was negligible---less than half a percent---yielding points approximately along the plot's dotted line.
-But for the remaining observations, the difference was often substantial as a result of data-entry errors in the publication data.
+But for the remaining observations, the difference was often substantial due to data-entry errors in the publication data.
 For example, the Asia Barometer asked respondents in 35 country-years to indicate whether they thought "a democratic political system" would be very good, fairly good, or bad for their country.
-According the study's coding rules [see @Claassen2020b, Appendix 1.3], only answers above the median of the response categories should be considered as democracy supporting, yet in this case the lukewarm intermediate category was coded as supporting democracy as well.^[
+According to the study's coding rules [see @Claassen2020b, Appendix 1.3], only answers above the median of the response categories should be considered as democracy supporting, yet in this case the lukewarm intermediate category was coded as supporting democracy as well.^[
 Although this may be interpreted as an exercise of researcher judgment as to what constitutes a democracy-supporting response rather than a data-entry error, examination of similar answers to similar questions shows that similarly lukewarm responses at and below the median response category  (e.g., in the Arab Barometer, that democracy was "somewhat appropriate" for the country) were coded as not supportive.
 ]
 This led to overestimations of the percentage of democracy-supporting responses ranging from `r data_comparison %>% filter(item=="evdemoc_asiab") %>% pull(diff_perc) %>% min() %>% round()` to `r data_comparison %>% filter(item=="evdemoc_asiab") %>% pull(diff_perc) %>% max() %>% round()` percentage points and averaging `r data_comparison %>% filter(item=="evdemoc_asiab") %>% pull(diff_perc) %>% mean() %>% round()` points.
@@ -513,20 +512,18 @@ In this case, rather than including respondents who gave both responses above th
 This error caused substantial underreporting of the extent of democratic support in 91 country-years.
 
 While these issues involve mistakes in recording the numerator of the percentage, the number of respondents who provided a democracy-supporting answer, entering the denominator, the total number of respondents asked a question, was also problematic on occasion.
-For example, when the Americas Barometer surveyed Canada in 2010, it included an item asking whether, when "democracy doesn't work," Canadians "need a strong leader who doesn’t have to be elected through voting."
-It posed this question to only half of its sample.
-Those who were not asked the question, however, were included in the total number of respondents as if they had refused to answer.
-According to the study's coding rules, refusing to answer is equivalent to answering in a fashion not supporting democracy, that is, in this case, agreeing that Canada needed a strong leader who need not bother with elections [see @Claassen2020b, Appendix 1.3].
+For example, when the Americas Barometer surveyed Canada in 2010, asked half its sample, when "democracy doesn't work," Canadians "need a strong leader who doesn’t have to be elected through voting."
+Those who were not asked the question were included in the total number of respondents.
+According to the study's coding rules, refusing to answer is equivalent to answering in a fashion not supporting democracy [see @Claassen2020b, Appendix 1.3].
 This rule may be a reasonable coding choice, but including in this category those who were never asked the question at all is clearly a data-entry error.
 
 Another source of data-entry errors here involves survey weights.
 Weighting raw survey results to maximize the extent to which they are representative of the target population is important.
 Relying on toplines reported in codebooks rather than the survey data itself evidently caused some mistakes in correctly entering the needed information here, as codebooks do not always take survey weights into account.
-These errors shifted the percentage of democracy-supporting responses in both directions, typically by relatively small amounts.^[
-Although not depicted on this plot, data-entry errors were also evident in the variable recording the year in which a survey was conducted: these typically reflected differences between the nominal year of a survey wave and when the survey was actually in the field in a particular country.
+These errors shifted the percentage of democracy-supporting responses in both directions, typically by relatively small amounts.
+
+Finally, although not depicted on this plot, data-entry errors were also evident in the variable recording the year in which a survey was conducted: these typically reflected differences between the nominal year of a survey wave and when the survey was actually in the field in a particular country.
 This was an issue for some `r {nrow(needed)/nrow(sd) * 100} %>% round()`% of the country-year observations.
-Correcting these mistakes led the corrected nalysis dataset to be slightly smaller than in @Claassen2020b as the actual first observed year for several countries was later than recorded in the published data.
-]
 
 
 ## Consequences for Inference
@@ -796,20 +793,21 @@ if (!file.exists(here::here("data", "dem_mood_apsr.csv"))) {
     rm(tempfile)
 }
 
-df_apsr <- read_csv(here::here("data", "dem_mood_apsr.csv")) %>%
-  # filter(!is.na(SupDem_trim)) %>% 
+df_apsr0 <- read_csv(here::here("data", "dem_mood_apsr.csv"))
+df_apsr1 <- df_apsr0 %>%
   mutate(Country = countrycode::countrycode(Country, "country.name", "country.name")) %>% 
-  right_join(theta_summary, by = c("Year" = "year", "Country" = "country"))
+  right_join(theta_summary, by = c("Year" = "year", "Country" = "country")) %>% 
+  mutate(SupDem_trim = mean)
 ```
 
 Data-entry errors of this sort can yield erroneous conclusions.
-After generating the latent variable of democratic support with the corrections to the errors we describe above, we replicated each of the models presented in @Claassen2020b exactly using both the original and the new version of the latent variable.
+After generating the latent variable of democratic support with the corrections to the errors described above, we replicated each of the models presented in @Claassen2020b exactly using both the original and the new version of the latent variable.
 The results using the corrected data reveal some support for the classic argument that democracy generates its own demand through the long-run processes of socialization and learning and none at all for a thermostatic relationship.
 
 ```{r regressionResult}
-sd.plm <- pdata.frame(df_apsr, index = c("Country", "Year")) 
-sd.plm2 <- pdata.frame(df_apsr %>% 
-                         mutate(SupDem_trim = mean),
+sd.plm <- pdata.frame(df_apsr0, 
+                      index = c("Country", "Year")) 
+sd.plm2 <- pdata.frame(df_apsr1,
                        index = c("Country", "Year"))
 
 ls_ivECM <- rep(c("diff(Libdem_z, lag = 1) + plm::lag(Libdem_z, 1)", 
@@ -937,21 +935,20 @@ small_multiple(df_plot, axis_switch = TRUE, dot_args = list(size = .9, fatten = 
 ggsave("images/results.png")
 ```
 
-Figure \@ref(fig:regressionPlot) presents our results in a "small multiple" plot [@SoltHu2015] for a clear comparison of the coefficients of each variable in the article's models. 
-In the plot, the dots represent point estimates and the whiskers show the associated 95% confidence intervals.
+Figure \@ref(fig:regressionPlot) presents our results in a "small multiple" plot [@SoltHu2015] for a clear comparison of the coefficients of each variable in the article's models: the dots represent point estimates and the whiskers show the associated 95% confidence intervals.
 <!-- Each row depicts a variable's performance in its own scale across all of the models. -->
 <!-- The lighter dots and whiskers replicate those reported in the published article; the darker ones are the estimates obtained with the corrected data. -->
 Models 1.1 through 1.4, which replicate those presented in Table 1 of @Claassen2020b [, 47], examine the effects of overall liberal democracy using error-correction models and first-difference models.
 As @Claassen2020b [, 46] notes, the thermostatic theory predicts that the estimated coefficient of the change in liberal democracy will be negative, while the classic theory suggests that lagged levels of liberal democracy will be positive.
-When using the original publication data with their data-entry errors, we replicate the results of the article exactly: the coefficients estimated for the change in liberal democracy are large, negative, and statistically significant across all four models, just as the thermostatic theory predicts. 
+When using the original publication data with their data-entry errors, we replicate the results of the article exactly: the coefficients estimated for the change in liberal democracy are large, negative, and statistically significant across all four models, just as the thermostatic theory predicts.
 The positive and statistically significant result for the lagged level of liberal democracy found in Model 1.1---supporting the classic theory---disappears when corruption is taken into account in Model 1.2.
 
 When the data-entry errors are corrected, however, the results for these models suggest a very different set of conclusions.
 The standard errors shrink across the board, indicating that the models are better estimated in the corrected data.
 The positive and statistically significant result for the lagged level of liberal democracy remains in Model 1.1, and the estimate is only slightly smaller than in the publication data.
-When corruption is added in Model 1.2, or when the focus shifts from overall liberal democracy to its minoritarian component in Models 2.1 and 2.2, this coefficient estimate actually grows slightly larger when using the corrected data rather than the publication data, although it still fails to reach statistical significance.
+When corruption is added in Model 1.2, or when the focus shifts from overall liberal democracy to its minoritarian component in Models 2.1 and 2.2, this estimate actually grows slightly larger when using the corrected data rather than the publication data, although it still fails to reach statistical significance.
 On the other hand, the estimates for the change in liberal democracy that provided support for the thermostatic theory are much smaller in all of the models.
-Models 2.1 through 2.4, which break liberal democracy into its electoral democracy and minoritarian democracy components, similarly yield smaller coefficients for the change in democracy than those found when using the publication data.
+Models 2.1 through 2.4, which break liberal democracy into its electoral and minoritarian components, similarly yield smaller coefficients for the change in democracy than those found using the publication data.
 
 ```{r simulations}
 # Model 1.1
@@ -967,7 +964,7 @@ pred.data = data.frame(Intercept=1,
                        Libdem_m1=c(rep(-.5, n.burn),
                                    rep(.5, n.yrs-n.burn)), 
                        ChglogGDP=0,
-                       lnGDP_m1=mean(df_apsr$lnGDP_imp, na.rm=TRUE),
+                       lnGDP_m1=mean(df_apsr1$lnGDP_imp, na.rm=TRUE),
                        ChgSup=NA,
                        SupDem=NA)
 
@@ -1009,7 +1006,7 @@ pred.data = data.frame(Intercept=1,
                        ChgDem=0, 
                        Libdem_m1=c(rep(-0.5,n.burn), rep(0.5,n.yrs-n.burn)), 
                        ChglogGDP=0,
-                       lnGDP_m1=mean(df_apsr$lnGDP_imp, na.rm=TRUE),
+                       lnGDP_m1=mean(df_apsr1$lnGDP_imp, na.rm=TRUE),
                        ChgCorr=0,
                        Corrup_m1=0,
                        ChgSup=NA,
@@ -1057,9 +1054,9 @@ pred.data = data.frame(Intercept=1,
                        Liberal_m1=c(rep(-0.5,n.burn),
                                     rep(0.5,n.yrs-n.burn)),                        
                        ChglogGDP=0,
-                       lnGDP_m1=mean(df_apsr$lnGDP_imp, na.rm=TRUE),
+                       lnGDP_m1=mean(df_apsr1$lnGDP_imp, na.rm=TRUE),
                        ChgCorr=0,
-                       Corrup_m1=mean(df_apsr$Corrup_TI_z, na.rm=TRUE),
+                       Corrup_m1=mean(df_apsr1$Corrup_TI_z, na.rm=TRUE),
                        ChgSup=NA,
                        SupDem=NA)
 
@@ -1107,9 +1104,9 @@ pred.data = data.frame(Intercept=1,
                        Liberal_m1=c(rep(-0.5,n.burn),
                                     rep(0.5,n.yrs-n.burn)),                        
                        ChglogGDP=0,
-                       lnGDP_m1=mean(df_apsr$lnGDP_imp, na.rm=TRUE),
+                       lnGDP_m1=mean(df_apsr1$lnGDP_imp, na.rm=TRUE),
                        ChgCorr=0,
-                       Corrup_m1=mean(df_apsr$Corrup_TI_z, na.rm=TRUE),
+                       Corrup_m1=mean(df_apsr1$Corrup_TI_z, na.rm=TRUE),
                        ChgSup=NA,
                        SupDem=NA)
 
@@ -1160,11 +1157,12 @@ ggplot(data = bind_rows(sim_data11, sim_data12)) +
   labs(caption = txt_caption)
 ```
 
-The shift in the relative magnitudes of the coefficients for the lagged level of democracy and the change in democracy in these error-correction models is important, because like those for terms of a multiplicative interaction [see, e.g., @Brambor2006], they are not straightforwardly interpreted independently [see @Williams2012].
-In Figure \@ref(fig:differencePlots), similar to Figures 5 and 6 in @Claassen2020b, we simulate the effects of a one standard deviation increase in democracy on the public's support for democracy.^[
-Some `r {(df_apsr %>% filter(abs(Libdem_z) >= 1) %>% pull(Libdem_z) %>% length())/(df_apsr %>% pull(Libdem_z) %>% length()) * 100} %>% round()`% of the country-years in the dataset experienced a change in democracy at least this large.
-]
-To facilitate interpretation, we plot the changes in the level of democratic support over time rather than the levels themselves.
+The shift in the relative magnitudes of the coefficients for the lagged level of democracy and the change in democracy is important, because like those for terms of a multiplicative interaction [see, e.g., @Brambor2006], they are not straightforwardly interpreted independently [see @Williams2012].
+In Figure \@ref(fig:differencePlots), similar to Figures 5 and 6 in @Claassen2020b, we simulate the effects of a one standard deviation increase in democracy on the public's support for democracy.
+<!-- ^[ -->
+<!-- Some `r {(df_apsr1 %>% filter(abs(Libdem_z) >= 1) %>% pull(Libdem_z) %>% length())/(df_apsr1 %>% pull(Libdem_z) %>% length()) * 100} %>% round()`% of the country-years in the dataset experienced a change in democracy at least this large. -->
+<!-- ] -->
+To facilitate interpretation, we plot the changes in democratic support over time rather than levels.
 More details on these simulations can be found in the online Supplemental Information.
 
 The left panel of Figure \@ref(fig:differencePlots) depicts simulated results from Model 1.1 using the corrected data.
@@ -1173,7 +1171,7 @@ This drop is just `r sim_data11 %>% filter(year == 0) %>% pull(fd) %>% round(2) 
 Moreover, as the shaded confidence intervals indicate, this hint of a thermostatic effect never reaches statistical significance.
 On the other hand, the long-run effect of exposure to democracy hypothesized by the classic argument is positive and statistically significant after `r sim_data11 %>% filter(l95 > 0) %>% pull(year) %>% min()` years---that is, within the span of a generation---and it continues to grow from there.
 
-The drop in democratic support's mean estimate lingers longer in the right panel, which is based on Model 2.1 and the assumption that the new democracy remains as corrupt as the old authoritarian regime it supplanted, but it never reaches statistical significance; perhaps as we should expect [see @Lipset1959a, 86–89], there is no convincing sign of growing support over time under such circumstances either.^[
+The drop in democratic support's mean estimate lingers longer in the right panel, which is based on Model 1.2 and the assumption that the new democracy remains as corrupt as the old authoritarian regime it supplanted, but it never reaches statistical significance; perhaps as we should expect [see @Lipset1959a, 86–89], there is no convincing sign of growing support over time under such circumstances either.^[
 Similarly, shifting the focus to the minoritarian protections of democracy as in Models 2.1 and 2.2 yields no evidence of a thermostatic effect (see the online Supplemental Information, Figure A.1).
 ]
 When the data-entry errors are corrected, the evidentiary support for the conclusions of @Claassen2020b vanishes.
@@ -1191,16 +1189,16 @@ Absent its mechanism, the thermostat cannot operate on the public's democratic s
 The analysis above reveals that data-entry errors are an especially pernicious threat to the credibility of our results.
 The threat is a subtle one that is not easily detected.
 To discern it requires close scrutiny of every manual entry; merely examining the data and their distribution will uncover few errors [@Barchard2011, 1837-1838].
-Although failure to find support for a research hypothesis may prompt us to undertake a such a close review, an analysis that yields statistical significance is unlikely to trigger what will likely be, as in the above example, a time-consuming and difficult effort.
-These different courses put us in 'the garden of forking paths,' rendering our findings suspect even when we only ever perform a single analysis [@Gelman2014, 464].
+Although failure to find support for a research hypothesis may prompt us to undertake a such a close review, an analysis that yields statistical significance is unlikely to trigger what will likely be, as in the above example, a time-consuming and difficult effort [see @Gelman2014, 464].
+<!-- These different courses put us in 'the garden of forking paths,' rendering our findings suspect even when we only ever perform a single analysis [@Gelman2014, 464]. -->
 
 This leads us to recommend researchers take the following steps to reduce the possibility of data-entry errors.
 First, __automate data entry__: researchers should minimize reliance on manual data entry and maximize the extent to which data wrangling is performed computationally.
 Automating 'janitor work' will sometimes require considerable programming effort, but often software is available that makes the task straightforward, such as the `readtext` R package [@Benoit2021] for formatting the contents of text files for text analysis or the `DCPOtools` R package [@Solt2018] that we employed above.
 In addition to minimizing data-entry errors, writing computer code that starts from the raw source material and works forward has the added benefit of making research much more reproducible [see, e.g., @Benoit2016] and hence more credible [see, e.g., @Wuttke2019].
-"Write code instead of working by hand," as @Christensen2019 [, 197] admonish, "don't use Microsoft Excel if it can be avoided."
+<!-- "Write code instead of working by hand," as @Christensen2019 [, 197] admonish, "don't use Microsoft Excel if it can be avoided." -->
 
-Second, __use the double-entry method__: when manual data entry _cannot_ be avoided, each entry should be made twice.
+Second, __use the double-entry method__: when manual data entry cannot be avoided, each entry should be made twice.
 Double entry is labor intensive, but experiments have shown that it reduces error rates by thirty-fold even when done immediately after the initial collection and by the same person [@Barchard2011, 1837].
 Given that data-entry errors can completely undermine the validity of our conclusions, as in the example above, double entry is worth the extra effort.
 
@@ -1410,7 +1408,7 @@ modelsummary(tb_result_clsAPSR[9:16],
 
 As in @Claassen2020b [, 48-50] we estimate the effects of changes in democracy on public support for democracy in the error-correction models using simulation [see @Williams2012].
 All independent variables were set to the same moderate values as in @Claassen2020b and allowed to run for 200 years, long enough for the system of equations to stabilize.
-The level of democracy was then increased from half a standard deviation below the mean to half a standard deviation above; then the system of equations was allowed to run for 30 more years; these three decades those are depicted in Figure \@ref(fig:firstDifferencePlots).
+The level of democracy was then increased from half a standard deviation below the mean to half a standard deviation above; then the system of equations was allowed to run for 30 more years; these three decades those are depicted in Figure \@ref(fig:differencePlots).
 Per @Claassen2020b [, Supplemental Information 3] and @Claassen2020c, the uncertainty in the model was captured by taking 10,000 draws from a multivariate normal distribution with expectation being the vector of model coefficients and variance being the robust covariance matrix, $\tilde{\Theta} ∼ MVN(\Theta, \Sigma)$, and adding the noise estimated in the regression standard error, $\tilde{Y}_i ∼ N(X_k \tilde{\Theta}_{ki}, \sigma)$.
 To get first differences, the mean value of $\tilde{Y}_i$ in the year before the increase in democracy ($t = -1$) was subtracted from each $\tilde{Y}_i$, and the 0.025 and 0.975 quantiles of the first difference were used as its lower and upper confidence bounds.
 
