@@ -256,11 +256,16 @@ sd <- read_csv(here::here("data", "supdem raw survey marginals.csv"), col_types 
 if (!file.exists(here::here("data", "claassen_input_raw.csv"))) {
   claassen_input_raw <- DCPOtools:::claassen_setup(
     vars = read_csv(here::here("data-raw", "mood_dem.csv"),
-                    col_types = "cccccc"),
-    file = "data/claassen_input_raw.csv")
+                    col_types = "cccccc")) %>% 
+    pluck("lower")
+  
+  write_csv(claassen_input_raw, 
+            file = here::here("data",
+                              "claassen_input_raw.csv"))
 }
 
-claassen_input_raw <- read_csv(here::here("data", "claassen_input_raw.csv"),
+claassen_input_raw <- read_csv(here::here("data",
+                                          "claassen_input_raw.csv"),
                                col_types = "cdcddcd")
 
 claassen_input_raw1 <- claassen_input_raw %>%
