@@ -19,7 +19,7 @@ author:
 - Frederick Solt
   # affiliation: University of Iowa
 anonymous: true  
-abstract: "'Janitor work'---getting data into a format appropriate for analysis---has grown increasingly important as political science research has come to depend on data drawn from hundreds of sources.  One tempting solution is to simply enter data by hand, but this approach raises serious risks of data-entry error, a difficult-to-catch problem with the potential to fatally undermine our conclusions.  Underscoring these points, we identify data-entry errors in a prominent recent article, Claassen's 2020 study examining how changes in democracy influence public support for democracy, and show that when these errors are corrected, its models provide no support for its conclusions.  Researchers should refrain from hand-entering data as much as possible, and we offer additional suggestions for avoiding errors."
+abstract: "'Janitor work'---getting data into a format appropriate for analysis---has grown increasingly important as political science research has come to depend on data drawn from hundreds of sources.  One tempting solution is to simply enter data by hand, but this approach raises serious risks of data-entry error, a difficult-to-catch problem with the potential to fatally undermine our conclusions. Underscoring these points, we identify data-entry errors in a prominent recent article, Claassen's 2020 study examining how changes in democracy influence public support for democracy, and show that when these errors are corrected, its models provide no support for its conclusions.  Researchers should refrain from hand-entering data as much as possible, and we offer additional suggestions for avoiding errors."
 keywords: ""
 tables: true # enable longtable and booktabs
 citation_package: natbib
@@ -423,9 +423,13 @@ This technique may be straightforward, but it is very much prone to error.
 Rates likely go up as the tedious task goes on.
 
 Like 'janitor work' itself, data-entry errors have thus far gained little attention in political science.
-In this piece, we illustrate the pernicious threat this problem poses by carefully scrutinizing a prominent recent work that examines how changes in democracy affect democratic support among the public [@Claassen2020b].
+In this piece, we illustrate the pernicious threat this problem poses by carefully scrutinizing a prominent recent work that examines how changes in democracy affect democratic support among the public [@Claassen2020b].^[
+In this study, we leverage the @Claassen2020b to underscore the impact of data preprocessing on empirical outcomes, a largely underexplored but critical phase in research methodology. As @Weidmann2023 pointed out, although data collection, processing, and analyses can all influence the final outcomes, they follow distinct principles and require different attentions. 
+Each of them is worth to specific attention, especially the data processing stage [@Weidmann2023, pp.4-9]
+For those interested in the impacts of data analysis, we direct them to @TaiEtAl2022a, which provides an in-depth discussion on these issues in the context of a similar substantive topic.
+]
 We document the data-entry errors that slipped past both the author and the journal's strict replication policy and how these errors affect the paper's results and conclusions.
-@Claassen2020b[, 51] concludes that when "elected leaders start dismantling democratic institutions and rights, public mood is likely to swing rapidly toward democracy again, providing something of an obstacle to democratic backsliding."
+@Claassen2020b[p. 51] concludes that when "elected leaders start dismantling democratic institutions and rights, public mood is likely to swing rapidly toward democracy again, providing something of an obstacle to democratic backsliding."
 We show that, after the data-entry errors are corrected, there is no empirical evidence that public support responds thermostatically to changes in democracy in this way.
 On this basis, we conclude with four practical suggestions to help political scientists to reduce data-entry errors and their impact.
 
