@@ -60,6 +60,7 @@ header-includes:
 \captionsetup[figure]{list=no}
 ```{r setup, include=FALSE}
 options(tinytex.verbose = TRUE)
+chooseCRANmirror(graphics = FALSE, ind = 1)
 
 knitr::opts_chunk$set(
     echo = FALSE,
@@ -433,6 +434,11 @@ We document the data-entry errors that slipped past both the author and the jour
 We show that, after the data-entry errors are corrected, there is no empirical evidence that public support responds thermostatically to changes in democracy in this way.
 On this basis, we conclude with four practical suggestions to help political scientists to reduce data-entry errors and their impact.
 
+Before elaborating on our discovery, it is noteworthy that it is difficult to exactly tell the exact motivation based on the data outcomes.
+The data-entry errors we identified may be alternatively because of coding mistake or intentional decisions. 
+What we intend to present is that, such suspicious operations can cause critical consequence in empirical inferences.
+As @JanzFreese2021[p.306] pointed out, a qualified scientific inquiry should "reflect on typical robustness challenges" on the substantive conclusions.
+This is also a primary goal of this research.
 
 ## Data-Entry Errors and Democratic Support
 
@@ -442,7 +448,7 @@ According to a classic and still vibrant literature, growing experience with dem
 
 The evidence it offers in support of this latter argument takes advantage of recent advances in modeling public opinion as a latent variable to measure democratic support.
 This approach provides estimates of the paper's dependent variable for over one hundred countries for up to nearly three decades, constituting a much larger evidentiary base than any previous study.
-These latent-variable estimates, in turn, were based on thousands of nationally aggregated responses to dozens of different questions from cross-national survey projects [@Claassen2020b, 40].
+These latent-variable estimates, in turn, were based on thousands of nationally aggregated responses to dozens of different questions from cross-national survey projects [@Claassen2020b, p.40].
 Two pieces of data were collected for each distinct survey item in each country and year it was asked: the number of respondents to give a democracy-supporting response---defined, for ordinal responses, as those above the median value of the scale [@Claassen2020b, Appendix 1.3]---and the total number of respondents to whom the question was posed.
 Each of these 7,538 pieces of source data is recorded in a spreadsheet.^[
 The article's replication materials include only the latent variable estimates without the original survey aggregates that serve as their source data [see @Claassen2020c]. 
