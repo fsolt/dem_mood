@@ -432,13 +432,13 @@ For those interested in the impacts of data analysis, we direct them to @TaiEtAl
 We document the data-entry errors that slipped past both the author and the journal's strict replication policy and how these errors affect the paper's results and conclusions.
 @Claassen2020b[p. 51] concludes that when "elected leaders start dismantling democratic institutions and rights, public mood is likely to swing rapidly toward democracy again, providing something of an obstacle to democratic backsliding."
 We show that, after the data-entry errors are corrected, there is no empirical evidence that public support responds thermostatically to changes in democracy in this way.
-On this basis, we conclude with four practical suggestions to help political scientists to reduce data-entry errors and their impact.
 
-Before elaborating on our discovery, it is noteworthy that it is difficult to exactly tell the exact motivation based on the data outcomes.
-The data-entry errors we identified may be alternatively because of coding mistake or intentional decisions. 
-What we intend to present is that, such suspicious operations can cause critical consequence in empirical inferences.
-As @JanzFreese2021[p.306] pointed out, a qualified scientific inquiry should "reflect on typical robustness challenges" on the substantive conclusions.
-This is also a primary goal of this research.
+Before elaborating on our discovery, it is noteworthy that it is impossible to tell the exact reason of the potential issues we identified just from the analytic outcomes.
+The issues may be alternatively caused coding mistake or intentional decisions. 
+Our focus here is, first, following @JanzFreese2021[p.306] to conduct a qualified scientific inquiry that "reflect[s] on typical robustness challenges" on some substantive conclusions and illustrate what suspicious operations probably caused by data janitor works can cause for an empirical research
+On this basis, we conclude with four practical suggestions to help political scientists to reduce data-entry errors and their impact.
+We hope readers also consider the illustration and suggestions instead a replication of one single case, but an effort to echo the growing "open science" trend in and beyond social science to build more reliable and transparent research in general [@ChristensenEtAl2019; @EngzellRohrer2021].
+
 
 ## Data-Entry Errors and Democratic Support
 
@@ -1203,11 +1203,11 @@ Absent its mechanism, the thermostat cannot operate on the public's democratic s
 
 The analysis above reveals that data-entry errors are an especially pernicious threat to the credibility of our results.
 The threat is a subtle one that is not easily detected.
-To discern it requires close scrutiny of every manual entry; merely examining the data and their distribution will uncover few errors [@Barchard2011, 1837-1838].
-Although failure to find support for a research hypothesis may prompt us to undertake a such a close review, an analysis that yields statistical significance is unlikely to trigger what will likely be, as in the above example, a time-consuming and difficult effort [see @Gelman2014, 464].
+To discern it requires close scrutiny of every manual entry; merely examining the data and their distribution will uncover few errors [@Barchard2011, pp. 1837-1838].
+Although failure to find support for a research hypothesis may prompt us to undertake a such a close review, an analysis that yields statistical significance is unlikely to trigger what will likely be, as in the above example, a time-consuming and difficult effort [see @Gelman2014, p. 464].
 <!-- These different courses put us in 'the garden of forking paths,' rendering our findings suspect even when we only ever perform a single analysis [@Gelman2014, 464]. -->
 
-This leads us to recommend researchers take the following steps to reduce the possibility of data-entry errors.
+This leads us to recommend the following steps to reduce possible data-entry errors.
 First, __automate data entry__: we suggest researchers to consider reducing reliance on manual data entry and increase the extent to which data wrangling is performed computationally.
 Readers should be aware that our suggestion does *not* imply machine having universally superior reliability than human. 
 Instead, the best utilization of machine coding should be always under delicate human designs and systemic supervisions [@Breznau2021; @Grimmer2015].
@@ -1217,7 +1217,6 @@ Moreover, we are aware that, considering the practice cost, being open and trans
 But if researchers can automate some part of them, there is a higher chance that they can reuse the codes in the next time.
 Many of them have already been packaged as open-source software that makes later researchers' task more straightforward and easier.^[See `readtext` [@Benoit2021] for formatting text files and `DCPOtools` [@Solt2018] for coding cross-sectional time-series public-opinion surveys.]
 <!-- "Write code instead of working by hand," as @Christensen2019 [, 197] admonish, "don't use Microsoft Excel if it can be avoided." -->
-
 
 Second, __use the double-entry method__: when manual data entry cannot be avoided, each entry should be made twice.
 Double entry is labor intensive, but experiments have shown that it reduces error rates by thirty-fold even when done immediately after the initial collection and by the same person [@Barchard2011, 1837].
@@ -1232,6 +1231,12 @@ If data-entry errors are invisible to the authors themselves, they are doubly so
 But the case described above nevertheless suggests a valuable heuristic: when a work's conclusions suggest that a difficult problem will be easily solved---that democratic erosion will reflexively trigger a backlash and a renewed public support for democracy, in the present instance---it warrants especially careful scrutiny.
 
 Data-entry errors are inevitable, and even following these recommendations is unlikely to eliminate them entirely.
+We also hope the readers be aware that the above suggestions are closely related to our experience on a specific study. 
+That means, although they successfully help us identify and fix data-entry concerns in this research, they are far from panacea to cure data processing problems in all types of studies. 
+
+Nonetheless,
+
+
 With careful attention, however, the threat of data-entry errors to our 'janitor work', our research, and our understanding of the world can be minimized.
 
 ## References
