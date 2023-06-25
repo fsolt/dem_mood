@@ -1208,10 +1208,16 @@ Although failure to find support for a research hypothesis may prompt us to unde
 <!-- These different courses put us in 'the garden of forking paths,' rendering our findings suspect even when we only ever perform a single analysis [@Gelman2014, 464]. -->
 
 This leads us to recommend researchers take the following steps to reduce the possibility of data-entry errors.
-First, __automate data entry__: researchers should minimize reliance on manual data entry and maximize the extent to which data wrangling is performed computationally.
-Automating 'janitor work' will sometimes require considerable programming effort, but often software is available that makes the task straightforward, such as the `readtext` R package [@Benoit2021] for formatting the contents of text files for text analysis or the `DCPOtools` R package [@Solt2018] that we employed above.
-In addition to minimizing data-entry errors, writing computer code that starts from the raw source material and works forward has the added benefit of making research much more reproducible [see, e.g., @Benoit2016] and hence more credible [see, e.g., @Wuttke2019].
+First, __automate data entry__: we suggest researchers to consider reducing reliance on manual data entry and increase the extent to which data wrangling is performed computationally.
+Readers should be aware that our suggestion does *not* imply machine having universally superior reliability than human. 
+Instead, the best utilization of machine coding should be always under delicate human designs and systemic supervisions [@Breznau2021; @Grimmer2015].
+In the mean time, given the convenience of automatic data entry in documentation and reproduction, we encourage researchers to well utilize it instead of manually point-clicks to increase the efficacy and transparency of the data processing operations.^[See a systematic discussion of the function of automatic data process in social science in @Weidmann2023.]
+
+Moreover, we are aware that, considering the practice cost, being open and transparent requires work [@EngzellRohrer2021].
+But if researchers can automate some part of them, there is a higher chance that they can reuse the codes in the next time.
+Many of them have already been packaged as open-source software that makes later researchers' task more straightforward and easier.^[See `readtext` [@Benoit2021] for formatting text files and `DCPOtools` [@Solt2018] for coding cross-sectional time-series public-opinion surveys.]
 <!-- "Write code instead of working by hand," as @Christensen2019 [, 197] admonish, "don't use Microsoft Excel if it can be avoided." -->
+
 
 Second, __use the double-entry method__: when manual data entry cannot be avoided, each entry should be made twice.
 Double entry is labor intensive, but experiments have shown that it reduces error rates by thirty-fold even when done immediately after the initial collection and by the same person [@Barchard2011, 1837].
