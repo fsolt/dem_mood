@@ -1231,13 +1231,14 @@ If data-entry errors are invisible to the authors themselves, they are doubly so
 But the case described above nevertheless suggests a valuable heuristic: when a work's conclusions suggest that a difficult problem will be easily solved---that democratic erosion will reflexively trigger a backlash and a renewed public support for democracy, in the present instance---it warrants especially careful scrutiny.
 
 Data-entry errors are inevitable, and even following these recommendations is unlikely to eliminate them entirely.
-We also hope the readers be aware that the above suggestions are closely related to our experience on a specific study. 
+We hope the readers be aware that the above suggestions are closely related to our experience on a specific study. 
 That means, although they successfully help us identify and fix data-entry concerns in this research, they are far from panacea to cure data processing problems in all types of studies. 
 
-Nonetheless,
-
-
-With careful attention, however, the threat of data-entry errors to our 'janitor work', our research, and our understanding of the world can be minimized.
+Nonetheless, we also hope the readers to see the shared logic of these suggestions and the growing literature to guide political scientists to conduct more reliable and credible research.
+For instance, in the same vein of our first suggestion, @Weidmann2023 used a whole book to illustrate how to reduce "manual point and click" in a variety of studies with the `tidy`-data framework in R language.
+@KapiszewskiKarcher2021[p.288] even suggested that researchers with qualitative method should consider using "open-exchange format" of qualitative data analysis software to improve "transparent about the generation and analysis of data."
+Furthermore, we regard our efforts and recommendations as an additional effort to join the open science trend in social science [@ChristensenEtAl2019] and to produce data analytics that are robust and trusted (DART) more generally beyond social science [@BarchardPace2011; @Lohr2014].
+With careful attention and specific efforts on data janitor work, not only can the threat of data-entry errors to our 'janitor work', our research, and our understanding of the world be minimized, but TOP^["Transparency and Openness Promotion", @NosekEtAl2015] knowledge can continuously grow.
 
 ## References
 
