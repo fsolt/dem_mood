@@ -19,7 +19,7 @@ author:
 - Frederick Solt
   # affiliation: University of Iowa
 anonymous: true  
-abstract: "'Janitor work'---getting data into a format appropriate for analysis---has grown increasingly important as political science research has come to depend on data drawn from hundreds of sources.  One tempting solution is to simply enter data by hand, but this approach raises serious risks of data-entry error, a difficult-to-catch problem with the potential to fatally undermine our conclusions.  Underscoring these points, we identify data-entry errors in a prominent recent article, Claassen's 2020 study examining how changes in democracy influence public support for democracy, and show that when these errors are corrected, its models provide no support for its conclusions.  Researchers should refrain from hand-entering data as much as possible, and we offer additional suggestions for avoiding errors."
+abstract: "'Janitor work'---getting data into a format appropriate for analysis---has grown increasingly important as political science research has come to depend on data drawn from hundreds of sources.  One tempting solution is to simply enter data by hand, but this approach raises serious risks of data-entry error, a difficult-to-catch problem with the potential to fatally undermine our conclusions. Underscoring these points, we identify data-entry errors in a prominent recent article, Claassen's 2020 study examining how changes in democracy influence public support for democracy, and show that when these errors are corrected, its models provide no support for its conclusions.  Researchers should refrain from hand-entering data as much as possible, and we offer additional suggestions for avoiding errors."
 keywords: ""
 tables: true # enable longtable and booktabs
 citation_package: natbib
@@ -60,6 +60,7 @@ header-includes:
 \captionsetup[figure]{list=no}
 ```{r setup, include=FALSE}
 options(tinytex.verbose = TRUE)
+chooseCRANmirror(graphics = FALSE, ind = 1)
 
 knitr::opts_chunk$set(
     echo = FALSE,
@@ -423,11 +424,20 @@ This technique may be straightforward, but it is very much prone to error.
 Rates likely go up as the tedious task goes on.
 
 Like 'janitor work' itself, data-entry errors have thus far gained little attention in political science.
-In this piece, we illustrate the pernicious threat this problem poses by carefully scrutinizing a prominent recent work that examines how changes in democracy affect democratic support among the public [@Claassen2020b].
+In this piece, we illustrate the pernicious threat this problem poses by carefully scrutinizing a prominent recent work that examines how changes in democracy affect democratic support among the public [@Claassen2020b].^[
+In this study, we leverage the @Claassen2020b to underscore the impact of data preprocessing on empirical outcomes, a largely underexplored but critical phase in research methodology. As @Weidmann2023 pointed out, although data collection, processing, and analyses can all influence the final outcomes, they follow distinct principles and require different attentions. 
+Each of them is worth to specific attention, especially the data processing stage [@Weidmann2023, pp.4-9]
+For those interested in the impacts of data analysis, we direct them to @TaiEtAl2022a, which provides an in-depth discussion on these issues in the context of a similar substantive topic.
+]
 We document the data-entry errors that slipped past both the author and the journal's strict replication policy and how these errors affect the paper's results and conclusions.
-@Claassen2020b[, 51] concludes that when "elected leaders start dismantling democratic institutions and rights, public mood is likely to swing rapidly toward democracy again, providing something of an obstacle to democratic backsliding."
+@Claassen2020b[p. 51] concludes that when "elected leaders start dismantling democratic institutions and rights, public mood is likely to swing rapidly toward democracy again, providing something of an obstacle to democratic backsliding."
 We show that, after the data-entry errors are corrected, there is no empirical evidence that public support responds thermostatically to changes in democracy in this way.
+
+Before elaborating on our discovery, it is noteworthy that it is impossible to tell the exact reason of the potential issues we identified just from the analytic outcomes.
+The issues may be alternatively caused coding mistake or intentional decisions. 
+Our focus here is, first, following @JanzFreese2021[p.306] to conduct a qualified scientific inquiry that "reflect[s] on typical robustness challenges" on some substantive conclusions and illustrate what suspicious operations probably caused by data janitor works can cause for an empirical research
 On this basis, we conclude with four practical suggestions to help political scientists to reduce data-entry errors and their impact.
+We hope readers also consider the illustration and suggestions instead a replication of one single case, but an effort to echo the growing "open science" trend in and beyond social science to build more reliable and transparent research in general [@ChristensenEtAl2019; @EngzellRohrer2021].
 
 
 ## Data-Entry Errors and Democratic Support
@@ -438,7 +448,7 @@ According to a classic and still vibrant literature, growing experience with dem
 
 The evidence it offers in support of this latter argument takes advantage of recent advances in modeling public opinion as a latent variable to measure democratic support.
 This approach provides estimates of the paper's dependent variable for over one hundred countries for up to nearly three decades, constituting a much larger evidentiary base than any previous study.
-These latent-variable estimates, in turn, were based on thousands of nationally aggregated responses to dozens of different questions from cross-national survey projects [@Claassen2020b, 40].
+These latent-variable estimates, in turn, were based on thousands of nationally aggregated responses to dozens of different questions from cross-national survey projects [@Claassen2020b, p.40].
 Two pieces of data were collected for each distinct survey item in each country and year it was asked: the number of respondents to give a democracy-supporting response---defined, for ordinal responses, as those above the median value of the scale [@Claassen2020b, Appendix 1.3]---and the total number of respondents to whom the question was posed.
 Each of these 7,538 pieces of source data is recorded in a spreadsheet.^[
 The article's replication materials include only the latent variable estimates without the original survey aggregates that serve as their source data [see @Claassen2020c]. 
@@ -1193,14 +1203,19 @@ Absent its mechanism, the thermostat cannot operate on the public's democratic s
 
 The analysis above reveals that data-entry errors are an especially pernicious threat to the credibility of our results.
 The threat is a subtle one that is not easily detected.
-To discern it requires close scrutiny of every manual entry; merely examining the data and their distribution will uncover few errors [@Barchard2011, 1837-1838].
-Although failure to find support for a research hypothesis may prompt us to undertake a such a close review, an analysis that yields statistical significance is unlikely to trigger what will likely be, as in the above example, a time-consuming and difficult effort [see @Gelman2014, 464].
+To discern it requires close scrutiny of every manual entry; merely examining the data and their distribution will uncover few errors [@Barchard2011, pp. 1837-1838].
+Although failure to find support for a research hypothesis may prompt us to undertake a such a close review, an analysis that yields statistical significance is unlikely to trigger what will likely be, as in the above example, a time-consuming and difficult effort [see @Gelman2014, p. 464].
 <!-- These different courses put us in 'the garden of forking paths,' rendering our findings suspect even when we only ever perform a single analysis [@Gelman2014, 464]. -->
 
-This leads us to recommend researchers take the following steps to reduce the possibility of data-entry errors.
-First, __automate data entry__: researchers should minimize reliance on manual data entry and maximize the extent to which data wrangling is performed computationally.
-Automating 'janitor work' will sometimes require considerable programming effort, but often software is available that makes the task straightforward, such as the `readtext` R package [@Benoit2021] for formatting the contents of text files for text analysis or the `DCPOtools` R package [@Solt2018] that we employed above.
-In addition to minimizing data-entry errors, writing computer code that starts from the raw source material and works forward has the added benefit of making research much more reproducible [see, e.g., @Benoit2016] and hence more credible [see, e.g., @Wuttke2019].
+This leads us to recommend the following steps to reduce possible data-entry errors.
+First, __automate data entry__: we suggest researchers to consider reducing reliance on manual data entry and increase the extent to which data wrangling is performed computationally.
+Readers should be aware that our suggestion does *not* imply machine having universally superior reliability than human. 
+Instead, the best utilization of machine coding should be always under delicate human designs and systemic supervisions [@Breznau2021; @Grimmer2015].
+In the mean time, given the convenience of automatic data entry in documentation and reproduction, we encourage researchers to well utilize it instead of manually point-clicks to increase the efficacy and transparency of the data processing operations.^[See a systematic discussion of the function of automatic data process in social science in @Weidmann2023.]
+
+Moreover, we are aware that, considering the practice cost, being open and transparent requires work [@EngzellRohrer2021].
+But if researchers can automate some part of them, there is a higher chance that they can reuse the codes in the next time.
+Many of them have already been packaged as open-source software that makes later researchers' task more straightforward and easier.^[See `readtext` [@Benoit2021] for formatting text files and `DCPOtools` [@Solt2018] for coding cross-sectional time-series public-opinion surveys.]
 <!-- "Write code instead of working by hand," as @Christensen2019 [, 197] admonish, "don't use Microsoft Excel if it can be avoided." -->
 
 Second, __use the double-entry method__: when manual data entry cannot be avoided, each entry should be made twice.
@@ -1216,7 +1231,14 @@ If data-entry errors are invisible to the authors themselves, they are doubly so
 But the case described above nevertheless suggests a valuable heuristic: when a work's conclusions suggest that a difficult problem will be easily solved---that democratic erosion will reflexively trigger a backlash and a renewed public support for democracy, in the present instance---it warrants especially careful scrutiny.
 
 Data-entry errors are inevitable, and even following these recommendations is unlikely to eliminate them entirely.
-With careful attention, however, the threat of data-entry errors to our 'janitor work', our research, and our understanding of the world can be minimized.
+We hope the readers be aware that the above suggestions are closely related to our experience on a specific study. 
+That means, although they successfully help us identify and fix data-entry concerns in this research, they are far from panacea to cure data processing problems in all types of studies. 
+
+Nonetheless, we also hope the readers to see the shared logic of these suggestions and the growing literature to guide political scientists to conduct more reliable and credible research.
+For instance, in the same vein of our first suggestion, @Weidmann2023 used a whole book to illustrate how to reduce "manual point and click" in a variety of studies with the `tidy`-data framework in R language.
+@KapiszewskiKarcher2021[p.288] even suggested that researchers with qualitative method should consider using "open-exchange format" of qualitative data analysis software to improve "transparent about the generation and analysis of data."
+Furthermore, we regard our efforts and recommendations as an additional effort to join the open science trend in social science [@ChristensenEtAl2019] and to produce data analytics that are robust and trusted (DART) more generally beyond social science [@BarchardPace2011; @Lohr2014].
+With careful attention and specific efforts on data janitor work, not only can the threat of data-entry errors to our 'janitor work', our research, and our understanding of the world be minimized, but TOP^["Transparency and Openness Promotion", @NosekEtAl2015] knowledge can continuously grow.
 
 ## References
 
