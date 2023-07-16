@@ -18,3 +18,4 @@ data/*
 .idea/
 reference/
 output/
+paper/dem_mood_cache

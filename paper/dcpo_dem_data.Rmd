@@ -201,18 +201,15 @@ theme_set(theme_bw())
 
 # Data preload
 df_apsr <- rio::import(here("data", "dem_mood_apsr.rda"))
-<<<<<<< HEAD:paper/dem_mood.Rmd
+
 df_apsrCorrected <- rio::import(here("data", "correct_cls_apsr.rda")) %>% 
     rename(Country = country, Year = year)
-=======
-df_apsrCorrected <- rio::import(here("data", "correct_cls_apsr.rda")) %>%
-  rename(., Country = country, Year = year)
+
   
 # df_plot <- arrange(df_correlation) %>%
 #     rownames_to_column() %>% 
 #     mutate(country = factor(country, levels = rev(country)),
 #            rowname = as.integer(rowname))
->>>>>>> e6614aff2230bab43588a0259bf6f6c7afa8fae0:paper/dcpo_dem_data.Rmd
 
 ## dotwhisker::small_multiple() hacks
 body(small_multiple)[[19]] <- substitute(
@@ -512,7 +509,6 @@ plot_support +
 For `r {mean(data_comparison$diff_perc_abs < .5)*100} %>% round()`% of the country-year-item observations, the difference between these percentages was negligible---less than half a percent---yielding points approximately along the plot's dotted line.
 But for the remaining observations, the difference was often substantial as a result of data-entry errors in the publication data.
 
-<<<<<<< HEAD:paper/dem_mood.Rmd
 While these issues involve mistakes in recording the numerator of the percentage, the number of respondents who provided a democracy-supporting answer, entering the denominator, the total number of respondents asked a question, was also problematic on occasion.
 For example, when the Americas Barometer surveyed Canada in 2010, it included an item asking whether, when "democracy doesn't work," Canadians "need a strong leader who doesn’t have to be elected through voting."
 It posed this question to only half of its sample.
@@ -531,11 +527,10 @@ These errors shifted the percentage of democracy-supporting responses in both di
 Data-entry errors of this sort can yield erroneous conclusions.
 After generating the latent variable of democratic support with the corrections to the errors we describe above, we replicated each of the models presented in @Claassen2020b exactly using both the original and the new versions of the latent variable.
 The results using the corrected data reveal only limited support for the classic argument that democracy generates its own demand, at least in the short run, and none at all for a thermostatic relationship.
-=======
+
 If using estimates based on such data can yield erroneous conclusions.
 After replicating the latent variable of democratic support with first the article's original data and then with the corrections to the errors we describe above, we replicated each of the models presented in @Claassen2020b exactly using both of these versions of the latent variable.
 The results provide only limited support for the classic argument that democracy generates its own demand, at least in the short run, and none at all for a thermostatic relationship.
->>>>>>> e6614aff2230bab43588a0259bf6f6c7afa8fae0:paper/dcpo_dem_data.Rmd
 
 Figure \@ref(fig:regressionPlot) presents our results in a "small multiple" plot [@SoltHu2015] for a clear comparison of the coefficients of each variable in the article's models. 
 In the plot, the dots represent point estimates and the whiskers show the associated 95% confidence intervals.

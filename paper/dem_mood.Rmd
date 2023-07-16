@@ -2,7 +2,7 @@
 output: 
   bookdown::pdf_document2:
     fig_caption: yes
-    keep_tex: yes
+    keep_tex: no
     toc: no
     number_sections: no
     latex_engine: xelatex
@@ -26,7 +26,7 @@ citation_package: natbib
 fontsize: 12pt
 indent: true
 linestretch: 1.5 # double spacing using linestretch 1.5
-bibliography: dem_mood_text.bib
+bibliography: [dem_mood_text.bib, p_dcpo_dem_data.bib]
 # \dummy{`r file.path(getwd(), list.files(getwd(), ".bib$", recursive = TRUE))`}
 # csl: https://raw.githubusercontent.com/citation-style-language/styles/master/american-political-science-association.csl
 biblio-style: apsr
@@ -88,6 +88,7 @@ p_load(
     # analysis
     cmdstanr,
     plm,
+    osfr,
     
     # presentation
     gridExtra,
@@ -583,7 +584,7 @@ if (!exists("results_path")) {
     dir.create(results_path, showWarnings = FALSE, recursive = TRUE)
     osf_retrieve_node("vmxkn") %>%
       osf_ls_files() %>% 
-      filter(name == latest) %>% 
+      filter(str_detect(name, latest)) %>% 
       osf_download(path = here::here("data", "corrected"))
   }
 }
