@@ -43,6 +43,12 @@ Here we set out a list of the specific points raised in the reviews and our resp
 	In this sense, the insights we provide can extend beyond the confines of the specific case, topic, or even discipline.
 
 1. **Concern of promoting the "automated data entry"**.
+	Reviewer 1 (R1) has raised a valid concern regarding our promotion of "automated data entry" based on a single-case study. 
+	We take this concern seriously and agree with R1 that the automation of data entry may not be suitable for all types of studies. 
+	It is also important to note that our suggestion does not imply the superiority of machines over humans in all scenarios. 
+	We address these points the discussion of our first recommendation on p. 10, explicitly highlighting the specific problems that data-entry automation aims to solve and those that it does not.
+	We would like to express our gratitude to Reviewer 2 (R2) for suggesting relevant literature, such as @Weidmann2023, which offers a more systematic survey of the strengths of data-entry automation. 
+	We have acknowledged the existence of these studies in our manuscript (pp. 10-11), providing readers with additional resources to explore.
 	
 
 1. **Connection with the broad Open-Science literature**.
