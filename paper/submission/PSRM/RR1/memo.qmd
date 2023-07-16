@@ -52,11 +52,19 @@ Here we set out a list of the specific points raised in the reviews and our resp
 	
 
 1. **Connection with the broad Open-Science literature**.
-	We appreciate the editor and reviewers pushing us to talk with the more general literature of open science and "data analytics that are robust and trusted"(DART). 
-	We state the connections at the beginning of the manuscript (p.2) and discuss it more explicitly at the end (pp.11--12).
-	We exhibit the shared logic of this research and recommendations with the growing effort in political science to produce transparent and reliable research and connection with the more general open-science movement.
-	We also thank R2 to suggest branches of relevant literature both in and out of political science. 
+	We appreciate the Editor and reviewers for urging us to engage with the broader literature on open science and "data analytics that are robust and trusted" (DART).
+	We have established the connections with this literature at the beginning of the manuscript (p. 2) and further elaborated on it towards the end (pp. 11-12).
+	
+	We specify that this research contributes to the literature by emphasizing the significance of focusing on data preprocessing, a crucial yet often overlooked phase and illustrating the consequences if researchers don't with a real-life example (p.1--2 and footnote 1).
+	In footnote 1, we also highlight the necessity of this study as a distinct research endeavor, separate from the existing APSR piece that focuses on the same case. 
+	We greatly appreciate R1 for encouraging us to clarify this distinction and further underscore the contribution of our research.
+	
+	In the final section, we show the underlying logic shared by our research and the ongoing efforts in and out of political science to promote transparent and reliable research.
+	We thank both reviewers for suggesting branches of relevant literature.
 
+Thank you once more for the opportunity to make these revisions.
+We think the paper is now stronger as a result of your comments and show our effort to promote open-science in our discipline more sufficiently.
+We hope you all agree.
 
 
 # Reference {-}
