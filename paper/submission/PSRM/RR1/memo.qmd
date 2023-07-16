@@ -47,12 +47,15 @@ Here we set out a list of the specific points raised in the reviews and our resp
 	We take this concern seriously and agree with R1 that the automation of data entry may not be suitable for all types of studies. 
 	It is also important to note that our suggestion does not imply the superiority of machines over humans in all scenarios. 
 	We address these points the discussion of our first recommendation on p. 10, explicitly highlighting the specific problems that data-entry automation aims to solve and those that it does not.
-	We would like to express our gratitude to Reviewer 2 (R2) for suggesting relevant literature, such as @Weidmann2023, which offers a more systematic survey of the strengths of data-entry automation. 
+	We would also like to express our gratitude to R1 for suggesting @Weidmann2023 which offers a more systematic survey of the strengths of data-entry automation. 
 	We have acknowledged the existence of these studies in our manuscript (pp. 10-11), providing readers with additional resources to explore.
 	
 
 1. **Connection with the broad Open-Science literature**.
-	
+	We appreciate the editor and reviewers pushing us to talk with the more general literature of open science and "data analytics that are robust and trusted"(DART). 
+	We state the connections at the beginning of the manuscript (p.2) and discuss it more explicitly at the end (pp.11--12).
+	We exhibit the shared logic of this research and recommendations with the growing effort in political science to produce transparent and reliable research and connection with the more general open-science movement.
+	We also thank R2 to suggest branches of relevant literature both in and out of political science. 
 
 
 
