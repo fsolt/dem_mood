@@ -24,26 +24,26 @@ subtitle: |
   Memo to Editor and Reviewers
 ---
 
-Thank you for the Editor and reviewers' helpful comments and suggestions.
-We have made specific revisions corresponding to your helpful comments and constructive suggestions for improvement.
+We want to thank the Editor and the reviewers for their helpful comments and suggestions.
+We have made specific revisions corresponding to your constructive comments and suggestions for improvement.
 Here we set out a list of the specific points raised in the reviews and our responses to them below, roughly in the order they appear in the text:
 
 1. **Identification of "data-entry errors"**.
 	Both the editor and two reviewers raised concerns about "data-entry errors."
-	Editor and Reviewer 2 (R2) are skeptical about to what extent the issue we identified can be attributed to "data-entry errors" rather than other types of mistakes.
+	Editor and Reviewer 2 (R2) are skeptical about to what extent the issue we identified can be entirely attributed to "data-entry errors" rather than other researcher behaviors.
 	We agree with this concern and add a paragraph on p.2 to address this issue specifically. 
 	In particular, we point out that it is impossible to tell with complete certainty the exact reason for the issues we identify, since the authors' intentions are not detectable from the outcomes. 
-	We are rather willing to attribute these issues to some type of "errors" than accuse them of p-hacking or other types of intensive manipulations. 
-	Nor the point we raise here is to criticize certain particular background reasons, but to conduct "typical robustness challenges"---as @JanzFreese2021[p.306] suggested a good replication should do---and illuminate how idiosyncratic manual data entry processes can cause problems.
+	We prefer, as a rule, to attribute these issues to simple errors rather than to suspect authors of $p$-hacking or related types of intentional manipulations. 
+	Nor is the point we raise here to criticize this particular result, but to spotlight "typical robustness challenges"---as the work of @JanzFreese2021 [p.306] suggests a good replication should do---and illuminate how idiosyncratic manual data entry processes can cause problems.
 	
 	Reviewer 1 (R1) also reminded us to exercise caution when discussing the implications, considering that our research begins with the replication of a single study. 
 	We appreciate this prudence and have incorporated it into the manuscript (pp. 2 and 12). 
-	On one hand, we explicitly advise readers to recognize that our suggestions are based on the experience with a specific study and should not be seen as a universal remedy for data processing issues across all types of studies. 
+	On one hand, we explicitly advise readers to recognize that our suggestions are based on an experience with a specific study and should not be seen as a universal remedy for data processing issues across all types of studies. 
 	On the other hand, we hope readers will view these recommendations as an effort to foster more reliable and transparent research. 
 	In this sense, the insights we provide can extend beyond the confines of the specific case, topic, or even discipline.
 
 1. **Concern of promoting the "automated data entry"**.
-	Reviewer 1 (R1) has raised a valid concern regarding our promotion of "automated data entry" based on a single-case study. 
+	R1 has raised an important concern regarding our promotion of "automated data entry" based on a single-case study. 
 	We take this concern seriously and agree with R1 that the automation of data entry may not be suitable for all types of studies. 
 	It is also important to note that our suggestion does not imply the superiority of machines over humans in all scenarios. 
 	We address these points the discussion of our first recommendation on p. 10, explicitly highlighting the specific problems that data-entry automation aims to solve and those that it does not.
@@ -55,7 +55,7 @@ Here we set out a list of the specific points raised in the reviews and our resp
 	We appreciate the Editor and reviewers for urging us to engage with the broader literature on open science and "data analytics that are robust and trusted" (DART).
 	We have established the connections with this literature at the beginning of the manuscript (p. 2) and further elaborated on it towards the end (pp. 11-12).
 	
-	We specify that this research contributes to the literature by emphasizing the significance of focusing on data preprocessing, a crucial yet often overlooked phase and illustrating the consequences if researchers don't with a real-life example (p.1--2 and footnote 1).
+	We specify that this research contributes to the literature by emphasizing the significance of focusing on data preprocessing, a crucial yet often overlooked phase and illustrating its consequences for researchers with a real-life example (p.1--2 and footnote 1).
 	In footnote 1, we also highlight the necessity of this study as a distinct research endeavor, separate from the existing APSR piece that focuses on the same case. 
 	We greatly appreciate R1 for encouraging us to clarify this distinction and further underscore the contribution of our research.
 	
@@ -63,7 +63,7 @@ Here we set out a list of the specific points raised in the reviews and our resp
 	We thank both reviewers for suggesting branches of relevant literature.
 
 Thank you once more for the opportunity to make these revisions.
-We think the paper is now stronger as a result of your comments and show our effort to promote open-science in our discipline more sufficiently.
+We think the paper is now stronger as a result of your comments and that it will even better promote open science standards in our discipline.
 We hope you all agree.
 
 
