@@ -530,7 +530,7 @@ While these issues involve mistakes in recording the numerator of the percentage
 For example, when the Americas Barometer surveyed Canada in 2010, asked half its sample, when "democracy doesn't work," Canadians "need a strong leader who doesn’t have to be elected through voting."
 Those who were not asked the question were included in the total number of respondents.
 According to the study's coding rules, refusing to answer is equivalent to answering in a fashion not supporting democracy [see @Claassen2020b, Appendix 1.3].
-This rule may be a reasonable coding choice, but including in this category those who were never asked the question at all is clearly a data-entry error.
+This rule may or may not be a reasonable coding choice, but including in this category those who were never asked the question at all is clearly a data-entry error.
 
 Another source of data-entry errors here involves survey weights.
 Weighting raw survey results to maximize the extent to which they are representative of the target population is important.
