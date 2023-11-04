@@ -6,7 +6,7 @@ output:
     toc: no
     number_sections: no
     latex_engine: xelatex
-    # pandoc_args: --lua-filter=multiple-bibliographies.lua
+    pandoc_args: --lua-filter=multiple-bibliographies.lua
 title: |
   | Revisiting the Evidence on 
   | Thermostatic Response to Democratic Change:
@@ -60,7 +60,7 @@ header-includes:
 ---
 	
 \captionsetup[figure]{list=no}
-```{r setup, include=FALSE}
+```{r init, include=FALSE}
 options(tinytex.verbose = TRUE)
 chooseCRANmirror(graphics = FALSE, ind = 1)
 
@@ -490,7 +490,7 @@ rio::export(claassen_input,
 ## Intro
 With democracy under threat in countries around the world, how the public reacts to democratic erosion is a crucial question.
 A long-established and indeed still-vibrant literature holds that it is experience with democratic governance that boosts democratic support in the public---in short, that democracy creates its own demand [see, e.g., @Lipset1959a; @Welzel2013; @Wuttke2022].
-In contrast to this classic theory, @Claassen2020b argues that democratic support behaves thermostatically: that increases in democracy yield an authoritarian backlash in the public, while democratic backsliding prompts the public to rally to democracy's cause.
+In contrast to this classic theory, one prominent recent article, @Claassen2020b, argues that democratic support behaves thermostatically: that increases in democracy yield an authoritarian backlash in the public, while democratic backsliding prompts the public to rally to democracy's cause.
 
 In support of this thermostatic argument, @Claassen2020b offers evidence based on recent advances in modeling public opinion as a latent variable.
 Drawing on aggregated responses to more than sixty distinct questions on attitudes toward democracy and its alternatives that were asked in thousands of national surveys, the paper estimated democratic support in more than a hundred countries over as long as thirty years.
@@ -498,10 +498,12 @@ These data constitute a broader evidentiary base than that employed in any earli
 Analyses of these data led to the article's conclusion that democratic support behaves thermostatically in the public: "increases in democracy dampen public mood, while decreases cheer it" and that democracy "does not appear to create its own demand" [@Claassen2020b, 51].
 
 But, inevitably, the aggregated survey data, the resulting estimates of democratic support, and ultimately the results of the article's analyses embody a particular set of choices.
+These choices, known as "researcher degrees of freedom," have attracted growing attention among political scientists in recent years [see, e.g., @Wuttke2019; @Breznau2022].
+The concern extends beyond cases of '$p$-hacking,' in which researchers sift through many different options to find a set of choices that yield statistically significant results.
+Researchers may make only a single set of entirely reasonable choices---take only a single walk through the metaphorical "garden of forking paths"---find a result that supports their expectations, and "get excited and believe it" without even considering that a different set of entirely reasonable choices would provide different results [@Gelman2014, 464].
 
 
 
-Researcher degrees of freedom, reproducibility crisis
 
 
 ## Coding Rules and Democratic Support
@@ -2196,7 +2198,7 @@ result_clsAPSR_tidy <- map(result_clsAPSR, function(aResult) {
 })
 ```
 
-```{r regressionPlot, fig.cap= "The Effect of Democracy on Change in Public Support", fig.width=7, fig.height=7}
+```{r regressionPlots, fig.cap= "The Effect of Democracy on Change in Public Support", fig.width=7, fig.height=7}
 
 txt_models <- paste0("Model ",
                      rep(1:2, each = 4), ".", rep(1:4, 2),
@@ -2293,7 +2295,7 @@ When corruption is added in Model 1.2, or when the focus shifts from overall lib
 On the other hand, the estimates for the change in liberal democracy that provided support for the thermostatic theory are much smaller in all of the models.
 Models 2.1 through 2.4, which break liberal democracy into its electoral and minoritarian components, similarly yield smaller coefficients for the change in democracy than those found using the publication data.
 
-```{r simulations}
+```{r simulation}
 # Model 1.1
 mod <- result_clsAPSR[[9]]
 
@@ -2592,7 +2594,7 @@ With careful attention, not only can the threat of data-entry errors to our 'jan
 # Tabular Results
 \newpage
 \blandscape
-```{r num-labelAPSR}
+```{r labelAPSR}
 names_coef <- c(
   "(Intercept)" = "(Intercept)",
   "plm::lag(SupDem_trim, 1:2)1" = "Democratic Mood (t-1)",
@@ -2621,7 +2623,7 @@ names_gof <- tibble::tribble(
      "n.inst",  "N instruments",    0
   )
 ```
-```{r tabulatingFun-APSR}
+```{r tabulatingFun}
 ## function to extract statistics of MOC models
 extract_statsAPSR <- function(input_data){
     # Reproducing the chunk `pointAPSR` with updated data
@@ -2728,7 +2730,7 @@ format_resultAPSR <- function(condition, input_data){
     return(tb_pureAPSR)
 }
 ```
-```{r num-pointAPSR, results='asis'}
+```{r num-point, results='asis'}
 tb_result_clsAPSR <- map(result_clsAPSR_tidy, ~ {
   names(.) <- c("tidy", "glance")
   class(.) <- "modelsummary_list"
@@ -2746,7 +2748,7 @@ modelsummary(tb_result_clsAPSR[1:8],
   kableExtra::kable_styling(font_size = 7) %>% 
   kableExtra::kable_styling(latex_options = "HOLD_position")
 ```
-```{r num-pointAPSRcorrected, results='asis'}
+```{r num-point-corrected, results='asis'}
 modelsummary(tb_result_clsAPSR[9:16], 
              stars = TRUE,
              coef_map = names_coef,
@@ -2769,7 +2771,7 @@ To get first differences, the mean value of $\tilde{Y}_i$ in the year before the
 
 \newpage
 ## First Difference Plots for Models 2.1 and 2.2
-```{r firstDifferencePlots2, fig.cap= "Simulated Effects of Change in Minoritarian Democracy on Public Support", fig.width=6, fig.height=4}
+```{r firstDifferencePlots, fig.cap= "Simulated Effects of Change in Minoritarian Democracy on Public Support", fig.width=6, fig.height=4}
 txt_caption <- strwrap("Notes: Simulated effects are estimated using coefficients from the models presented in Figure 2 with corrected data. The solid lines indicate the mean simulated effect; the shaded regions indicate the 95% confidence intervals of these effects.", width = 90) %>% 
   paste0(sep="", collapse="\n")
 
