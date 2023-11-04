@@ -8,7 +8,7 @@ output:
     latex_engine: xelatex
     # pandoc_args: --lua-filter=multiple-bibliographies.lua
 title: |
-  | Revisiting the Evidence of 
+  | Revisiting the Evidence on 
   | Thermostatic Response to Democratic Change:
   | Degrees of Democratic Support or 
   | Degrees of Researcher Freedom?
@@ -488,14 +488,23 @@ rio::export(claassen_input,
 ```
 
 ## Intro
+With democracy under threat in countries around the world, how the public reacts to democratic erosion is a crucial question.
+A long-established and indeed still-vibrant literature holds that it is experience with democratic governance that boosts democratic support in the public---in short, that democracy creates its own demand [see, e.g., @Lipset1959a; @Welzel2013; @Wuttke2022].
+In contrast to this classic theory, @Claassen2020b argues that democratic support behaves thermostatically: that increases in democracy yield an authoritarian backlash in the public, while democratic backsliding prompts the public to rally to democracy's cause.
+
+In support of this thermostatic argument, @Claassen2020b offers evidence based on recent advances in modeling public opinion as a latent variable.
+Drawing on aggregated responses to more than sixty distinct questions on attitudes toward democracy and its alternatives that were asked in thousands of national surveys, the paper estimated democratic support in more than a hundred countries over as long as thirty years.
+These data constitute a broader evidentiary base than that employed in any earlier work on this topic.
+Analyses of these data led to the article's conclusion that democratic support behaves thermostatically in the public: "increases in democracy dampen public mood, while decreases cheer it" and that democracy "does not appear to create its own demand" [@Claassen2020b, 51].
+
+But, inevitably, the aggregated survey data, the resulting estimates of democratic support, and ultimately the results of the article's analyses embody a particular set of choices.
+
+
+
 Researcher degrees of freedom, reproducibility crisis
 
 
 ## Coding Rules and Democratic Support
-
-With democracy under threat in countries around the world, how the public reacts to democratic erosion is a crucial question.
-According to a classic and still vibrant literature, growing experience with democratic governance helps generate robust public support for democracy [see, e.g., @Lipset1959a; @Welzel2013; @Wuttke2022].
-@Claassen2020b argues instead that democratic support behaves thermostatically: that increases in democracy yield an authoritarian backlash in the public, while democratic backsliding prompts the public to rally to democracy's cause.
 
 The evidence it offers in support of this latter argument takes advantage of recent advances in modeling public opinion as a latent variable to measure democratic support.
 This approach provides estimates of the paper's dependent variable for over one hundred countries for up to nearly three decades, constituting a much larger evidentiary base than any previous study.
