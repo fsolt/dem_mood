@@ -1074,39 +1074,6 @@ To discern it requires close scrutiny of every manual entry; merely examining th
 Although failure to find support for a research hypothesis may prompt us to undertake a such a close review, an analysis that yields statistical significance is unlikely to trigger what will likely be, as in the above example, a time-consuming and difficult effort [see @Gelman2014, 464].
 <!-- These different courses put us in 'the garden of forking paths,' rendering our findings suspect even when we only ever perform a single analysis [@Gelman2014, 464]. -->
 
-This leads us to recommend the following steps to reduce possible data-entry errors.
-First, __automate data entry__: we suggest researchers to consider reducing reliance on manual data entry and increase the extent to which data wrangling is performed computationally.
-Readers should be aware that our suggestion does *not* imply that computers are always superior to people for this purpose. 
-Instead, automated coding should always involve sensitive human design and systematic supervision [see @Breznau2021; @Grimmer2015].
-Still, given the convenience of automatic data entry in documentation and reproduction, we encourage researchers to use it as much as possible instead of entering data manually to increase the efficacy and transparency of their data processing operations.^[For a systematic discussion of the function of automated data processes in social science, see @Weidmann2023.]
-
-In making this recommendation, we are aware that being open and transparent in this way takes effort [@EngzellRohrer2021].
-But as researchers automate more of their data entry, the chances that they can reuse their code in subsequent projects improve.
-In fact, many common janitor-work chores already have been packaged as open-source software that to make researchers' task more straightforward and easier.^[
-For example, see `readtext` [@Benoit2021] for formatting text files and `DCPOtools` [@Solt2018] for aggregating cross-sectional time-series public-opinion surveys.]
-<!-- "Write code instead of working by hand," as @Christensen2019 [, 197] admonish, "don't use Microsoft Excel if it can be avoided." -->
-
-Second, __use the double-entry method__: when manual data entry cannot be avoided, each entry should be made twice.
-Double entry is labor intensive, but experiments have shown that it reduces error rates by thirty-fold even when done immediately after the initial collection and by the same person [@Barchard2011, 1837].
-Given that data-entry errors can completely undermine the validity of our conclusions, as in the example above, double entry is worth the extra effort.
-
-Third, __embrace teamwork__: for any project involving entering data by hand, splitting the task up among team members will reduce the risk of errors going undetected.
-When double entries are performed by different people, discrepancies will be noted, discussed, and resolved correctly; having two sets of eyes on complex materials like survey codebooks also increases the chances that nuances of the presentation like survey weights will be uncovered.
-Further, by dividing the load, teamwork also lessens the probability of errors due to fatigue arising in the first place.
-
-Fourth, __be aware of the threat of data-entry error__: this final recommendation is especially for manuscript reviewers.
-If data-entry errors are invisible to the authors themselves, they are doubly so to reviewers (though if editors provided reviewers with replication materials at the time of the review it may help them to better assess the work's credibility).
-But the case described above nevertheless suggests a valuable heuristic: when a work's conclusions suggest that a difficult problem will be easily solved---that democratic erosion will reflexively trigger a backlash and a renewed public support for democracy, in the present instance---it warrants especially careful scrutiny.
-
-Data-entry errors are inevitable, and even following these recommendations is unlikely to eliminate them entirely.
-Further, the above suggestions follow closely from a specific case and, although they successfully help us identify and fix its data-entry issues, they do not constitute a panacea to cure all data-processing problems in all types of research. 
-
-Nonetheless, we also hope the readers to see the shared logic of these suggestions and the growing literature to guide political scientists to conduct more reliable and credible research.
-For instance, in the same vein as our first suggestion, @Weidmann2023 provides a book-length set of illustrations on how to reduce "manual point and click" tasks found in a variety of studies with the `tidy`-data framework in the R language.
-@KapiszewskiKarcher2021 [, 288] even suggests that qualitative researchers should consider using "open-exchange format" of qualitative data analysis software to be more "transparent about the generation and analysis of data."
-Furthermore, we regard our efforts and recommendations as a contribution to the open science movement to produce more robust and credible research in the social sciences [see, e.g., @ChristensenEtAl2019] and beyond [see, e.g., @BarchardPace2011; @Lohr2014].
-With careful attention, not only can the threat of data-entry errors to our 'janitor work', our research, and our understanding of the world be minimized, but the transparency, openness, and credibility of our research can continuously grow.
-
 ## References
 
 ::: {#refs}
