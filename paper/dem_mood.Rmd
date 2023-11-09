@@ -28,7 +28,7 @@ citation_package: natbib
 fontsize: 12pt
 indent: true
 linestretch: 1.5 # double spacing using linestretch 1.5
-bibliography: [dem_mood_text.bib, p_dcpo_dem_data.bib]
+bibliography: [dem_mood_text.bib]
 # csl: https://raw.githubusercontent.com/citation-style-language/styles/master/american-political-science-association.csl
 biblio-style: apsr
 citecolor: black
@@ -486,9 +486,8 @@ rio::export(claassen_input,
                         "claassen_input.rds"))
 ```
 
-## Intro
-With democracy under threat in countries around the world, how the public reacts to democratic erosion is a crucial question.
-A long-established and indeed still-vibrant literature holds that it is experience with democratic governance that boosts democratic support in the public---in short, that democracy creates its own demand [see, e.g., @Lipset1959a; @Welzel2013; @Wuttke2022].
+With democracy under threat in countries around the world, how the public reacts to democratic change is a crucial question.
+A long-established and indeed still-vibrant literature holds that experiencing more democracy boosts democratic support in the public---in short, that democracy creates its own demand [see, e.g., @Lipset1959; @Welzel2013; @Wuttke2022].
 In contrast to this classic theory, one prominent recent article, @Claassen2020b, argues that democratic support behaves thermostatically: that increases in democracy yield an authoritarian backlash in the public, while democratic backsliding prompts the public to rally to democracy's cause.
 
 In support of this thermostatic argument, @Claassen2020b offers evidence based on recent advances in modeling public opinion as a latent variable.
@@ -512,12 +511,12 @@ The second is the attitude ascribed to survey respondents who did not answer ite
 
 ## Coding Rules and Democratic Support
 
-The dependent variable considered in @Claassen2020 is the public's support for democracy, a latent variable.
+The dependent variable considered in @Claassen2020b is the public's support for democracy, a latent variable.
 This latent variable was estimated from aggregated responses to many survey questions asked in many countries in many years.
 Here we examine the consequences of two choices made early in the process of collecting and aggregating all of those survey data: one regarding how responses were coded as supporting democracy and a second involving how missing responses were treated.
 
 First we consider the question of how to code survey responses.
-The latent variable model used in @Claassen2020 requires responses to be dichotomous: either, in this case, democracy supporting or not.
+The latent variable model used in @Claassen2020b requires responses to be dichotomous: either, in this case, democracy supporting or not.
 This is straightward for the few survey items that gave respondents only two options, for example, in the Pew Global Attitudes surveys, "a democratic form of government" or "a leader with a strong hand."
 But the vast majority of the survey items employed are ordinal and so require a cutpoint to be chosen to split respondents between those who support democracy and those who do not.
 
@@ -527,8 +526,8 @@ It stipulates that only those who supply only the most democracy-supporting resp
 A second coding rule takes the opposite tack, with all but the lowest response considered as indicating at least some support for democracy and only the lowest value considered as not supportive.
 The last splits the difference, considering answers above the median, e.g., the two highest values on a five-point scale, to indicate that the respondent supports democracy, with the median and below being unsupportive.
 
-In the event, @Claassen2020 resorts to a mix of the above three rules.
-Most survey items were dichotomized following the 'above the median' rule [see @Claassen2020, Appendix 1.3]. 
+In the event, @Claassen2020b resorts to a mix of the above three rules.
+Most survey items were dichotomized following the 'above the median' rule [see @Claassen2020b, Appendix 1.3]. 
 Although not documented in the article's appendix on "Microlevel Coding of Survey Responses," the other two rules were employed as well.
 The most demanding rule was applied to the four-point item asked in Pew Global Attitudes surveys, "How important is it to you to live in a country where honest elections are held regularly with a choice of at least two political parties? Is it very important, somewhat important, not too important or not important at all?"
 For this question, rather than including respondents who gave both responses above the median---"very important" and "somewhat important"---only those respondents who answered "very important" were entered as supporting democracy.
@@ -1041,7 +1040,7 @@ ggplot(data = sim_m1_1_list) +
 ```
 
 Figure \@ref(fig:simulationPlot) is similar to Claassen's [-@Claassen2020b, 48] Figure 5.
-It depicts simulated effects, in differences rather than levels for ease of interpretation, of a one standard deviation increase in democracy on the public's support for democracy using the sixteen sets of regression coefficients presented in Figure \@ref(fig:coefficientPlot) with the four different coding rules appearing the columns and the four different non-response treatments in the rows.
+It depicts simulated effects, in differences rather than levels for ease of interpretation, of a one standard deviation increase in democracy on the public's support for democracy using the sixteen sets of regression coefficients presented in Figure \@ref(fig:regressionPlot) with the four different coding rules appearing the columns and the four different non-response treatments in the rows.
 
 The upper left pane simulates the combination of the mixed coding rule and the treatment of survey non-responses as indicating a lack of support for democracy matches, the same combination employed in @Claassen2020b.
 The initial drop and slow recovery in the mean of these simulations of public democratic support was the evidence presented for the "thermostatic response of public opinion" and the claim that there is "little evidence that democracy generates its own demand" [@Claassen2020b, 48].
