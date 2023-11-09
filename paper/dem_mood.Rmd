@@ -486,30 +486,29 @@ rio::export(claassen_input,
                         "claassen_input.rds"))
 ```
 
-With democracy under threat in countries around the world, how the public reacts to democratic change is a crucial question.
+With democracy under threat in many countries around the world, how the public reacts to democratic change is a crucial question.
 A long-established and indeed still-vibrant literature holds that experiencing more democracy boosts democratic support in the public---in short, that democracy creates its own demand [see, e.g., @Lipset1959; @Welzel2013; @Wuttke2022].
 In contrast to this classic theory, one prominent recent article, @Claassen2020b, argues that democratic support behaves thermostatically: that increases in democracy yield an authoritarian backlash in the public, while democratic backsliding prompts the public to rally to democracy's cause.
 
 In support of this thermostatic argument, @Claassen2020b offers evidence based on recent advances in modeling public opinion as a latent variable.
-Drawing on aggregated responses to more than sixty distinct questions on attitudes toward democracy and its alternatives that were asked in thousands of national surveys, the paper estimated a latent variable of democratic support in more than a hundred countries over as long as thirty years.
+Drawing on aggregated responses to more than sixty distinct questions on attitudes toward democracy and its alternatives that were asked in thousands of national surveys, the article estimates a latent variable of democratic support in more than a hundred countries over as long as thirty years.
 These data constitute a broader evidentiary base than that employed in any earlier work on this topic.
-Analyses of these data led to the article's conclusions that democratic support behaves thermostatically in the public, "increases in democracy dampen public mood, while decreases cheer it," and that democracy "does not appear to create its own demand" as the classic theory has it [@Claassen2020b, 51].
+Analyses of these data support the article's conclusions that democratic support behaves thermostatically in the public, that "increases in democracy dampen public mood, while decreases cheer it," and that democracy "does not appear to create its own demand" as the classic theory has it [@Claassen2020b, 51].
 
 But, inevitably, the aggregated survey data, the resulting estimates of democratic support, and ultimately the results of the article's analyses embody a particular set of choices.
 These choices, known as "researcher degrees of freedom," have attracted growing attention among political scientists in recent years [see, e.g., @Wuttke2019; @Breznau2022].
 The concern extends beyond cases of '$p$-hacking,' in which researchers sift through many different options to find a set of choices that yield statistically significant results.
 It turns out that no intentional fraud or misconduct is required to render results unreliable.
-Researchers may make only a single set of entirely reasonable choices---they may take only a single walk through the metaphorical "garden of forking paths"---find a result that supports their expectations, and "get excited and believe it" without even considering that a different set of entirely reasonable choices would provide different results [@Gelman2014, 464].
+Researchers may make only a single set of entirely reasonable choices, that is, they may take only a single walk through the metaphorical "garden of forking paths"; find a result that supports their expectations; and "get excited and believe it" without even considering that a different set of entirely reasonable choices would provide different results [@Gelman2014, 464].
 
 Here, we highlight two researcher degrees of freedom in the evidence supporting a thermostatic response to democratic change.
-The first is the manner in which ordinal survey responses were coded as supportive or not supportive of democracy.
-The second is the attitude ascribed to survey respondents who did not answer items on dem
+The first is the manner in which ordinal survey responses are coded as supportive or not supportive of democracy.
+The second is the attitude ascribed to survey respondents who did not answer items regarding their support for democracy.
+We document a range of reasonable alternatives to the choices made in @Claassen2020b on each of these issues, and demonstrate that analyses employing these alternatives provide little to no support for the conclusions drawn in that article.
+The fragility of the published results to alternate reasonable choices demonstrates the importance of taking degrees of researcher freedom seriously and suggests that, for those who value democracy, threats of its erosion call not for the self-satisfied complacency proposed by @Claassen2020b but rather a robust defense and indeed a push for further democratic deepening. 
 
-<!-- Needs expansion -->
 
-
-
-## Coding Rules and Democratic Support
+## Researcher Degrees of Freedom and Democratic Support
 
 The dependent variable considered in @Claassen2020b is the public's support for democracy, a latent variable.
 This latent variable was estimated from aggregated responses to many survey questions asked in many countries in many years.
@@ -1087,8 +1086,8 @@ These findings imply that those who seek to advance democracy should do just tha
 \renewcommand{\thefigure}{SI.\arabic{figure}}
 \setcounter{table}{0}
 \renewcommand{\thetable}{SI.\arabic{table}}
-\listoftables
-\listoffigures
+<!-- \listoftables -->
+<!-- \listoffigures -->
 
 # Tabular Results
 \newpage
