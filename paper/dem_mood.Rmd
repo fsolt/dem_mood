@@ -57,18 +57,18 @@ header-includes:
       - \setcounter{bottomnumber}{3}
       - \setcounter{totalnumber}{4}
 ---
-	
+
 \captionsetup[figure]{list=no}
 ```{r init, include=FALSE}
 options(tinytex.verbose = TRUE)
 chooseCRANmirror(graphics = FALSE, ind = 1)
 
 knitr::opts_chunk$set(
-    echo = FALSE,
-    message = FALSE,
-    warning = FALSE,
-    cache = TRUE,
-    dpi = 300
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  cache = TRUE,
+  dpi = 300
 )
 
 if (!require(cmdstanr)) {
@@ -79,35 +79,35 @@ if (!require(cmdstanr)) {
 }
 
 if (!require(pacman))
-    install.packages("pacman")
+  install.packages("pacman")
 library(pacman)
-  
+
 p_install(janitor, force = FALSE)
 p_install_gh(c("fsolt/DCPOtools"), force = FALSE)
 
 # load all the packages you will use below
 p_load(
-    # analysis
-    cmdstanr,
-    plm,
-    osfr,
-    
-    # presentation
-    gridExtra,
-    modelsummary,
-    dotwhisker,
-    latex2exp,
-    ggh4x,
-    
-    # data wrangling
-    DCPOtools,
-    janitor,
-    countrycode,
-    here,
-    broom,
-    tidyverse,
-    furrr,
-    glue)
+  # analysis
+  cmdstanr,
+  plm,
+  osfr,
+  
+  # presentation
+  gridExtra,
+  modelsummary,
+  dotwhisker,
+  latex2exp,
+  ggh4x,
+  
+  # data wrangling
+  DCPOtools,
+  janitor,
+  countrycode,
+  here,
+  broom,
+  tidyverse,
+  furrr,
+  glue)
 
 # Functions preload
 set.seed(313)
@@ -117,79 +117,79 @@ set.seed(313)
 dichotomize <- function(df, 
                         by = c("highest", "median", "orig", "lowest"),
                         miss = c("mar", "lower", "upper", "theory")) {
-    if (miss == "mar") {
-        df <- df %>% 
-            filter(!r == -1) # missing at random so omitted
-    } else if (miss == "upper") { # all missing recoded as supporting democracy 
-        df <- df %>% 
-            mutate(r = case_when(r == -1 ~ 999,
-                                 TRUE ~ r))
-    } else if (miss == "theory") {
-        df <- df %>% 
-            mutate(r = case_when(r == -1 & dem == 0 ~ 999, # code non-respondents in 
-                                 TRUE ~ r))  # autocracies as supporting democracy
-    } # else miss == "lower" & all missing answers remain coded as unsupportive
-    
-    if (by == "highest") {
-        df1 <- df %>%
-            group_by(country, year, item) %>% 
-            summarize(x = sum(ifelse(r == highest_r, n, 0)),
-                      samp = sum(n),
-                      survey = first(survey),
-                      .groups = "drop_last") %>%
-            ungroup() %>%
-            filter(x > 0)
-    } else if (by == "median") {
-        df1 <- df %>% 
-            group_by(country, year, item) %>% 
-            summarize(x = sum(ifelse(r > median_r, n, 0)),
-                      samp = sum(n),
-                      survey = first(survey),
-                      .groups = "drop_last") %>%
-            ungroup() %>%
-            filter(x > 0)
-    } else if (by == "orig") {
-        df1 <- df %>% 
-            group_by(country, year, item) %>% 
-            summarize(x = sum(ifelse(r > orig_r, n, 0)),
-                      samp = sum(n),
-                      survey = first(survey),
-                      .groups = "drop_last") %>%
-            ungroup() %>%
-            filter(x > 0)
-    } else if (by == "lowest") {
-        df1 <- df %>% 
-            group_by(country, year, item) %>% 
-            summarize(x = sum(ifelse(r > lowest_r, n, 0)),
-                      samp = sum(n),
-                      survey = first(survey),
-                      .groups = "drop_last") %>%
-            ungroup() %>%
-            filter(x > 0)
-    }
-    
-    df2 <- df1 %>% 
-        mutate(by = by,
-               miss = miss)
-    return(df2)
+  if (miss == "mar") {
+    df <- df %>% 
+      filter(!r == -1) # missing at random so omitted
+  } else if (miss == "upper") { # all missing recoded as supporting democracy 
+    df <- df %>% 
+      mutate(r = case_when(r == -1 ~ 999,
+                           TRUE ~ r))
+  } else if (miss == "theory") {
+    df <- df %>% 
+      mutate(r = case_when(r == -1 & dem == 0 ~ 999, # code non-respondents in 
+                           TRUE ~ r))  # autocracies as supporting democracy
+  } # else miss == "lower" & all missing answers remain coded as unsupportive
+  
+  if (by == "highest") {
+    df1 <- df %>%
+      group_by(country, year, item) %>% 
+      summarize(x = sum(ifelse(r == highest_r, n, 0)),
+                samp = sum(n),
+                survey = first(survey),
+                .groups = "drop_last") %>%
+      ungroup() %>%
+      filter(x > 0)
+  } else if (by == "median") {
+    df1 <- df %>% 
+      group_by(country, year, item) %>% 
+      summarize(x = sum(ifelse(r > median_r, n, 0)),
+                samp = sum(n),
+                survey = first(survey),
+                .groups = "drop_last") %>%
+      ungroup() %>%
+      filter(x > 0)
+  } else if (by == "orig") {
+    df1 <- df %>% 
+      group_by(country, year, item) %>% 
+      summarize(x = sum(ifelse(r > orig_r, n, 0)),
+                samp = sum(n),
+                survey = first(survey),
+                .groups = "drop_last") %>%
+      ungroup() %>%
+      filter(x > 0)
+  } else if (by == "lowest") {
+    df1 <- df %>% 
+      group_by(country, year, item) %>% 
+      summarize(x = sum(ifelse(r > lowest_r, n, 0)),
+                samp = sum(n),
+                survey = first(survey),
+                .groups = "drop_last") %>%
+      ungroup() %>%
+      filter(x > 0)
+  }
+  
+  df2 <- df1 %>% 
+    mutate(by = by,
+           miss = miss)
+  return(df2)
 }
 
 format_claassen <- function(claassen_data) {
-    claassen_stan <- map(claassen_data, function(dat) {
-        one_stan_input <- list(  N       = nrow(dat),
-                                 K       = dplyr::n_distinct(dat$item),
-                                 T       = max(dat$year) - min(dat$year) + 1,
-                                 J       = dplyr::n_distinct(dat$country),
-                                 P       = max(as.numeric(as.factor(paste(dat$country, dat$item)))),
-                                 jj      = as.numeric(as.factor(dat$country)),
-                                 kk      = as.numeric(as.factor(dat$item)),
-                                 tt      = dat$year - min(dat$year) + 1,
-                                 pp      = as.numeric(as.factor(paste(dat$country, dat$item))),
-                                 x       = round(dat$x),
-                                 samp    = round(dat$samp),
-                                 data    = dat)
-    })
-    return(claassen_stan)
+  claassen_stan <- map(claassen_data, function(dat) {
+    one_stan_input <- list(  N       = nrow(dat),
+                             K       = dplyr::n_distinct(dat$item),
+                             T       = max(dat$year) - min(dat$year) + 1,
+                             J       = dplyr::n_distinct(dat$country),
+                             P       = max(as.numeric(as.factor(paste(dat$country, dat$item)))),
+                             jj      = as.numeric(as.factor(dat$country)),
+                             kk      = as.numeric(as.factor(dat$item)),
+                             tt      = dat$year - min(dat$year) + 1,
+                             pp      = as.numeric(as.factor(paste(dat$country, dat$item))),
+                             x       = round(dat$x),
+                             samp    = round(dat$samp),
+                             data    = dat)
+  })
+  return(claassen_stan)
 }
 
 ## analyzing and presenting functions
@@ -197,9 +197,9 @@ format_claassen <- function(claassen_data) {
 
 ## Beck-Katz panel-corrected standard errors
 vcovHC_se <-  function(x) {
-    plm::vcovHC(x, method="arellano", cluster="group") %>%  #default setting
-        diag() %>% 
-        sqrt()
+  plm::vcovHC(x, method="arellano", cluster="group") %>%  #default setting
+    diag() %>% 
+    sqrt()
 }
 
 # Tabulation -----------------------------------------------------------------------
@@ -211,119 +211,119 @@ na_types_dict <- list("r" = NA_real_,
 # A function that converts a string to a vector of NA types.
 # e.g. "rri" -> c(NA_real_, NA_real_, rlang::na_int)
 parse_na_types <- function(s) {
-    
-    positions <- purrr::map(
-        stringr::str_split(s, pattern = ""), 
-        match,
-        table = names(na_types_dict)
-    ) %>%
-        unlist()
-    
-    na_types_dict[positions] %>%
-        unlist() %>%
-        unname()
+  
+  positions <- purrr::map(
+    stringr::str_split(s, pattern = ""), 
+    match,
+    table = names(na_types_dict)
+  ) %>%
+    unlist()
+  
+  na_types_dict[positions] %>%
+    unlist() %>%
+    unname()
 }
 
 # A function that, given named arguments, will make a one-row
 # tibble, switching out NULLs for the appropriate NA type.
 as_glance_tibble <- function(..., na_types) {
-    
-    cols <- list(...)
-    
-    if (length(cols) != stringr::str_length(na_types)) {
-        stop(
-            "The number of columns provided does not match the number of ",
-            "column types provided."
-        )
-    }
-    
-    na_types_long <- parse_na_types(na_types)
-    
-    entries <- purrr::map2(cols, 
-                           na_types_long, 
-                           function(.x, .y) {if (length(.x) == 0) .y else .x})
-    
-    tibble::as_tibble_row(entries)
-    
+  
+  cols <- list(...)
+  
+  if (length(cols) != stringr::str_length(na_types)) {
+    stop(
+      "The number of columns provided does not match the number of ",
+      "column types provided."
+    )
+  }
+  
+  na_types_long <- parse_na_types(na_types)
+  
+  entries <- purrr::map2(cols, 
+                         na_types_long, 
+                         function(.x, .y) {if (length(.x) == 0) .y else .x})
+  
+  tibble::as_tibble_row(entries)
+  
 }
 
 tidy.pgmm <- function(x,
                       conf.int = FALSE,
                       conf.level = 0.95,
                       ...) {
-    result <- summary(x)$coefficients %>%
-        tibble::as_tibble(rownames = "term") %>%
-        dplyr::rename(
-            estimate = Estimate,
-            std.error = `Std. Error`,
-            statistic = `z-value`,
-            p.value = `Pr(>|z|)`
-        )
-    
-    if (conf.int) {
-        ci <- confint(x, level = conf.level) %>% 
-            as.data.frame() %>% 
-            rownames_to_column(var = "term") %>% 
-            dplyr::rename(
-                conf.low = `2.5 %`,
-                conf.high = `97.5 %`
-            )
-        result <- dplyr::left_join(result, ci, by = "term")
-    }
-    
-    result
+  result <- summary(x)$coefficients %>%
+    tibble::as_tibble(rownames = "term") %>%
+    dplyr::rename(
+      estimate = Estimate,
+      std.error = `Std. Error`,
+      statistic = `z-value`,
+      p.value = `Pr(>|z|)`
+    )
+  
+  if (conf.int) {
+    ci <- confint(x, level = conf.level) %>% 
+      as.data.frame() %>% 
+      rownames_to_column(var = "term") %>% 
+      dplyr::rename(
+        conf.low = `2.5 %`,
+        conf.high = `97.5 %`
+      )
+    result <- dplyr::left_join(result, ci, by = "term")
+  }
+  
+  result
 }
 
 glance.plm <- function(x, ...) {
-    s <- summary(x)
-    as_glance_tibble(
-        nobs = stats::nobs(x),
-        n.country = pdim(x)$nT$n,
-        na_types = "ii"
-    )
+  s <- summary(x)
+  as_glance_tibble(
+    nobs = stats::nobs(x),
+    n.country = pdim(x)$nT$n,
+    na_types = "ii"
+  )
 }
 
 glance.pgmm <- function(x, ...) {
-    s <- summary(x)
-    as_glance_tibble(nobs = stats::nobs(x),
-        n.country = pdim(x)$nT$n,
-        n.inst = dim(x$W[[1]])[2],
-        na_types = "iii"
-    )
+  s <- summary(x)
+  as_glance_tibble(nobs = stats::nobs(x),
+                   n.country = pdim(x)$nT$n,
+                   n.inst = dim(x$W[[1]])[2],
+                   na_types = "iii"
+  )
 }
 
 theme_set(theme_bw())
 
 ## dotwhisker::small_multiple() hacks
 body(small_multiple)[[19]] <- substitute(
-    p <-
-        ggplot(
-            df,
-            aes(
-                y = estimate,
-                ymin = conf.low,
-                ymax = conf.high,
-                x = as.factor(model),
-                colour = submodel
-            )
-        ) +
-        do.call(geom_pointrange, point_args) +
-        ylab("") + xlab("") +
-        facet_grid(
-            term ~ .,
-            scales = "free",
-            labeller = label_parsed,
-            # enable LaTeX facet labels
-            switch = "y"
-        ) +             # put facet labels on left
-        scale_y_continuous(position = "right") # put axis label on right
+  p <-
+    ggplot(
+      df,
+      aes(
+        y = estimate,
+        ymin = conf.low,
+        ymax = conf.high,
+        x = as.factor(model),
+        colour = submodel
+      )
+    ) +
+    do.call(geom_pointrange, point_args) +
+    ylab("") + xlab("") +
+    facet_grid(
+      term ~ .,
+      scales = "free",
+      labeller = label_parsed,
+      # enable LaTeX facet labels
+      switch = "y"
+    ) +             # put facet labels on left
+    scale_y_continuous(position = "right") # put axis label on right
 )
 ```
 
 ```{r claassen_input, include=FALSE}
 if (!file.exists(here::here("data", "supdem raw survey marginals.csv"))) {
   tempfile <- dataverse::get_file_by_doi("doi:10.7910/DVN/HWLW0J/RA8IJC") # AJPS replication file, not included in APSR replication
-
+  
   writeBin(tempfile, here::here("data", "supdem raw survey marginals.csv"))
   rm(tempfile)
 }
@@ -349,8 +349,8 @@ if (!file.exists(here::here("data", "claassen_input_raw.csv"))) {
 }
 
 claassen_input_raw0 <- read_csv(here::here("data",
-                                          "claassen_input_raw.csv"),
-                               col_types = "cdcddcd")
+                                           "claassen_input_raw.csv"),
+                                col_types = "cdcddcd")
 
 claassen_input_raw1 <- claassen_input_raw0 %>%
   filter(!((
@@ -437,47 +437,47 @@ year_fixes <- left_join(needed,    # 304 obs
   mutate(year = year.y)
 
 claassen_sample <- bind_rows(no_problems, year_fixes) %>% 
-    select(country, year, item)
+  select(country, year, item)
 
 df_apsr <- read_csv(here::here("data", "dem_mood_apsr.csv"),
-                     show_col_types = FALSE)
+                    show_col_types = FALSE)
 
 base_input_raw <- claassen_input_raw0 %>%
-    right_join(claassen_sample,
-               by = join_by(country, year, item)) %>% 
-    left_join(df_apsr %>%
-                transmute(country = countrycode(Country,
-                                                "country.name",
-                                                "country.name"),
-                          year = Year,
-                          dem = Regime_di),
-              by = join_by(country, year)) %>% 
-    group_by(country, year, item) %>% 
-    mutate(highest_r = max(r),
-           lowest_r = 1,
-           median_r = median(setdiff(r, c(-1, 999))),
-           orig_r = case_when((str_detect(survey, "asiab") &
-                                   item == "evdemoc_asiab") ~ 1,
-                              (str_detect(survey, "pew") &
-                                   item == "impdemoc_pew") ~ 3,
-                              TRUE ~ median_r)) %>% 
-    ungroup()
+  right_join(claassen_sample,
+             by = join_by(country, year, item)) %>% 
+  left_join(df_apsr %>%
+              transmute(country = countrycode(Country,
+                                              "country.name",
+                                              "country.name"),
+                        year = Year,
+                        dem = Regime_di),
+            by = join_by(country, year)) %>% 
+  group_by(country, year, item) %>% 
+  mutate(highest_r = max(r),
+         lowest_r = 1,
+         median_r = median(1:first(highest_r)),
+         orig_r = case_when((str_detect(survey, "asiab") &
+                               item == "evdemoc_asiab") ~ 1,
+                            (str_detect(survey, "pew") &
+                               item == "impdemoc_pew") ~ 3,
+                            TRUE ~ median_r)) %>% 
+  ungroup()
 
 by <- c("orig", "highest", "median", "lowest") %>% # coding rules
-    set_names()
+  set_names()
 
 miss <- c("lower", "upper", "theory", "mar") %>% # missing-data treatments
-    set_names()
+  set_names()
 
 claassen_input_raw <- map(by,
-                 \(b) {
-                     map(miss,
-                         \(m) dichotomize(base_input_raw, b, m))
-                 })
+                          \(b) {
+                            map(miss,
+                                \(m) dichotomize(base_input_raw, b, m))
+                          })
 
 claassen_input <- map(by, \(b) {
   rule <- claassen_input_raw %>% 
-        pluck(b) 
+    pluck(b) 
   format_claassen(rule)
 })
 
@@ -516,7 +516,7 @@ Here we examine the consequences of two choices made early in the process of col
 
 First we consider the question of how to code survey responses.
 The latent variable model used in @Claassen2020b requires responses to be dichotomous: either, in this case, democracy supporting or not.
-This is straightward for the few survey items that gave respondents only two options, for example, in the Pew Global Attitudes surveys, "a democratic form of government" or "a leader with a strong hand."
+This is straightforward for the few survey items that gave respondents only two options, for example, in the Pew Global Attitudes surveys, "a democratic form of government" or "a leader with a strong hand."
 But the vast majority of the survey items employed are ordinal and so require a cutpoint to be chosen to split respondents between those who support democracy and those who do not.
 
 There are at least three reasonable options for recoding these ordinal responses into a dichotomous variable of democratic support.
@@ -533,9 +533,9 @@ For this question, rather than including respondents who gave both responses abo
 And for the three-point item in the Asia Barometer asking whether respondents thought "a democratic political system" would be very good, fairly good, or bad for their country, the 'all but the lowest' rule was applied.^[
 One charitable reading, offered by @Hu2022, would be that these deviations from the 'above the median' rule documented in the paper's appendix are simply unintentional mistakes.
 A corrigendum to the article written in response to @Hu2022, however, rejects this interpretation [see @Claassen2023].]
-This mixed rule gives us a total four coding rules.
+Adding this mixed rule to those described above gives us a total of four coding rules.
 
-The second choice involves how to treat missing responses, that is, when survey respondents either answer that they "don't know" or simply refuse to answer the question.
+The second choice involves how to treat missing responses, that is, when survey respondents either indicate that they "don't know" or simply refuse to answer the question.
 Here, too, there is a range of reasonable choices.
 We identify four possibilities.
 One might reasonably assume that a missing response is equivalent to answering with a lack of support for democracy since the respondent did not provide a democracy-supporting response.
@@ -543,10 +543,10 @@ One might reasonably assume that a missing response is equivalent to answering w
 But one might conversely and equally reasonably consider a missing response to suggest _support_ for democracy; the respondent, after all, did not provide a democracy-opposing response.
 A third possibility is that non-responses indicate opposition to the current regime. That is, their meaning depends on the context.
 In democracies missing responses indicate an unwillingness to supply an honest but socially unacceptable rejection of democracy, but in autocracies missing responses evince support for democracy coupled with a fear of reprisal.
-One final possibility is that non-responses occur randomly.
+One final possibility is that non-responses occur at random.
 In that case, a non-response tells nothing about the respondent's views toward democracy and can simply be dropped from the sample.
 There are, then, at least four reasonable treatments of survey non-responses.
-
+Together, the four coding rules and four missing-data treatments described above give us sixteen combinations of plausible researcher choices.
 
 ## Consequences for Inference
 
@@ -561,22 +561,22 @@ plan(multisession, workers = 12)
 future_options <- furrr_options(seed = 324)
 
 orig_output <- future_map(claassen_input %>% 
-                                pluck("orig"),
-                              \(ci_df) {
-                                cm5$sample(
-                                  data = ci_df, 
-                                  max_treedepth = 14,
-                                  adapt_delta = 0.99,
-                                  step_size = 0.005,
-                                  seed = 324, 
-                                  chains = 3, 
-                                  parallel_chains = 3,
-                                  iter_warmup = warmup,
-                                  iter_sampling = sampling,
-                                  refresh = warmup/25
-                                )
-                              },
-                              .options = future_options
+                            pluck("orig"),
+                          \(ci_df) {
+                            cm5$sample(
+                              data = ci_df, 
+                              max_treedepth = 14,
+                              adapt_delta = 0.99,
+                              step_size = 0.005,
+                              seed = 324, 
+                              chains = 3, 
+                              parallel_chains = 3,
+                              iter_warmup = warmup,
+                              iter_sampling = sampling,
+                              refresh = warmup/25
+                            )
+                          },
+                          .options = future_options
 )
 
 results_path <- here::here(file.path("data", 
@@ -597,22 +597,22 @@ map(miss, \(m) {
 })
 
 highest_output <- future_map(claassen_input %>% 
-                                pluck("highest"),
-                              \(ci_df) {
-                                cm5$sample(
-                                  data = ci_df, 
-                                  max_treedepth = 14,
-                                  adapt_delta = 0.99,
-                                  step_size = 0.005,
-                                  seed = 324, 
-                                  chains = 3, 
-                                  parallel_chains = 3,
-                                  iter_warmup = warmup,
-                                  iter_sampling = sampling,
-                                  refresh = warmup/25
-                                )
-                              },
-                              .options = future_options
+                               pluck("highest"),
+                             \(ci_df) {
+                               cm5$sample(
+                                 data = ci_df, 
+                                 max_treedepth = 14,
+                                 adapt_delta = 0.99,
+                                 step_size = 0.005,
+                                 seed = 324, 
+                                 chains = 3, 
+                                 parallel_chains = 3,
+                                 iter_warmup = warmup,
+                                 iter_sampling = sampling,
+                                 refresh = warmup/25
+                               )
+                             },
+                             .options = future_options
 )
 
 
@@ -729,7 +729,7 @@ load_results <- function(by) {
       \(m) {
         bm_results_path <- file.path("data", by, m)
         as_cmdstan_fit(here(bm_results_path,
-                            list.files(bm_results_path, pattern = "csv$")))
+                            list.files(here(bm_results_path), pattern = "csv$")))
       })
 }  
 
@@ -737,13 +737,12 @@ orig_output <- load_results("orig")
 highest_output <- load_results("highest")
 median_output <- load_results("median")
 lowest_output <- load_results("lowest")
-    
+
 summarize_cm5_results <- function(cm5_input,
                                   cm5_output) {
-
-  miss <- c(lower = "lower", upper = "upper", mar = "mar", theory = "theory"
-  )
-
+  
+  miss <- c(lower = "lower", upper = "upper", mar = "mar", theory = "theory")
+  
   res <- map(miss, \(m) {  
     dat <- cm5_input %>% 
       pluck(m) %>% 
@@ -755,8 +754,8 @@ summarize_cm5_results <- function(cm5_input,
       unique()
     
     tcodes <- tibble(year = min(dat$year):max(dat$year),
-                   tt = year - min(year) + 1)
-  
+                     tt = year - min(year) + 1)
+    
     ktcodes <- dat %>%
       dplyr::group_by(country) %>%
       dplyr::summarize(first_yr = min(year),
@@ -793,6 +792,9 @@ summarize_cm5_results <- function(cm5_input,
   return(res)
 }
 
+claassen_input <- rio::import(here("data",
+                                   "claassen_input.rds"))
+
 theta_summary <- map(by, \(b) {
   summarize_cm5_results(claassen_input[[b]],
                         get(paste0(b, "_output")))
@@ -800,14 +802,14 @@ theta_summary <- map(by, \(b) {
 
 
 if (!file.exists(here::here("data", "dem_mood_apsr.csv"))) {
-    tempfile <- dataverse::get_file_by_doi(filedoi = "doi:10.7910/DVN/FECIO3/ACMGQG") # APSR replication
-    
-    writeBin(tempfile, here::here("data", "dem_mood_apsr.csv"))
-    rm(tempfile)
+  tempfile <- dataverse::get_file_by_doi(filedoi = "doi:10.7910/DVN/FECIO3/ACMGQG") # APSR replication
+  
+  writeBin(tempfile, here::here("data", "dem_mood_apsr.csv"))
+  rm(tempfile)
 }
 
 df_apsr <- read_csv(here::here("data", "dem_mood_apsr.csv"),
-                     show_col_types = FALSE) %>% 
+                    show_col_types = FALSE) %>% 
   mutate(Country = countrycode(Country,
                                "country.name",
                                "country.name"))
@@ -818,8 +820,8 @@ df_apsr_list <- map(by,
                           \(m) {
                             df_apsr %>%
                               left_join(theta_summary[[b]][[m]], 
-                                         by = c("Year" = "year",
-                                                "Country" = "country")) %>% 
+                                        by = c("Year" = "year",
+                                               "Country" = "country")) %>% 
                               mutate(SupDem_trim = mean) %>% 
                               select(Country,
                                      Year,
@@ -833,12 +835,11 @@ df_apsr_list <- map(by,
 df_apsr_list[[1]][[1]] <- df_apsr %>% 
   select(Country, Year, SupDem_trim, Libdem_z, lnGDP_imp) %>% 
   filter(., complete.cases(.))
-  
+
 rio::export(df_apsr_list, file = here("data",
                                       "df_apsr_list.rds"))
 ```
 
-Together, the four coding rules and four missing-data treatments described above give us sixteen combinations of plausible researcher choices.
 How does the selection among these sixteen garden paths influence our conclusions regarding the public's response to changes in democracy?
 To find out, we collected all of the survey data used in @Claassen2020b from their original sources.
 We then applied each combination of coding rule and non-response treatment and generated sixteen sets of cross-national time-series estimates of democratic support using the latent-variable model employed in the article.
@@ -881,7 +882,7 @@ m1_1_tidy <- map(by,
 ```
 
 ```{r regressionPlot, fig.cap= "The Effects of Democracy on the Change in Public Support", fig.width=7, fig.height=9}
-txt_caption <- strwrap("Notes: Replications of Claassen (2020, 47), Table 1, Model 1.1.  The mixed coding rule employed in Claassen (2020) along with that work's assumption that non-responses indicate a lack of support for democracy yields a larger negative point estimate of the coefficient for change in liberal democracy than most other combinations and a larger point estimate of the coefficient for the lagged level of liberal democracy than all other combinations.  In error-correction models like these, both coefficients must be interpreted together; see Figure 2.", width = 115) %>% 
+txt_caption <- strwrap("Notes: Replications of Claassen (2020, 47), Table 1, Model 1.1.  The mixed coding rule employed in Claassen (2020) along with that work's assumption that non-responses indicate a lack of support for democracy yield a larger negative point estimate of the coefficient for change in liberal democracy than most other combinations and a larger point estimate of the coefficient for the lagged level of liberal democracy than all other combinations.  In error-correction models like these, both coefficients must be interpreted together; see Figure 2.", width = 110) %>% 
   paste0(sep="", collapse="\n")
 
 m1_1_tidy %>%
@@ -901,9 +902,9 @@ m1_1_tidy %>%
                                       "Only Highest",
                                       "All But Lowest"))) %>%
   small_multiple(model_order = c("Unsupportive",
-                                   "Supportive",
-                                   "Oppositional",
-                                   "At Random")) +
+                                 "Supportive",
+                                 "Oppositional",
+                                 "At Random")) +
   geom_hline(yintercept = 0, colour = "grey50", linetype = 2) +
   scale_color_viridis_d(name = "Coding Rule",
                         option = "magma",
@@ -933,7 +934,7 @@ In both panels, the whiskers show the associated 95% confidence intervals.
 Each coding rule is represented by a different color, while the four non-response treatments are shown in separate clusters from left to right.^[
 The full results for Model 1.1, as well as the article's secondary analyses, can be found in the online Supplementary Materials.]
 
-The darkest, left-most coefficient in the left-most cluster represents the combination of mixed coding rule and treatment of non-responses as unsupportive of democracy, that is, the combination employed in @Claassen2020b.
+The darkest, left-most coefficients in the left-most cluster represent the combination of mixed coding rule and treatment of non-responses as unsupportive of democracy, that is, the combination employed in @Claassen2020b.
 It replicates the results reported in that article exactly.
 More importantly for our purposes, this combination yields a larger negative point estimate of the coefficient for change in liberal democracy than most other combinations.
 It also yields a larger point estimate of the coefficient for the lagged level of liberal democracy than all of the other combinations.
@@ -987,7 +988,7 @@ sim_dem_mood <- function(m1_1_result) {
                        dem = "Liberal Democracy") %>% 
     mutate(year = row_number() - n.burn) %>% 
     filter(year > -5 & !is.na(fd))
-
+  
   return(sim_data11)
 }
 
@@ -1032,9 +1033,9 @@ ggplot(data = sim_m1_1_list) +
         plot.caption = element_text(size = 10, hjust = 0)) +
   ggtitle("Simulating the Effect of a Change in Democracy on Public Democratic Support") +
   guides(x = guide_axis(title = "Year"),
-    x.sec = guide_none(title = "Coding Rule"),
-    y = guide_axis(title = element_blank()),
-    y.sec = guide_none(title = "Non-Response Treatment")) +
+         x.sec = guide_none(title = "Coding Rule"),
+         y = guide_axis(title = element_blank()),
+         y.sec = guide_none(title = "Non-Response Treatment")) +
   labs(caption = txt_caption)
 ```
 
@@ -1057,7 +1058,7 @@ But if it is, the fragility of the results presented in @Claassen2020b to altern
 One possibility not considered in the specification adopted in @Claassen2020b is that rising economic inequality undermines support for democratic institutions [@Magalhaes2014, 84; see also @Solt2012].
 This and other theories of democratic support warrant further investigation.
 
-Regardless, the fragility of the @Claassen2020b findings documented above has profound implications.
+Regardless, the fragility of the findings in @Claassen2020b that is documented above has profound implications.
 The thermostatic theory of democratic support presented in @Claassen2020b suggests that would-be autocrats working to erode democracy constitute little cause for concern: "should elected leaders start dismantling democratic institutions and rights, public mood is likely to swing rapidly toward democracy again, providing something of an obstacle to democratic backsliding" [@Claassen2020b, 51].
 To the contrary, it is those who attempt to deepen democracy who pose the threat, as "extending democratic rights and legal protections to minorities" will trigger a public backlash against democracy [@Claassen2020b, 51].
 If the theory is true, the appropriate positions for those who value democracy are, in short, complacency and satisfaction with the status quo.
@@ -1065,7 +1066,7 @@ If the theory is true, the appropriate positions for those who value democracy a
 That the evidence for such a perverse outcome depends entirely on researcher degrees of freedom suggests that defending democracy requires taking a very different course.
 Alternate combinations of plausible coding rules and non-response treatments yield no support for the thermostatic theory.
 In fact, most show that increases in democracy work, over time, to increase the public's support, just as suggested by the classic theory that has been advanced in scholarship over more than a half century.
-These findings imply that those who seek to advance democracy should do just that: they should push ahead.
+These findings imply that those who want to advance democracy should do just that: they should push ahead.
 
 
 ## References
@@ -1092,6 +1093,136 @@ These findings imply that those who seek to advance democracy should do just tha
 # Tabular Results
 \newpage
 \blandscape
+```{r df_apsr_list12, eval=FALSE}
+df_apsr_list12 <- map(by,
+                      \(b) {
+                        map(miss,
+                            \(m) {
+                              df_apsr %>%
+                                left_join(theta_summary[[b]][[m]], 
+                                          by = c("Year" = "year",
+                                                 "Country" = "country")) %>% 
+                                mutate(SupDem_trim = mean) %>% 
+                                select(Country,
+                                       Year,
+                                       SupDem_trim,
+                                       Libdem_z,
+                                       lnGDP_imp,
+                                       Corrup_TI_z) %>% 
+                                filter(., complete.cases(.))
+                            })
+                      })
+
+df_apsr_list12[[1]][[1]] <- df_apsr %>% 
+  select(Country, Year, SupDem_trim, Libdem_z, lnGDP_imp, Corrup_TI_z) %>% 
+  filter(., complete.cases(.))
+
+rio::export(df_apsr_list12, file = here("data",
+                                        "df_apsr_list12.rds"))
+
+```
+
+```{r regression_results_m12}
+df_apsr_list12 <- rio::import(here("data", "df_apsr_list12.rds"))
+
+m1_2_list <- map(by,
+                 \(b) {
+                   map(miss,
+                       \(m) {
+                         plm(diff(SupDem_trim, lag = 1) ~ 
+                               plm::lag(SupDem_trim, 1:2) +
+                               diff(Libdem_z, lag = 1) +
+                               plm::lag(Libdem_z, 1) +
+                               diff(lnGDP_imp, lag = 1) +
+                               plm::lag(lnGDP_imp, 1) +
+                               diff(Corrup_TI_z, lag = 1) +
+                               plm::lag(Corrup_TI_z, 1),
+                             model = 'pooling',
+                             data = pdata.frame(df_apsr_list12[[b]][[m]],
+                                                index = c("Country", "Year")))
+                       })
+                 })
+
+m1_2_tidy <- map(by,
+                 \(b) {
+                   map(miss,
+                       \(m) {
+                         tidy_result <- tidy(m1_2_list[[b]][[m]],
+                                             conf.int = TRUE) %>% 
+                           mutate(std.error = vcovHC_se(m1_2_list[[b]][[m]]),
+                                  model = paste(b, m),
+                                  coding = b,
+                                  treatment = m) %>% 
+                           filter(str_detect(term, "Libdem"))
+                       }) %>% 
+                     bind_rows()
+                 }) %>% 
+  bind_rows()
+```
+
+```{r df_apsr_list13, eval=FALSE}
+df_apsr_list13 <- map(by,
+                      \(b) {
+                        map(miss,
+                            \(m) {
+                              df_apsr %>%
+                                left_join(theta_summary[[b]][[m]], 
+                                          by = c("Year" = "year",
+                                                 "Country" = "country")) %>% 
+                                mutate(SupDem_trim = mean) %>% 
+                                select(Country,
+                                       Year,
+                                       SupDem_trim,
+                                       Libdem_z,
+                                       lnGDP_imp) %>% 
+                                filter(., complete.cases(.))
+                            })
+                      })
+
+df_apsr_list13[[1]][[1]] <- df_apsr %>% 
+  select(Country, Year, SupDem_trim, Libdem_z, lnGDP_imp) %>% 
+  filter(., complete.cases(.))
+
+rio::export(df_apsr_list13, file = here("data",
+                                        "df_apsr_list12.rds"))
+
+```
+
+
+```{r regression_results_m13}
+df_apsr_list13 <- rio::import(here("data", "df_apsr_list13.rds"))
+
+m1_3_list <- map(by,
+                 \(b) {
+                   map(miss,
+                       \(m) {
+                         plm(SupDem_trim ~ 
+                               Libdem_z +
+                               lnGDP_imp,
+                             model = 'fd',
+                             index = 'country',
+                             data = pdata.frame(df_apsr_list[[b]][[m]],
+                                                index = c("Country", "Year")))
+                       })
+                 })
+
+m1_3_tidy <- map(by,
+                 \(b) {
+                   map(miss,
+                       \(m) {
+                         tidy_result <- tidy(m1_3_list[[b]][[m]],
+                                             conf.int = TRUE) %>% 
+                           mutate(model = paste(b, m),
+                                  coding = b,
+                                  treatment = m)
+                       }) %>% 
+                     bind_rows()
+                 }) %>% 
+  bind_rows()
+```
+
+
+
 ```{r num-labelAPSR, eval=FALSE}
 names_coef <- c(
   "(Intercept)" = "(Intercept)",
@@ -1115,117 +1246,117 @@ names_coef <- c(
 )
 
 names_gof <- tibble::tribble(
-         ~raw,           ~clean, ~fmt,
-       "nobs", "N observations",    0,
+  ~raw,           ~clean, ~fmt,
+  "nobs", "N observations",    0,
   "n.country",    "N countries",    0,
-     "n.inst",  "N instruments",    0
-  )
+  "n.inst",  "N instruments",    0
+)
 ```
 ```{r tabulatingFun-APSR, eval=FALSE}
 ## function to extract statistics of MOC models
 extract_statsAPSR <- function(input_data){
-    # Reproducing the chunk `pointAPSR` with updated data
-    sd.plm <- pdata.frame(input_data, index = c("country", "year")) 
-    
-    ls_ivECM <- c("diff(Libdem_z, lag = 1) + plm::lag(Libdem_z, 1)", 
-                  "diff(Polyarchy_z, lag = 1) + plm::lag(Polyarchy_z, 1) + diff(Liberal_z, lag = 1) + plm::lag(Liberal_z, 1)")
-    ls_ctrlECM <- c("", " + diff(Corrup_TI_z, lag = 1) + plm::lag(Corrup_TI_z, 1)")
-    
-    ls_eqECM <- glue("diff(SupDem_trim, lag = 1) ~ plm::lag(SupDem_trim, 1:2) + {ls_ivECM} + diff(lnGDP_imp, lag = 1) + plm::lag(lnGDP_imp, 1)") %>% 
-      outer(ls_ctrlECM, paste0) %>% 
-      as.vector()
-    
-    ls_ivFD <- c("Libdem_z",
-                 "Polyarchy_z + Liberal_z")
-    
-    ls_ctrlFD <- c("", " + Corrup_TI_z")
-    
-    ls_eqFD <- glue("SupDem_trim ~ {ls_ivFD} + lnGDP_imp") %>% 
-      outer(ls_ctrlFD, paste0) %>% 
-      as.vector()
-    
-    ls_mod <- c(
-      glue("plm({ls_eqECM}, model = 'pooling', data = sd.plm)"),
-      glue("plm({ls_eqFD}, model = 'fd', index = 'country', data = sd.plm)")
-    )
-    
-    df_result_clsAPSR <- map(ls_mod, function(mod) {
-      result <- eval(parse(text = mod))
-      glance_result <- glance.plm(result)
-      return(glance_result)
-    })
-    
-    names(df_result_clsAPSR) <- c("pooled1", "pooled-regime1", "pooled2", "pooled-regime2", "fd1", "fd-regime1", "fd2", "fd-regime2")
-    
-    return(df_result_clsAPSR)
+  # Reproducing the chunk `pointAPSR` with updated data
+  sd.plm <- pdata.frame(input_data, index = c("country", "year")) 
+  
+  ls_ivECM <- c("diff(Libdem_z, lag = 1) + plm::lag(Libdem_z, 1)", 
+                "diff(Polyarchy_z, lag = 1) + plm::lag(Polyarchy_z, 1) + diff(Liberal_z, lag = 1) + plm::lag(Liberal_z, 1)")
+  ls_ctrlECM <- c("", " + diff(Corrup_TI_z, lag = 1) + plm::lag(Corrup_TI_z, 1)")
+  
+  ls_eqECM <- glue("diff(SupDem_trim, lag = 1) ~ plm::lag(SupDem_trim, 1:2) + {ls_ivECM} + diff(lnGDP_imp, lag = 1) + plm::lag(lnGDP_imp, 1)") %>% 
+    outer(ls_ctrlECM, paste0) %>% 
+    as.vector()
+  
+  ls_ivFD <- c("Libdem_z",
+               "Polyarchy_z + Liberal_z")
+  
+  ls_ctrlFD <- c("", " + Corrup_TI_z")
+  
+  ls_eqFD <- glue("SupDem_trim ~ {ls_ivFD} + lnGDP_imp") %>% 
+    outer(ls_ctrlFD, paste0) %>% 
+    as.vector()
+  
+  ls_mod <- c(
+    glue("plm({ls_eqECM}, model = 'pooling', data = sd.plm)"),
+    glue("plm({ls_eqFD}, model = 'fd', index = 'country', data = sd.plm)")
+  )
+  
+  df_result_clsAPSR <- map(ls_mod, function(mod) {
+    result <- eval(parse(text = mod))
+    glance_result <- glance.plm(result)
+    return(glance_result)
+  })
+  
+  names(df_result_clsAPSR) <- c("pooled1", "pooled-regime1", "pooled2", "pooled-regime2", "fd1", "fd-regime1", "fd2", "fd-regime2")
+  
+  return(df_result_clsAPSR)
 }
 
 # function to produce data formated to fit `modelsummary`
 format_resultAPSR <- function(condition, input_data){
-    tidy_mocAPSR1 <-
-        filter(result_APSR1, submodel == condition)
-    tidy_mocRegAPSR1 <-
-        filter(result_RegAPSR1, submodel == condition)
-    tidy_mocAPSR2 <-
-        filter(result_APSR2, submodel == condition)
-    tidy_mocRegAPSR2 <-
-        filter(result_RegAPSR2, submodel == condition)
-    
-    tidy_mocAPSR <-
-        bind_rows(tidy_mocAPSR1,
-                  tidy_mocRegAPSR1,
-                  tidy_mocAPSR2,
-                  tidy_mocRegAPSR2)
-    
-    vec_names <- levels(tidy_mocAPSR$model)
-    
-    tidy_mocAPSR <- group_split(tidy_mocAPSR, model)
-    names(tidy_mocAPSR) <- vec_names
-    tidy_mocAPSR <-
-        tidy_mocAPSR[c(
-            "Model 1.1 (ECM)",
-            "Model 2.1 (ECM)",
-            "Model 1.3 (FD)",
-            "Model 2.3 (FD)",
-            "Model 1.2 (ECM)",
-            "Model 2.2 (ECM)",
-            "Model 1.4 (FD)",
-            "Model 2.4 (FD)"
-        )]
-    
-    glance_mocAPSR <- extract_statsAPSR(input_data)
-    glance_mocAPSR <-
-        glance_mocAPSR[c(
-            "pooled1",
-            "pooled-regime1",
-            "fd1",
-            "fd-regime1",
-            "pooled2",
-            "pooled-regime2",
-            "fd2",
-            "fd-regime2"
-        )]
-    
-    tb_pureAPSR <- map2(tidy_mocAPSR, glance_mocAPSR, ~ {
-        result <- list(tidy = .x,
-                       glance = .y)
-        class(result) <- "modelsummary_list"
-        return(result)
-    })
-    
-    names(tb_pureAPSR) <-
-        c(
-            "ECM",
-            "ECM-Regime",
-            "FD",
-            "FD-Regime",
-            "ECM Corrup",
-            "ECM Corrup-Regime",
-            "FD Corrup",
-            "FD Corrup-Regime"
-        ) 
-    
-    return(tb_pureAPSR)
+  tidy_mocAPSR1 <-
+    filter(result_APSR1, submodel == condition)
+  tidy_mocRegAPSR1 <-
+    filter(result_RegAPSR1, submodel == condition)
+  tidy_mocAPSR2 <-
+    filter(result_APSR2, submodel == condition)
+  tidy_mocRegAPSR2 <-
+    filter(result_RegAPSR2, submodel == condition)
+  
+  tidy_mocAPSR <-
+    bind_rows(tidy_mocAPSR1,
+              tidy_mocRegAPSR1,
+              tidy_mocAPSR2,
+              tidy_mocRegAPSR2)
+  
+  vec_names <- levels(tidy_mocAPSR$model)
+  
+  tidy_mocAPSR <- group_split(tidy_mocAPSR, model)
+  names(tidy_mocAPSR) <- vec_names
+  tidy_mocAPSR <-
+    tidy_mocAPSR[c(
+      "Model 1.1 (ECM)",
+      "Model 2.1 (ECM)",
+      "Model 1.3 (FD)",
+      "Model 2.3 (FD)",
+      "Model 1.2 (ECM)",
+      "Model 2.2 (ECM)",
+      "Model 1.4 (FD)",
+      "Model 2.4 (FD)"
+    )]
+  
+  glance_mocAPSR <- extract_statsAPSR(input_data)
+  glance_mocAPSR <-
+    glance_mocAPSR[c(
+      "pooled1",
+      "pooled-regime1",
+      "fd1",
+      "fd-regime1",
+      "pooled2",
+      "pooled-regime2",
+      "fd2",
+      "fd-regime2"
+    )]
+  
+  tb_pureAPSR <- map2(tidy_mocAPSR, glance_mocAPSR, ~ {
+    result <- list(tidy = .x,
+                   glance = .y)
+    class(result) <- "modelsummary_list"
+    return(result)
+  })
+  
+  names(tb_pureAPSR) <-
+    c(
+      "ECM",
+      "ECM-Regime",
+      "FD",
+      "FD-Regime",
+      "ECM Corrup",
+      "ECM Corrup-Regime",
+      "FD Corrup",
+      "FD Corrup-Regime"
+    ) 
+  
+  return(tb_pureAPSR)
 }
 ```
 ```{r num-pointAPSR, results='asis', eval=FALSE}
