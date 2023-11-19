@@ -133,7 +133,7 @@ dichotomize <- function(df,
   if (by == "highest") {
     df1 <- df %>%
       group_by(country, year, item) %>% 
-      summarize(x = sum(ifelse(r == highest_r, n, 0)),
+      summarize(x = sum(ifelse(r >= highest_r, n, 0)),
                 samp = sum(n),
                 survey = first(survey),
                 .groups = "drop_last") %>%
@@ -931,10 +931,10 @@ Figure \@ref(fig:regressionPlot) is a "small multiple" plot [see @SoltHu2015] sh
 In the top panel, the dots represent point estimates for the coefficients for change in liberal democracy; according to the thermostatic theory, these coefficients should be negative.
 In the bottom panel, the dots depict point estimates for the coefficients for lagged level of liberal democracy; according to the classic theory, these coefficients should be positive.
 In both panels, the whiskers show the associated 95% confidence intervals.
-Each coding rule is represented by a different color, while the four non-response treatments are shown in separate clusters from left to right.^[
+Each coding rule is represented by a different color, while the four non-response treatments are shown in separate grouped estimates from left to right.^[
 The full results for Model 1.1, as well as the article's secondary analyses, can be found in the online Supplementary Materials.]
 
-The darkest, left-most coefficients in the left-most cluster represent the combination of mixed coding rule and treatment of non-responses as unsupportive of democracy, that is, the combination employed in @Claassen2020b.
+The darkest, left-most coefficients in the left-most group of estimates represent the combination of mixed coding rule and treatment of non-responses as unsupportive of democracy, that is, the combination employed in @Claassen2020b.
 It replicates the results reported in that article exactly.
 More importantly for our purposes, this combination yields a larger negative point estimate of the coefficient for change in liberal democracy than most other combinations.
 It also yields a larger point estimate of the coefficient for the lagged level of liberal democracy than all of the other combinations.
