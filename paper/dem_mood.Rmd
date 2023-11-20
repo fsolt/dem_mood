@@ -4,7 +4,7 @@ output:
     fig_caption: yes
     keep_tex: no
     toc: no
-    number_sections: no
+    number_sections: yes
     latex_engine: xelatex
     # pandoc_args: --lua-filter=multiple-bibliographies.lua
 title: |
@@ -21,7 +21,7 @@ author:
 - Frederick Solt
   # affiliation: University of Iowa
 anonymous: true  
-abstract: "Lorem ipsum"
+abstract: "Prominent recent work, Claassen (2020a), argues that public support for democracy behaves thermostatically, that is, that declines in democracy prompt increases in democratic support and, conversely, that deepening democracy yields public backlash.  This work further contends that the classic theory that democracy itself increases democratic support over time is not supported by the evidence. Here, we document how these conclusions depend entirely on researcher degrees of freedom, in particular, a set of choices made early in the data collection process with regard to coding rules and the treatment of survey non-responses.  Looking across sixteen possible combinations of reasonable choices, we demonstrate that analyses employing these alternatives provide little or no support for the conclusions drawn in that article. The fragility of the published results to alternate reasonable choices both demonstrates the importance of taking degrees of researcher freedom seriously and suggests that those who value democracy should respond to threats of its erosion with a robust defense and indeed a push for democratic deepening rather than indulging in self-satisfied complacency."
 keywords: ""
 tables: true # enable longtable and booktabs
 citation_package: natbib
@@ -409,9 +409,7 @@ cri <- claassen_input0$data %>%
 supdem_cri <- full_join(sd, cri, by = c("country", "year", "item_fam", "project"))
 
 # While DCPO assigns actual year of survey, Claassen (2020) often uses nominal year
-# of wave, so some corrections are required to match observations (~8% of obs);
-# we could write about this as a data-entry error, too, but no space to spare,
-# so we'll adopt those years instead to facilitate straight-up comparison
+# of wave, so some corrections are required to match observations (~8% of obs)
 no_problems <- inner_join(sd %>% select(-dataset), 
                           cri %>% select(-dataset),
                           by = c("country", "year", "item_fam", "project")) # 3400 obs
@@ -508,7 +506,7 @@ We document a range of reasonable alternatives to the choices made in @Claassen2
 The fragility of the published results to alternate reasonable choices demonstrates the importance of taking degrees of researcher freedom seriously and suggests that, for those who value democracy, threats of its erosion call not for the self-satisfied complacency proposed by @Claassen2020b but rather a robust defense and indeed a push for further democratic deepening. 
 
 
-## Researcher Degrees of Freedom and Democratic Support
+## Researcher Degrees of Freedom and Democratic Support {.unlisted .unnumbered}
 
 The dependent variable considered in @Claassen2020b is the public's support for democracy, a latent variable.
 This latent variable was estimated from aggregated responses to many survey questions asked in many countries in many years.
@@ -548,7 +546,8 @@ In that case, a non-response tells nothing about the respondent's views toward d
 There are, then, at least four reasonable treatments of survey non-responses.
 Together, the four coding rules and four missing-data treatments described above give us sixteen combinations of plausible researcher choices.
 
-## Consequences for Inference
+
+## Consequences for Inference {.unlisted .unnumbered}
 
 ```{r cm5_output, eval=FALSE, cache=FALSE, include=FALSE, results=FALSE}
 # omit eval=FALSE to re-generate the corrected democracy support series
@@ -848,9 +847,20 @@ Finally, we used each of these sets of estimates to replicate the article's anal
 ```{r regression_results}
 df_apsr_list <- rio::import(here("data", "df_apsr_list.rds"))
 
+by_names <- paste(c("Mixed",
+                    "Above Median",
+                    "Only Highest",
+                    "All But Lowest"),
+                  "Coding Rule")
+
+miss_names <- c("Unsupportive",
+                    "Supportive",
+                    "Oppositional",
+                    "At Random")
+
 m1_1_list <- map(by,
                  \(b) {
-                   map(miss,
+                   bm <- map(miss,
                        \(m) {
                          plm(diff(SupDem_trim, lag = 1) ~ 
                                plm::lag(SupDem_trim, 1:2) +
@@ -862,19 +872,22 @@ m1_1_list <- map(by,
                              data = pdata.frame(df_apsr_list[[b]][[m]],
                                                 index = c("Country", "Year")))
                        })
+                   names(bm) <- miss_names
+                   return(bm)
                  })
 
-m1_1_tidy <- map(by,
+names(m1_1_list) <- by_names
+
+m1_1_tidy <- map(by_names,
                  \(b) {
-                   map(miss,
+                   map(miss_names,
                        \(m) {
                          tidy_result <- tidy(m1_1_list[[b]][[m]],
                                              conf.int = TRUE) %>% 
                            mutate(std.error = vcovHC_se(m1_1_list[[b]][[m]]),
                                   model = paste(b, m),
                                   coding = b,
-                                  treatment = m) %>% 
-                           filter(str_detect(term, "Libdem"))
+                                  treatment = m)
                        }) %>% 
                      bind_rows()
                  }) %>% 
@@ -886,17 +899,18 @@ txt_caption <- strwrap("Notes: Replications of Claassen (2020, 47), Table 1, Mod
   paste0(sep="", collapse="\n")
 
 m1_1_tidy %>%
+  filter(str_detect(term, "Libdem")) %>% 
   mutate(term = if_else(term == "diff(Libdem_z, lag = 1)",
                         "Delta~Liberal~Democracy",
                         "Liberal~Democracy[t-1]"),
          model = factor(treatment,
-                        levels = miss,
+                        levels = miss_names,
                         labels = c("Unsupportive",
                                    "Supportive",
                                    "Oppositional",
                                    "At Random")), 
          submodel = factor(coding,
-                           levels = by,
+                           levels = by_names,
                            labels = c("Mixed",
                                       "Above Median",
                                       "Only Highest",
@@ -932,7 +946,7 @@ In the top panel, the dots represent point estimates for the coefficients for ch
 In the bottom panel, the dots depict point estimates for the coefficients for lagged level of liberal democracy; according to the classic theory, these coefficients should be positive.
 In both panels, the whiskers show the associated 95% confidence intervals.
 Each coding rule is represented by a different color, while the four non-response treatments are shown in separate grouped estimates from left to right.^[
-The full results for Model 1.1, as well as the article's secondary analyses, can be found in the online Supplementary Materials.]
+The full tabular results can be found in the online Supplementary Materials.]
 
 The darkest, left-most coefficients in the left-most group of estimates represent the combination of mixed coding rule and treatment of non-responses as unsupportive of democracy, that is, the combination employed in @Claassen2020b.
 It replicates the results reported in that article exactly.
@@ -944,7 +958,7 @@ But like the coefficients of constitutive terms of multiplicative interactions [
 sim_dem_mood <- function(m1_1_result) {
   mod <- m1_1_result
   n.coef =  length(coef(mod)) # 7
-  n.yrs = 230
+  n.yrs = 231
   n.burn = 200
   pred.data = data.frame(Intercept=1,
                          SupDem_m1=0,
@@ -1040,36 +1054,36 @@ ggplot(data = sim_m1_1_list) +
 ```
 
 Figure \@ref(fig:simulationPlot) is similar to Claassen's [-@Claassen2020b, 48] Figure 5.
-It depicts simulated effects, in differences rather than levels for ease of interpretation, of a one standard deviation increase in democracy on the public's support for democracy using the sixteen sets of regression coefficients presented in Figure \@ref(fig:regressionPlot) with the four different coding rules appearing the columns and the four different non-response treatments in the rows.
+It depicts simulated effects, in differences rather than levels for ease of interpretation, of a one standard deviation increase in democracy on the public's support for democracy using the sixteen sets of regression coefficients presented in Figure \@ref(fig:regressionPlot) with the four different coding rules appearing the columns and the four different non-response treatments in the rows.^[
+Complete details on these simulations are provided in the online Supplementary Materials.]
 
 The upper left pane simulates the combination of the mixed coding rule and the treatment of survey non-responses as indicating a lack of support for democracy matches, the same combination employed in @Claassen2020b.
 The initial drop and slow recovery in the mean of these simulations of public democratic support was the evidence presented for the "thermostatic response of public opinion" and the claim that there is "little evidence that democracy generates its own demand" [@Claassen2020b, 48].
 But the other panes, with a few exceptions, show smaller dips, quicker recoveries, and continued increases; these findings lead to very different conclusions.
-Indeed, most of these alternate analyses---eleven of fifteen---show statistically significant increases in democratic support within three decades, the sort of generational change predicted by the classic theory since @Lipset1959.
-None of them show statistically significant declines that would lend credence to the argument that democratic support responds thermostatically.^[
-Replications of the article's other models can be found in the online Supplementary Materials.]
+Indeed, most of the analyses---eleven of sixteen---show statistically significant increases in democratic support within three decades, the sort of generational change predicted by the classic theory since @Lipset1959.
+None of them show statistically significant declines that would lend credence to the argument that democratic support responds thermostatically.
 
 
-## Discussion
+## Discussion {.unlisted .unnumbered}
 
 @Claassen2020b claims that a thermostatic response to democratic change is required to explain "democracy’s fading allure" among publics.
 It is far from clear that support for democracy is indeed declining [for recent evidence against, see, e.g., @Wuttke2022].
 But if it is, the fragility of the results presented in @Claassen2020b to alternate reasonable coding decisions and non-response treatments suggests that other explanations are worth revisiting.
-One possibility not considered in the specification adopted in @Claassen2020b is that rising economic inequality undermines support for democratic institutions [@Magalhaes2014, 84; see also @Solt2012].
+One possibility not considered in the specification adopted in @Claassen2020b is that rising economic inequality undermines support for democratic institutions [@Magalhaes2014, 84; see also, e.g., @Solt2012].
 This and other theories of democratic support warrant further investigation.
 
 Regardless, the fragility of the findings in @Claassen2020b that is documented above has profound implications.
 The thermostatic theory of democratic support presented in @Claassen2020b suggests that would-be autocrats working to erode democracy constitute little cause for concern: "should elected leaders start dismantling democratic institutions and rights, public mood is likely to swing rapidly toward democracy again, providing something of an obstacle to democratic backsliding" [@Claassen2020b, 51].
-To the contrary, it is those who attempt to deepen democracy who pose the threat, as "extending democratic rights and legal protections to minorities" will trigger a public backlash against democracy [@Claassen2020b, 51].
+To the contrary, that theory implies, it is those who attempt to deepen democracy who pose the threat, as "extending democratic rights and legal protections to minorities" will trigger a public backlash against democracy [@Claassen2020b, 51].
 If the theory is true, the appropriate positions for those who value democracy are, in short, complacency and satisfaction with the status quo.
 
-That the evidence for such a perverse outcome depends entirely on researcher degrees of freedom suggests that defending democracy requires taking a very different course.
+That the evidence for such a perverse outcome depends entirely on researcher degrees of freedom indicates that defending democracy requires taking a very different course.
 Alternate combinations of plausible coding rules and non-response treatments yield no support for the thermostatic theory.
 In fact, most show that increases in democracy work, over time, to increase the public's support, just as suggested by the classic theory that has been advanced in scholarship over more than a half century.
 These findings imply that those who want to advance democracy should do just that: they should push ahead.
 
 
-## References
+## References {.unlisted .unnumbered}
 
 ::: {#refs}
 :::
@@ -1079,7 +1093,7 @@ These findings imply that those who want to advance democracy should do just tha
 \newpage
 \appendix
 
-# Online Supplementary Materials
+# Online Supplementary Materials {.unlisted .unnumbered}
 \captionsetup[figure]{list=yes}
 \setcounter{page}{1}
 \renewcommand{\thepage}{SI-\arabic{page}}
@@ -1087,143 +1101,14 @@ These findings imply that those who want to advance democracy should do just tha
 \renewcommand{\thefigure}{SI.\arabic{figure}}
 \setcounter{table}{0}
 \renewcommand{\thetable}{SI.\arabic{table}}
+\tableofcontents
 <!-- \listoftables -->
 <!-- \listoffigures -->
 
-# Tabular Results
 \newpage
-\blandscape
-```{r df_apsr_list12, eval=FALSE}
-df_apsr_list12 <- map(by,
-                      \(b) {
-                        map(miss,
-                            \(m) {
-                              df_apsr %>%
-                                left_join(theta_summary[[b]][[m]], 
-                                          by = c("Year" = "year",
-                                                 "Country" = "country")) %>% 
-                                mutate(SupDem_trim = mean) %>% 
-                                select(Country,
-                                       Year,
-                                       SupDem_trim,
-                                       Libdem_z,
-                                       lnGDP_imp,
-                                       Corrup_TI_z) %>% 
-                                filter(., complete.cases(.))
-                            })
-                      })
+# Tabular Results
 
-df_apsr_list12[[1]][[1]] <- df_apsr %>% 
-  select(Country, Year, SupDem_trim, Libdem_z, lnGDP_imp, Corrup_TI_z) %>% 
-  filter(., complete.cases(.))
-
-rio::export(df_apsr_list12, file = here("data",
-                                        "df_apsr_list12.rds"))
-
-```
-
-```{r regression_results_m12}
-df_apsr_list12 <- rio::import(here("data", "df_apsr_list12.rds"))
-
-m1_2_list <- map(by,
-                 \(b) {
-                   map(miss,
-                       \(m) {
-                         plm(diff(SupDem_trim, lag = 1) ~ 
-                               plm::lag(SupDem_trim, 1:2) +
-                               diff(Libdem_z, lag = 1) +
-                               plm::lag(Libdem_z, 1) +
-                               diff(lnGDP_imp, lag = 1) +
-                               plm::lag(lnGDP_imp, 1) +
-                               diff(Corrup_TI_z, lag = 1) +
-                               plm::lag(Corrup_TI_z, 1),
-                             model = 'pooling',
-                             data = pdata.frame(df_apsr_list12[[b]][[m]],
-                                                index = c("Country", "Year")))
-                       })
-                 })
-
-m1_2_tidy <- map(by,
-                 \(b) {
-                   map(miss,
-                       \(m) {
-                         tidy_result <- tidy(m1_2_list[[b]][[m]],
-                                             conf.int = TRUE) %>% 
-                           mutate(std.error = vcovHC_se(m1_2_list[[b]][[m]]),
-                                  model = paste(b, m),
-                                  coding = b,
-                                  treatment = m) %>% 
-                           filter(str_detect(term, "Libdem"))
-                       }) %>% 
-                     bind_rows()
-                 }) %>% 
-  bind_rows()
-```
-
-```{r df_apsr_list13, eval=FALSE}
-df_apsr_list13 <- map(by,
-                      \(b) {
-                        map(miss,
-                            \(m) {
-                              df_apsr %>%
-                                left_join(theta_summary[[b]][[m]], 
-                                          by = c("Year" = "year",
-                                                 "Country" = "country")) %>% 
-                                mutate(SupDem_trim = mean) %>% 
-                                select(Country,
-                                       Year,
-                                       SupDem_trim,
-                                       Libdem_z,
-                                       lnGDP_imp) %>% 
-                                filter(., complete.cases(.))
-                            })
-                      })
-
-df_apsr_list13[[1]][[1]] <- df_apsr %>% 
-  select(Country, Year, SupDem_trim, Libdem_z, lnGDP_imp) %>% 
-  filter(., complete.cases(.))
-
-rio::export(df_apsr_list13, file = here("data",
-                                        "df_apsr_list12.rds"))
-
-```
-
-
-```{r regression_results_m13}
-df_apsr_list13 <- rio::import(here("data", "df_apsr_list13.rds"))
-
-m1_3_list <- map(by,
-                 \(b) {
-                   map(miss,
-                       \(m) {
-                         plm(SupDem_trim ~ 
-                               Libdem_z +
-                               lnGDP_imp,
-                             model = 'fd',
-                             index = 'country',
-                             data = pdata.frame(df_apsr_list[[b]][[m]],
-                                                index = c("Country", "Year")))
-                       })
-                 })
-
-m1_3_tidy <- map(by,
-                 \(b) {
-                   map(miss,
-                       \(m) {
-                         tidy_result <- tidy(m1_3_list[[b]][[m]],
-                                             conf.int = TRUE) %>% 
-                           mutate(model = paste(b, m),
-                                  coding = b,
-                                  treatment = m)
-                       }) %>% 
-                     bind_rows()
-                 }) %>% 
-  bind_rows()
-```
-
-
-
-```{r num-labelAPSR, eval=FALSE}
+```{r num-labelAPSR}
 names_coef <- c(
   "(Intercept)" = "(Intercept)",
   "plm::lag(SupDem_trim, 1:2)1" = "Democratic Mood (t-1)",
@@ -1247,175 +1132,48 @@ names_coef <- c(
 
 names_gof <- tibble::tribble(
   ~raw,           ~clean, ~fmt,
-  "nobs", "N observations",    0,
-  "n.country",    "N countries",    0,
-  "n.inst",  "N instruments",    0
+  "r.squared", "$R^2$",    3,
+  "rmse",  "RMSE",    2
 )
 ```
-```{r tabulatingFun-APSR, eval=FALSE}
-## function to extract statistics of MOC models
-extract_statsAPSR <- function(input_data){
-  # Reproducing the chunk `pointAPSR` with updated data
-  sd.plm <- pdata.frame(input_data, index = c("country", "year")) 
-  
-  ls_ivECM <- c("diff(Libdem_z, lag = 1) + plm::lag(Libdem_z, 1)", 
-                "diff(Polyarchy_z, lag = 1) + plm::lag(Polyarchy_z, 1) + diff(Liberal_z, lag = 1) + plm::lag(Liberal_z, 1)")
-  ls_ctrlECM <- c("", " + diff(Corrup_TI_z, lag = 1) + plm::lag(Corrup_TI_z, 1)")
-  
-  ls_eqECM <- glue("diff(SupDem_trim, lag = 1) ~ plm::lag(SupDem_trim, 1:2) + {ls_ivECM} + diff(lnGDP_imp, lag = 1) + plm::lag(lnGDP_imp, 1)") %>% 
-    outer(ls_ctrlECM, paste0) %>% 
-    as.vector()
-  
-  ls_ivFD <- c("Libdem_z",
-               "Polyarchy_z + Liberal_z")
-  
-  ls_ctrlFD <- c("", " + Corrup_TI_z")
-  
-  ls_eqFD <- glue("SupDem_trim ~ {ls_ivFD} + lnGDP_imp") %>% 
-    outer(ls_ctrlFD, paste0) %>% 
-    as.vector()
-  
-  ls_mod <- c(
-    glue("plm({ls_eqECM}, model = 'pooling', data = sd.plm)"),
-    glue("plm({ls_eqFD}, model = 'fd', index = 'country', data = sd.plm)")
-  )
-  
-  df_result_clsAPSR <- map(ls_mod, function(mod) {
-    result <- eval(parse(text = mod))
-    glance_result <- glance.plm(result)
-    return(glance_result)
-  })
-  
-  names(df_result_clsAPSR) <- c("pooled1", "pooled-regime1", "pooled2", "pooled-regime2", "fd1", "fd-regime1", "fd2", "fd-regime2")
-  
-  return(df_result_clsAPSR)
-}
 
-# function to produce data formated to fit `modelsummary`
-format_resultAPSR <- function(condition, input_data){
-  tidy_mocAPSR1 <-
-    filter(result_APSR1, submodel == condition)
-  tidy_mocRegAPSR1 <-
-    filter(result_RegAPSR1, submodel == condition)
-  tidy_mocAPSR2 <-
-    filter(result_APSR2, submodel == condition)
-  tidy_mocRegAPSR2 <-
-    filter(result_RegAPSR2, submodel == condition)
-  
-  tidy_mocAPSR <-
-    bind_rows(tidy_mocAPSR1,
-              tidy_mocRegAPSR1,
-              tidy_mocAPSR2,
-              tidy_mocRegAPSR2)
-  
-  vec_names <- levels(tidy_mocAPSR$model)
-  
-  tidy_mocAPSR <- group_split(tidy_mocAPSR, model)
-  names(tidy_mocAPSR) <- vec_names
-  tidy_mocAPSR <-
-    tidy_mocAPSR[c(
-      "Model 1.1 (ECM)",
-      "Model 2.1 (ECM)",
-      "Model 1.3 (FD)",
-      "Model 2.3 (FD)",
-      "Model 1.2 (ECM)",
-      "Model 2.2 (ECM)",
-      "Model 1.4 (FD)",
-      "Model 2.4 (FD)"
-    )]
-  
-  glance_mocAPSR <- extract_statsAPSR(input_data)
-  glance_mocAPSR <-
-    glance_mocAPSR[c(
-      "pooled1",
-      "pooled-regime1",
-      "fd1",
-      "fd-regime1",
-      "pooled2",
-      "pooled-regime2",
-      "fd2",
-      "fd-regime2"
-    )]
-  
-  tb_pureAPSR <- map2(tidy_mocAPSR, glance_mocAPSR, ~ {
-    result <- list(tidy = .x,
-                   glance = .y)
-    class(result) <- "modelsummary_list"
-    return(result)
-  })
-  
-  names(tb_pureAPSR) <-
-    c(
-      "ECM",
-      "ECM-Regime",
-      "FD",
-      "FD-Regime",
-      "ECM Corrup",
-      "ECM Corrup-Regime",
-      "FD Corrup",
-      "FD Corrup-Regime"
-    ) 
-  
-  return(tb_pureAPSR)
-}
-```
-```{r num-pointAPSR, results='asis', eval=FALSE}
-tb_result_clsAPSR <- map(result_clsAPSR_tidy, ~ {
-  names(.) <- c("tidy", "glance")
-  class(.) <- "modelsummary_list"
-  return(.)}) 
+```{r m11tab1, results='asis'}
+m1_1_modelsummary <- m1_1_list %>%
+  unlist(recursive = FALSE)
 
-names(tb_result_clsAPSR) <- unique(txt_model_lab) %>% rep(times = 2)
-
-modelsummary(tb_result_clsAPSR[1:8], 
+modelsummary(m1_1_list[1:2],
+             shape = "rbind",
              stars = TRUE,
              coef_map = names_coef,
              gof_map = names_gof, 
              coef_omit = "Int",
              output = "latex", 
-             title = "The Effect of Democracy on Change in Public Support (Publication Data)") %>% 
+             title = "Predicting the Change in Public Democratic Support") %>% 
+  kableExtra::add_header_above(c(" " = 1, "Non-Response Treatment" = 4)) %>% 
   kableExtra::kable_styling(font_size = 7) %>% 
   kableExtra::kable_styling(latex_options = "HOLD_position")
 ```
-```{r num-pointAPSRcorrected, results='asis', eval=FALSE}
-modelsummary(tb_result_clsAPSR[9:16], 
+```{r m111tab2, results='asis'}
+modelsummary(m1_1_list[3:4],
+             shape = "rbind",
              stars = TRUE,
              coef_map = names_coef,
              gof_map = names_gof, 
              coef_omit = "Int",
-             output = "latex", 
-             title = "The Effect of Democracy on Change in Public Support (Corrected Data)") %>% 
+             output = "latex") %>% 
+  kableExtra::add_header_above(c(" " = 1, "Non-Response Treatment" = 4)) %>% 
   kableExtra::kable_styling(font_size = 7) %>% 
   kableExtra::kable_styling(latex_options = "HOLD_position")
 ```
-\elandscape
-
-# Calculating Effects Via Simulation
-
-As in @Claassen2020b [, 48-50] we estimate the effects of changes in democracy on public support for democracy in the error-correction models using simulation [see @Williams2012].
-All independent variables were set to the same moderate values as in @Claassen2020b and allowed to run for 200 years, long enough for the system of equations to stabilize.
-The level of democracy was then increased from half a standard deviation below the mean to half a standard deviation above; then the system of equations was allowed to run for 30 more years; these three decades those are depicted in Figure \@ref(fig:differencePlots).
-Per @Claassen2020b [, Supplementary Information 3] and @Claassen2020c, the uncertainty in the model was captured by taking 10,000 draws from a multivariate normal distribution with expectation being the vector of model coefficients and variance being the robust covariance matrix, $\tilde{\Theta} ∼ MVN(\Theta, \Sigma)$, and adding the noise estimated in the regression standard error, $\tilde{Y}_i ∼ N(X_k \tilde{\Theta}_{ki}, \sigma)$.
-To get first differences, the mean value of $\tilde{Y}_i$ in the year before the increase in democracy ($t = -1$) was subtracted from each $\tilde{Y}_i$, and the 0.025 and 0.975 quantiles of the first difference were used as its lower and upper confidence bounds.
+<!-- \elandscape -->
 
 \newpage
-## First Difference Plots for Models 2.1 and 2.2
-```{r firstDifferencePlots2, fig.cap= "Simulated Effects of Change in Minoritarian Democracy on Public Support", fig.width=6, fig.height=4, eval=FALSE}
-txt_caption <- strwrap("Notes: Simulated effects are estimated using coefficients from the models presented in Figure 2 with corrected data. The solid lines indicate the mean simulated effect; the shaded regions indicate the 95% confidence intervals of these effects.", width = 90) %>% 
-  paste0(sep="", collapse="\n")
+# Calculating Effects Via Simulation
 
-ggplot(data = bind_rows(sim_data21, sim_data22)) +
-  geom_hline(aes(yintercept = 0), colour="gray50", linetype="dashed") +
-  geom_line(aes(x = year, y = fd)) +
-  geom_ribbon(aes(x = year, ymin = l95, ymax = u95, alpha = .6)) +
-  facet_wrap(~ model, ncol = 2) +
-  scale_y_continuous(position = "right") +
-  theme(strip.background = element_rect(colour="white", fill="white"),
-        legend.position = "none",
-        plot.caption.position = "plot",
-        plot.caption = element_text(size = 10, hjust = 0)) +
-  ylab(NULL) +
-  xlab("Year") +
-  ggtitle("Change in Public Democratic Support:\n1 SD Increase in Minoritarian Democracy at Year 0") +
-  labs(caption = txt_caption)
-```
+To simulate the effects of changes in democracy on public support for democracy in the error-correction models [see @Williams2012], we follow the same procedure employed in @Claassen2020b [, 48-50].
+That is, for each of our sixteen sets of results, we first set all of the independent variables to the same moderate values used in @Claassen2020b and ran the model for 200 years, which is a sufficient time for the system of equations to stabilize.
+Next, the value of democracy was increased one standard deviation, from its previous value of a half standard deviation below its mean to a half standard deviation above its mean.
+Finally, the system of equations was allowed to run for thirty additional years.
+These thirty years of simulated results are shown in the sixteen panes of Figure \@ref(fig:simulationPlot) in the text.
+Again following @Claassen2020b [, Supplementary Information 3] and @Claassen2020c, the uncertainty in the model was captured by taking 10,000 draws from a multivariate normal distribution with the expectation that the vector of model coefficients and variance constitute the robust covariance matrix, $\tilde{\Theta} ∼ MVN(\Theta, \Sigma)$, and adding the noise estimated in the regression standard error, $\tilde{Y}_i ∼ N(X_k \tilde{\Theta}_{ki}, \sigma)$.
+To get first differences, the mean value of $\tilde{Y}_i$ in the year before the increase in democracy ($t = -1$) was subtracted from each $\tilde{Y}_i$, and the 0.025 and 0.975 quantiles of the first difference were used as its lower and upper confidence bounds.
