@@ -21,14 +21,14 @@ author:
 - Frederick Solt
   # affiliation: University of Iowa
 anonymous: true  
-abstract: "Prominent recent work, Claassen (2020a), argues that public support for democracy behaves thermostatically, that is, that declines in democracy prompt increases in democratic support and, conversely, that deepening democracy yields public backlash.  This work further contends that the classic theory that democracy itself increases democratic support over time is not supported by the evidence. Here, we document how these conclusions depend entirely on researcher degrees of freedom, in particular, a set of choices made early in the data collection process with regard to coding rules and the treatment of survey non-responses.  Looking across sixteen possible combinations of reasonable choices, we demonstrate that analyses employing these alternatives provide little or no support for the conclusions drawn in that article. The fragility of the published results to alternate reasonable choices both demonstrates the importance of taking degrees of researcher freedom seriously and suggests that those who value democracy should respond to threats of its erosion with a robust defense and indeed a push for democratic deepening rather than indulging in self-satisfied complacency."
+abstract: "Prominent recent work argues that support for democracy behaves thermostatically---that democratic erosion boosts democratic support while deepening democracy yields public backlash---and further contends that there is no evidence for classic arguments that democracy itself increases democratic support over time.  Here, we document how these conclusions depend entirely on researcher degrees of freedom: analyses employing alternative reasonable choices provide little or no support for the conclusions drawn in that article.  The fragility of the published results demonstrates that degrees of researcher freedom must be taken seriously and suggests that those who value democracy should respond to its threatened erosion with not complacency but instead a robust defense and a push for further democratic deepening."
 keywords: ""
 tables: true # enable longtable and booktabs
 citation_package: natbib
 fontsize: 12pt
 indent: true
 linestretch: 1.5 # double spacing using linestretch 1.5
-bibliography: [dem_mood_text.bib]
+bibliography: dem-mood-text.bib
 # csl: https://raw.githubusercontent.com/citation-style-language/styles/master/american-political-science-association.csl
 biblio-style: apsr
 citecolor: black
@@ -528,8 +528,8 @@ Most survey items were dichotomized following the 'above the median' rule [see @
 Although not documented in the article's appendix on "Microlevel Coding of Survey Responses," the other two rules were employed as well.
 The most demanding rule was applied to the four-point item asked in Pew Global Attitudes surveys, "How important is it to you to live in a country where honest elections are held regularly with a choice of at least two political parties? Is it very important, somewhat important, not too important or not important at all?"
 For this question, rather than including respondents who gave both responses above the median---"very important" and "somewhat important"---only those respondents who answered "very important" were entered as supporting democracy.
-And for the three-point item in the Asia Barometer asking whether respondents thought "a democratic political system" would be very good, fairly good, or bad for their country, the 'all but the lowest' rule was applied.^[
-One charitable reading, offered by @Hu2022, would be that these deviations from the 'above the median' rule documented in the paper's appendix are simply unintentional mistakes.
+And for the three-point item in the Asia Barometer asking whether respondents thought "a democratic political system" would be very good, fairly good, or bad for their country, the 'all but the lowest' rule was applied.^[\doublespacing
+One charitable reading, offered by @Hu2022, is that these deviations from the 'above the median' rule documented in the paper's appendix are simply unintentional mistakes.
 A corrigendum to the article written in response to @Hu2022, however, rejects this interpretation [see @Claassen2023].]
 Adding this mixed rule to those described above gives us a total of four coding rules.
 
@@ -1082,7 +1082,7 @@ Alternate combinations of plausible coding rules and non-response treatments yie
 In fact, most show that increases in democracy work, over time, to increase the public's support, just as suggested by the classic theory that has been advanced in scholarship over more than a half century.
 These findings imply that those who want to advance democracy should do just that: they should push ahead.
 
-
+\newpage
 ## References {.unlisted .unnumbered}
 
 ::: {#refs}
