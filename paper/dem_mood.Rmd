@@ -21,7 +21,7 @@ author:
 - Frederick Solt
   # affiliation: University of Iowa
 anonymous: true  
-abstract: "Prominent recent work argues that support for democracy behaves thermostatically---that democratic erosion boosts democratic support while deepening democracy yields public backlash---and further contends that there is no evidence for the classic argument that democracy itself increases democratic support over time.  Here, we document how these conclusions can substantively vary with subtle changes in measurement coding (a type of "researcher degree of freedom"): analyses employing alternative reasonable choices provide little or no support for the original conclusions. The fragility of the statistical results demonstrates that researcher degrees of freedom on measurement operation must be taken seriously and suggests that the relationship between democratic institution and democratic mood remain open for further explorations."
+abstract: "Prominent recent work argues that support for democracy behaves thermostatically---that democratic erosion boosts democratic support while deepening democracy yields public backlash---and further contends that there is no evidence for the classic argument that democracy itself increases democratic support over time.  Here, we document how these conclusions depend on subtle choices in measurement coding that constitute 'researcher degrees of freedom': analyses employing alternative reasonable choices provide little or no support for the original conclusions. The fragility of the statistical results demonstrates that researcher degrees of freedom in measurement must be taken seriously and that the question of the relationship between democratic institutions and democratic support remains unsettled."
 keywords: ""
 tables: true # enable longtable and booktabs
 citation_package: natbib
@@ -499,11 +499,11 @@ The concern extends beyond cases of '$p$-hacking,' in which researchers sift thr
 It turns out that no intentional fraud or misconduct is required to render results unreliable.
 Researchers may make only a single set of entirely reasonable choices, that is, they may take only a single walk through the metaphorical "garden of forking paths"; find a result that supports their expectations; and "get excited and believe it" without even considering that a different set of entirely reasonable choices would provide different results [@Gelman2014, 464].
 
-Here, we illustrate the importance to take seriously of the researcher degree of freedom by replicating the primary analyses of @Claassen2020b but with varying two aspects of measurement operations.
+Here, we illustrate the importance of taking seriously researcher degrees of freedom by replicating the primary analyses of @Claassen2020b while varying two aspects of the measurement of democratic support.
 The first is the manner in which ordinal survey responses are coded as supportive or not supportive of democracy.
 The second is the attitude ascribed to survey respondents who did not answer items regarding their support for democracy.
 We document a range of reasonable alternatives to the choices made in @Claassen2020b on each of these issues, and demonstrate that analyses employing these alternatives provide little to no support for the conclusions drawn in that article.
-The fragility of the published results to alternate reasonable choices demonstrates the importance of taking researcher degree of freedom seriously and suggests that it may be still too early to make a conclusion on the influence of the institutional development on democratic support.
+The fragility of the published results to alternate reasonable choices demonstrates the importance of taking researcher degree of freedom seriously and that the question of the relationship between democratic institutions and democratic support remains unsettled.
 
 
 ## Researcher Degrees of Freedom and Democratic Support {.unlisted .unnumbered}
