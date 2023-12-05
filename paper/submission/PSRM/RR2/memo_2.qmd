@@ -2,6 +2,7 @@
 format:
   pdf:
     number-sections: false
+    keep-tex: true
 
 bibliography: ../../../p_dcpo_dem_data.bib
 tables: true # enable longtable and booktabs
@@ -10,62 +11,60 @@ indent: true
 geometry: margin=1in
 linestretch: 1.5 # double spacing using linestretch 1.5
 colorlinks: true
-
-execute:
-  echo: false
-  message: false
-  warning: false
-  dpi: 300
     
 title: |
   | Revisiting the Evidence on 
-  | Thermostatic Response to Democratic Change:
+  | Thermostatic Response to
+  | Democratic Change:
   | Degrees of Democratic Support or 
   | Researcher Degrees of Freedom?
 subtitle: |
   Memo to Editor and Reviewers
+
 ---
 
-We are grateful to the Editor and reviewers for their comments and suggestions regarding the framing of our paper. 
-We have made revisions to align with your constructive feedback. 
-Below, we detail our responses to these comments in the reframing of the paper:
+We are grateful to the editor and reviewers for their comments and suggestions regarding the framing of our paper. 
+We have made revisions to align with your helpful feedback. 
+Below, we detail our responses to these comments.
 
-**Framing of manuscript’s contribution**. 
-  Both the Editor and Reviewer 1 expressed concerns about the original framing of the manuscript, particularly the discussion on "data-entry errors" and the comparison of automated versus manual approaches.
+**Framing**. 
+Both the editor and Reviewer 1 expressed concerns about the original framing of the manuscript, particularly the discussion on "data-entry errors" and the comparison of automated versus manual approaches.
+We have therefore adopted a new framing centered around researcher degrees of freedom, coupled with a fresh set of reanalyses.
+Per reviewer 1's concern, we have removed the comparison between automated and manual approaches and underscored instead the significance of taking researcher degrees of freedom seriously. 
 
-  Per the Editor and the lead Editor's advice, we have adopted a new framing centered around researcher degrees of freedom, coupled with a fresh set of reanalyses.
-  Per reviewer 1's concern, we have removed the comparison between automated and manual approaches and underscored the significance of taking researcher degrees of freedom seriously. 
+Specifically, we conducted reanalyses employing sixteen combinations of reasonable choices in two key measurement aspects of democratic support used in Claassen (2020a). Our approach highlights that varying reasonable choices can yield different outcomes even without intentional fraud or misconduct.
 
-  Specifically, we conducted a reanalysis employing sixteen combinations of reasonable choices in two key measurement aspects of democratic support used in Claassen (2020a). 
-  This approach highlights that varying reasonable choices can yield different outcomes, without implying intentional fraud or misconduct.
+\pagebreak
+The first aspect is the coding of ordinal survey responses as supportive or not supportive of democracy. 
+  We consider three options, leading to four coding rules (pp. 3-4):  
+  1. only the highest response as supportive,  
+  2. only the lowest response as not supportive,  
+  3. responses above the median as supportive, and  
+  4. the mixed coding of the above three rules, as used in the primary study. 
 
-  The first aspect is the coding of ordinal survey responses as supportive or not supportive of democracy. 
-  We consider three options, leading to four coding rules (pp. 3-4): 
-  1. Only the highest response as supportive. 
-  2. Only the lowest response as not supportive. 
-  3. Responses above the median as supportive. 
-  4. The mixed coding of the above three rules, as used in the primary study. 
 
-  The second is the treatment of missing responses on democratic support, identifying four plausible approaches (pp. 4): 
-  1. A missing response equated to a lack of support for democracy. 
-  2. A missing response indicating support for democracy. 
-  3. A missing response in democracies treated as a lack of support, but in autocracies as support for democracy. 
-  4. Non-responses occurring at random. 
+The second is the treatment of missing responses on democratic support, identifying four plausible approaches (pp. 4):   
+  1. a missing response equated to a lack of support for democracy,  
+  2. a missing response indicating support for democracy,  
+  3. a missing response in democracies treated as a lack of support, but in autocracies as support for democracy, and  
+  4. non-responses occurring at random.
 
-  The sixteen combinations of these choices are presented in our replication results (p. 6), with the simulated effects of changes in democracy on public support illustrated on page 7. 
-  These results show little or no support for the original conclusions.
+The sixteen combinations of these choices are presented in our replication results (p. 6), with the simulated effects of changes in democracy on public support illustrated on page 7. 
+These results show little or no support for the original conclusions.
 
-  We discuss and conclude our reanalysis by emphasizing two things (pp. 8-9). 
-  First, researcher degree of freedom should be taken seriously. 
-  Second, the question of the relationship between democratic institutions and democratic support remains unsettled.
+We discuss and conclude our reanalysis by emphasizing two things (pp. 8-9). 
+First, researcher degree of freedom should be taken seriously. 
+Second, the question of the relationship between democratic institutions and democratic support remains unsettled.
   
   
-**Compact Context**.
-  Our revised manuscript has led to a more concise context,  now streamlined to 9  pages.
+**Streamlined Presentation**.
+The editor also requested we shorten the manuscript to 11 pages.
+The revised manuscript is now just 10 pages.
 
-Thank you once more for the opportunity to revise the framing and analysis of our paper. 
-We believe the paper is now stronger as a result of your comments.
-We hope you all agree.
+\hspace{1cm}
+
+Thank you once more for the opportunity to revise our paper.
+We believe the paper is now stronger as a result of your comments, and we hope you agree.
 
 
 
