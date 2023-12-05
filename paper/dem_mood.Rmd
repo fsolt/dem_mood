@@ -1082,7 +1082,6 @@ Alternate combinations of plausible coding rules and non-response treatments yie
 In fact, most show that increases in democracy work, over time, to increase the public's support, just as suggested by the classic theory that has been advanced in scholarship over more than a half century.
 These findings imply that those who want to advance democracy should do just that: they should push ahead.
 
-\newpage
 ## References {.unlisted .unnumbered}
 
 ::: {#refs}
