@@ -1,0 +1,3766 @@
+Country,Year,CAbb,COWCode,Sample,Item,Response,Project
+Afghanistan,2005,AFG,700,874,Army_asb,289,asb
+Afghanistan,2005,AFG,700,874,Strong_asb,249,asb
+Afghanistan,2005,AFG,700,874,EvDemoc_asb,687,asb
+Albania,1998,ALB,339,999,Church_wvs,886,wvs
+Albania,1998,ALB,339,999,EvDemoc_wvs,942,wvs
+Albania,2002,ALB,339,1000,Army_wvs,803,wvs
+Albania,2002,ALB,339,1000,Strong_wvs,748,wvs
+Albania,2002,ALB,339,1000,Church_wvs,889,wvs
+Albania,2002,ALB,339,1000,EvDemoc_wvs,917,wvs
+Albania,2005,ALB,339,1116,Church_cses,1026,cses
+Albania,2008,ALB,339,1534,Army_evs,1027,evs
+Albania,2008,ALB,339,1534,Strong_evs,804,evs
+Albania,2008,ALB,339,1534,Church_evs,1291,evs
+Albania,2008,ALB,339,1534,EvDemoc_evs,1224,evs
+Albania,2012,ALB,339,1183,ImpDemoc_ess,1041,ess
+Algeria,2002,ALG,615,1282,Army_wvs,913,wvs
+Algeria,2002,ALG,615,1282,Strong_wvs,692,wvs
+Algeria,2002,ALG,615,1282,Church_wvs,954,wvs
+Algeria,2002,ALG,615,1282,EvDemoc_wvs,1057,wvs
+Algeria,2006,ALG,615,1300,Church_arb,897,arb
+Algeria,2006,ALG,615,1300,Strong_arb_2,972,arb
+Algeria,2006,ALG,615,1300,EvDemoc_arb,899,arb
+Algeria,2006,ALG,615,1300,DemocSuit_arb,490,arb
+Algeria,2011,ALG,615,1216,Church_arb,804,arb
+Algeria,2011,ALG,615,1216,Strong_arb_1,770,arb
+Algeria,2011,ALG,615,1216,EvDemoc_arb,939,arb
+Algeria,2011,ALG,615,1216,DemocSuit_arb,551,arb
+Algeria,2012,ALG,615,1204,Army_afrob,597,afb
+Algeria,2012,ALG,615,1204,Strong_afrob,657,afb
+Algeria,2012,ALG,615,1204,ThreeState_afrob,619,afb
+Algeria,2012,ALG,615,1204,Party_afrob,856,afb
+Algeria,2013,ALG,615,1220,Church_arb,847,arb
+Algeria,2013,ALG,615,1220,Strong_arb_1,936,arb
+Algeria,2013,ALG,615,1220,EvDemoc_arb,1142,arb
+Algeria,2013,ALG,615,1220,DemocSuit_arb,841,arb
+Algeria,2014,ALG,615,1200,Army_wvs,673,wvs
+Algeria,2014,ALG,615,1200,Strong_wvs,736,wvs
+Algeria,2014,ALG,615,1200,EvDemoc_wvs,947,wvs
+Algeria,2014,ALG,615,1200,ImpDemoc_wvs,943,wvs
+Algeria,2015,ALG,615,1200,Army_afrob,644,afb
+Algeria,2015,ALG,615,1200,Strong_afrob,678,afb
+Algeria,2015,ALG,615,1200,ThreeState_afrob,548,afb
+Algeria,2015,ALG,615,1200,Party_afrob,769,afb
+Algeria,2016,ALG,615,1200,Church_arb,882,arb
+Algeria,2016,ALG,615,1200,DemocSuit_arb,514,arb
+Algeria,2016,ALG,615,1200,ThreeState_arb,440,arb
+Andorra,2005,AND,232,1003,Army_wvs,961,wvs
+Andorra,2005,AND,232,1003,Strong_wvs,878,wvs
+Andorra,2005,AND,232,1003,EvDemoc_wvs,949,wvs
+Andorra,2005,AND,232,1003,ImpDemoc_wvs,941,wvs
+Argentina,1995,ARG,160,1200,ThreeState_lb,906,lb
+Argentina,1995,ARG,160,1200,Army_wvs,967,wvs
+Argentina,1995,ARG,160,1200,Strong_wvs,772,wvs
+Argentina,1995,ARG,160,1200,Church_wvs,1050,wvs
+Argentina,1995,ARG,160,1200,EvDemoc_wvs,1079,wvs
+Argentina,1996,ARG,160,1199,ThreeState_lb,853,lb
+Argentina,1997,ARG,160,1196,ThreeState_lb,893,lb
+Argentina,1998,ARG,160,1200,ThreeState_lb,874,lb
+Argentina,1999,ARG,160,1280,Army_wvs,938,wvs
+Argentina,1999,ARG,160,1280,Strong_wvs,646,wvs
+Argentina,1999,ARG,160,1280,Church_wvs,1091,wvs
+Argentina,1999,ARG,160,1280,EvDemoc_wvs,1085,wvs
+Argentina,2000,ARG,160,1200,ThreeState_lb,839,lb
+Argentina,2001,ARG,160,1200,ThreeState_lb,692,lb
+Argentina,2002,ARG,160,814,Church_lb,587,lb
+Argentina,2002,ARG,160,814,ThreeState_lb,528,lb
+Argentina,2002,ARG,160,814,Strong_pew,440,pew
+Argentina,2002,ARG,160,814,ImpDemoc_pew,635,pew
+Argentina,2003,ARG,160,1200,Church_lb,936,lb
+Argentina,2003,ARG,160,1200,ThreeState_lb,829,lb
+Argentina,2004,ARG,160,1200,Church_lb,969,lb
+Argentina,2004,ARG,160,1200,ThreeState_lb,773,lb
+Argentina,2005,ARG,160,1200,Church_lb,916,lb
+Argentina,2005,ARG,160,1200,ThreeState_lb,788,lb
+Argentina,2006,ARG,160,1200,Church_lb,1025,lb
+Argentina,2006,ARG,160,1200,ThreeState_lb,880,lb
+Argentina,2006,ARG,160,1200,Army_wvs,947,wvs
+Argentina,2006,ARG,160,1200,Strong_wvs,558,wvs
+Argentina,2006,ARG,160,1200,EvDemoc_wvs,1045,wvs
+Argentina,2006,ARG,160,1200,ImpDemoc_wvs,1112,wvs
+Argentina,2007,ARG,160,800,Church_lb,663,lb
+Argentina,2007,ARG,160,800,ThreeState_lb,501,lb
+Argentina,2007,ARG,160,800,Strong_pew,528,pew
+Argentina,2007,ARG,160,800,ImpDemoc_pew,552,pew
+Argentina,2008,ARG,160,1200,Church_lb,926,lb
+Argentina,2008,ARG,160,1200,ThreeState_lb,722,lb
+Argentina,2008,ARG,160,1200,ThreeState_lapop,944,lapop
+Argentina,2008,ARG,160,1200,Church_lapop,1016,lapop
+Argentina,2008,ARG,160,1200,Strong_lapop_1,998,lapop
+Argentina,2009,ARG,160,1200,Church_lb,899,lb
+Argentina,2009,ARG,160,1200,ThreeState_lb,768,lb
+Argentina,2010,ARG,160,1200,Church_lb,991,lb
+Argentina,2010,ARG,160,1200,ThreeState_lb,790,lb
+Argentina,2010,ARG,160,1200,ThreeState_lapop,871,lapop
+Argentina,2010,ARG,160,1200,Church_lapop,913,lapop
+Argentina,2010,ARG,160,1200,Strong_lapop_1,982,lapop
+Argentina,2011,ARG,160,1200,Church_lb,1060,lb
+Argentina,2011,ARG,160,1200,ThreeState_lb,841,lb
+Argentina,2012,ARG,160,1500,ThreeState_lapop,1177,lapop
+Argentina,2012,ARG,160,1500,Church_lapop,1249,lapop
+Argentina,2012,ARG,160,1500,Strong_lapop_1,1132,lapop
+Argentina,2013,ARG,160,819,Church_lb,738,lb
+Argentina,2013,ARG,160,819,ThreeState_lb,596,lb
+Argentina,2013,ARG,160,819,Army_wvs,662,wvs
+Argentina,2013,ARG,160,819,Strong_wvs,362,wvs
+Argentina,2013,ARG,160,819,EvDemoc_wvs,698,wvs
+Argentina,2013,ARG,160,819,ImpDemoc_wvs,759,wvs
+Argentina,2013,ARG,160,819,ThreeState_pew,590,pew
+Argentina,2013,ARG,160,819,Strong_pew,614,pew
+Argentina,2013,ARG,160,819,ImpDemoc_pew,508,pew
+Argentina,2014,ARG,160,1512,ThreeState_lapop,1081,lapop
+Argentina,2014,ARG,160,1512,Church_lapop,1211,lapop
+Argentina,2015,ARG,160,1000,Church_lb,839,lb
+Argentina,2015,ARG,160,1000,ThreeState_lb,700,lb
+Argentina,2015,ARG,160,1000,ImpDemoc_pew,800,pew
+Argentina,2016,ARG,160,1200,Church_lb,1049,lb
+Argentina,2016,ARG,160,1200,ThreeState_lb,837,lb
+Argentina,2017,ARG,160,1012,Church_lb,776,lb
+Argentina,2017,ARG,160,1012,ThreeState_lb,673,lb
+Argentina,2017,ARG,160,1012,EvDemoc_pew,698,pew
+Argentina,2017,ARG,160,1012,Strong_pew.1,759,pew
+Argentina,2017,ARG,160,1012,Army_pew,719,pew
+Armenia,1997,ARM,371,2000,Army_wvs,1504,wvs
+Armenia,1997,ARM,371,2000,Strong_wvs,845,wvs
+Armenia,1997,ARM,371,2000,Church_wvs,1225,wvs
+Armenia,1997,ARM,371,2000,EvDemoc_wvs,1522,wvs
+Armenia,2008,ARM,371,1500,Army_evs,836,evs
+Armenia,2008,ARM,371,1500,Strong_evs,718,evs
+Armenia,2008,ARM,371,1500,Church_evs,1178,evs
+Armenia,2008,ARM,371,1500,EvDemoc_evs,1252,evs
+Armenia,2011,ARM,371,1100,Army_wvs,605,wvs
+Armenia,2011,ARM,371,1100,Strong_wvs,382,wvs
+Armenia,2011,ARM,371,1100,EvDemoc_wvs,911,wvs
+Armenia,2011,ARM,371,1100,ImpDemoc_wvs,920,wvs
+Australia,1995,AUL,900,2048,Army_wvs,1876,wvs
+Australia,1995,AUL,900,2048,Strong_wvs,1497,wvs
+Australia,1995,AUL,900,2048,Church_wvs,1679,wvs
+Australia,1995,AUL,900,2048,EvDemoc_wvs,1720,wvs
+Australia,2004,AUL,900,1769,Church_cses,1610,cses
+Australia,2005,AUL,900,1421,Army_wvs,1282,wvs
+Australia,2005,AUL,900,1421,Strong_wvs,1054,wvs
+Australia,2005,AUL,900,1421,EvDemoc_wvs,1229,wvs
+Australia,2005,AUL,900,1421,ImpDemoc_wvs,1289,wvs
+Australia,2012,AUL,900,1477,Army_wvs,1300,wvs
+Australia,2012,AUL,900,1477,Strong_wvs,1044,wvs
+Australia,2012,AUL,900,1477,EvDemoc_wvs,1279,wvs
+Australia,2012,AUL,900,1477,ImpDemoc_wvs,1303,wvs
+Australia,2015,AUL,900,1004,ImpDemoc_pew,753,pew
+Australia,2017,AUL,900,1000,EvDemoc_pew,880,pew
+Australia,2017,AUL,900,1000,Strong_pew.1,790,pew
+Australia,2017,AUL,900,1000,Army_pew,860,pew
+Austria,1999,AUS,305,1522,Army_evs,1449,evs
+Austria,1999,AUS,305,1522,Strong_evs,1212,evs
+Austria,1999,AUS,305,1522,Church_evs,1433,evs
+Austria,1999,AUS,305,1522,EvDemoc_evs,1410,evs
+Austria,2008,AUS,305,1510,Army_evs,1304,evs
+Austria,2008,AUS,305,1510,Strong_evs,1061,evs
+Austria,2008,AUS,305,1510,Church_evs,1338,evs
+Austria,2008,AUS,305,1510,EvDemoc_evs,1267,evs
+Azerbaijan,1999,AZE,373,2002,Army_wvs,1693,wvs
+Azerbaijan,1999,AZE,373,2002,Strong_wvs,1461,wvs
+Azerbaijan,1999,AZE,373,2002,Church_wvs,1665,wvs
+Azerbaijan,1999,AZE,373,2002,EvDemoc_wvs,1652,wvs
+Azerbaijan,2011,AZE,373,1002,Army_wvs,908,wvs
+Azerbaijan,2011,AZE,373,1002,Strong_wvs,747,wvs
+Azerbaijan,2011,AZE,373,1002,EvDemoc_wvs,798,wvs
+Azerbaijan,2011,AZE,373,1002,ImpDemoc_wvs,894,wvs
+Bahamas,2014,BHM,31,3429,ThreeState_lapop,1859,lapop
+Bahamas,2014,BHM,31,3429,Church_lapop,2191,lapop
+Bahrain,2006,BAH,692,428,Church_arb,358,arb
+Bahrain,2006,BAH,692,428,Strong_arb_2,368,arb
+Bahrain,2006,BAH,692,428,EvDemoc_arb,391,arb
+Bahrain,2006,BAH,692,428,DemocSuit_arb,295,arb
+Bahrain,2014,BAH,692,1200,Army_wvs,592,wvs
+Bahrain,2014,BAH,692,1200,Strong_wvs,572,wvs
+Bahrain,2014,BAH,692,1200,EvDemoc_wvs,906,wvs
+Bahrain,2014,BAH,692,1200,ImpDemoc_wvs,984,wvs
+Bangladesh,1996,BNG,771,1525,Army_wvs,1170,wvs
+Bangladesh,1996,BNG,771,1525,Strong_wvs,1152,wvs
+Bangladesh,1996,BNG,771,1525,Church_wvs,1374,wvs
+Bangladesh,1996,BNG,771,1525,EvDemoc_wvs,1403,wvs
+Bangladesh,2002,BNG,771,759,Army_wvs,555,wvs
+Bangladesh,2002,BNG,771,759,Strong_wvs,623,wvs
+Bangladesh,2002,BNG,771,759,Church_wvs,717,wvs
+Bangladesh,2002,BNG,771,759,EvDemoc_wvs,718,wvs
+Bangladesh,2005,BNG,771,1240,Army_asb,386,asb
+Bangladesh,2005,BNG,771,1240,Strong_asb,662,asb
+Bangladesh,2005,BNG,771,1240,EvDemoc_asb,1020,asb
+Bangladesh,2005,BNG,771,1240,DemocSuit_sab,728,sab
+Bangladesh,2005,BNG,771,1240,ThreeState_sab,503,sab
+Bangladesh,2005,BNG,771,1240,Strong_sab,206,sab
+Bangladesh,2005,BNG,771,1240,Army_sab,422,sab
+Bangladesh,2005,BNG,771,1240,Elec_sab,1003,sab
+Bangladesh,2013,BNG,771,1424,ThreeState_sab,997,sab
+Bangladesh,2013,BNG,771,1424,Strong_sab,878,sab
+Bangladesh,2013,BNG,771,1424,Army_sab,710,sab
+Belarus,1992,BLR,370,1191,Strong_ndb,280,ndb
+Belarus,1993,BLR,370,1056,Army_ndb,901,ndb
+Belarus,1993,BLR,370,1056,Strong_ndb,555,ndb
+Belarus,1995,BLR,370,1000,Army_ndb,864,ndb
+Belarus,1995,BLR,370,1000,Strong_ndb,446,ndb
+Belarus,1996,BLR,370,2092,Army_wvs,1556,wvs
+Belarus,1996,BLR,370,2092,Strong_wvs,821,wvs
+Belarus,1996,BLR,370,2092,Church_wvs,1370,wvs
+Belarus,1996,BLR,370,2092,EvDemoc_wvs,1378,wvs
+Belarus,1998,BLR,370,1000,Army_ndb,899,ndb
+Belarus,1998,BLR,370,1000,Strong_ndb,624,ndb
+Belarus,2000,BLR,370,1000,Army_ndb,828,ndb
+Belarus,2000,BLR,370,1000,Strong_ndb,632,ndb
+Belarus,2000,BLR,370,1000,Army_evs,683,evs
+Belarus,2000,BLR,370,1000,Strong_evs,500,evs
+Belarus,2000,BLR,370,1000,Church_evs,655,evs
+Belarus,2000,BLR,370,1000,EvDemoc_evs,673,evs
+Belarus,2004,BLR,370,1000,Army_ndb,947,ndb
+Belarus,2004,BLR,370,1000,Strong_ndb,378,ndb
+Belarus,2004,BLR,370,1000,ThreeState_ndb,529,ndb
+Belarus,2008,BLR,370,1500,Army_evs,1073,evs
+Belarus,2008,BLR,370,1500,Strong_evs,374,evs
+Belarus,2008,BLR,370,1500,Church_evs,1105,evs
+Belarus,2008,BLR,370,1500,EvDemoc_evs,1071,evs
+Belarus,2011,BLR,370,1535,Army_wvs,1397,wvs
+Belarus,2011,BLR,370,1535,Strong_wvs,801,wvs
+Belarus,2011,BLR,370,1535,EvDemoc_wvs,1311,wvs
+Belarus,2011,BLR,370,1535,ImpDemoc_wvs,1198,wvs
+Belgium,1988,BEL,211,1024,ThreeState_eb,770,eb
+Belgium,1992,BEL,211,1036,ThreeState_eb,726,eb
+Belgium,1999,BEL,211,1912,Army_evs,1745,evs
+Belgium,1999,BEL,211,1912,Strong_evs,1184,evs
+Belgium,1999,BEL,211,1912,Church_evs,1639,evs
+Belgium,1999,BEL,211,1912,EvDemoc_evs,1575,evs
+Belgium,2003,BEL,211,2225,Church_cses,1885,cses
+Belgium,2009,BEL,211,1509,Army_evs,1377,evs
+Belgium,2009,BEL,211,1509,Strong_evs,880,evs
+Belgium,2009,BEL,211,1509,Church_evs,1324,evs
+Belgium,2009,BEL,211,1509,EvDemoc_evs,1364,evs
+Belgium,2012,BEL,211,1860,ImpDemoc_ess,1572,ess
+Belize,2008,BLZ,80,1552,ThreeState_lapop,963,lapop
+Belize,2008,BLZ,80,1552,Church_lapop,902,lapop
+Belize,2008,BLZ,80,1552,Strong_lapop_1,1162,lapop
+Belize,2010,BLZ,80,1504,ThreeState_lapop,1148,lapop
+Belize,2010,BLZ,80,1504,Church_lapop,978,lapop
+Belize,2010,BLZ,80,1504,Strong_lapop_1,1283,lapop
+Belize,2012,BLZ,80,1501,ThreeState_lapop,1354,lapop
+Belize,2012,BLZ,80,1501,Church_lapop,1042,lapop
+Belize,2012,BLZ,80,1501,Strong_lapop_1,1349,lapop
+Belize,2014,BLZ,80,1533,ThreeState_lapop,927,lapop
+Belize,2014,BLZ,80,1533,Church_lapop,925,lapop
+Benin,2005,BEN,434,1198,Army_afrob,794,afb
+Benin,2005,BEN,434,1198,Strong_afrob,963,afb
+Benin,2005,BEN,434,1198,ThreeState_afrob,838,afb
+Benin,2005,BEN,434,1198,Party_afrob,989,afb
+Benin,2008,BEN,434,1200,Army_afrob,880,afb
+Benin,2008,BEN,434,1200,Strong_afrob,977,afb
+Benin,2008,BEN,434,1200,ThreeState_afrob,968,afb
+Benin,2008,BEN,434,1200,Party_afrob,912,afb
+Benin,2012,BEN,434,1200,Army_afrob,975,afb
+Benin,2012,BEN,434,1200,Strong_afrob,1018,afb
+Benin,2012,BEN,434,1200,ThreeState_afrob,912,afb
+Benin,2012,BEN,434,1200,Party_afrob,1031,afb
+Benin,2014,BEN,434,1200,Army_afrob,944,afb
+Benin,2014,BEN,434,1200,Strong_afrob,1092,afb
+Benin,2014,BEN,434,1200,ThreeState_afrob,939,afb
+Benin,2014,BEN,434,1200,Party_afrob,1100,afb
+Benin,2017,BEN,434,1200,Army_afrob,857,afb
+Benin,2017,BEN,434,1200,Strong_afrob,1108,afb
+Benin,2017,BEN,434,1200,ThreeState_afrob,870,afb
+Benin,2017,BEN,434,1200,Party_afrob,954,afb
+Bhutan,2005,BHU,760,801,Army_asb,349,asb
+Bhutan,2005,BHU,760,801,Strong_asb,184,asb
+Bhutan,2005,BHU,760,801,EvDemoc_asb,522,asb
+Bolivia,1996,BOL,145,772,ThreeState_lb,491,lb
+Bolivia,1997,BOL,145,796,ThreeState_lb,524,lb
+Bolivia,1998,BOL,145,794,ThreeState_lb,440,lb
+Bolivia,2000,BOL,145,1080,ThreeState_lb,674,lb
+Bolivia,2001,BOL,145,1075,ThreeState_lb,577,lb
+Bolivia,2002,BOL,145,782,Church_lb,479,lb
+Bolivia,2002,BOL,145,782,ThreeState_lb,409,lb
+Bolivia,2003,BOL,145,1200,Church_lb,731,lb
+Bolivia,2003,BOL,145,1200,ThreeState_lb,597,lb
+Bolivia,2004,BOL,145,1201,Church_lb,757,lb
+Bolivia,2004,BOL,145,1201,ThreeState_lb,543,lb
+Bolivia,2004,BOL,145,1201,ThreeState_lapop,836,lapop
+Bolivia,2004,BOL,145,1201,Church_lapop,725,lapop
+Bolivia,2005,BOL,145,1200,Church_lb,761,lb
+Bolivia,2005,BOL,145,1200,ThreeState_lb,583,lb
+Bolivia,2006,BOL,145,1200,Church_lb,912,lb
+Bolivia,2006,BOL,145,1200,ThreeState_lb,740,lb
+Bolivia,2006,BOL,145,1200,ThreeState_lapop,756,lapop
+Bolivia,2006,BOL,145,1200,Church_lapop,747,lapop
+Bolivia,2007,BOL,145,834,Church_lb,676,lb
+Bolivia,2007,BOL,145,834,ThreeState_lb,555,lb
+Bolivia,2008,BOL,145,1200,Church_lb,922,lb
+Bolivia,2008,BOL,145,1200,ThreeState_lb,817,lb
+Bolivia,2008,BOL,145,1200,ThreeState_lapop,884,lapop
+Bolivia,2008,BOL,145,1200,Church_lapop,804,lapop
+Bolivia,2008,BOL,145,1200,Strong_lapop_1,1031,lapop
+Bolivia,2009,BOL,145,1200,Church_lb,967,lb
+Bolivia,2009,BOL,145,1200,ThreeState_lb,857,lb
+Bolivia,2010,BOL,145,1200,Church_lb,898,lb
+Bolivia,2010,BOL,145,1200,ThreeState_lb,811,lb
+Bolivia,2010,BOL,145,1200,ThreeState_lapop,911,lapop
+Bolivia,2010,BOL,145,1200,Church_lapop,819,lapop
+Bolivia,2010,BOL,145,1200,Strong_lapop_1,1033,lapop
+Bolivia,2011,BOL,145,1200,Church_lb,832,lb
+Bolivia,2011,BOL,145,1200,ThreeState_lb,761,lb
+Bolivia,2012,BOL,145,1499,ThreeState_lapop,1110,lapop
+Bolivia,2012,BOL,145,1499,Church_lapop,769,lapop
+Bolivia,2012,BOL,145,1499,Strong_lapop_1,1158,lapop
+Bolivia,2013,BOL,145,800,Church_lb,606,lb
+Bolivia,2013,BOL,145,800,ThreeState_lb,486,lb
+Bolivia,2013,BOL,145,800,ThreeState_pew,552,pew
+Bolivia,2013,BOL,145,800,Strong_pew,552,pew
+Bolivia,2013,BOL,145,800,ImpDemoc_pew,480,pew
+Bolivia,2014,BOL,145,3063,ThreeState_lapop,2376,lapop
+Bolivia,2014,BOL,145,3063,Church_lapop,1950,lapop
+Bolivia,2015,BOL,145,1200,Church_lb,874,lb
+Bolivia,2015,BOL,145,1200,ThreeState_lb,774,lb
+Bolivia,2016,BOL,145,1200,Church_lb,882,lb
+Bolivia,2016,BOL,145,1200,ThreeState_lb,770,lb
+Bolivia,2017,BOL,145,1200,Church_lb,841,lb
+Bolivia,2017,BOL,145,1200,ThreeState_lb,709,lb
+Bosnia and Herzegovina,1998,BOS,346,1200,Army_wvs,969,wvs
+Bosnia and Herzegovina,1998,BOS,346,1200,Strong_wvs,571,wvs
+Bosnia and Herzegovina,1998,BOS,346,1200,Church_wvs,1073,wvs
+Bosnia and Herzegovina,1998,BOS,346,1200,EvDemoc_wvs,1099,wvs
+Bosnia and Herzegovina,2001,BOS,346,1200,Army_wvs,982,wvs
+Bosnia and Herzegovina,2001,BOS,346,1200,Strong_wvs,652,wvs
+Bosnia and Herzegovina,2001,BOS,346,1200,Church_wvs,1006,wvs
+Bosnia and Herzegovina,2001,BOS,346,1200,EvDemoc_wvs,999,wvs
+Bosnia and Herzegovina,2008,BOS,346,1512,Army_evs,1002,evs
+Bosnia and Herzegovina,2008,BOS,346,1512,Strong_evs,816,evs
+Bosnia and Herzegovina,2008,BOS,346,1512,Church_evs,1145,evs
+Bosnia and Herzegovina,2008,BOS,346,1512,EvDemoc_evs,1157,evs
+Botswana,1999,BOT,571,1200,Army_afrob,1015,afb
+Botswana,1999,BOT,571,1200,Strong_afrob,1034,afb
+Botswana,1999,BOT,571,1200,ThreeState_afrob,987,afb
+Botswana,1999,BOT,571,1200,Party_afrob,936,afb
+Botswana,2003,BOT,571,1200,Army_afrob,950,afb
+Botswana,2003,BOT,571,1200,Strong_afrob,1022,afb
+Botswana,2003,BOT,571,1200,ThreeState_afrob,787,afb
+Botswana,2003,BOT,571,1200,Party_afrob,810,afb
+Botswana,2005,BOT,571,1200,Army_afrob,954,afb
+Botswana,2005,BOT,571,1200,Strong_afrob,1066,afb
+Botswana,2005,BOT,571,1200,ThreeState_afrob,830,afb
+Botswana,2005,BOT,571,1200,Party_afrob,984,afb
+Botswana,2008,BOT,571,1200,Army_afrob,1069,afb
+Botswana,2008,BOT,571,1200,Strong_afrob,1109,afb
+Botswana,2008,BOT,571,1200,ThreeState_afrob,1019,afb
+Botswana,2008,BOT,571,1200,Party_afrob,955,afb
+Botswana,2012,BOT,571,1200,Army_afrob,1076,afb
+Botswana,2012,BOT,571,1200,Strong_afrob,1110,afb
+Botswana,2012,BOT,571,1200,ThreeState_afrob,983,afb
+Botswana,2012,BOT,571,1200,Party_afrob,956,afb
+Botswana,2014,BOT,571,1200,Army_afrob,1048,afb
+Botswana,2014,BOT,571,1200,Strong_afrob,1058,afb
+Botswana,2014,BOT,571,1200,ThreeState_afrob,996,afb
+Botswana,2014,BOT,571,1200,Party_afrob,927,afb
+Brazil,1995,BRA,140,1200,ThreeState_lb,492,lb
+Brazil,1996,BRA,140,1080,ThreeState_lb,538,lb
+Brazil,1997,BRA,140,1001,ThreeState_lb,500,lb
+Brazil,1998,BRA,140,1000,ThreeState_lb,476,lb
+Brazil,2000,BRA,140,1000,ThreeState_lb,382,lb
+Brazil,2001,BRA,140,1000,ThreeState_lb,302,lb
+Brazil,2002,BRA,140,2514,Church_lb,1767,lb
+Brazil,2002,BRA,140,2514,ThreeState_lb,925,lb
+Brazil,2002,BRA,140,2514,Church_cses,1936,cses
+Brazil,2003,BRA,140,1200,Church_lb,823,lb
+Brazil,2003,BRA,140,1200,ThreeState_lb,416,lb
+Brazil,2004,BRA,140,1204,Church_lb,832,lb
+Brazil,2004,BRA,140,1204,ThreeState_lb,495,lb
+Brazil,2005,BRA,140,1204,Church_lb,801,lb
+Brazil,2005,BRA,140,1204,ThreeState_lb,446,lb
+Brazil,2006,BRA,140,1204,Church_lb,887,lb
+Brazil,2006,BRA,140,1204,ThreeState_lb,555,lb
+Brazil,2006,BRA,140,1204,Army_wvs,748,wvs
+Brazil,2006,BRA,140,1204,Strong_wvs,424,wvs
+Brazil,2006,BRA,140,1204,EvDemoc_wvs,1050,wvs
+Brazil,2006,BRA,140,1204,ImpDemoc_wvs,1013,wvs
+Brazil,2006,BRA,140,1204,ThreeState_lapop,768,lapop
+Brazil,2006,BRA,140,1204,Church_lapop,802,lapop
+Brazil,2006,BRA,140,1204,Strong_lapop_1,971,lapop
+Brazil,2007,BRA,140,1000,Church_lb,751,lb
+Brazil,2007,BRA,140,1000,ThreeState_lb,434,lb
+Brazil,2008,BRA,140,1204,Church_lb,992,lb
+Brazil,2008,BRA,140,1204,ThreeState_lb,565,lb
+Brazil,2008,BRA,140,1204,ThreeState_lapop,697,lapop
+Brazil,2008,BRA,140,1204,Church_lapop,731,lapop
+Brazil,2008,BRA,140,1204,Strong_lapop_1,935,lapop
+Brazil,2009,BRA,140,1204,Church_lb,967,lb
+Brazil,2009,BRA,140,1204,ThreeState_lb,663,lb
+Brazil,2010,BRA,140,1204,Church_lb,973,lb
+Brazil,2010,BRA,140,1204,ThreeState_lb,647,lb
+Brazil,2010,BRA,140,1204,ThreeState_lapop,774,lapop
+Brazil,2010,BRA,140,1204,Church_lapop,796,lapop
+Brazil,2010,BRA,140,1204,Strong_lapop_1,982,lapop
+Brazil,2011,BRA,140,1204,Church_lb,937,lb
+Brazil,2011,BRA,140,1204,ThreeState_lb,541,lb
+Brazil,2012,BRA,140,1500,ThreeState_lapop,909,lapop
+Brazil,2012,BRA,140,1500,Church_lapop,989,lapop
+Brazil,2012,BRA,140,1500,Strong_lapop_1,1172,lapop
+Brazil,2013,BRA,140,960,Church_lb,778,lb
+Brazil,2013,BRA,140,960,ThreeState_lb,466,lb
+Brazil,2013,BRA,140,960,ThreeState_pew,605,pew
+Brazil,2013,BRA,140,960,Strong_pew,643,pew
+Brazil,2013,BRA,140,960,ImpDemoc_pew,730,pew
+Brazil,2014,BRA,140,1500,Army_wvs,900,wvs
+Brazil,2014,BRA,140,1500,Strong_wvs,446,wvs
+Brazil,2014,BRA,140,1500,EvDemoc_wvs,1194,wvs
+Brazil,2014,BRA,140,1500,ImpDemoc_wvs,1161,wvs
+Brazil,2014,BRA,140,1500,ThreeState_lapop,903,lapop
+Brazil,2014,BRA,140,1500,Church_lapop,917,lapop
+Brazil,2015,BRA,140,1000,Church_lb,697,lb
+Brazil,2015,BRA,140,1000,ThreeState_lb,543,lb
+Brazil,2016,BRA,140,1204,Church_lb,845,lb
+Brazil,2016,BRA,140,1204,ThreeState_lb,390,lb
+Brazil,2017,BRA,140,1008,Church_lb,624,lb
+Brazil,2017,BRA,140,1008,ThreeState_lb,429,lb
+Brazil,2017,BRA,140,1008,EvDemoc_pew,595,pew
+Brazil,2017,BRA,140,1008,Strong_pew.1,635,pew
+Brazil,2017,BRA,140,1008,Army_pew,554,pew
+Bulgaria,1992,BUL,355,1125,Strong_ndb,385,ndb
+Bulgaria,1993,BUL,355,1139,Army_ndb,951,ndb
+Bulgaria,1993,BUL,355,1139,Strong_ndb,610,ndb
+Bulgaria,1995,BUL,355,1181,Army_ndb,1001,ndb
+Bulgaria,1995,BUL,355,1181,Strong_ndb,919,ndb
+Bulgaria,1997,BUL,355,1072,Army_wvs,695,wvs
+Bulgaria,1997,BUL,355,1072,Strong_wvs,309,wvs
+Bulgaria,1997,BUL,355,1072,Church_wvs,702,wvs
+Bulgaria,1997,BUL,355,1072,EvDemoc_wvs,741,wvs
+Bulgaria,1998,BUL,355,971,Army_ndb,843,ndb
+Bulgaria,1998,BUL,355,971,Strong_ndb,676,ndb
+Bulgaria,1999,BUL,355,1000,Army_evs,656,evs
+Bulgaria,1999,BUL,355,1000,Strong_evs,377,evs
+Bulgaria,1999,BUL,355,1000,Church_evs,672,evs
+Bulgaria,1999,BUL,355,1000,EvDemoc_evs,672,evs
+Bulgaria,2001,BUL,355,1482,Army_ndb,1267,ndb
+Bulgaria,2001,BUL,355,1482,Strong_ndb,1039,ndb
+Bulgaria,2001,BUL,355,1482,Church_cses,793,cses
+Bulgaria,2002,BUL,355,514,Strong_pew,211,pew
+Bulgaria,2002,BUL,355,514,ImpDemoc_pew,262,pew
+Bulgaria,2004,BUL,355,1231,Army_ndb,958,ndb
+Bulgaria,2004,BUL,355,1231,Strong_ndb,671,ndb
+Bulgaria,2004,BUL,355,1231,ThreeState_ndb,640,ndb
+Bulgaria,2005,BUL,355,1001,Army_wvs,681,wvs
+Bulgaria,2005,BUL,355,1001,Strong_wvs,264,wvs
+Bulgaria,2005,BUL,355,1001,EvDemoc_wvs,735,wvs
+Bulgaria,2005,BUL,355,1001,ImpDemoc_wvs,806,wvs
+Bulgaria,2007,BUL,355,500,Strong_pew,205,pew
+Bulgaria,2007,BUL,355,500,ImpDemoc_pew,295,pew
+Bulgaria,2008,BUL,355,1500,Army_evs,1137,evs
+Bulgaria,2008,BUL,355,1500,Strong_evs,464,evs
+Bulgaria,2008,BUL,355,1500,Church_evs,1063,evs
+Bulgaria,2008,BUL,355,1500,EvDemoc_evs,969,evs
+Bulgaria,2009,BUL,355,1000,Strong_pew,260,pew
+Bulgaria,2009,BUL,355,1000,ImpDemoc_pew,610,pew
+Bulgaria,2012,BUL,355,2186,ImpDemoc_ess,1845,ess
+Burkina Faso,2007,BFO,439,1534,Army_wvs,824,wvs
+Burkina Faso,2007,BFO,439,1534,Strong_wvs,642,wvs
+Burkina Faso,2007,BFO,439,1534,EvDemoc_wvs,1306,wvs
+Burkina Faso,2007,BFO,439,1534,ImpDemoc_wvs,1129,wvs
+Burkina Faso,2008,BFO,439,1200,Army_afrob,594,afb
+Burkina Faso,2008,BFO,439,1200,Strong_afrob,826,afb
+Burkina Faso,2008,BFO,439,1200,ThreeState_afrob,697,afb
+Burkina Faso,2008,BFO,439,1200,Party_afrob,647,afb
+Burkina Faso,2012,BFO,439,1200,Army_afrob,738,afb
+Burkina Faso,2012,BFO,439,1200,Strong_afrob,948,afb
+Burkina Faso,2012,BFO,439,1200,ThreeState_afrob,868,afb
+Burkina Faso,2012,BFO,439,1200,Party_afrob,910,afb
+Burkina Faso,2015,BFO,439,1000,Army_afrob,591,afb
+Burkina Faso,2015,BFO,439,1000,Strong_afrob,846,afb
+Burkina Faso,2015,BFO,439,1000,ThreeState_afrob,808,afb
+Burkina Faso,2015,BFO,439,1000,Party_afrob,817,afb
+Burkina Faso,2015,BFO,439,1000,ImpDemoc_pew,500,pew
+Burundi,2012,BUI,516,1200,Army_afrob,989,afb
+Burundi,2012,BUI,516,1200,Strong_afrob,983,afb
+Burundi,2012,BUI,516,1200,ThreeState_afrob,886,afb
+Burundi,2012,BUI,516,1200,Party_afrob,885,afb
+Burundi,2014,BUI,516,1201,Army_afrob,999,afb
+Burundi,2014,BUI,516,1201,Strong_afrob,1077,afb
+Burundi,2014,BUI,516,1201,ThreeState_afrob,1033,afb
+Burundi,2014,BUI,516,1201,Party_afrob,981,afb
+Cambodia,2004,CAM,811,812,Army_asb,582,asb
+Cambodia,2004,CAM,811,812,Strong_asb,653,asb
+Cambodia,2004,CAM,811,812,EvDemoc_asb,758,asb
+Cambodia,2007,CAM,811,1012,Army_asb,586,asb
+Cambodia,2007,CAM,811,1012,Strong_asb,882,asb
+Cambodia,2007,CAM,811,1012,EvDemoc_asb,986,asb
+Cambodia,2008,CAM,811,1000,ThreeState_asnb,518,asnb
+Cambodia,2008,CAM,811,1000,Army_asnb,516,asnb
+Cambodia,2008,CAM,811,1000,DemocExtent_asnb,944,asnb
+Cambodia,2008,CAM,811,1000,DemocSuit_asnb,837,asnb
+Cambodia,2008,CAM,811,1000,Party_asnb,670,asnb
+Cambodia,2008,CAM,811,1000,Strong_asnb,724,asnb
+Cambodia,2012,CAM,811,1200,ThreeState_asnb,696,asnb
+Cambodia,2012,CAM,811,1200,Army_asnb,700,asnb
+Cambodia,2012,CAM,811,1200,DemocSuit_asnb,805,asnb
+Cambodia,2012,CAM,811,1200,Party_asnb,816,asnb
+Cambodia,2012,CAM,811,1200,Strong_asnb,960,asnb
+Cambodia,2012,CAM,811,1200,Church_asnb,1117,asnb
+Cambodia,2015,CAM,811,1200,ThreeState_asnb,877,asnb
+Cambodia,2015,CAM,811,1200,Army_asnb,810,asnb
+Cambodia,2015,CAM,811,1200,DemocSuit_asnb,620,asnb
+Cambodia,2015,CAM,811,1200,Party_asnb,942,asnb
+Cambodia,2015,CAM,811,1200,Strong_asnb,931,asnb
+Cambodia,2015,CAM,811,1200,Church_asnb,1069,asnb
+Cameroon,2012,CAO,471,1200,Army_afrob,892,afb
+Cameroon,2012,CAO,471,1200,Strong_afrob,992,afb
+Cameroon,2012,CAO,471,1200,ThreeState_afrob,769,afb
+Cameroon,2012,CAO,471,1200,Party_afrob,970,afb
+Cameroon,2015,CAO,471,1184,Army_afrob,770,afb
+Cameroon,2015,CAO,471,1184,Strong_afrob,979,afb
+Cameroon,2015,CAO,471,1184,ThreeState_afrob,795,afb
+Cameroon,2015,CAO,471,1184,Party_afrob,978,afb
+Canada,2000,CAN,20,1931,Army_wvs,1748,wvs
+Canada,2000,CAN,20,1931,Strong_wvs,1417,wvs
+Canada,2000,CAN,20,1931,Church_wvs,1551,wvs
+Canada,2000,CAN,20,1931,EvDemoc_wvs,1579,wvs
+Canada,2004,CAN,20,1674,Church_cses,1441,cses
+Canada,2005,CAN,20,2164,Army_wvs,1941,wvs
+Canada,2005,CAN,20,2164,Strong_wvs,1600,wvs
+Canada,2005,CAN,20,2164,EvDemoc_wvs,1850,wvs
+Canada,2005,CAN,20,2164,ImpDemoc_wvs,2004,wvs
+Canada,2006,CAN,20,601,ThreeState_lapop,460,lapop
+Canada,2006,CAN,20,601,Church_lapop,550,lapop
+Canada,2008,CAN,20,2032,Church_lapop,1812,lapop
+Canada,2010,CAN,20,1500,ThreeState_lapop,1117,lapop
+Canada,2010,CAN,20,1500,Church_lapop,1134,lapop
+Canada,2010,CAN,20,1500,Strong_lapop_1,655,lapop
+Canada,2012,CAN,20,1501,ThreeState_lapop,1144,lapop
+Canada,2012,CAN,20,1501,Church_lapop,1191,lapop
+Canada,2014,CAN,20,1517,ThreeState_lapop,1144,lapop
+Canada,2014,CAN,20,1517,Church_lapop,1230,lapop
+Canada,2015,CAN,20,1004,ImpDemoc_pew,813,pew
+Canada,2017,CAN,20,1022,EvDemoc_pew,889,pew
+Canada,2017,CAN,20,1022,Strong_pew.1,828,pew
+Canada,2017,CAN,20,1022,Army_pew,889,pew
+Cape Verde,2003,CAP,402,1268,Army_afrob,951,afb
+Cape Verde,2003,CAP,402,1268,Strong_afrob,849,afb
+Cape Verde,2003,CAP,402,1268,ThreeState_afrob,832,afb
+Cape Verde,2003,CAP,402,1268,Party_afrob,1001,afb
+Cape Verde,2005,CAP,402,1123,Army_afrob,796,afb
+Cape Verde,2005,CAP,402,1123,Strong_afrob,730,afb
+Cape Verde,2005,CAP,402,1123,ThreeState_afrob,782,afb
+Cape Verde,2005,CAP,402,1123,Party_afrob,876,afb
+Cape Verde,2008,CAP,402,1264,Army_afrob,994,afb
+Cape Verde,2008,CAP,402,1264,Strong_afrob,810,afb
+Cape Verde,2008,CAP,402,1264,ThreeState_afrob,1019,afb
+Cape Verde,2008,CAP,402,1264,Party_afrob,1002,afb
+Cape Verde,2012,CAP,402,1208,Army_afrob,959,afb
+Cape Verde,2012,CAP,402,1208,Strong_afrob,1035,afb
+Cape Verde,2012,CAP,402,1208,ThreeState_afrob,982,afb
+Cape Verde,2012,CAP,402,1208,Party_afrob,1034,afb
+Cape Verde,2014,CAP,402,1200,Army_afrob,913,afb
+Cape Verde,2014,CAP,402,1200,Strong_afrob,1007,afb
+Cape Verde,2014,CAP,402,1200,ThreeState_afrob,968,afb
+Cape Verde,2014,CAP,402,1200,Party_afrob,1046,afb
+Chile,1995,CHL,155,1240,ThreeState_lb,647,lb
+Chile,1996,CHL,155,1200,ThreeState_lb,650,lb
+Chile,1996,CHL,155,1200,Army_wvs,743,wvs
+Chile,1996,CHL,155,1200,Strong_wvs,718,wvs
+Chile,1996,CHL,155,1200,Church_wvs,926,wvs
+Chile,1996,CHL,155,1200,EvDemoc_wvs,950,wvs
+Chile,1997,CHL,155,1200,ThreeState_lb,736,lb
+Chile,1998,CHL,155,1200,ThreeState_lb,632,lb
+Chile,2000,CHL,155,1183,ThreeState_lb,633,lb
+Chile,2000,CHL,155,1183,Army_wvs,800,wvs
+Chile,2000,CHL,155,1183,Strong_wvs,615,wvs
+Chile,2000,CHL,155,1183,Church_wvs,911,wvs
+Chile,2000,CHL,155,1183,EvDemoc_wvs,931,wvs
+Chile,2001,CHL,155,1174,ThreeState_lb,527,lb
+Chile,2002,CHL,155,1174,Church_lb,740,lb
+Chile,2002,CHL,155,1174,ThreeState_lb,591,lb
+Chile,2003,CHL,155,1196,Church_lb,801,lb
+Chile,2003,CHL,155,1196,ThreeState_lb,604,lb
+Chile,2004,CHL,155,1200,Church_lb,898,lb
+Chile,2004,CHL,155,1200,ThreeState_lb,680,lb
+Chile,2005,CHL,155,1200,Church_lb,893,lb
+Chile,2005,CHL,155,1200,ThreeState_lb,706,lb
+Chile,2005,CHL,155,1200,Church_cses,1013,cses
+Chile,2006,CHL,155,1200,Church_lb,888,lb
+Chile,2006,CHL,155,1200,ThreeState_lb,678,lb
+Chile,2006,CHL,155,1200,Army_wvs,857,wvs
+Chile,2006,CHL,155,1200,Strong_wvs,684,wvs
+Chile,2006,CHL,155,1200,EvDemoc_wvs,994,wvs
+Chile,2006,CHL,155,1200,ImpDemoc_wvs,984,wvs
+Chile,2006,CHL,155,1200,ThreeState_lapop,846,lapop
+Chile,2006,CHL,155,1200,Church_lapop,886,lapop
+Chile,2006,CHL,155,1200,Strong_lapop_1,1038,lapop
+Chile,2007,CHL,155,800,Church_lb,601,lb
+Chile,2007,CHL,155,800,ThreeState_lb,366,lb
+Chile,2007,CHL,155,800,Strong_pew,568,pew
+Chile,2007,CHL,155,800,ImpDemoc_pew,568,pew
+Chile,2008,CHL,155,1200,Church_lb,835,lb
+Chile,2008,CHL,155,1200,ThreeState_lb,608,lb
+Chile,2008,CHL,155,1200,ThreeState_lapop,718,lapop
+Chile,2008,CHL,155,1200,Church_lapop,776,lapop
+Chile,2008,CHL,155,1200,Strong_lapop_1,907,lapop
+Chile,2009,CHL,155,1200,Church_lb,911,lb
+Chile,2009,CHL,155,1200,ThreeState_lb,708,lb
+Chile,2010,CHL,155,1200,Church_lb,1015,lb
+Chile,2010,CHL,155,1200,ThreeState_lb,753,lb
+Chile,2010,CHL,155,1200,ThreeState_lapop,907,lapop
+Chile,2010,CHL,155,1200,Church_lapop,898,lapop
+Chile,2010,CHL,155,1200,Strong_lapop_1,1047,lapop
+Chile,2011,CHL,155,1200,Church_lb,976,lb
+Chile,2011,CHL,155,1200,ThreeState_lb,738,lb
+Chile,2011,CHL,155,1200,Army_wvs,908,wvs
+Chile,2011,CHL,155,1200,Strong_wvs,666,wvs
+Chile,2011,CHL,155,1200,EvDemoc_wvs,1079,wvs
+Chile,2011,CHL,155,1200,ImpDemoc_wvs,1069,wvs
+Chile,2012,CHL,155,1500,ThreeState_lapop,1081,lapop
+Chile,2012,CHL,155,1500,Church_lapop,1078,lapop
+Chile,2012,CHL,155,1500,Strong_lapop_1,1308,lapop
+Chile,2013,CHL,155,800,Church_lb,686,lb
+Chile,2013,CHL,155,800,ThreeState_lb,506,lb
+Chile,2013,CHL,155,800,ThreeState_pew,560,pew
+Chile,2013,CHL,155,800,Strong_pew,640,pew
+Chile,2013,CHL,155,800,ImpDemoc_pew,648,pew
+Chile,2014,CHL,155,1572,ThreeState_lapop,1015,lapop
+Chile,2014,CHL,155,1572,Church_lapop,1162,lapop
+Chile,2015,CHL,155,1000,Church_lb,792,lb
+Chile,2015,CHL,155,1000,ThreeState_lb,648,lb
+Chile,2015,CHL,155,1000,ImpDemoc_pew,680,pew
+Chile,2016,CHL,155,1200,Church_lb,912,lb
+Chile,2016,CHL,155,1200,ThreeState_lb,636,lb
+Chile,2017,CHL,155,987,Church_lb,673,lb
+Chile,2017,CHL,155,987,ThreeState_lb,541,lb
+Chile,2017,CHL,155,987,EvDemoc_pew,572,pew
+Chile,2017,CHL,155,987,Strong_pew.1,799,pew
+Chile,2017,CHL,155,987,Army_pew,691,pew
+China,2001,CHN,710,3183,Army_wvs,1283,wvs
+China,2001,CHN,710,3183,Strong_wvs,1849,wvs
+China,2001,CHN,710,3183,Church_wvs,1868,wvs
+China,2001,CHN,710,3183,EvDemoc_wvs,2333,wvs
+China,2002,CHN,710,3183,ThreeState_asnb,1834,asnb
+China,2002,CHN,710,3183,Army_asnb,2067,asnb
+China,2002,CHN,710,3183,DemocExtent_asnb,2428,asnb
+China,2002,CHN,710,3183,DemocSuit_asnb,2249,asnb
+China,2003,CHN,710,800,Army_asb,405,asb
+China,2003,CHN,710,800,Strong_asb,538,asb
+China,2003,CHN,710,800,EvDemoc_asb,760,asb
+China,2006,CHN,710,2000,Army_asb,921,asb
+China,2006,CHN,710,2000,Strong_asb,1650,asb
+China,2006,CHN,710,2000,EvDemoc_asb,1853,asb
+China,2007,CHN,710,3142,Army_wvs,1192,wvs
+China,2007,CHN,710,3142,Strong_wvs,1318,wvs
+China,2007,CHN,710,3142,EvDemoc_wvs,1920,wvs
+China,2007,CHN,710,3142,ImpDemoc_wvs,2454,wvs
+China,2008,CHN,710,5098,ThreeState_asnb,2732,asnb
+China,2008,CHN,710,5098,Army_asnb,2914,asnb
+China,2008,CHN,710,5098,DemocExtent_asnb,3302,asnb
+China,2008,CHN,710,5098,DemocSuit_asnb,3658,asnb
+China,2008,CHN,710,5098,Strong_asnb,3131,asnb
+China,2011,CHN,710,3473,ThreeState_asnb,1809,asnb
+China,2011,CHN,710,3473,Army_asnb,2324,asnb
+China,2011,CHN,710,3473,DemocSuit_asnb,2229,asnb
+China,2011,CHN,710,3473,Strong_asnb,2089,asnb
+China,2011,CHN,710,3473,Church_asnb,2602,asnb
+China,2012,CHN,710,2300,Army_wvs,1432,wvs
+China,2012,CHN,710,2300,Strong_wvs,988,wvs
+China,2012,CHN,710,2300,EvDemoc_wvs,1622,wvs
+China,2012,CHN,710,2300,ImpDemoc_wvs,1960,wvs
+Colombia,1996,COL,100,1202,ThreeState_lb,720,lb
+Colombia,1997,COL,100,1200,ThreeState_lb,825,lb
+Colombia,1997,COL,100,1200,Army_wvs,756,wvs
+Colombia,1997,COL,100,1200,Strong_wvs,528,wvs
+Colombia,1997,COL,100,1200,EvDemoc_wvs,985,wvs
+Colombia,1998,COL,100,1200,ThreeState_lb,658,lb
+Colombia,2000,COL,100,1200,ThreeState_lb,600,lb
+Colombia,2001,COL,100,1999,ThreeState_lb,720,lb
+Colombia,2002,COL,100,1200,Church_lb,670,lb
+Colombia,2002,COL,100,1200,ThreeState_lb,464,lb
+Colombia,2003,COL,100,1200,Church_lb,684,lb
+Colombia,2003,COL,100,1200,ThreeState_lb,547,lb
+Colombia,2004,COL,100,1200,Church_lb,857,lb
+Colombia,2004,COL,100,1200,ThreeState_lb,553,lb
+Colombia,2004,COL,100,1200,ThreeState_lapop,768,lapop
+Colombia,2004,COL,100,1200,Church_lapop,840,lapop
+Colombia,2004,COL,100,1200,Strong_lapop_2,997,lapop
+Colombia,2005,COL,100,1200,Church_lb,900,lb
+Colombia,2005,COL,100,1200,ThreeState_lb,556,lb
+Colombia,2005,COL,100,1200,Army_wvs,756,wvs
+Colombia,2005,COL,100,1200,Strong_wvs,784,wvs
+Colombia,2005,COL,100,1200,EvDemoc_wvs,973,wvs
+Colombia,2005,COL,100,1200,ImpDemoc_wvs,951,wvs
+Colombia,2005,COL,100,1200,ThreeState_lapop,722,lapop
+Colombia,2005,COL,100,1200,Church_lapop,792,lapop
+Colombia,2005,COL,100,1200,Strong_lapop_1,959,lapop
+Colombia,2006,COL,100,1200,Church_lb,891,lb
+Colombia,2006,COL,100,1200,ThreeState_lb,620,lb
+Colombia,2006,COL,100,1200,ThreeState_lapop,761,lapop
+Colombia,2006,COL,100,1200,Church_lapop,800,lapop
+Colombia,2006,COL,100,1200,Strong_lapop_1,1046,lapop
+Colombia,2007,COL,100,1200,Church_lb,881,lb
+Colombia,2007,COL,100,1200,ThreeState_lb,581,lb
+Colombia,2007,COL,100,1200,ThreeState_lapop,754,lapop
+Colombia,2007,COL,100,1200,Church_lapop,759,lapop
+Colombia,2007,COL,100,1200,Strong_lapop_1,1018,lapop
+Colombia,2008,COL,100,1200,Church_lb,965,lb
+Colombia,2008,COL,100,1200,ThreeState_lb,676,lb
+Colombia,2008,COL,100,1200,ThreeState_lapop,748,lapop
+Colombia,2008,COL,100,1200,Church_lapop,827,lapop
+Colombia,2008,COL,100,1200,Strong_lapop_1,1032,lapop
+Colombia,2009,COL,100,1200,Church_lb,873,lb
+Colombia,2009,COL,100,1200,ThreeState_lb,596,lb
+Colombia,2009,COL,100,1200,ThreeState_lapop,833,lapop
+Colombia,2009,COL,100,1200,Church_lapop,832,lapop
+Colombia,2009,COL,100,1200,Strong_lapop_1,1052,lapop
+Colombia,2010,COL,100,1200,Church_lb,934,lb
+Colombia,2010,COL,100,1200,ThreeState_lb,716,lb
+Colombia,2010,COL,100,1200,ThreeState_lapop,861,lapop
+Colombia,2010,COL,100,1200,Church_lapop,809,lapop
+Colombia,2010,COL,100,1200,Strong_lapop_1,1029,lapop
+Colombia,2011,COL,100,1200,Church_lb,947,lb
+Colombia,2011,COL,100,1200,ThreeState_lb,656,lb
+Colombia,2011,COL,100,1200,ThreeState_lapop,886,lapop
+Colombia,2011,COL,100,1200,Church_lapop,797,lapop
+Colombia,2011,COL,100,1200,Strong_lapop_1,1009,lapop
+Colombia,2012,COL,100,1499,Army_wvs,958,wvs
+Colombia,2012,COL,100,1499,Strong_wvs,627,wvs
+Colombia,2012,COL,100,1499,EvDemoc_wvs,1234,wvs
+Colombia,2012,COL,100,1499,ImpDemoc_wvs,1273,wvs
+Colombia,2012,COL,100,1499,ThreeState_lapop,1002,lapop
+Colombia,2012,COL,100,1499,Church_lapop,954,lapop
+Colombia,2012,COL,100,1499,Strong_lapop_1,1256,lapop
+Colombia,2013,COL,100,1200,Church_lb,902,lb
+Colombia,2013,COL,100,1200,ThreeState_lb,628,lb
+Colombia,2013,COL,100,1200,Church_lapop,709,lapop
+Colombia,2014,COL,100,1496,ThreeState_lapop,989,lapop
+Colombia,2014,COL,100,1496,Church_lapop,984,lapop
+Colombia,2015,COL,100,1200,Church_lb,853,lb
+Colombia,2015,COL,100,1200,ThreeState_lb,665,lb
+Colombia,2016,COL,100,1200,Church_lb,879,lb
+Colombia,2016,COL,100,1200,ThreeState_lb,670,lb
+Colombia,2017,COL,100,1000,Church_lb,693,lb
+Colombia,2017,COL,100,1000,ThreeState_lb,591,lb
+Colombia,2017,COL,100,1000,EvDemoc_pew,530,pew
+Colombia,2017,COL,100,1000,Strong_pew.1,790,pew
+Colombia,2017,COL,100,1000,Army_pew,630,pew
+Costa Rica,1996,COS,94,1001,ThreeState_lb,804,lb
+Costa Rica,1997,COS,94,1007,ThreeState_lb,832,lb
+Costa Rica,1998,COS,94,1000,ThreeState_lb,690,lb
+Costa Rica,2000,COS,94,981,ThreeState_lb,814,lb
+Costa Rica,2001,COS,94,1000,ThreeState_lb,714,lb
+Costa Rica,2002,COS,94,1006,Church_lb,706,lb
+Costa Rica,2002,COS,94,1006,ThreeState_lb,776,lb
+Costa Rica,2003,COS,94,1004,Church_lb,774,lb
+Costa Rica,2003,COS,94,1004,ThreeState_lb,778,lb
+Costa Rica,2004,COS,94,1000,Church_lb,827,lb
+Costa Rica,2004,COS,94,1000,ThreeState_lb,670,lb
+Costa Rica,2004,COS,94,1000,ThreeState_lapop,746,lapop
+Costa Rica,2004,COS,94,1000,Church_lapop,795,lapop
+Costa Rica,2004,COS,94,1000,Strong_lapop_2,908,lapop
+Costa Rica,2005,COS,94,1000,Church_lb,804,lb
+Costa Rica,2005,COS,94,1000,ThreeState_lb,731,lb
+Costa Rica,2006,COS,94,1000,Church_lb,798,lb
+Costa Rica,2006,COS,94,1000,ThreeState_lb,750,lb
+Costa Rica,2006,COS,94,1000,ThreeState_lapop,861,lapop
+Costa Rica,2006,COS,94,1000,Church_lapop,759,lapop
+Costa Rica,2006,COS,94,1000,Strong_lapop_1,947,lapop
+Costa Rica,2007,COS,94,1000,Church_lb,817,lb
+Costa Rica,2007,COS,94,1000,ThreeState_lb,825,lb
+Costa Rica,2008,COS,94,1000,Church_lb,775,lb
+Costa Rica,2008,COS,94,1000,ThreeState_lb,670,lb
+Costa Rica,2008,COS,94,1000,ThreeState_lapop,829,lapop
+Costa Rica,2008,COS,94,1000,Church_lapop,733,lapop
+Costa Rica,2008,COS,94,1000,Strong_lapop_1,803,lapop
+Costa Rica,2009,COS,94,1000,Church_lb,796,lb
+Costa Rica,2009,COS,94,1000,ThreeState_lb,739,lb
+Costa Rica,2010,COS,94,1000,Church_lb,710,lb
+Costa Rica,2010,COS,94,1000,ThreeState_lb,720,lb
+Costa Rica,2010,COS,94,1000,ThreeState_lapop,819,lapop
+Costa Rica,2010,COS,94,1000,Church_lapop,753,lapop
+Costa Rica,2010,COS,94,1000,Strong_lapop_1,833,lapop
+Costa Rica,2011,COS,94,1000,Church_lb,785,lb
+Costa Rica,2011,COS,94,1000,ThreeState_lb,645,lb
+Costa Rica,2012,COS,94,1500,ThreeState_lapop,1260,lapop
+Costa Rica,2012,COS,94,1500,Church_lapop,1048,lapop
+Costa Rica,2012,COS,94,1500,Strong_lapop_1,1164,lapop
+Costa Rica,2013,COS,94,1000,Church_lb,766,lb
+Costa Rica,2013,COS,94,1000,ThreeState_lb,530,lb
+Costa Rica,2014,COS,94,1537,ThreeState_lapop,1232,lapop
+Costa Rica,2014,COS,94,1537,Church_lapop,1052,lapop
+Costa Rica,2015,COS,94,1000,Church_lb,649,lb
+Costa Rica,2015,COS,94,1000,ThreeState_lb,568,lb
+Costa Rica,2016,COS,94,1000,Church_lb,716,lb
+Costa Rica,2016,COS,94,1000,ThreeState_lb,596,lb
+Costa Rica,2017,COS,94,1000,Church_lb,718,lb
+Costa Rica,2017,COS,94,1000,ThreeState_lb,617,lb
+Croatia,1993,CRO,344,1000,Army_ndb,960,ndb
+Croatia,1993,CRO,344,1000,Strong_ndb,904,ndb
+Croatia,1995,CRO,344,1000,Army_ndb,982,ndb
+Croatia,1995,CRO,344,1000,Strong_ndb,940,ndb
+Croatia,1996,CRO,344,1196,Army_wvs,994,wvs
+Croatia,1996,CRO,344,1196,Strong_wvs,795,wvs
+Croatia,1996,CRO,344,1196,Church_wvs,1075,wvs
+Croatia,1996,CRO,344,1196,EvDemoc_wvs,1141,wvs
+Croatia,1998,CRO,344,1000,Army_ndb,966,ndb
+Croatia,1998,CRO,344,1000,Strong_ndb,899,ndb
+Croatia,1999,CRO,344,1003,Army_evs,901,evs
+Croatia,1999,CRO,344,1003,Strong_evs,840,evs
+Croatia,1999,CRO,344,1003,Church_evs,890,evs
+Croatia,1999,CRO,344,1003,EvDemoc_evs,929,evs
+Croatia,2002,CRO,344,974,Army_ndb,892,ndb
+Croatia,2002,CRO,344,974,Strong_ndb,766,ndb
+Croatia,2008,CRO,344,1525,Army_evs,1240,evs
+Croatia,2008,CRO,344,1525,Strong_evs,954,evs
+Croatia,2008,CRO,344,1525,Church_evs,1204,evs
+Croatia,2008,CRO,344,1525,EvDemoc_evs,1213,evs
+Cyprus,2006,CYP,352,1050,Army_wvs,880,wvs
+Cyprus,2006,CYP,352,1050,Strong_wvs,609,wvs
+Cyprus,2006,CYP,352,1050,EvDemoc_wvs,994,wvs
+Cyprus,2006,CYP,352,1050,ImpDemoc_wvs,997,wvs
+Cyprus,2008,CYP,352,1000,Army_evs,744,evs
+Cyprus,2008,CYP,352,1000,Strong_evs,756,evs
+Cyprus,2008,CYP,352,1000,Church_evs,900,evs
+Cyprus,2008,CYP,352,1000,EvDemoc_evs,894,evs
+Cyprus,2011,CYP,352,1000,Army_wvs,874,wvs
+Cyprus,2011,CYP,352,1000,Strong_wvs,600,wvs
+Cyprus,2011,CYP,352,1000,EvDemoc_wvs,941,wvs
+Cyprus,2011,CYP,352,1000,ImpDemoc_wvs,950,wvs
+Cyprus,2012,CYP,352,1109,ImpDemoc_ess,1075,ess
+Czech Republic,1992,CZR,316,1263,Strong_ndb,964,ndb
+Czech Republic,1992,CZR,316,1263,ThreeState_ndb,910,ndb
+Czech Republic,1993,CZR,316,1103,Army_ndb,1071,ndb
+Czech Republic,1993,CZR,316,1103,Strong_ndb,924,ndb
+Czech Republic,1993,CZR,316,1103,ThreeState_ndb,830,ndb
+Czech Republic,1995,CZR,316,908,Army_ndb,881,ndb
+Czech Republic,1995,CZR,316,908,Strong_ndb,792,ndb
+Czech Republic,1995,CZR,316,908,Army_wvs,830,wvs
+Czech Republic,1995,CZR,316,908,Strong_wvs,713,wvs
+Czech Republic,1995,CZR,316,908,Church_wvs,770,wvs
+Czech Republic,1995,CZR,316,908,EvDemoc_wvs,785,wvs
+Czech Republic,1998,CZR,316,961,Army_ndb,937,ndb
+Czech Republic,1998,CZR,316,961,Strong_ndb,838,ndb
+Czech Republic,1998,CZR,316,961,ThreeState_ndb,676,ndb
+Czech Republic,1999,CZR,316,1908,Army_evs,1791,evs
+Czech Republic,1999,CZR,316,1908,Strong_evs,1477,evs
+Czech Republic,1999,CZR,316,1908,Church_evs,1690,evs
+Czech Republic,1999,CZR,316,1908,EvDemoc_evs,1694,evs
+Czech Republic,2001,CZR,316,1100,Army_ndb,1056,ndb
+Czech Republic,2001,CZR,316,1100,Strong_ndb,905,ndb
+Czech Republic,2002,CZR,316,948,Strong_pew,863,pew
+Czech Republic,2002,CZR,316,948,ImpDemoc_pew,673,pew
+Czech Republic,2002,CZR,316,948,Church_cses,708,cses
+Czech Republic,2004,CZR,316,967,Army_ndb,916,ndb
+Czech Republic,2004,CZR,316,967,Strong_ndb,754,ndb
+Czech Republic,2004,CZR,316,967,ThreeState_ndb,522,ndb
+Czech Republic,2007,CZR,316,450,Strong_pew,382,pew
+Czech Republic,2007,CZR,316,450,ImpDemoc_pew,270,pew
+Czech Republic,2008,CZR,316,1821,Army_evs,1531,evs
+Czech Republic,2008,CZR,316,1821,Strong_evs,1111,evs
+Czech Republic,2008,CZR,316,1821,Church_evs,1380,evs
+Czech Republic,2008,CZR,316,1821,EvDemoc_evs,1306,evs
+Czech Republic,2009,CZR,316,1145,Strong_pew,927,pew
+Czech Republic,2009,CZR,316,1145,ImpDemoc_pew,653,pew
+Czech Republic,2012,CZR,316,1957,ImpDemoc_ess,1534,ess
+Denmark,1988,DEN,390,1006,ThreeState_eb,917,eb
+Denmark,1992,DEN,390,1000,ThreeState_eb,930,eb
+Denmark,1999,DEN,390,1023,Army_evs,989,evs
+Denmark,1999,DEN,390,1023,Strong_evs,828,evs
+Denmark,1999,DEN,390,1023,Church_evs,969,evs
+Denmark,1999,DEN,390,1023,EvDemoc_evs,962,evs
+Denmark,2001,DEN,390,2026,Church_cses,1921,cses
+Denmark,2008,DEN,390,1507,Army_evs,1473,evs
+Denmark,2008,DEN,390,1507,Strong_evs,1244,evs
+Denmark,2008,DEN,390,1507,Church_evs,1447,evs
+Denmark,2008,DEN,390,1507,EvDemoc_evs,1471,evs
+Denmark,2012,DEN,390,1633,ImpDemoc_ess,1563,ess
+Dominican Republic,1996,DOM,42,417,Army_wvs,345,wvs
+Dominican Republic,1996,DOM,42,417,Strong_wvs,270,wvs
+Dominican Republic,1996,DOM,42,417,Church_wvs,374,wvs
+Dominican Republic,1996,DOM,42,417,EvDemoc_wvs,370,wvs
+Dominican Republic,2003,DOM,42,1000,Church_lb,518,lb
+Dominican Republic,2004,DOM,42,1000,Church_lb,764,lb
+Dominican Republic,2004,DOM,42,1000,ThreeState_lb,646,lb
+Dominican Republic,2004,DOM,42,1000,ThreeState_lapop,700,lapop
+Dominican Republic,2005,DOM,42,1000,Church_lb,702,lb
+Dominican Republic,2005,DOM,42,1000,ThreeState_lb,601,lb
+Dominican Republic,2006,DOM,42,1000,Church_lb,872,lb
+Dominican Republic,2006,DOM,42,1000,ThreeState_lb,712,lb
+Dominican Republic,2006,DOM,42,1000,ThreeState_lapop,675,lapop
+Dominican Republic,2006,DOM,42,1000,Church_lapop,749,lapop
+Dominican Republic,2006,DOM,42,1000,Strong_lapop_1,840,lapop
+Dominican Republic,2007,DOM,42,1000,Church_lb,815,lb
+Dominican Republic,2007,DOM,42,1000,ThreeState_lb,644,lb
+Dominican Republic,2008,DOM,42,1000,Church_lb,792,lb
+Dominican Republic,2008,DOM,42,1000,ThreeState_lb,734,lb
+Dominican Republic,2008,DOM,42,1000,ThreeState_lapop,687,lapop
+Dominican Republic,2008,DOM,42,1000,Church_lapop,691,lapop
+Dominican Republic,2008,DOM,42,1000,Strong_lapop_1,872,lapop
+Dominican Republic,2009,DOM,42,1000,Church_lb,835,lb
+Dominican Republic,2009,DOM,42,1000,ThreeState_lb,673,lb
+Dominican Republic,2010,DOM,42,1000,Church_lb,849,lb
+Dominican Republic,2010,DOM,42,1000,ThreeState_lb,631,lb
+Dominican Republic,2010,DOM,42,1000,ThreeState_lapop,643,lapop
+Dominican Republic,2010,DOM,42,1000,Church_lapop,623,lapop
+Dominican Republic,2010,DOM,42,1000,Strong_lapop_1,801,lapop
+Dominican Republic,2011,DOM,42,1000,Church_lb,801,lb
+Dominican Republic,2011,DOM,42,1000,ThreeState_lb,652,lb
+Dominican Republic,2012,DOM,42,1500,ThreeState_lapop,1056,lapop
+Dominican Republic,2012,DOM,42,1500,Church_lapop,989,lapop
+Dominican Republic,2012,DOM,42,1500,Strong_lapop_1,1253,lapop
+Dominican Republic,2013,DOM,42,1000,Church_lb,826,lb
+Dominican Republic,2013,DOM,42,1000,ThreeState_lb,600,lb
+Dominican Republic,2014,DOM,42,1520,ThreeState_lapop,1087,lapop
+Dominican Republic,2014,DOM,42,1520,Church_lapop,1059,lapop
+Dominican Republic,2015,DOM,42,1000,Church_lb,761,lb
+Dominican Republic,2015,DOM,42,1000,ThreeState_lb,633,lb
+Dominican Republic,2016,DOM,42,1000,Church_lb,733,lb
+Dominican Republic,2016,DOM,42,1000,ThreeState_lb,600,lb
+Dominican Republic,2017,DOM,42,1000,Church_lb,654,lb
+Dominican Republic,2017,DOM,42,1000,ThreeState_lb,544,lb
+Ecuador,1996,ECU,130,1200,ThreeState_lb,620,lb
+Ecuador,1997,ECU,130,1200,ThreeState_lb,492,lb
+Ecuador,1998,ECU,130,1200,ThreeState_lb,683,lb
+Ecuador,2000,ECU,130,1200,ThreeState_lb,650,lb
+Ecuador,2001,ECU,130,1200,ThreeState_lb,480,lb
+Ecuador,2002,ECU,130,1200,Church_lb,734,lb
+Ecuador,2002,ECU,130,1200,ThreeState_lb,565,lb
+Ecuador,2003,ECU,130,1200,Church_lb,621,lb
+Ecuador,2003,ECU,130,1200,ThreeState_lb,538,lb
+Ecuador,2004,ECU,130,1200,Church_lb,683,lb
+Ecuador,2004,ECU,130,1200,ThreeState_lb,550,lb
+Ecuador,2004,ECU,130,1200,ThreeState_lapop,723,lapop
+Ecuador,2004,ECU,130,1200,Church_lapop,692,lapop
+Ecuador,2004,ECU,130,1200,Strong_lapop_2,874,lapop
+Ecuador,2005,ECU,130,1200,Church_lb,697,lb
+Ecuador,2005,ECU,130,1200,ThreeState_lb,518,lb
+Ecuador,2006,ECU,130,1200,Church_lb,798,lb
+Ecuador,2006,ECU,130,1200,ThreeState_lb,650,lb
+Ecuador,2006,ECU,130,1200,ThreeState_lapop,817,lapop
+Ecuador,2006,ECU,130,1200,Church_lapop,717,lapop
+Ecuador,2006,ECU,130,1200,Strong_lapop_1,940,lapop
+Ecuador,2007,ECU,130,1200,Church_lb,923,lb
+Ecuador,2007,ECU,130,1200,ThreeState_lb,775,lb
+Ecuador,2008,ECU,130,1200,Church_lb,722,lb
+Ecuador,2008,ECU,130,1200,ThreeState_lb,669,lb
+Ecuador,2008,ECU,130,1200,ThreeState_lapop,890,lapop
+Ecuador,2008,ECU,130,1200,Church_lapop,698,lapop
+Ecuador,2008,ECU,130,1200,Strong_lapop_1,938,lapop
+Ecuador,2009,ECU,130,1200,Church_lb,794,lb
+Ecuador,2009,ECU,130,1200,ThreeState_lb,520,lb
+Ecuador,2010,ECU,130,1200,Church_lb,997,lb
+Ecuador,2010,ECU,130,1200,ThreeState_lb,764,lb
+Ecuador,2010,ECU,130,1200,ThreeState_lapop,914,lapop
+Ecuador,2010,ECU,130,1200,Church_lapop,738,lapop
+Ecuador,2010,ECU,130,1200,Strong_lapop_1,1010,lapop
+Ecuador,2011,ECU,130,1200,Church_lb,1012,lb
+Ecuador,2011,ECU,130,1200,ThreeState_lb,731,lb
+Ecuador,2012,ECU,130,1500,ThreeState_lapop,938,lapop
+Ecuador,2012,ECU,130,1500,Church_lapop,858,lapop
+Ecuador,2012,ECU,130,1500,Strong_lapop_1,1158,lapop
+Ecuador,2013,ECU,130,1200,Church_lb,968,lb
+Ecuador,2013,ECU,130,1200,ThreeState_lb,748,lb
+Ecuador,2013,ECU,130,1200,Army_wvs,899,wvs
+Ecuador,2013,ECU,130,1200,Strong_wvs,340,wvs
+Ecuador,2013,ECU,130,1200,EvDemoc_wvs,1055,wvs
+Ecuador,2013,ECU,130,1200,ImpDemoc_wvs,1098,wvs
+Ecuador,2014,ECU,130,1489,ThreeState_lapop,962,lapop
+Ecuador,2014,ECU,130,1489,Church_lapop,951,lapop
+Ecuador,2015,ECU,130,1200,Church_lb,941,lb
+Ecuador,2015,ECU,130,1200,ThreeState_lb,848,lb
+Ecuador,2016,ECU,130,1200,Church_lb,933,lb
+Ecuador,2016,ECU,130,1200,ThreeState_lb,799,lb
+Ecuador,2017,ECU,130,1200,Church_lb,994,lb
+Ecuador,2017,ECU,130,1200,ThreeState_lb,833,lb
+Egypt,2001,EGY,651,3000,Strong_wvs,2616,wvs
+Egypt,2001,EGY,651,3000,Church_wvs,2715,wvs
+Egypt,2001,EGY,651,3000,EvDemoc_wvs,2799,wvs
+Egypt,2007,EGY,651,1000,Strong_pew,500,pew
+Egypt,2007,EGY,651,1000,ImpDemoc_pew,520,pew
+Egypt,2008,EGY,651,3051,Army_wvs,1288,wvs
+Egypt,2008,EGY,651,3051,Strong_wvs,2520,wvs
+Egypt,2008,EGY,651,3051,EvDemoc_wvs,2975,wvs
+Egypt,2008,EGY,651,3051,ImpDemoc_wvs,2929,wvs
+Egypt,2010,EGY,651,1000,ThreeState_pew,600,pew
+Egypt,2011,EGY,651,1000,Church_arb,717,arb
+Egypt,2011,EGY,651,1000,Strong_arb_1,710,arb
+Egypt,2011,EGY,651,1000,EvDemoc_arb,946,arb
+Egypt,2011,EGY,651,1000,DemocSuit_arb,655,arb
+Egypt,2011,EGY,651,1000,ThreeState_pew,710,pew
+Egypt,2011,EGY,651,1000,Strong_pew,640,pew
+Egypt,2011,EGY,651,1000,ImpDemoc_pew,550,pew
+Egypt,2012,EGY,651,1000,Army_afrob,315,afb
+Egypt,2012,EGY,651,1000,Strong_afrob,763,afb
+Egypt,2012,EGY,651,1000,ThreeState_afrob,560,afb
+Egypt,2012,EGY,651,1000,Party_afrob,788,afb
+Egypt,2012,EGY,651,1000,EvDemoc_wvs,986,wvs
+Egypt,2012,EGY,651,1000,ImpDemoc_wvs,967,wvs
+Egypt,2012,EGY,651,1000,ThreeState_pew,670,pew
+Egypt,2012,EGY,651,1000,Strong_pew,610,pew
+Egypt,2012,EGY,651,1000,ImpDemoc_pew,580,pew
+Egypt,2013,EGY,651,1000,Church_arb,709,arb
+Egypt,2013,EGY,651,1000,Strong_arb_1,732,arb
+Egypt,2013,EGY,651,1000,EvDemoc_arb,804,arb
+Egypt,2013,EGY,651,1000,DemocSuit_arb,353,arb
+Egypt,2013,EGY,651,1000,ThreeState_pew,660,pew
+Egypt,2013,EGY,651,1000,Strong_pew,600,pew
+Egypt,2013,EGY,651,1000,ImpDemoc_pew,560,pew
+Egypt,2014,EGY,651,1000,Army_afrob,331,afb
+Egypt,2014,EGY,651,1000,Strong_afrob,487,afb
+Egypt,2014,EGY,651,1000,ThreeState_afrob,531,afb
+Egypt,2014,EGY,651,1000,Party_afrob,602,afb
+Egypt,2014,EGY,651,1000,ThreeState_pew,590,pew
+Egypt,2014,EGY,651,1000,Strong_pew,520,pew
+Egypt,2014,EGY,651,1000,ImpDemoc_pew,450,pew
+Egypt,2016,EGY,651,1200,DemocSuit_arb,433,arb
+Egypt,2016,EGY,651,1200,ThreeState_arb,646,arb
+El Salvador,1996,SAL,92,1003,ThreeState_lb,565,lb
+El Salvador,1997,SAL,92,1010,ThreeState_lb,663,lb
+El Salvador,1998,SAL,92,1000,ThreeState_lb,794,lb
+El Salvador,1999,SAL,92,1254,Army_wvs,683,wvs
+El Salvador,1999,SAL,92,1254,Strong_wvs,449,wvs
+El Salvador,1999,SAL,92,1254,EvDemoc_wvs,952,wvs
+El Salvador,2000,SAL,92,1001,ThreeState_lb,635,lb
+El Salvador,2001,SAL,92,1000,ThreeState_lb,251,lb
+El Salvador,2002,SAL,92,1014,Church_lb,611,lb
+El Salvador,2002,SAL,92,1014,ThreeState_lb,406,lb
+El Salvador,2003,SAL,92,1008,Church_lb,554,lb
+El Salvador,2003,SAL,92,1008,ThreeState_lb,458,lb
+El Salvador,2004,SAL,92,1000,Church_lb,660,lb
+El Salvador,2004,SAL,92,1000,ThreeState_lb,500,lb
+El Salvador,2004,SAL,92,1000,ThreeState_lapop,663,lapop
+El Salvador,2004,SAL,92,1000,Church_lapop,639,lapop
+El Salvador,2004,SAL,92,1000,Strong_lapop_2,911,lapop
+El Salvador,2005,SAL,92,1010,Church_lb,694,lb
+El Salvador,2005,SAL,92,1010,ThreeState_lb,595,lb
+El Salvador,2006,SAL,92,1020,Church_lb,611,lb
+El Salvador,2006,SAL,92,1020,ThreeState_lb,522,lb
+El Salvador,2006,SAL,92,1020,ThreeState_lapop,707,lapop
+El Salvador,2006,SAL,92,1020,Church_lapop,558,lapop
+El Salvador,2006,SAL,92,1020,Strong_lapop_1,868,lapop
+El Salvador,2007,SAL,92,1000,Church_lb,628,lb
+El Salvador,2007,SAL,92,1000,ThreeState_lb,380,lb
+El Salvador,2008,SAL,92,1000,Church_lb,634,lb
+El Salvador,2008,SAL,92,1000,ThreeState_lb,496,lb
+El Salvador,2008,SAL,92,1000,ThreeState_lapop,757,lapop
+El Salvador,2008,SAL,92,1000,Church_lapop,647,lapop
+El Salvador,2008,SAL,92,1000,Strong_lapop_1,830,lapop
+El Salvador,2009,SAL,92,1000,Church_lb,818,lb
+El Salvador,2009,SAL,92,1000,ThreeState_lb,676,lb
+El Salvador,2010,SAL,92,1000,Church_lb,665,lb
+El Salvador,2010,SAL,92,1000,ThreeState_lb,588,lb
+El Salvador,2010,SAL,92,1000,ThreeState_lapop,719,lapop
+El Salvador,2010,SAL,92,1000,Church_lapop,598,lapop
+El Salvador,2010,SAL,92,1000,Strong_lapop_1,870,lapop
+El Salvador,2011,SAL,92,1000,Church_lb,727,lb
+El Salvador,2011,SAL,92,1000,ThreeState_lb,545,lb
+El Salvador,2012,SAL,92,1499,ThreeState_lapop,946,lapop
+El Salvador,2012,SAL,92,1499,Church_lapop,872,lapop
+El Salvador,2012,SAL,92,1499,Strong_lapop_1,1136,lapop
+El Salvador,2013,SAL,92,792,Church_lb,518,lb
+El Salvador,2013,SAL,92,792,ThreeState_lb,386,lb
+El Salvador,2013,SAL,92,792,ThreeState_pew,483,pew
+El Salvador,2013,SAL,92,792,Strong_pew,475,pew
+El Salvador,2013,SAL,92,792,ImpDemoc_pew,634,pew
+El Salvador,2014,SAL,92,1512,ThreeState_lapop,1122,lapop
+El Salvador,2014,SAL,92,1512,Church_lapop,934,lapop
+El Salvador,2015,SAL,92,1000,Church_lb,603,lb
+El Salvador,2015,SAL,92,1000,ThreeState_lb,414,lb
+El Salvador,2016,SAL,92,1000,Church_lb,588,lb
+El Salvador,2016,SAL,92,1000,ThreeState_lb,361,lb
+El Salvador,2017,SAL,92,1000,Church_lb,597,lb
+El Salvador,2017,SAL,92,1000,ThreeState_lb,355,lb
+Estonia,1995,EST,366,1296,Army_ndb,1213,ndb
+Estonia,1995,EST,366,1296,Strong_ndb,724,ndb
+Estonia,1996,EST,366,971,Army_ndb,939,ndb
+Estonia,1996,EST,366,971,Strong_ndb,534,ndb
+Estonia,1996,EST,366,971,Army_wvs,868,wvs
+Estonia,1996,EST,366,971,Strong_wvs,551,wvs
+Estonia,1996,EST,366,971,Church_wvs,783,wvs
+Estonia,1996,EST,366,971,EvDemoc_wvs,787,wvs
+Estonia,1999,EST,366,1005,Army_evs,900,evs
+Estonia,1999,EST,366,1005,Strong_evs,740,evs
+Estonia,1999,EST,366,1005,Church_evs,755,evs
+Estonia,1999,EST,366,1005,EvDemoc_evs,704,evs
+Estonia,2001,EST,366,943,Army_ndb,895,ndb
+Estonia,2001,EST,366,943,Strong_ndb,530,ndb
+Estonia,2004,EST,366,940,Army_ndb,886,ndb
+Estonia,2004,EST,366,940,Strong_ndb,607,ndb
+Estonia,2004,EST,366,940,ThreeState_ndb,415,ndb
+Estonia,2008,EST,366,1518,Army_evs,1393,evs
+Estonia,2008,EST,366,1518,Strong_evs,1030,evs
+Estonia,2008,EST,366,1518,Church_evs,1213,evs
+Estonia,2008,EST,366,1518,EvDemoc_evs,1132,evs
+Estonia,2011,EST,366,1533,Army_wvs,1372,wvs
+Estonia,2011,EST,366,1533,Strong_wvs,941,wvs
+Estonia,2011,EST,366,1533,EvDemoc_wvs,1213,wvs
+Estonia,2011,EST,366,1533,ImpDemoc_wvs,1346,wvs
+Estonia,2012,EST,366,2318,ImpDemoc_ess,1794,ess
+Ethiopia,2007,ETH,530,710,Army_wvs,508,wvs
+Ethiopia,2007,ETH,530,710,Strong_wvs,470,wvs
+Ethiopia,2007,ETH,530,710,EvDemoc_wvs,684,wvs
+Ethiopia,2007,ETH,530,710,ImpDemoc_wvs,689,wvs
+Ethiopia,2007,ETH,530,710,Strong_pew,547,pew
+Ethiopia,2007,ETH,530,710,ImpDemoc_pew,447,pew
+Finland,1996,FIN,375,987,Army_wvs,826,wvs
+Finland,1996,FIN,375,987,Strong_wvs,676,wvs
+Finland,1996,FIN,375,987,Church_wvs,761,wvs
+Finland,1996,FIN,375,987,EvDemoc_wvs,699,wvs
+Finland,2000,FIN,375,1038,Army_evs,935,evs
+Finland,2000,FIN,375,1038,Strong_evs,715,evs
+Finland,2000,FIN,375,1038,Church_evs,890,evs
+Finland,2000,FIN,375,1038,EvDemoc_evs,858,evs
+Finland,2003,FIN,375,1196,Church_cses,1049,cses
+Finland,2005,FIN,375,1014,Army_wvs,924,wvs
+Finland,2005,FIN,375,1014,Strong_wvs,771,wvs
+Finland,2005,FIN,375,1014,EvDemoc_wvs,893,wvs
+Finland,2005,FIN,375,1014,ImpDemoc_wvs,939,wvs
+Finland,2009,FIN,375,1134,Army_evs,1005,evs
+Finland,2009,FIN,375,1134,Strong_evs,867,evs
+Finland,2009,FIN,375,1134,Church_evs,938,evs
+Finland,2009,FIN,375,1134,EvDemoc_evs,930,evs
+Finland,2012,FIN,375,2184,ImpDemoc_ess,2031,ess
+France,1988,FRN,220,1001,ThreeState_eb,774,eb
+France,1992,FRN,220,1005,ThreeState_eb,773,eb
+France,1999,FRN,220,1615,Army_evs,1501,evs
+France,1999,FRN,220,1615,Strong_evs,971,evs
+France,1999,FRN,220,1615,Church_evs,1403,evs
+France,1999,FRN,220,1615,EvDemoc_evs,1324,evs
+France,2002,FRN,220,1000,Church_cses,885,cses
+France,2006,FRN,220,1001,Army_wvs,868,wvs
+France,2006,FRN,220,1001,Strong_wvs,646,wvs
+France,2006,FRN,220,1001,EvDemoc_wvs,878,wvs
+France,2006,FRN,220,1001,ImpDemoc_wvs,904,wvs
+France,2008,FRN,220,1501,Army_evs,1416,evs
+France,2008,FRN,220,1501,Strong_evs,1093,evs
+France,2008,FRN,220,1501,Church_evs,1374,evs
+France,2008,FRN,220,1501,EvDemoc_evs,1343,evs
+France,2009,FRN,220,1002,Strong_pew,822,pew
+France,2012,FRN,220,1951,ImpDemoc_ess,1615,ess
+France,2015,FRN,220,1001,ImpDemoc_pew,661,pew
+France,2017,FRN,220,1000,EvDemoc_pew,810,pew
+France,2017,FRN,220,1000,Strong_pew.1,880,pew
+France,2017,FRN,220,1000,Army_pew,820,pew
+Gabon,2015,GAB,481,1198,Army_afrob,837,afb
+Gabon,2015,GAB,481,1198,Strong_afrob,1069,afb
+Gabon,2015,GAB,481,1198,ThreeState_afrob,814,afb
+Gabon,2015,GAB,481,1198,Party_afrob,1087,afb
+Georgia,1996,GRG,372,2008,Army_wvs,1677,wvs
+Georgia,1996,GRG,372,2008,Strong_wvs,626,wvs
+Georgia,1996,GRG,372,2008,Church_wvs,1568,wvs
+Georgia,1996,GRG,372,2008,EvDemoc_wvs,1702,wvs
+Georgia,2008,GRG,372,1500,Army_wvs,1104,wvs
+Georgia,2008,GRG,372,1500,Strong_wvs,566,wvs
+Georgia,2008,GRG,372,1500,EvDemoc_wvs,1382,wvs
+Georgia,2008,GRG,372,1500,ImpDemoc_wvs,1396,wvs
+Georgia,2008,GRG,372,1500,Army_evs,1160,evs
+Georgia,2008,GRG,372,1500,Strong_evs,547,evs
+Georgia,2008,GRG,372,1500,Church_evs,1239,evs
+Georgia,2008,GRG,372,1500,EvDemoc_evs,1222,evs
+Georgia,2014,GRG,372,1202,Army_wvs,938,wvs
+Georgia,2014,GRG,372,1202,Strong_wvs,419,wvs
+Georgia,2014,GRG,372,1202,EvDemoc_wvs,952,wvs
+Georgia,2014,GRG,372,1202,ImpDemoc_wvs,1048,wvs
+Germany,1988,GMY,255,1051,ThreeState_eb,874,eb
+Germany,1992,GMY,255,2177,ThreeState_eb,1764,eb
+Germany,1997,GMY,255,2026,Army_wvs,1971,wvs
+Germany,1997,GMY,255,2026,Strong_wvs,1700,wvs
+Germany,1997,GMY,255,2026,Church_wvs,1827,wvs
+Germany,1997,GMY,255,2026,EvDemoc_wvs,1898,wvs
+Germany,1999,GMY,255,2036,Army_evs,1925,evs
+Germany,1999,GMY,255,2036,Strong_evs,1619,evs
+Germany,1999,GMY,255,2036,Church_evs,1892,evs
+Germany,1999,GMY,255,2036,EvDemoc_evs,1848,evs
+Germany,2002,GMY,255,3023,ImpDemoc_pew,2388,pew
+Germany,2002,GMY,255,3023,Church_cses,2700,cses
+Germany,2006,GMY,255,2064,Army_wvs,1911,wvs
+Germany,2006,GMY,255,2064,Strong_wvs,1572,wvs
+Germany,2006,GMY,255,2064,EvDemoc_wvs,1909,wvs
+Germany,2006,GMY,255,2064,ImpDemoc_wvs,1967,wvs
+Germany,2008,GMY,255,2075,Army_evs,1918,evs
+Germany,2008,GMY,255,2075,Strong_evs,1529,evs
+Germany,2008,GMY,255,2075,Church_evs,1801,evs
+Germany,2008,GMY,255,2075,EvDemoc_evs,1731,evs
+Germany,2009,GMY,255,1600,Strong_pew,1264,pew
+Germany,2012,GMY,255,2950,ImpDemoc_ess,2664,ess
+Germany,2013,GMY,255,2046,Army_wvs,1925,wvs
+Germany,2013,GMY,255,2046,Strong_wvs,1544,wvs
+Germany,2013,GMY,255,2046,EvDemoc_wvs,1925,wvs
+Germany,2013,GMY,255,2046,ImpDemoc_wvs,1878,wvs
+Germany,2015,GMY,255,1000,ImpDemoc_pew,760,pew
+Germany,2017,GMY,255,1002,EvDemoc_pew,902,pew
+Germany,2017,GMY,255,1002,Strong_pew.1,932,pew
+Germany,2017,GMY,255,1002,Army_pew,952,pew
+Ghana,1999,GHA,452,2005,Army_afrob,1756,afb
+Ghana,1999,GHA,452,2005,Strong_afrob,1730,afb
+Ghana,1999,GHA,452,2005,ThreeState_afrob,1523,afb
+Ghana,1999,GHA,452,2005,Party_afrob,1568,afb
+Ghana,2002,GHA,452,702,Strong_pew,484,pew
+Ghana,2002,GHA,452,702,ImpDemoc_pew,407,pew
+Ghana,2003,GHA,452,1200,Army_afrob,996,afb
+Ghana,2003,GHA,452,1200,Strong_afrob,978,afb
+Ghana,2003,GHA,452,1200,ThreeState_afrob,619,afb
+Ghana,2003,GHA,452,1200,Party_afrob,948,afb
+Ghana,2005,GHA,452,1197,Army_afrob,989,afb
+Ghana,2005,GHA,452,1197,Strong_afrob,1016,afb
+Ghana,2005,GHA,452,1197,ThreeState_afrob,898,afb
+Ghana,2005,GHA,452,1197,Party_afrob,979,afb
+Ghana,2007,GHA,452,707,Army_wvs,577,wvs
+Ghana,2007,GHA,452,707,Strong_wvs,534,wvs
+Ghana,2007,GHA,452,707,EvDemoc_wvs,673,wvs
+Ghana,2007,GHA,452,707,ImpDemoc_wvs,684,wvs
+Ghana,2007,GHA,452,707,Strong_pew,537,pew
+Ghana,2007,GHA,452,707,ImpDemoc_pew,445,pew
+Ghana,2008,GHA,452,1200,Army_afrob,935,afb
+Ghana,2008,GHA,452,1200,Strong_afrob,1003,afb
+Ghana,2008,GHA,452,1200,ThreeState_afrob,937,afb
+Ghana,2008,GHA,452,1200,Party_afrob,973,afb
+Ghana,2011,GHA,452,1552,Army_wvs,1244,wvs
+Ghana,2011,GHA,452,1552,Strong_wvs,1329,wvs
+Ghana,2011,GHA,452,1552,EvDemoc_wvs,1484,wvs
+Ghana,2011,GHA,452,1552,ImpDemoc_wvs,1436,wvs
+Ghana,2012,GHA,452,2400,Army_afrob,2074,afb
+Ghana,2012,GHA,452,2400,Strong_afrob,2189,afb
+Ghana,2012,GHA,452,2400,ThreeState_afrob,1961,afb
+Ghana,2012,GHA,452,2400,Party_afrob,2150,afb
+Ghana,2013,GHA,452,799,ThreeState_pew,615,pew
+Ghana,2013,GHA,452,799,Strong_pew,591,pew
+Ghana,2013,GHA,452,799,ImpDemoc_pew,615,pew
+Ghana,2014,GHA,452,2400,Army_afrob,1716,afb
+Ghana,2014,GHA,452,2400,Strong_afrob,2100,afb
+Ghana,2014,GHA,452,2400,ThreeState_afrob,1641,afb
+Ghana,2014,GHA,452,2400,Party_afrob,1999,afb
+Ghana,2015,GHA,452,1000,ImpDemoc_pew,740,pew
+Ghana,2017,GHA,452,1129,EvDemoc_pew,960,pew
+Ghana,2017,GHA,452,1129,Strong_pew.1,745,pew
+Ghana,2017,GHA,452,1129,Army_pew,587,pew
+Greece,1988,GRC,350,1000,ThreeState_eb,896,eb
+Greece,1992,GRC,350,1000,ThreeState_eb,904,eb
+Greece,1999,GRC,350,1142,Army_evs,1006,evs
+Greece,1999,GRC,350,1142,Strong_evs,1025,evs
+Greece,1999,GRC,350,1142,Church_evs,1092,evs
+Greece,1999,GRC,350,1142,EvDemoc_evs,1103,evs
+Greece,2008,GRC,350,1500,Army_evs,1344,evs
+Greece,2008,GRC,350,1500,Strong_evs,1360,evs
+Greece,2008,GRC,350,1500,Church_evs,1425,evs
+Greece,2008,GRC,350,1500,EvDemoc_evs,1444,evs
+Greece,2017,GRC,350,852,EvDemoc_pew,665,pew
+Greece,2017,GRC,350,852,Strong_pew.1,741,pew
+Greece,2017,GRC,350,852,Army_pew,775,pew
+Guatemala,1996,GUA,90,1001,ThreeState_lb,505,lb
+Guatemala,1997,GUA,90,1000,ThreeState_lb,478,lb
+Guatemala,1998,GUA,90,1000,ThreeState_lb,535,lb
+Guatemala,2000,GUA,90,989,ThreeState_lb,445,lb
+Guatemala,2001,GUA,90,1002,ThreeState_lb,329,lb
+Guatemala,2002,GUA,90,500,Church_lb,334,lb
+Guatemala,2002,GUA,90,500,ThreeState_lb,226,lb
+Guatemala,2003,GUA,90,1006,Church_lb,369,lb
+Guatemala,2003,GUA,90,1006,ThreeState_lb,332,lb
+Guatemala,2004,GUA,90,1000,Church_lb,534,lb
+Guatemala,2004,GUA,90,1000,ThreeState_lb,351,lb
+Guatemala,2004,GUA,90,1000,ThreeState_lapop,465,lapop
+Guatemala,2004,GUA,90,1000,Church_lapop,439,lapop
+Guatemala,2004,GUA,90,1000,Strong_lapop_2,721,lapop
+Guatemala,2005,GUA,90,1000,Church_lb,620,lb
+Guatemala,2005,GUA,90,1000,ThreeState_lb,322,lb
+Guatemala,2005,GUA,90,1000,Army_wvs,729,wvs
+Guatemala,2005,GUA,90,1000,Strong_wvs,408,wvs
+Guatemala,2005,GUA,90,1000,EvDemoc_wvs,850,wvs
+Guatemala,2006,GUA,90,1000,Church_lb,686,lb
+Guatemala,2006,GUA,90,1000,ThreeState_lb,408,lb
+Guatemala,2006,GUA,90,1000,ThreeState_lapop,577,lapop
+Guatemala,2006,GUA,90,1000,Church_lapop,633,lapop
+Guatemala,2006,GUA,90,1000,Strong_lapop_1,645,lapop
+Guatemala,2007,GUA,90,1000,Church_lb,525,lb
+Guatemala,2007,GUA,90,1000,ThreeState_lb,315,lb
+Guatemala,2008,GUA,90,1000,Church_lb,583,lb
+Guatemala,2008,GUA,90,1000,ThreeState_lb,339,lb
+Guatemala,2008,GUA,90,1000,ThreeState_lapop,572,lapop
+Guatemala,2008,GUA,90,1000,Church_lapop,467,lapop
+Guatemala,2008,GUA,90,1000,Strong_lapop_1,700,lapop
+Guatemala,2009,GUA,90,1000,Church_lb,721,lb
+Guatemala,2009,GUA,90,1000,ThreeState_lb,414,lb
+Guatemala,2010,GUA,90,1000,Church_lb,587,lb
+Guatemala,2010,GUA,90,1000,ThreeState_lb,458,lb
+Guatemala,2010,GUA,90,1000,ThreeState_lapop,602,lapop
+Guatemala,2010,GUA,90,1000,Church_lapop,523,lapop
+Guatemala,2010,GUA,90,1000,Strong_lapop_1,757,lapop
+Guatemala,2011,GUA,90,1000,Church_lb,494,lb
+Guatemala,2011,GUA,90,1000,ThreeState_lb,364,lb
+Guatemala,2012,GUA,90,1500,ThreeState_lapop,860,lapop
+Guatemala,2012,GUA,90,1500,Church_lapop,756,lapop
+Guatemala,2012,GUA,90,1500,Strong_lapop_1,982,lapop
+Guatemala,2013,GUA,90,1000,Church_lb,754,lb
+Guatemala,2013,GUA,90,1000,ThreeState_lb,407,lb
+Guatemala,2014,GUA,90,1506,ThreeState_lapop,1159,lapop
+Guatemala,2014,GUA,90,1506,Church_lapop,890,lapop
+Guatemala,2015,GUA,90,1000,Church_lb,662,lb
+Guatemala,2015,GUA,90,1000,ThreeState_lb,331,lb
+Guatemala,2016,GUA,90,1000,Church_lb,632,lb
+Guatemala,2016,GUA,90,1000,ThreeState_lb,315,lb
+Guatemala,2017,GUA,90,1000,Church_lb,572,lb
+Guatemala,2017,GUA,90,1000,ThreeState_lb,364,lb
+Guinea,2012,GUI,438,1200,Army_afrob,840,afb
+Guinea,2012,GUI,438,1200,Strong_afrob,856,afb
+Guinea,2012,GUI,438,1200,ThreeState_afrob,924,afb
+Guinea,2012,GUI,438,1200,Party_afrob,983,afb
+Guinea,2015,GUI,438,1200,Army_afrob,865,afb
+Guinea,2015,GUI,438,1200,Strong_afrob,926,afb
+Guinea,2015,GUI,438,1200,ThreeState_afrob,980,afb
+Guinea,2015,GUI,438,1200,Party_afrob,926,afb
+Guyana,2006,GUY,110,1555,ThreeState_lapop,833,lapop
+Guyana,2006,GUY,110,1555,Church_lapop,950,lapop
+Guyana,2006,GUY,110,1555,Strong_lapop_1,1099,lapop
+Guyana,2008,GUY,110,2514,ThreeState_lapop,1404,lapop
+Guyana,2008,GUY,110,2514,Church_lapop,1533,lapop
+Guyana,2008,GUY,110,2514,Strong_lapop_1,1921,lapop
+Guyana,2010,GUY,110,1540,ThreeState_lapop,952,lapop
+Guyana,2010,GUY,110,1540,Church_lapop,996,lapop
+Guyana,2010,GUY,110,1540,Strong_lapop_1,1234,lapop
+Guyana,2012,GUY,110,1499,ThreeState_lapop,1123,lapop
+Guyana,2012,GUY,110,1499,Church_lapop,1020,lapop
+Guyana,2012,GUY,110,1499,Strong_lapop_1,1291,lapop
+Guyana,2014,GUY,110,3060,ThreeState_lapop,1427,lapop
+Guyana,2014,GUY,110,3060,Church_lapop,1865,lapop
+Haiti,2006,HAI,41,1625,ThreeState_lapop,1183,lapop
+Haiti,2006,HAI,41,1625,Church_lapop,1014,lapop
+Haiti,2006,HAI,41,1625,Strong_lapop_1,1469,lapop
+Haiti,2008,HAI,41,1536,ThreeState_lapop,1092,lapop
+Haiti,2008,HAI,41,1536,Church_lapop,1005,lapop
+Haiti,2008,HAI,41,1536,Strong_lapop_1,1261,lapop
+Haiti,2010,HAI,41,1752,ThreeState_lapop,1373,lapop
+Haiti,2010,HAI,41,1752,Church_lapop,1085,lapop
+Haiti,2010,HAI,41,1752,Strong_lapop_1,1422,lapop
+Haiti,2012,HAI,41,1500,ThreeState_lapop,1134,lapop
+Haiti,2012,HAI,41,1500,Church_lapop,1110,lapop
+Haiti,2012,HAI,41,1500,Strong_lapop_1,1297,lapop
+Haiti,2014,HAI,41,1512,ThreeState_lapop,925,lapop
+Haiti,2014,HAI,41,1512,Church_lapop,850,lapop
+Honduras,1996,HON,91,998,ThreeState_lb,422,lb
+Honduras,1997,HON,91,1011,ThreeState_lb,640,lb
+Honduras,1998,HON,91,1000,ThreeState_lb,566,lb
+Honduras,2000,HON,91,997,ThreeState_lb,641,lb
+Honduras,2001,HON,91,1000,ThreeState_lb,574,lb
+Honduras,2002,HON,91,506,Church_lb,360,lb
+Honduras,2002,HON,91,506,ThreeState_lb,288,lb
+Honduras,2003,HON,91,1006,Church_lb,746,lb
+Honduras,2003,HON,91,1006,ThreeState_lb,550,lb
+Honduras,2004,HON,91,1000,Church_lb,686,lb
+Honduras,2004,HON,91,1000,ThreeState_lb,458,lb
+Honduras,2004,HON,91,1000,ThreeState_lapop,567,lapop
+Honduras,2004,HON,91,1000,Church_lapop,574,lapop
+Honduras,2004,HON,91,1000,Strong_lapop_2,725,lapop
+Honduras,2005,HON,91,1000,Church_lb,633,lb
+Honduras,2005,HON,91,1000,ThreeState_lb,327,lb
+Honduras,2006,HON,91,1000,Church_lb,662,lb
+Honduras,2006,HON,91,1000,ThreeState_lb,510,lb
+Honduras,2006,HON,91,1000,ThreeState_lapop,776,lapop
+Honduras,2006,HON,91,1000,Church_lapop,597,lapop
+Honduras,2006,HON,91,1000,Strong_lapop_1,812,lapop
+Honduras,2007,HON,91,1000,Church_lb,663,lb
+Honduras,2007,HON,91,1000,ThreeState_lb,381,lb
+Honduras,2008,HON,91,1000,Church_lb,657,lb
+Honduras,2008,HON,91,1000,ThreeState_lb,443,lb
+Honduras,2008,HON,91,1000,ThreeState_lapop,754,lapop
+Honduras,2008,HON,91,1000,Church_lapop,423,lapop
+Honduras,2008,HON,91,1000,Strong_lapop_1,568,lapop
+Honduras,2009,HON,91,1000,Church_lb,706,lb
+Honduras,2009,HON,91,1000,ThreeState_lb,535,lb
+Honduras,2010,HON,91,1000,Church_lb,740,lb
+Honduras,2010,HON,91,1000,ThreeState_lb,526,lb
+Honduras,2010,HON,91,1000,ThreeState_lapop,792,lapop
+Honduras,2010,HON,91,1000,Church_lapop,512,lapop
+Honduras,2010,HON,91,1000,Strong_lapop_1,845,lapop
+Honduras,2011,HON,91,1000,Church_lb,716,lb
+Honduras,2011,HON,91,1000,ThreeState_lb,433,lb
+Honduras,2012,HON,91,1489,ThreeState_lapop,967,lapop
+Honduras,2012,HON,91,1489,Church_lapop,558,lapop
+Honduras,2012,HON,91,1489,Strong_lapop_1,801,lapop
+Honduras,2013,HON,91,1000,Church_lb,733,lb
+Honduras,2013,HON,91,1000,ThreeState_lb,437,lb
+Honduras,2014,HON,91,1561,ThreeState_lapop,1049,lapop
+Honduras,2014,HON,91,1561,Church_lapop,948,lapop
+Honduras,2015,HON,91,1000,Church_lb,625,lb
+Honduras,2015,HON,91,1000,ThreeState_lb,401,lb
+Honduras,2016,HON,91,1000,Church_lb,730,lb
+Honduras,2016,HON,91,1000,ThreeState_lb,421,lb
+Honduras,2017,HON,91,1000,Church_lb,651,lb
+Honduras,2017,HON,91,1000,ThreeState_lb,339,lb
+Hungary,1992,HUN,310,852,Strong_ndb,621,ndb
+Hungary,1992,HUN,310,852,ThreeState_ndb,598,ndb
+Hungary,1993,HUN,310,971,Army_ndb,929,ndb
+Hungary,1993,HUN,310,971,Strong_ndb,776,ndb
+Hungary,1993,HUN,310,971,ThreeState_ndb,719,ndb
+Hungary,1995,HUN,310,1018,Army_ndb,974,ndb
+Hungary,1995,HUN,310,1018,Strong_ndb,787,ndb
+Hungary,1998,HUN,310,973,Army_ndb,958,ndb
+Hungary,1998,HUN,310,973,Strong_ndb,790,ndb
+Hungary,1998,HUN,310,973,ThreeState_ndb,707,ndb
+Hungary,1998,HUN,310,973,Army_wvs,867,wvs
+Hungary,1998,HUN,310,973,Strong_wvs,722,wvs
+Hungary,1998,HUN,310,973,Church_wvs,717,wvs
+Hungary,1998,HUN,310,973,EvDemoc_wvs,811,wvs
+Hungary,1999,HUN,310,1000,Army_evs,886,evs
+Hungary,1999,HUN,310,1000,Strong_evs,705,evs
+Hungary,1999,HUN,310,1000,Church_evs,701,evs
+Hungary,1999,HUN,310,1000,EvDemoc_evs,783,evs
+Hungary,2001,HUN,310,1577,Army_ndb,1468,ndb
+Hungary,2001,HUN,310,1577,Strong_ndb,1219,ndb
+Hungary,2002,HUN,310,1200,Church_cses,907,cses
+Hungary,2004,HUN,310,990,Army_ndb,909,ndb
+Hungary,2004,HUN,310,990,Strong_ndb,701,ndb
+Hungary,2004,HUN,310,990,ThreeState_ndb,604,ndb
+Hungary,2008,HUN,310,1513,Army_evs,1388,evs
+Hungary,2008,HUN,310,1513,Strong_evs,1060,evs
+Hungary,2008,HUN,310,1513,Church_evs,1147,evs
+Hungary,2008,HUN,310,1513,EvDemoc_evs,1183,evs
+Hungary,2009,HUN,310,1000,Army_wvs,893,wvs
+Hungary,2009,HUN,310,1000,Strong_wvs,679,wvs
+Hungary,2009,HUN,310,1000,EvDemoc_wvs,869,wvs
+Hungary,2009,HUN,310,1000,ImpDemoc_wvs,917,wvs
+Hungary,2009,HUN,310,1000,Strong_pew,420,pew
+Hungary,2009,HUN,310,1000,ImpDemoc_pew,700,pew
+Hungary,2012,HUN,310,1970,ImpDemoc_ess,1655,ess
+Hungary,2015,HUN,310,1000,ImpDemoc_pew,790,pew
+Hungary,2017,HUN,310,944,EvDemoc_pew,736,pew
+Hungary,2017,HUN,310,944,Strong_pew.1,670,pew
+Hungary,2017,HUN,310,944,Army_pew,793,pew
+Iceland,1999,ICE,395,968,Army_evs,952,evs
+Iceland,1999,ICE,395,968,Strong_evs,847,evs
+Iceland,1999,ICE,395,968,Church_evs,916,evs
+Iceland,1999,ICE,395,968,EvDemoc_evs,934,evs
+Iceland,2003,ICE,395,1446,Church_cses,1359,cses
+Iceland,2009,ICE,395,808,Army_evs,787,evs
+Iceland,2009,ICE,395,808,Strong_evs,670,evs
+Iceland,2009,ICE,395,808,Church_evs,749,evs
+Iceland,2009,ICE,395,808,EvDemoc_evs,761,evs
+Iceland,2012,ICE,395,745,ImpDemoc_ess,714,ess
+India,1995,IND,750,2040,Army_wvs,964,wvs
+India,1995,IND,750,2040,Church_wvs,1331,wvs
+India,1995,IND,750,2040,EvDemoc_wvs,1448,wvs
+India,2001,IND,750,2002,Army_wvs,1136,wvs
+India,2001,IND,750,2002,Church_wvs,1303,wvs
+India,2001,IND,750,2002,EvDemoc_wvs,1363,wvs
+India,2003,IND,750,822,Army_asb,315,asb
+India,2003,IND,750,822,Strong_asb,381,asb
+India,2003,IND,750,822,EvDemoc_asb,691,asb
+India,2005,IND,750,2055,Army_asb,415,asb
+India,2005,IND,750,2055,Strong_asb,935,asb
+India,2005,IND,750,2055,EvDemoc_asb,1755,asb
+India,2005,IND,750,2055,DemocSuit_sab,1369,sab
+India,2005,IND,750,2055,ThreeState_sab,1035,sab
+India,2005,IND,750,2055,Strong_sab,855,sab
+India,2005,IND,750,2055,Army_sab,1252,sab
+India,2005,IND,750,2055,Elec_sab,1642,sab
+India,2006,IND,750,2001,Army_wvs,883,wvs
+India,2006,IND,750,2001,EvDemoc_wvs,1401,wvs
+India,2012,IND,750,4078,Army_wvs,1868,wvs
+India,2012,IND,750,4078,EvDemoc_wvs,3250,wvs
+India,2012,IND,750,4078,ImpDemoc_wvs,3446,wvs
+India,2013,IND,750,3058,ThreeState_sab,1403,sab
+India,2013,IND,750,3058,Strong_sab,1117,sab
+India,2013,IND,750,3058,Army_sab,1401,sab
+India,2017,IND,750,2464,EvDemoc_pew,1848,pew
+India,2017,IND,750,2464,Strong_pew.1,690,pew
+India,2017,IND,750,2464,Army_pew,690,pew
+Indonesia,2001,INS,850,1000,Strong_wvs,751,wvs
+Indonesia,2001,INS,850,1000,Church_wvs,619,wvs
+Indonesia,2001,INS,850,1000,EvDemoc_wvs,895,wvs
+Indonesia,2004,INS,850,825,Army_asb,203,asb
+Indonesia,2004,INS,850,825,Strong_asb,494,asb
+Indonesia,2004,INS,850,825,EvDemoc_asb,800,asb
+Indonesia,2005,INS,850,1022,Strong_pew,572,pew
+Indonesia,2006,INS,850,1598,ThreeState_asnb,1028,asnb
+Indonesia,2006,INS,850,1598,Army_asnb,996,asnb
+Indonesia,2006,INS,850,1598,DemocExtent_asnb,1381,asnb
+Indonesia,2006,INS,850,1598,DemocSuit_asnb,1372,asnb
+Indonesia,2006,INS,850,1598,Party_asnb,1392,asnb
+Indonesia,2006,INS,850,1598,Strong_asnb,1335,asnb
+Indonesia,2006,INS,850,1598,Strong_wvs,1090,wvs
+Indonesia,2006,INS,850,1598,EvDemoc_wvs,1454,wvs
+Indonesia,2006,INS,850,1598,ImpDemoc_wvs,1384,wvs
+Indonesia,2007,INS,850,1008,Army_asb,363,asb
+Indonesia,2007,INS,850,1008,Strong_asb,552,asb
+Indonesia,2007,INS,850,1008,EvDemoc_asb,857,asb
+Indonesia,2007,INS,850,1008,Strong_pew,484,pew
+Indonesia,2007,INS,850,1008,ImpDemoc_pew,393,pew
+Indonesia,2010,INS,850,1000,ThreeState_pew,640,pew
+Indonesia,2010,INS,850,1000,Strong_pew,600,pew
+Indonesia,2011,INS,850,1000,ThreeState_asnb,586,asnb
+Indonesia,2011,INS,850,1000,Army_asnb,515,asnb
+Indonesia,2011,INS,850,1000,DemocSuit_asnb,714,asnb
+Indonesia,2011,INS,850,1000,Party_asnb,776,asnb
+Indonesia,2011,INS,850,1000,Strong_asnb,743,asnb
+Indonesia,2011,INS,850,1000,Church_asnb,785,asnb
+Indonesia,2011,INS,850,1000,ThreeState_pew,580,pew
+Indonesia,2017,INS,850,1000,EvDemoc_pew,860,pew
+Indonesia,2017,INS,850,1000,Strong_pew.1,430,pew
+Indonesia,2017,INS,850,1000,Army_pew,270,pew
+Iran,2000,IRN,630,2532,Church_wvs,1058,wvs
+Iran,2000,IRN,630,2532,EvDemoc_wvs,1398,wvs
+Iran,2005,IRN,630,2667,Army_wvs,1712,wvs
+Iran,2005,IRN,630,2667,EvDemoc_wvs,2432,wvs
+Iran,2005,IRN,630,2667,ImpDemoc_wvs,2162,wvs
+Iraq,2004,IRQ,645,2325,Army_wvs,1655,wvs
+Iraq,2004,IRQ,645,2325,Strong_wvs,1648,wvs
+Iraq,2004,IRQ,645,2325,Church_wvs,1588,wvs
+Iraq,2004,IRQ,645,2325,EvDemoc_wvs,1781,wvs
+Iraq,2006,IRQ,645,2701,Army_wvs,1861,wvs
+Iraq,2006,IRQ,645,2701,Strong_wvs,1845,wvs
+Iraq,2006,IRQ,645,2701,EvDemoc_wvs,2058,wvs
+Iraq,2011,IRQ,645,1234,Church_arb,1024,arb
+Iraq,2011,IRQ,645,1234,Strong_arb_1,931,arb
+Iraq,2011,IRQ,645,1234,EvDemoc_arb,1153,arb
+Iraq,2011,IRQ,645,1234,DemocSuit_arb,539,arb
+Iraq,2013,IRQ,645,1215,Church_arb,867,arb
+Iraq,2013,IRQ,645,1215,Strong_arb_1,917,arb
+Iraq,2013,IRQ,645,1215,EvDemoc_arb,1085,arb
+Iraq,2013,IRQ,645,1215,DemocSuit_arb,614,arb
+Iraq,2013,IRQ,645,1215,Army_wvs,863,wvs
+Iraq,2013,IRQ,645,1215,Strong_wvs,763,wvs
+Iraq,2013,IRQ,645,1215,EvDemoc_wvs,1049,wvs
+Iraq,2013,IRQ,645,1215,ImpDemoc_wvs,1027,wvs
+Ireland,1988,IRE,205,1012,ThreeState_eb,643,eb
+Ireland,1992,IRE,205,1001,ThreeState_eb,633,eb
+Ireland,1999,IRE,205,1012,Army_evs,901,evs
+Ireland,1999,IRE,205,1012,Strong_evs,691,evs
+Ireland,1999,IRE,205,1012,Church_evs,845,evs
+Ireland,1999,IRE,205,1012,EvDemoc_evs,863,evs
+Ireland,2002,IRE,205,2367,Church_cses,1974,cses
+Ireland,2008,IRE,205,1013,Army_evs,713,evs
+Ireland,2008,IRE,205,1013,Strong_evs,521,evs
+Ireland,2008,IRE,205,1013,Church_evs,675,evs
+Ireland,2008,IRE,205,1013,EvDemoc_evs,649,evs
+Ireland,2012,IRE,205,2571,ImpDemoc_ess,2144,ess
+Israel,2003,ISR,666,1212,Church_cses,1042,cses
+Israel,2012,ISR,666,2487,ImpDemoc_ess,2291,ess
+Israel,2015,ISR,666,1000,ImpDemoc_pew,560,pew
+Israel,2017,ISR,666,1050,EvDemoc_pew,914,pew
+Israel,2017,ISR,666,1050,Strong_pew.1,766,pew
+Israel,2017,ISR,666,1050,Army_pew,914,pew
+Italy,1988,ITA,325,1058,ThreeState_eb,781,eb
+Italy,1992,ITA,325,1046,ThreeState_eb,753,eb
+Italy,1999,ITA,325,2000,Army_evs,1837,evs
+Italy,1999,ITA,325,2000,Strong_evs,1605,evs
+Italy,1999,ITA,325,2000,Church_evs,1789,evs
+Italy,1999,ITA,325,2000,EvDemoc_evs,1845,evs
+Italy,2005,ITA,325,1012,Army_wvs,892,wvs
+Italy,2005,ITA,325,1012,Strong_wvs,815,wvs
+Italy,2005,ITA,325,1012,EvDemoc_wvs,934,wvs
+Italy,2005,ITA,325,1012,ImpDemoc_wvs,947,wvs
+Italy,2006,ITA,325,1439,Church_cses,1012,cses
+Italy,2009,ITA,325,1519,Strong_pew,927,pew
+Italy,2009,ITA,325,1519,Army_evs,1322,evs
+Italy,2009,ITA,325,1519,Strong_evs,1178,evs
+Italy,2009,ITA,325,1519,Church_evs,1338,evs
+Italy,2009,ITA,325,1519,EvDemoc_evs,1369,evs
+Italy,2015,ITA,325,1000,ImpDemoc_pew,730,pew
+Italy,2017,ITA,325,905,EvDemoc_pew,715,pew
+Italy,2017,ITA,325,905,Strong_pew.1,597,pew
+Italy,2017,ITA,325,905,Army_pew,715,pew
+Ivory Coast,2012,CDI,437,1200,Army_afrob,1015,afb
+Ivory Coast,2012,CDI,437,1200,Strong_afrob,1098,afb
+Ivory Coast,2012,CDI,437,1200,ThreeState_afrob,993,afb
+Ivory Coast,2012,CDI,437,1200,Party_afrob,1057,afb
+Ivory Coast,2015,CDI,437,1199,Army_afrob,1043,afb
+Ivory Coast,2015,CDI,437,1199,Strong_afrob,1088,afb
+Ivory Coast,2015,CDI,437,1199,ThreeState_afrob,965,afb
+Ivory Coast,2015,CDI,437,1199,Party_afrob,1067,afb
+Ivory Coast,2017,CDI,437,1200,Army_afrob,926,afb
+Ivory Coast,2017,CDI,437,1200,Strong_afrob,1002,afb
+Ivory Coast,2017,CDI,437,1200,ThreeState_afrob,924,afb
+Ivory Coast,2017,CDI,437,1200,Party_afrob,991,afb
+Jamaica,2006,JAM,51,1595,ThreeState_lapop,1116,lapop
+Jamaica,2006,JAM,51,1595,Church_lapop,1167,lapop
+Jamaica,2006,JAM,51,1595,Strong_lapop_1,1338,lapop
+Jamaica,2008,JAM,51,1499,ThreeState_lapop,980,lapop
+Jamaica,2008,JAM,51,1499,Church_lapop,1063,lapop
+Jamaica,2008,JAM,51,1499,Strong_lapop_1,1161,lapop
+Jamaica,2010,JAM,51,1504,ThreeState_lapop,961,lapop
+Jamaica,2010,JAM,51,1504,Church_lapop,1000,lapop
+Jamaica,2010,JAM,51,1504,Strong_lapop_1,1254,lapop
+Jamaica,2012,JAM,51,1500,ThreeState_lapop,1081,lapop
+Jamaica,2012,JAM,51,1500,Church_lapop,1088,lapop
+Jamaica,2012,JAM,51,1500,Strong_lapop_1,1287,lapop
+Jamaica,2014,JAM,51,1503,ThreeState_lapop,765,lapop
+Jamaica,2014,JAM,51,1503,Church_lapop,804,lapop
+Japan,1995,JPN,740,1054,Army_wvs,887,wvs
+Japan,1995,JPN,740,1054,Strong_wvs,580,wvs
+Japan,1995,JPN,740,1054,Church_wvs,711,wvs
+Japan,1995,JPN,740,1054,EvDemoc_wvs,831,wvs
+Japan,2000,JPN,740,1362,Army_wvs,1189,wvs
+Japan,2000,JPN,740,1362,Strong_wvs,850,wvs
+Japan,2000,JPN,740,1362,Church_wvs,893,wvs
+Japan,2000,JPN,740,1362,EvDemoc_wvs,1088,wvs
+Japan,2003,JPN,740,1418,ThreeState_asnb,971,asnb
+Japan,2003,JPN,740,1418,Army_asnb,1342,asnb
+Japan,2003,JPN,740,1418,DemocExtent_asnb,1245,asnb
+Japan,2003,JPN,740,1418,DemocSuit_asnb,1092,asnb
+Japan,2003,JPN,740,1418,Party_asnb,952,asnb
+Japan,2003,JPN,740,1418,Strong_asnb,1135,asnb
+Japan,2003,JPN,740,1418,Army_asb,1241,asb
+Japan,2003,JPN,740,1418,Strong_asb,634,asb
+Japan,2003,JPN,740,1418,EvDemoc_asb,1299,asb
+Japan,2004,JPN,740,1977,Army_asb,1417,asb
+Japan,2004,JPN,740,1977,Strong_asb,810,asb
+Japan,2004,JPN,740,1977,EvDemoc_asb,1689,asb
+Japan,2004,JPN,740,1977,Church_cses,1619,cses
+Japan,2005,JPN,740,1096,Army_wvs,959,wvs
+Japan,2005,JPN,740,1096,Strong_wvs,720,wvs
+Japan,2005,JPN,740,1096,EvDemoc_wvs,854,wvs
+Japan,2005,JPN,740,1096,ImpDemoc_wvs,973,wvs
+Japan,2006,JPN,740,1003,Army_asb,779,asb
+Japan,2006,JPN,740,1003,Strong_asb,433,asb
+Japan,2006,JPN,740,1003,EvDemoc_asb,846,asb
+Japan,2010,JPN,740,2443,Army_wvs,1993,wvs
+Japan,2010,JPN,740,2443,Strong_wvs,1270,wvs
+Japan,2010,JPN,740,2443,EvDemoc_wvs,1759,wvs
+Japan,2010,JPN,740,2443,ImpDemoc_wvs,1893,wvs
+Japan,2011,JPN,740,1880,ThreeState_asnb,1157,asnb
+Japan,2011,JPN,740,1880,Army_asnb,1789,asnb
+Japan,2011,JPN,740,1880,DemocSuit_asnb,1349,asnb
+Japan,2011,JPN,740,1880,Party_asnb,1698,asnb
+Japan,2011,JPN,740,1880,Strong_asnb,1531,asnb
+Japan,2011,JPN,740,1880,Church_asnb,1692,asnb
+Japan,2015,JPN,740,1000,ImpDemoc_pew,600,pew
+Japan,2017,JPN,740,1009,EvDemoc_pew,777,pew
+Japan,2017,JPN,740,1009,Strong_pew.1,615,pew
+Japan,2017,JPN,740,1009,Army_pew,797,pew
+Jordan,2001,JOR,663,1223,Army_wvs,455,wvs
+Jordan,2001,JOR,663,1223,Strong_wvs,635,wvs
+Jordan,2001,JOR,663,1223,Church_wvs,922,wvs
+Jordan,2001,JOR,663,1223,EvDemoc_wvs,1010,wvs
+Jordan,2002,JOR,663,1000,Strong_pew,470,pew
+Jordan,2002,JOR,663,1000,ImpDemoc_pew,280,pew
+Jordan,2005,JOR,663,1000,Strong_pew,540,pew
+Jordan,2006,JOR,663,1143,Church_arb,849,arb
+Jordan,2006,JOR,663,1143,Strong_arb_2,725,arb
+Jordan,2006,JOR,663,1143,EvDemoc_arb,927,arb
+Jordan,2006,JOR,663,1143,DemocSuit_arb,754,arb
+Jordan,2007,JOR,663,1000,Army_wvs,211,wvs
+Jordan,2007,JOR,663,1000,Strong_wvs,743,wvs
+Jordan,2007,JOR,663,1000,EvDemoc_wvs,904,wvs
+Jordan,2007,JOR,663,1000,ImpDemoc_wvs,907,wvs
+Jordan,2007,JOR,663,1000,Strong_pew,520,pew
+Jordan,2007,JOR,663,1000,ImpDemoc_pew,560,pew
+Jordan,2010,JOR,663,1000,Church_arb,738,arb
+Jordan,2010,JOR,663,1000,Strong_arb_1,463,arb
+Jordan,2010,JOR,663,1000,EvDemoc_arb,826,arb
+Jordan,2010,JOR,663,1000,DemocSuit_arb,573,arb
+Jordan,2010,JOR,663,1000,ThreeState_pew,690,pew
+Jordan,2011,JOR,663,1000,ThreeState_pew,720,pew
+Jordan,2011,JOR,663,1000,Strong_pew,590,pew
+Jordan,2012,JOR,663,1000,Church_arb,744,arb
+Jordan,2012,JOR,663,1000,Strong_arb_1,535,arb
+Jordan,2012,JOR,663,1000,EvDemoc_arb,852,arb
+Jordan,2012,JOR,663,1000,DemocSuit_arb,544,arb
+Jordan,2012,JOR,663,1000,ThreeState_pew,610,pew
+Jordan,2012,JOR,663,1000,Strong_pew,490,pew
+Jordan,2014,JOR,663,1200,Army_wvs,789,wvs
+Jordan,2014,JOR,663,1200,Strong_wvs,644,wvs
+Jordan,2014,JOR,663,1200,EvDemoc_wvs,1032,wvs
+Jordan,2014,JOR,663,1200,ImpDemoc_wvs,1052,wvs
+Jordan,2015,JOR,663,1000,ImpDemoc_pew,500,pew
+Jordan,2016,JOR,663,1500,Church_arb,1265,arb
+Jordan,2016,JOR,663,1500,DemocSuit_arb,790,arb
+Jordan,2016,JOR,663,1500,ThreeState_arb,986,arb
+Jordan,2017,JOR,663,1548,EvDemoc_pew,944,pew
+Jordan,2017,JOR,663,1548,Strong_pew.1,1022,pew
+Jordan,2017,JOR,663,1548,Army_pew,1130,pew
+Kazakhstan,2005,KZK,705,800,Army_asb,591,asb
+Kazakhstan,2005,KZK,705,800,Strong_asb,332,asb
+Kazakhstan,2005,KZK,705,800,EvDemoc_asb,566,asb
+Kazakhstan,2011,KZK,705,1502,Army_wvs,1268,wvs
+Kazakhstan,2011,KZK,705,1502,Strong_wvs,535,wvs
+Kazakhstan,2011,KZK,705,1502,EvDemoc_wvs,1305,wvs
+Kazakhstan,2011,KZK,705,1502,ImpDemoc_wvs,1392,wvs
+Kenya,2002,KEN,501,663,Strong_pew,511,pew
+Kenya,2002,KEN,501,663,ImpDemoc_pew,564,pew
+Kenya,2003,KEN,501,2400,Army_afrob,2210,afb
+Kenya,2003,KEN,501,2400,Strong_afrob,2165,afb
+Kenya,2003,KEN,501,2400,ThreeState_afrob,1925,afb
+Kenya,2003,KEN,501,2400,Party_afrob,1800,afb
+Kenya,2005,KEN,501,1278,Army_afrob,1139,afb
+Kenya,2005,KEN,501,1278,Strong_afrob,1126,afb
+Kenya,2005,KEN,501,1278,ThreeState_afrob,951,afb
+Kenya,2005,KEN,501,1278,Party_afrob,939,afb
+Kenya,2007,KEN,501,1000,Strong_pew,590,pew
+Kenya,2007,KEN,501,1000,ImpDemoc_pew,740,pew
+Kenya,2008,KEN,501,1104,Army_afrob,1033,afb
+Kenya,2008,KEN,501,1104,Strong_afrob,998,afb
+Kenya,2008,KEN,501,1104,ThreeState_afrob,867,afb
+Kenya,2008,KEN,501,1104,Party_afrob,885,afb
+Kenya,2012,KEN,501,2399,Army_afrob,1999,afb
+Kenya,2012,KEN,501,2399,Strong_afrob,2078,afb
+Kenya,2012,KEN,501,2399,ThreeState_afrob,1751,afb
+Kenya,2012,KEN,501,2399,Party_afrob,1658,afb
+Kenya,2013,KEN,501,798,ThreeState_pew,670,pew
+Kenya,2013,KEN,501,798,Strong_pew,622,pew
+Kenya,2013,KEN,501,798,ImpDemoc_pew,591,pew
+Kenya,2014,KEN,501,2397,Army_afrob,2174,afb
+Kenya,2014,KEN,501,2397,Strong_afrob,2160,afb
+Kenya,2014,KEN,501,2397,ThreeState_afrob,1558,afb
+Kenya,2014,KEN,501,2397,Party_afrob,1850,afb
+Kenya,2015,KEN,501,1015,ImpDemoc_pew,579,pew
+Kenya,2016,KEN,501,1599,Army_afrob,1317,afb
+Kenya,2016,KEN,501,1599,Strong_afrob,1354,afb
+Kenya,2016,KEN,501,1599,ThreeState_afrob,1065,afb
+Kenya,2016,KEN,501,1599,Party_afrob,1135,afb
+Kenya,2017,KEN,501,1117,EvDemoc_pew,860,pew
+Kenya,2017,KEN,501,1117,Strong_pew.1,637,pew
+Kenya,2017,KEN,501,1117,Army_pew,603,pew
+Kuwait,2007,KUW,690,500,Strong_pew,325,pew
+Kuwait,2007,KUW,690,500,ImpDemoc_pew,245,pew
+Kuwait,2013,KUW,690,1303,Army_wvs,916,wvs
+Kuwait,2013,KUW,690,1303,Strong_wvs,621,wvs
+Kuwait,2013,KUW,690,1303,EvDemoc_wvs,984,wvs
+Kuwait,2013,KUW,690,1303,ImpDemoc_wvs,1069,wvs
+Kuwait,2014,KUW,690,1021,Church_arb,743,arb
+Kuwait,2014,KUW,690,1021,Strong_arb_1,568,arb
+Kuwait,2014,KUW,690,1021,EvDemoc_arb,919,arb
+Kuwait,2014,KUW,690,1021,DemocSuit_arb,684,arb
+Kyrgyzstan,2003,KYR,703,1043,Army_wvs,661,wvs
+Kyrgyzstan,2003,KYR,703,1043,Church_wvs,777,wvs
+Kyrgyzstan,2003,KYR,703,1043,EvDemoc_wvs,815,wvs
+Kyrgyzstan,2005,KYR,703,2000,Army_asb,1145,asb
+Kyrgyzstan,2005,KYR,703,2000,Strong_asb,688,asb
+Kyrgyzstan,2005,KYR,703,2000,EvDemoc_asb,1450,asb
+Kyrgyzstan,2005,KYR,703,2000,Church_cses,1354,cses
+Kyrgyzstan,2011,KYR,703,1500,Army_wvs,895,wvs
+Kyrgyzstan,2011,KYR,703,1500,EvDemoc_wvs,1076,wvs
+Kyrgyzstan,2011,KYR,703,1500,ImpDemoc_wvs,1258,wvs
+Latvia,1995,LAT,367,1173,Army_ndb,1056,ndb
+Latvia,1995,LAT,367,1173,Strong_ndb,551,ndb
+Latvia,1996,LAT,367,952,Army_ndb,855,ndb
+Latvia,1996,LAT,367,952,Strong_ndb,428,ndb
+Latvia,1996,LAT,367,952,Army_wvs,851,wvs
+Latvia,1996,LAT,367,952,Strong_wvs,469,wvs
+Latvia,1996,LAT,367,952,Church_wvs,708,wvs
+Latvia,1996,LAT,367,952,EvDemoc_wvs,755,wvs
+Latvia,1999,LAT,367,1013,Army_evs,871,evs
+Latvia,1999,LAT,367,1013,Strong_evs,370,evs
+Latvia,1999,LAT,367,1013,Church_evs,788,evs
+Latvia,1999,LAT,367,1013,EvDemoc_evs,766,evs
+Latvia,2000,LAT,367,966,Army_ndb,875,ndb
+Latvia,2000,LAT,367,966,Strong_ndb,531,ndb
+Latvia,2001,LAT,367,1001,Army_ndb,900,ndb
+Latvia,2001,LAT,367,1001,Strong_ndb,526,ndb
+Latvia,2004,LAT,367,956,Army_ndb,897,ndb
+Latvia,2004,LAT,367,956,Strong_ndb,562,ndb
+Latvia,2004,LAT,367,956,ThreeState_ndb,519,ndb
+Latvia,2008,LAT,367,1506,Army_evs,1228,evs
+Latvia,2008,LAT,367,1506,Strong_evs,509,evs
+Latvia,2008,LAT,367,1506,Church_evs,1131,evs
+Latvia,2008,LAT,367,1506,EvDemoc_evs,1024,evs
+Lebanon,2002,LEB,660,1000,Strong_pew,630,pew
+Lebanon,2002,LEB,660,1000,ImpDemoc_pew,710,pew
+Lebanon,2005,LEB,660,1000,Strong_pew,670,pew
+Lebanon,2007,LEB,660,1000,Church_arb,890,arb
+Lebanon,2007,LEB,660,1000,Strong_arb_2,946,arb
+Lebanon,2007,LEB,660,1000,EvDemoc_arb,924,arb
+Lebanon,2007,LEB,660,1000,DemocSuit_arb,669,arb
+Lebanon,2007,LEB,660,1000,Strong_pew,600,pew
+Lebanon,2007,LEB,660,1000,ImpDemoc_pew,810,pew
+Lebanon,2010,LEB,660,1000,Church_arb,807,arb
+Lebanon,2010,LEB,660,1000,Strong_arb_1,826,arb
+Lebanon,2010,LEB,660,1000,EvDemoc_arb,918,arb
+Lebanon,2010,LEB,660,1000,DemocSuit_arb,548,arb
+Lebanon,2010,LEB,660,1000,ThreeState_pew,830,pew
+Lebanon,2011,LEB,660,1000,ThreeState_pew,810,pew
+Lebanon,2011,LEB,660,1000,Strong_pew,620,pew
+Lebanon,2012,LEB,660,1000,ThreeState_pew,840,pew
+Lebanon,2012,LEB,660,1000,Strong_pew,800,pew
+Lebanon,2013,LEB,660,1200,Church_arb,1011,arb
+Lebanon,2013,LEB,660,1200,Strong_arb_1,995,arb
+Lebanon,2013,LEB,660,1200,EvDemoc_arb,1132,arb
+Lebanon,2013,LEB,660,1200,DemocSuit_arb,595,arb
+Lebanon,2013,LEB,660,1200,Army_wvs,492,wvs
+Lebanon,2013,LEB,660,1200,Strong_wvs,475,wvs
+Lebanon,2013,LEB,660,1200,EvDemoc_wvs,900,wvs
+Lebanon,2013,LEB,660,1200,ImpDemoc_wvs,1060,wvs
+Lebanon,2015,LEB,660,1000,ImpDemoc_pew,890,pew
+Lebanon,2016,LEB,660,1500,Church_arb,1267,arb
+Lebanon,2016,LEB,660,1500,ThreeState_arb,947,arb
+Lebanon,2017,LEB,660,1552,EvDemoc_pew,1319,pew
+Lebanon,2017,LEB,660,1552,Strong_pew.1,1304,pew
+Lebanon,2017,LEB,660,1552,Army_pew,1133,pew
+Lesotho,1999,LES,570,1177,Army_afrob,818,afb
+Lesotho,1999,LES,570,1177,Strong_afrob,811,afb
+Lesotho,1999,LES,570,1177,ThreeState_afrob,455,afb
+Lesotho,1999,LES,570,1177,Party_afrob,598,afb
+Lesotho,2003,LES,570,1200,Army_afrob,1015,afb
+Lesotho,2003,LES,570,1200,Strong_afrob,981,afb
+Lesotho,2003,LES,570,1200,ThreeState_afrob,600,afb
+Lesotho,2003,LES,570,1200,Party_afrob,734,afb
+Lesotho,2005,LES,570,1200,Army_afrob,998,afb
+Lesotho,2005,LES,570,1200,Strong_afrob,1032,afb
+Lesotho,2005,LES,570,1200,ThreeState_afrob,604,afb
+Lesotho,2005,LES,570,1200,Party_afrob,843,afb
+Lesotho,2008,LES,570,1200,Army_afrob,903,afb
+Lesotho,2008,LES,570,1200,Strong_afrob,899,afb
+Lesotho,2008,LES,570,1200,ThreeState_afrob,548,afb
+Lesotho,2008,LES,570,1200,Party_afrob,652,afb
+Lesotho,2012,LES,570,1197,Army_afrob,976,afb
+Lesotho,2012,LES,570,1197,Strong_afrob,1013,afb
+Lesotho,2012,LES,570,1197,ThreeState_afrob,659,afb
+Lesotho,2012,LES,570,1197,Party_afrob,754,afb
+Lesotho,2014,LES,570,1200,Army_afrob,942,afb
+Lesotho,2014,LES,570,1200,Strong_afrob,965,afb
+Lesotho,2014,LES,570,1200,ThreeState_afrob,595,afb
+Lesotho,2014,LES,570,1200,Party_afrob,685,afb
+Liberia,2008,LBR,450,1200,Army_afrob,934,afb
+Liberia,2008,LBR,450,1200,Strong_afrob,1056,afb
+Liberia,2008,LBR,450,1200,ThreeState_afrob,869,afb
+Liberia,2008,LBR,450,1200,Party_afrob,982,afb
+Liberia,2012,LBR,450,1199,Army_afrob,952,afb
+Liberia,2012,LBR,450,1199,Strong_afrob,1064,afb
+Liberia,2012,LBR,450,1199,ThreeState_afrob,969,afb
+Liberia,2012,LBR,450,1199,Party_afrob,1079,afb
+Liberia,2015,LBR,450,1199,Army_afrob,720,afb
+Liberia,2015,LBR,450,1199,Strong_afrob,973,afb
+Liberia,2015,LBR,450,1199,ThreeState_afrob,806,afb
+Liberia,2015,LBR,450,1199,Party_afrob,1020,afb
+Libya,2013,LIB,620,2131,Army_wvs,806,wvs
+Libya,2013,LIB,620,2131,Strong_wvs,1286,wvs
+Libya,2013,LIB,620,2131,EvDemoc_wvs,1752,wvs
+Libya,2013,LIB,620,2131,ImpDemoc_wvs,1680,wvs
+Libya,2014,LIB,620,1247,Church_arb,858,arb
+Libya,2014,LIB,620,1247,Strong_arb_1,721,arb
+Libya,2014,LIB,620,1247,EvDemoc_arb,1007,arb
+Libya,2014,LIB,620,1247,DemocSuit_arb,525,arb
+Lithuania,1995,LIT,368,870,Army_ndb,778,ndb
+Lithuania,1995,LIT,368,870,Strong_ndb,312,ndb
+Lithuania,1996,LIT,368,1000,Army_ndb,874,ndb
+Lithuania,1996,LIT,368,1000,Strong_ndb,382,ndb
+Lithuania,1997,LIT,368,1009,Army_wvs,862,wvs
+Lithuania,1997,LIT,368,1009,Strong_wvs,327,wvs
+Lithuania,1997,LIT,368,1009,Church_wvs,726,wvs
+Lithuania,1997,LIT,368,1009,EvDemoc_wvs,742,wvs
+Lithuania,1999,LIT,368,1018,Army_evs,781,evs
+Lithuania,1999,LIT,368,1018,Strong_evs,352,evs
+Lithuania,1999,LIT,368,1018,Church_evs,659,evs
+Lithuania,1999,LIT,368,1018,EvDemoc_evs,643,evs
+Lithuania,2000,LIT,368,1112,Army_ndb,1056,ndb
+Lithuania,2000,LIT,368,1112,Strong_ndb,472,ndb
+Lithuania,2001,LIT,368,1124,Army_ndb,1058,ndb
+Lithuania,2001,LIT,368,1124,Strong_ndb,667,ndb
+Lithuania,2004,LIT,368,1113,Army_ndb,1023,ndb
+Lithuania,2004,LIT,368,1113,Strong_ndb,697,ndb
+Lithuania,2004,LIT,368,1113,ThreeState_ndb,708,ndb
+Lithuania,2008,LIT,368,1500,Army_evs,1142,evs
+Lithuania,2008,LIT,368,1500,Strong_evs,579,evs
+Lithuania,2008,LIT,368,1500,Church_evs,1081,evs
+Lithuania,2008,LIT,368,1500,EvDemoc_evs,962,evs
+Lithuania,2009,LIT,368,1000,Strong_pew,420,pew
+Lithuania,2009,LIT,368,1000,ImpDemoc_pew,390,pew
+Lithuania,2011,LIT,368,750,Strong_pew,390,pew
+Lithuania,2012,LIT,368,1984,ImpDemoc_ess,1379,ess
+Luxembourg,1988,LUX,212,300,ThreeState_eb,245,eb
+Luxembourg,1992,LUX,212,496,ThreeState_eb,422,eb
+Luxembourg,1999,LUX,212,1211,Army_evs,988,evs
+Luxembourg,1999,LUX,212,1211,Strong_evs,556,evs
+Luxembourg,1999,LUX,212,1211,Church_evs,1007,evs
+Luxembourg,1999,LUX,212,1211,EvDemoc_evs,959,evs
+Luxembourg,2008,LUX,212,1610,Army_evs,1492,evs
+Luxembourg,2008,LUX,212,1610,Strong_evs,945,evs
+Luxembourg,2008,LUX,212,1610,Church_evs,1416,evs
+Luxembourg,2008,LUX,212,1610,EvDemoc_evs,1367,evs
+Macedonia,1998,MAC,343,995,Army_wvs,754,wvs
+Macedonia,1998,MAC,343,995,Strong_wvs,313,wvs
+Macedonia,1998,MAC,343,995,Church_wvs,621,wvs
+Macedonia,1998,MAC,343,995,EvDemoc_wvs,713,wvs
+Macedonia,2001,MAC,343,1055,Army_wvs,692,wvs
+Macedonia,2001,MAC,343,1055,Strong_wvs,247,wvs
+Macedonia,2001,MAC,343,1055,Church_wvs,755,wvs
+Macedonia,2001,MAC,343,1055,EvDemoc_wvs,867,wvs
+Macedonia,2008,MAC,343,1500,Army_evs,968,evs
+Macedonia,2008,MAC,343,1500,Strong_evs,357,evs
+Macedonia,2008,MAC,343,1500,Church_evs,1162,evs
+Macedonia,2008,MAC,343,1500,EvDemoc_evs,1268,evs
+Madagascar,2005,MAG,580,1350,Army_afrob,840,afb
+Madagascar,2005,MAG,580,1350,Strong_afrob,1003,afb
+Madagascar,2005,MAG,580,1350,ThreeState_afrob,579,afb
+Madagascar,2005,MAG,580,1350,Party_afrob,958,afb
+Madagascar,2008,MAG,580,1350,Army_afrob,891,afb
+Madagascar,2008,MAG,580,1350,Strong_afrob,1027,afb
+Madagascar,2008,MAG,580,1350,ThreeState_afrob,530,afb
+Madagascar,2008,MAG,580,1350,Party_afrob,1017,afb
+Madagascar,2012,MAG,580,1200,Army_afrob,609,afb
+Madagascar,2012,MAG,580,1200,Strong_afrob,757,afb
+Madagascar,2012,MAG,580,1200,ThreeState_afrob,472,afb
+Madagascar,2012,MAG,580,1200,Party_afrob,846,afb
+Madagascar,2015,MAG,580,1201,Army_afrob,747,afb
+Madagascar,2015,MAG,580,1201,Strong_afrob,930,afb
+Madagascar,2015,MAG,580,1201,ThreeState_afrob,604,afb
+Madagascar,2015,MAG,580,1201,Party_afrob,996,afb
+Malawi,1999,MAW,553,1208,Army_afrob,995,afb
+Malawi,1999,MAW,553,1208,Strong_afrob,1051,afb
+Malawi,1999,MAW,553,1208,ThreeState_afrob,790,afb
+Malawi,1999,MAW,553,1208,Party_afrob,923,afb
+Malawi,2003,MAW,553,1200,Army_afrob,1011,afb
+Malawi,2003,MAW,553,1200,Strong_afrob,936,afb
+Malawi,2003,MAW,553,1200,ThreeState_afrob,767,afb
+Malawi,2003,MAW,553,1200,Party_afrob,794,afb
+Malawi,2005,MAW,553,1200,Army_afrob,607,afb
+Malawi,2005,MAW,553,1200,Strong_afrob,793,afb
+Malawi,2005,MAW,553,1200,ThreeState_afrob,673,afb
+Malawi,2005,MAW,553,1200,Party_afrob,668,afb
+Malawi,2008,MAW,553,1200,Army_afrob,1006,afb
+Malawi,2008,MAW,553,1200,Strong_afrob,942,afb
+Malawi,2008,MAW,553,1200,ThreeState_afrob,886,afb
+Malawi,2008,MAW,553,1200,Party_afrob,778,afb
+Malawi,2012,MAW,553,2407,Army_afrob,2062,afb
+Malawi,2012,MAW,553,2407,Strong_afrob,2084,afb
+Malawi,2012,MAW,553,2407,ThreeState_afrob,1822,afb
+Malawi,2012,MAW,553,2407,Party_afrob,1773,afb
+Malawi,2014,MAW,553,2400,Army_afrob,2063,afb
+Malawi,2014,MAW,553,2400,Strong_afrob,2020,afb
+Malawi,2014,MAW,553,2400,ThreeState_afrob,1701,afb
+Malawi,2014,MAW,553,2400,Party_afrob,1660,afb
+Malawi,2017,MAW,553,1200,Army_afrob,1049,afb
+Malawi,2017,MAW,553,1200,Strong_afrob,1055,afb
+Malawi,2017,MAW,553,1200,ThreeState_afrob,739,afb
+Malawi,2017,MAW,553,1200,Party_afrob,802,afb
+Malaysia,2003,MAL,820,800,Army_asb,501,asb
+Malaysia,2003,MAL,820,800,Strong_asb,570,asb
+Malaysia,2003,MAL,820,800,EvDemoc_asb,731,asb
+Malaysia,2004,MAL,820,800,Army_asb,546,asb
+Malaysia,2004,MAL,820,800,Strong_asb,549,asb
+Malaysia,2004,MAL,820,800,EvDemoc_asb,716,asb
+Malaysia,2006,MAL,820,1201,Army_wvs,538,wvs
+Malaysia,2006,MAL,820,1201,Strong_wvs,479,wvs
+Malaysia,2006,MAL,820,1201,EvDemoc_wvs,1100,wvs
+Malaysia,2006,MAL,820,1201,ImpDemoc_wvs,1085,wvs
+Malaysia,2007,MAL,820,700,Army_asb,417,asb
+Malaysia,2007,MAL,820,700,Strong_asb,430,asb
+Malaysia,2007,MAL,820,700,EvDemoc_asb,594,asb
+Malaysia,2007,MAL,820,700,Strong_pew,378,pew
+Malaysia,2007,MAL,820,700,ImpDemoc_pew,378,pew
+Malaysia,2011,MAL,820,1214,ThreeState_asnb,907,asnb
+Malaysia,2011,MAL,820,1214,Army_asnb,959,asnb
+Malaysia,2011,MAL,820,1214,DemocSuit_asnb,977,asnb
+Malaysia,2011,MAL,820,1214,Party_asnb,861,asnb
+Malaysia,2011,MAL,820,1214,Strong_asnb,749,asnb
+Malaysia,2011,MAL,820,1214,Church_asnb,1062,asnb
+Malaysia,2011,MAL,820,1214,Army_wvs,721,wvs
+Malaysia,2011,MAL,820,1214,Strong_wvs,603,wvs
+Malaysia,2011,MAL,820,1214,EvDemoc_wvs,1125,wvs
+Malaysia,2011,MAL,820,1214,ImpDemoc_wvs,1155,wvs
+Malaysia,2014,MAL,820,1207,ThreeState_asnb,783,asnb
+Malaysia,2014,MAL,820,1207,Army_asnb,951,asnb
+Malaysia,2014,MAL,820,1207,DemocSuit_asnb,762,asnb
+Malaysia,2014,MAL,820,1207,Party_asnb,852,asnb
+Malaysia,2014,MAL,820,1207,Strong_asnb,727,asnb
+Malaysia,2014,MAL,820,1207,Church_asnb,1030,asnb
+Malaysia,2015,MAL,820,1000,ImpDemoc_pew,670,pew
+Maldives,2005,MAD,781,821,Army_asb,85,asb
+Maldives,2005,MAD,781,821,EvDemoc_asb,656,asb
+Mali,1999,MLI,432,2089,Army_afrob,1468,afb
+Mali,1999,MLI,432,2089,Strong_afrob,1515,afb
+Mali,1999,MLI,432,2089,ThreeState_afrob,1247,afb
+Mali,1999,MLI,432,2089,Party_afrob,1535,afb
+Mali,2003,MLI,432,1283,Army_afrob,834,afb
+Mali,2003,MLI,432,1283,Strong_afrob,849,afb
+Mali,2003,MLI,432,1283,ThreeState_afrob,912,afb
+Mali,2003,MLI,432,1283,Party_afrob,916,afb
+Mali,2005,MLI,432,1244,Army_afrob,824,afb
+Mali,2005,MLI,432,1244,Strong_afrob,914,afb
+Mali,2005,MLI,432,1244,ThreeState_afrob,841,afb
+Mali,2005,MLI,432,1244,Party_afrob,903,afb
+Mali,2007,MLI,432,700,Army_wvs,329,wvs
+Mali,2007,MLI,432,700,Strong_wvs,245,wvs
+Mali,2007,MLI,432,700,EvDemoc_wvs,560,wvs
+Mali,2007,MLI,432,700,ImpDemoc_wvs,502,wvs
+Mali,2007,MLI,432,700,Strong_pew,392,pew
+Mali,2007,MLI,432,700,ImpDemoc_pew,518,pew
+Mali,2008,MLI,432,1232,Army_afrob,750,afb
+Mali,2008,MLI,432,1232,Strong_afrob,956,afb
+Mali,2008,MLI,432,1232,ThreeState_afrob,887,afb
+Mali,2008,MLI,432,1232,Party_afrob,921,afb
+Mali,2012,MLI,432,1200,Army_afrob,692,afb
+Mali,2012,MLI,432,1200,Strong_afrob,961,afb
+Mali,2012,MLI,432,1200,ThreeState_afrob,742,afb
+Mali,2012,MLI,432,1200,Party_afrob,922,afb
+Mali,2014,MLI,432,1200,Army_afrob,762,afb
+Mali,2014,MLI,432,1200,Strong_afrob,1036,afb
+Mali,2014,MLI,432,1200,ThreeState_afrob,896,afb
+Mali,2014,MLI,432,1200,Party_afrob,1009,afb
+Mali,2017,MLI,432,1200,Army_afrob,773,afb
+Mali,2017,MLI,432,1200,Strong_afrob,1048,afb
+Mali,2017,MLI,432,1200,ThreeState_afrob,809,afb
+Mali,2017,MLI,432,1200,Party_afrob,915,afb
+Malta,1999,MLT,338,1002,Army_evs,938,evs
+Malta,1999,MLT,338,1002,Strong_evs,787,evs
+Malta,1999,MLT,338,1002,Church_evs,893,evs
+Malta,1999,MLT,338,1002,EvDemoc_evs,902,evs
+Malta,2008,MLT,338,1500,Army_evs,1232,evs
+Malta,2008,MLT,338,1500,Strong_evs,922,evs
+Malta,2008,MLT,338,1500,Church_evs,1236,evs
+Malta,2008,MLT,338,1500,EvDemoc_evs,1302,evs
+Mauritius,2012,MAS,590,1200,Army_afrob,1151,afb
+Mauritius,2012,MAS,590,1200,Strong_afrob,1126,afb
+Mauritius,2012,MAS,590,1200,ThreeState_afrob,1015,afb
+Mauritius,2012,MAS,590,1200,Party_afrob,1097,afb
+Mauritius,2014,MAS,590,1200,Army_afrob,1119,afb
+Mauritius,2014,MAS,590,1200,Strong_afrob,1119,afb
+Mauritius,2014,MAS,590,1200,ThreeState_afrob,988,afb
+Mauritius,2014,MAS,590,1200,Party_afrob,1097,afb
+Mexico,1995,MEX,70,1204,ThreeState_lb,594,lb
+Mexico,1996,MEX,70,1526,ThreeState_lb,811,lb
+Mexico,1996,MEX,70,1526,Army_wvs,967,wvs
+Mexico,1996,MEX,70,1526,Strong_wvs,691,wvs
+Mexico,1996,MEX,70,1526,Church_wvs,1012,wvs
+Mexico,1996,MEX,70,1526,EvDemoc_wvs,1039,wvs
+Mexico,1997,MEX,70,1105,ThreeState_lb,571,lb
+Mexico,1998,MEX,70,1200,ThreeState_lb,608,lb
+Mexico,2000,MEX,70,1166,ThreeState_lb,525,lb
+Mexico,2000,MEX,70,1166,Army_wvs,614,wvs
+Mexico,2000,MEX,70,1166,Strong_wvs,405,wvs
+Mexico,2000,MEX,70,1166,Church_wvs,726,wvs
+Mexico,2000,MEX,70,1166,EvDemoc_wvs,823,wvs
+Mexico,2001,MEX,70,1253,ThreeState_lb,582,lb
+Mexico,2002,MEX,70,995,Church_lb,706,lb
+Mexico,2002,MEX,70,995,ThreeState_lb,629,lb
+Mexico,2002,MEX,70,995,Strong_pew,716,pew
+Mexico,2002,MEX,70,995,ImpDemoc_pew,667,pew
+Mexico,2003,MEX,70,1991,Church_lb,1420,lb
+Mexico,2003,MEX,70,1991,ThreeState_lb,1060,lb
+Mexico,2003,MEX,70,1991,Church_cses,1408,cses
+Mexico,2004,MEX,70,1200,Church_lb,947,lb
+Mexico,2004,MEX,70,1200,ThreeState_lb,653,lb
+Mexico,2004,MEX,70,1200,ThreeState_lapop,815,lapop
+Mexico,2004,MEX,70,1200,Church_lapop,786,lapop
+Mexico,2004,MEX,70,1200,Strong_lapop_2,942,lapop
+Mexico,2005,MEX,70,1200,Church_lb,760,lb
+Mexico,2005,MEX,70,1200,ThreeState_lb,702,lb
+Mexico,2005,MEX,70,1200,Army_wvs,657,wvs
+Mexico,2005,MEX,70,1200,Strong_wvs,468,wvs
+Mexico,2005,MEX,70,1200,EvDemoc_wvs,965,wvs
+Mexico,2005,MEX,70,1200,ImpDemoc_wvs,1046,wvs
+Mexico,2006,MEX,70,1200,Church_lb,820,lb
+Mexico,2006,MEX,70,1200,ThreeState_lb,647,lb
+Mexico,2006,MEX,70,1200,ThreeState_lapop,764,lapop
+Mexico,2006,MEX,70,1200,Church_lapop,779,lapop
+Mexico,2006,MEX,70,1200,Strong_lapop_1,972,lapop
+Mexico,2007,MEX,70,828,Church_lb,543,lb
+Mexico,2007,MEX,70,828,ThreeState_lb,397,lb
+Mexico,2007,MEX,70,828,Strong_pew,546,pew
+Mexico,2007,MEX,70,828,ImpDemoc_pew,455,pew
+Mexico,2008,MEX,70,1200,Church_lb,830,lb
+Mexico,2008,MEX,70,1200,ThreeState_lb,518,lb
+Mexico,2008,MEX,70,1200,ThreeState_lapop,842,lapop
+Mexico,2008,MEX,70,1200,Church_lapop,780,lapop
+Mexico,2008,MEX,70,1200,Strong_lapop_1,979,lapop
+Mexico,2009,MEX,70,1200,Church_lb,744,lb
+Mexico,2009,MEX,70,1200,ThreeState_lb,505,lb
+Mexico,2010,MEX,70,1200,Church_lb,804,lb
+Mexico,2010,MEX,70,1200,ThreeState_lb,584,lb
+Mexico,2010,MEX,70,1200,ThreeState_lapop,797,lapop
+Mexico,2010,MEX,70,1200,Church_lapop,724,lapop
+Mexico,2010,MEX,70,1200,Strong_lapop_1,951,lapop
+Mexico,2011,MEX,70,1200,Church_lb,655,lb
+Mexico,2012,MEX,70,1500,Army_wvs,696,wvs
+Mexico,2012,MEX,70,1500,Strong_wvs,607,wvs
+Mexico,2012,MEX,70,1500,EvDemoc_wvs,1234,wvs
+Mexico,2012,MEX,70,1500,ImpDemoc_wvs,1319,wvs
+Mexico,2012,MEX,70,1500,ThreeState_lapop,1053,lapop
+Mexico,2012,MEX,70,1500,Church_lapop,928,lapop
+Mexico,2012,MEX,70,1500,Strong_lapop_1,1224,lapop
+Mexico,2013,MEX,70,1000,Church_lb,657,lb
+Mexico,2013,MEX,70,1000,ThreeState_lb,396,lb
+Mexico,2013,MEX,70,1000,ThreeState_pew,600,pew
+Mexico,2013,MEX,70,1000,Strong_pew,730,pew
+Mexico,2013,MEX,70,1000,ImpDemoc_pew,630,pew
+Mexico,2014,MEX,70,1535,ThreeState_lapop,781,lapop
+Mexico,2014,MEX,70,1535,Church_lapop,900,lapop
+Mexico,2015,MEX,70,1000,Church_lb,597,lb
+Mexico,2015,MEX,70,1000,ThreeState_lb,368,lb
+Mexico,2015,MEX,70,1000,ImpDemoc_pew,590,pew
+Mexico,2016,MEX,70,1200,Church_lb,808,lb
+Mexico,2016,MEX,70,1200,ThreeState_lb,552,lb
+Mexico,2017,MEX,70,1000,Church_lb,542,lb
+Mexico,2017,MEX,70,1000,ThreeState_lb,377,lb
+Mexico,2017,MEX,70,1000,EvDemoc_pew,580,pew
+Mexico,2017,MEX,70,1000,Strong_pew.1,670,pew
+Mexico,2017,MEX,70,1000,Army_pew,520,pew
+Moldova,1996,MLD,359,984,Army_wvs,814,wvs
+Moldova,1996,MLD,359,984,Strong_wvs,386,wvs
+Moldova,1996,MLD,359,984,Church_wvs,653,wvs
+Moldova,1996,MLD,359,984,EvDemoc_wvs,765,wvs
+Moldova,2002,MLD,359,1008,Army_wvs,682,wvs
+Moldova,2002,MLD,359,1008,Strong_wvs,298,wvs
+Moldova,2002,MLD,359,1008,Church_wvs,580,wvs
+Moldova,2002,MLD,359,1008,EvDemoc_wvs,595,wvs
+Moldova,2006,MLD,359,1046,Army_wvs,768,wvs
+Moldova,2006,MLD,359,1046,Strong_wvs,331,wvs
+Moldova,2006,MLD,359,1046,EvDemoc_wvs,863,wvs
+Moldova,2006,MLD,359,1046,ImpDemoc_wvs,859,wvs
+Moldova,2008,MLD,359,1551,Army_evs,920,evs
+Moldova,2008,MLD,359,1551,Strong_evs,221,evs
+Moldova,2008,MLD,359,1551,Church_evs,952,evs
+Moldova,2008,MLD,359,1551,EvDemoc_evs,1069,evs
+Mongolia,2003,MON,712,1144,ThreeState_asnb,633,asnb
+Mongolia,2003,MON,712,1144,Army_asnb,981,asnb
+Mongolia,2003,MON,712,1144,DemocExtent_asnb,1035,asnb
+Mongolia,2003,MON,712,1144,DemocSuit_asnb,978,asnb
+Mongolia,2003,MON,712,1144,Party_asnb,831,asnb
+Mongolia,2003,MON,712,1144,Strong_asnb,677,asnb
+Mongolia,2005,MON,712,800,Army_asb,447,asb
+Mongolia,2005,MON,712,800,Strong_asb,205,asb
+Mongolia,2005,MON,712,800,EvDemoc_asb,664,asb
+Mongolia,2006,MON,712,1211,ThreeState_asnb,481,asnb
+Mongolia,2006,MON,712,1211,Army_asnb,1010,asnb
+Mongolia,2006,MON,712,1211,DemocExtent_asnb,1143,asnb
+Mongolia,2006,MON,712,1211,DemocSuit_asnb,1090,asnb
+Mongolia,2006,MON,712,1211,Party_asnb,852,asnb
+Mongolia,2006,MON,712,1211,Strong_asnb,434,asnb
+Mongolia,2010,MON,712,1210,ThreeState_asnb,586,asnb
+Mongolia,2010,MON,712,1210,Army_asnb,1042,asnb
+Mongolia,2010,MON,712,1210,DemocSuit_asnb,1018,asnb
+Mongolia,2010,MON,712,1210,Party_asnb,892,asnb
+Mongolia,2010,MON,712,1210,Strong_asnb,516,asnb
+Mongolia,2010,MON,712,1210,Church_asnb,1033,asnb
+Mongolia,2014,MON,712,1228,ThreeState_asnb,537,asnb
+Mongolia,2014,MON,712,1228,Army_asnb,956,asnb
+Mongolia,2014,MON,712,1228,DemocSuit_asnb,882,asnb
+Mongolia,2014,MON,712,1228,Party_asnb,821,asnb
+Mongolia,2014,MON,712,1228,Strong_asnb,420,asnb
+Mongolia,2014,MON,712,1228,Church_asnb,1004,asnb
+Montenegro,1996,MNG,341,240,Army_wvs,197,wvs
+Montenegro,1996,MNG,341,240,Strong_wvs,153,wvs
+Montenegro,1996,MNG,341,240,Church_wvs,202,wvs
+Montenegro,1996,MNG,341,240,EvDemoc_wvs,210,wvs
+Montenegro,2001,MNG,341,82,Army_wvs,67,wvs
+Montenegro,2001,MNG,341,82,Strong_wvs,61,wvs
+Montenegro,2001,MNG,341,82,Church_wvs,66,wvs
+Montenegro,2001,MNG,341,82,EvDemoc_wvs,70,wvs
+Montenegro,2008,MNG,341,1516,Army_evs,910,evs
+Montenegro,2008,MNG,341,1516,Strong_evs,612,evs
+Montenegro,2008,MNG,341,1516,Church_evs,1128,evs
+Montenegro,2008,MNG,341,1516,EvDemoc_evs,1155,evs
+Morocco,2001,MOR,600,1251,Army_wvs,744,wvs
+Morocco,2001,MOR,600,1251,Strong_wvs,696,wvs
+Morocco,2001,MOR,600,1251,Church_wvs,694,wvs
+Morocco,2001,MOR,600,1251,EvDemoc_wvs,789,wvs
+Morocco,2006,MOR,600,1277,Church_arb,1080,arb
+Morocco,2006,MOR,600,1277,Strong_arb_2,937,arb
+Morocco,2006,MOR,600,1277,EvDemoc_arb,1144,arb
+Morocco,2006,MOR,600,1277,DemocSuit_arb,1016,arb
+Morocco,2007,MOR,600,1000,Army_wvs,587,wvs
+Morocco,2007,MOR,600,1000,Strong_wvs,632,wvs
+Morocco,2007,MOR,600,1000,EvDemoc_wvs,840,wvs
+Morocco,2007,MOR,600,1000,ImpDemoc_wvs,784,wvs
+Morocco,2007,MOR,600,1000,ImpDemoc_pew,650,pew
+Morocco,2011,MOR,600,1200,Strong_wvs,682,wvs
+Morocco,2011,MOR,600,1200,EvDemoc_wvs,1018,wvs
+Morocco,2011,MOR,600,1200,ImpDemoc_wvs,904,wvs
+Morocco,2012,MOR,600,1197,Army_afrob,739,afb
+Morocco,2012,MOR,600,1197,Strong_afrob,777,afb
+Morocco,2012,MOR,600,1197,ThreeState_afrob,749,afb
+Morocco,2012,MOR,600,1197,Party_afrob,755,afb
+Morocco,2013,MOR,600,1116,Church_arb,774,arb
+Morocco,2013,MOR,600,1116,Strong_arb_1,833,arb
+Morocco,2013,MOR,600,1116,EvDemoc_arb,948,arb
+Morocco,2013,MOR,600,1116,DemocSuit_arb,479,arb
+Morocco,2015,MOR,600,1200,Army_afrob,928,afb
+Morocco,2015,MOR,600,1200,Strong_afrob,922,afb
+Morocco,2015,MOR,600,1200,ThreeState_afrob,768,afb
+Morocco,2015,MOR,600,1200,Party_afrob,964,afb
+Morocco,2016,MOR,600,1200,Church_arb,946,arb
+Morocco,2016,MOR,600,1200,DemocSuit_arb,784,arb
+Morocco,2016,MOR,600,1200,ThreeState_arb,613,arb
+Mozambique,2003,MZM,541,1400,Army_afrob,743,afb
+Mozambique,2003,MZM,541,1400,Strong_afrob,570,afb
+Mozambique,2003,MZM,541,1400,ThreeState_afrob,755,afb
+Mozambique,2003,MZM,541,1400,Party_afrob,588,afb
+Mozambique,2005,MZM,541,1198,Army_afrob,683,afb
+Mozambique,2005,MZM,541,1198,Strong_afrob,500,afb
+Mozambique,2005,MZM,541,1198,ThreeState_afrob,672,afb
+Mozambique,2005,MZM,541,1198,Party_afrob,616,afb
+Mozambique,2008,MZM,541,1200,Army_afrob,756,afb
+Mozambique,2008,MZM,541,1200,Strong_afrob,701,afb
+Mozambique,2008,MZM,541,1200,ThreeState_afrob,709,afb
+Mozambique,2008,MZM,541,1200,Party_afrob,614,afb
+Mozambique,2012,MZM,541,2400,Army_afrob,1423,afb
+Mozambique,2012,MZM,541,2400,Strong_afrob,1365,afb
+Mozambique,2012,MZM,541,2400,ThreeState_afrob,1500,afb
+Mozambique,2012,MZM,541,2400,Party_afrob,1349,afb
+Mozambique,2015,MZM,541,2400,Army_afrob,1044,afb
+Mozambique,2015,MZM,541,2400,Strong_afrob,827,afb
+Mozambique,2015,MZM,541,2400,ThreeState_afrob,1073,afb
+Mozambique,2015,MZM,541,2400,Party_afrob,1191,afb
+Myanmar,2015,MYA,775,1620,ThreeState_asnb,1067,asnb
+Myanmar,2015,MYA,775,1620,Army_asnb,602,asnb
+Myanmar,2015,MYA,775,1620,DemocSuit_asnb,773,asnb
+Myanmar,2015,MYA,775,1620,Party_asnb,719,asnb
+Myanmar,2015,MYA,775,1620,Strong_asnb,453,asnb
+Myanmar,2015,MYA,775,1620,Church_asnb,1206,asnb
+Namibia,1999,NAM,565,1183,Army_afrob,686,afb
+Namibia,1999,NAM,565,1183,Strong_afrob,658,afb
+Namibia,1999,NAM,565,1183,ThreeState_afrob,678,afb
+Namibia,1999,NAM,565,1183,Party_afrob,743,afb
+Namibia,2003,NAM,565,1199,Army_afrob,618,afb
+Namibia,2003,NAM,565,1199,Strong_afrob,691,afb
+Namibia,2003,NAM,565,1199,ThreeState_afrob,649,afb
+Namibia,2003,NAM,565,1199,Party_afrob,657,afb
+Namibia,2005,NAM,565,1200,Army_afrob,477,afb
+Namibia,2005,NAM,565,1200,Strong_afrob,539,afb
+Namibia,2005,NAM,565,1200,ThreeState_afrob,678,afb
+Namibia,2005,NAM,565,1200,Party_afrob,704,afb
+Namibia,2008,NAM,565,1200,Army_afrob,808,afb
+Namibia,2008,NAM,565,1200,Strong_afrob,874,afb
+Namibia,2008,NAM,565,1200,ThreeState_afrob,767,afb
+Namibia,2008,NAM,565,1200,Party_afrob,824,afb
+Namibia,2012,NAM,565,1200,Army_afrob,919,afb
+Namibia,2012,NAM,565,1200,Strong_afrob,948,afb
+Namibia,2012,NAM,565,1200,ThreeState_afrob,763,afb
+Namibia,2012,NAM,565,1200,Party_afrob,913,afb
+Namibia,2014,NAM,565,1200,Army_afrob,924,afb
+Namibia,2014,NAM,565,1200,Strong_afrob,1013,afb
+Namibia,2014,NAM,565,1200,ThreeState_afrob,886,afb
+Namibia,2014,NAM,565,1200,Party_afrob,980,afb
+Nepal,2005,NEP,790,1580,Army_asb,893,asb
+Nepal,2005,NEP,790,1580,Strong_asb,610,asb
+Nepal,2005,NEP,790,1580,EvDemoc_asb,1217,asb
+Nepal,2005,NEP,790,1580,DemocSuit_sab,865,sab
+Nepal,2005,NEP,790,1580,ThreeState_sab,684,sab
+Nepal,2005,NEP,790,1580,Strong_sab,146,sab
+Nepal,2005,NEP,790,1580,Army_sab,717,sab
+Nepal,2005,NEP,790,1580,Elec_sab,1102,sab
+Nepal,2013,NEP,790,1945,ThreeState_sab,749,sab
+Nepal,2013,NEP,790,1945,Strong_sab,684,sab
+Nepal,2013,NEP,790,1945,Army_sab,909,sab
+Netherlands,1988,NTH,210,1006,ThreeState_eb,851,eb
+Netherlands,1992,NTH,210,1002,ThreeState_eb,820,eb
+Netherlands,1999,NTH,210,1003,Army_evs,988,evs
+Netherlands,1999,NTH,210,1003,Strong_evs,723,evs
+Netherlands,1999,NTH,210,1003,Church_evs,951,evs
+Netherlands,1999,NTH,210,1003,EvDemoc_evs,958,evs
+Netherlands,2002,NTH,210,1574,Church_cses,1443,cses
+Netherlands,2005,NTH,210,1050,Army_wvs,936,wvs
+Netherlands,2005,NTH,210,1050,Strong_wvs,561,wvs
+Netherlands,2005,NTH,210,1050,EvDemoc_wvs,897,wvs
+Netherlands,2005,NTH,210,1050,ImpDemoc_wvs,976,wvs
+Netherlands,2008,NTH,210,1554,Army_evs,1468,evs
+Netherlands,2008,NTH,210,1554,Strong_evs,929,evs
+Netherlands,2008,NTH,210,1554,Church_evs,1387,evs
+Netherlands,2008,NTH,210,1554,EvDemoc_evs,1373,evs
+Netherlands,2012,NTH,210,1831,ImpDemoc_ess,1653,ess
+Netherlands,2012,NTH,210,1831,Army_wvs,1589,wvs
+Netherlands,2012,NTH,210,1831,Strong_wvs,993,wvs
+Netherlands,2012,NTH,210,1831,EvDemoc_wvs,1474,wvs
+Netherlands,2012,NTH,210,1831,ImpDemoc_wvs,1664,wvs
+Netherlands,2017,NTH,210,1006,EvDemoc_pew,845,pew
+Netherlands,2017,NTH,210,1006,Strong_pew.1,895,pew
+Netherlands,2017,NTH,210,1006,Army_pew,915,pew
+New Zealand,1998,NEW,920,1201,Army_wvs,1057,wvs
+New Zealand,1998,NEW,920,1201,Strong_wvs,849,wvs
+New Zealand,1998,NEW,920,1201,Church_wvs,850,wvs
+New Zealand,1998,NEW,920,1201,EvDemoc_wvs,920,wvs
+New Zealand,2002,NEW,920,1741,Church_cses,1334,cses
+New Zealand,2005,NEW,920,954,Army_wvs,823,wvs
+New Zealand,2005,NEW,920,954,Strong_wvs,680,wvs
+New Zealand,2005,NEW,920,954,EvDemoc_wvs,729,wvs
+New Zealand,2011,NEW,920,841,Army_wvs,754,wvs
+New Zealand,2011,NEW,920,841,Strong_wvs,581,wvs
+New Zealand,2011,NEW,920,841,EvDemoc_wvs,648,wvs
+New Zealand,2011,NEW,920,841,ImpDemoc_wvs,734,wvs
+Nicaragua,1996,NIC,93,1034,ThreeState_lb,612,lb
+Nicaragua,1997,NIC,93,1002,ThreeState_lb,680,lb
+Nicaragua,1998,NIC,93,1000,ThreeState_lb,719,lb
+Nicaragua,2000,NIC,93,1000,ThreeState_lb,639,lb
+Nicaragua,2001,NIC,93,1005,ThreeState_lb,429,lb
+Nicaragua,2002,NIC,93,1016,Church_lb,832,lb
+Nicaragua,2002,NIC,93,1016,ThreeState_lb,640,lb
+Nicaragua,2003,NIC,93,1004,ThreeState_lb,515,lb
+Nicaragua,2004,NIC,93,1000,Church_lb,665,lb
+Nicaragua,2004,NIC,93,1000,ThreeState_lb,386,lb
+Nicaragua,2004,NIC,93,1000,ThreeState_lapop,634,lapop
+Nicaragua,2004,NIC,93,1000,Church_lapop,618,lapop
+Nicaragua,2004,NIC,93,1000,Strong_lapop_2,815,lapop
+Nicaragua,2005,NIC,93,1000,Church_lb,705,lb
+Nicaragua,2005,NIC,93,1000,ThreeState_lb,567,lb
+Nicaragua,2006,NIC,93,1000,Church_lb,679,lb
+Nicaragua,2006,NIC,93,1000,ThreeState_lb,564,lb
+Nicaragua,2006,NIC,93,1000,ThreeState_lapop,568,lapop
+Nicaragua,2006,NIC,93,1000,Church_lapop,527,lapop
+Nicaragua,2006,NIC,93,1000,Strong_lapop_1,724,lapop
+Nicaragua,2007,NIC,93,1000,Church_lb,754,lb
+Nicaragua,2007,NIC,93,1000,ThreeState_lb,614,lb
+Nicaragua,2008,NIC,93,1000,Church_lb,671,lb
+Nicaragua,2008,NIC,93,1000,ThreeState_lb,584,lb
+Nicaragua,2008,NIC,93,1000,ThreeState_lapop,729,lapop
+Nicaragua,2008,NIC,93,1000,Church_lapop,601,lapop
+Nicaragua,2008,NIC,93,1000,Strong_lapop_1,833,lapop
+Nicaragua,2009,NIC,93,1000,Church_lb,724,lb
+Nicaragua,2009,NIC,93,1000,ThreeState_lb,549,lb
+Nicaragua,2010,NIC,93,1000,Church_lb,732,lb
+Nicaragua,2010,NIC,93,1000,ThreeState_lb,584,lb
+Nicaragua,2010,NIC,93,1000,ThreeState_lapop,784,lapop
+Nicaragua,2010,NIC,93,1000,Church_lapop,631,lapop
+Nicaragua,2010,NIC,93,1000,Strong_lapop_1,856,lapop
+Nicaragua,2011,NIC,93,1000,Church_lb,738,lb
+Nicaragua,2011,NIC,93,1000,ThreeState_lb,503,lb
+Nicaragua,2012,NIC,93,1499,ThreeState_lapop,1238,lapop
+Nicaragua,2012,NIC,93,1499,Church_lapop,1030,lapop
+Nicaragua,2012,NIC,93,1499,Strong_lapop_1,1321,lapop
+Nicaragua,2013,NIC,93,1000,Church_lb,807,lb
+Nicaragua,2013,NIC,93,1000,ThreeState_lb,503,lb
+Nicaragua,2014,NIC,93,1546,ThreeState_lapop,1067,lapop
+Nicaragua,2014,NIC,93,1546,Church_lapop,987,lapop
+Nicaragua,2015,NIC,93,1000,Church_lb,773,lb
+Nicaragua,2015,NIC,93,1000,ThreeState_lb,483,lb
+Nicaragua,2016,NIC,93,1000,Church_lb,821,lb
+Nicaragua,2016,NIC,93,1000,ThreeState_lb,414,lb
+Nicaragua,2017,NIC,93,1000,Church_lb,760,lb
+Nicaragua,2017,NIC,93,1000,ThreeState_lb,398,lb
+Niger,2012,NIR,436,1199,Army_afrob,691,afb
+Niger,2012,NIR,436,1199,Strong_afrob,818,afb
+Niger,2012,NIR,436,1199,ThreeState_afrob,787,afb
+Niger,2012,NIR,436,1199,Party_afrob,955,afb
+Niger,2015,NIR,436,1200,Army_afrob,873,afb
+Niger,2015,NIR,436,1200,Strong_afrob,988,afb
+Niger,2015,NIR,436,1200,ThreeState_afrob,851,afb
+Niger,2015,NIR,436,1200,Party_afrob,1035,afb
+Nigeria,1995,NIG,475,1996,Army_wvs,1332,wvs
+Nigeria,1995,NIG,475,1996,Strong_wvs,1212,wvs
+Nigeria,1995,NIG,475,1996,Church_wvs,1603,wvs
+Nigeria,1995,NIG,475,1996,EvDemoc_wvs,1784,wvs
+Nigeria,1999,NIG,475,3603,Army_afrob,3243,afb
+Nigeria,1999,NIG,475,3603,Strong_afrob,3009,afb
+Nigeria,1999,NIG,475,3603,ThreeState_afrob,2912,afb
+Nigeria,1999,NIG,475,3603,Party_afrob,3188,afb
+Nigeria,2000,NIG,475,2022,Army_wvs,1471,wvs
+Nigeria,2000,NIG,475,2022,Strong_wvs,1114,wvs
+Nigeria,2000,NIG,475,2022,Church_wvs,895,wvs
+Nigeria,2000,NIG,475,2022,EvDemoc_wvs,1897,wvs
+Nigeria,2002,NIG,475,1000,Strong_pew,570,pew
+Nigeria,2003,NIG,475,2428,Army_afrob,1673,afb
+Nigeria,2003,NIG,475,2428,Strong_afrob,1737,afb
+Nigeria,2003,NIG,475,2428,ThreeState_afrob,1640,afb
+Nigeria,2003,NIG,475,2428,Party_afrob,1936,afb
+Nigeria,2005,NIG,475,2202,Army_afrob,1579,afb
+Nigeria,2005,NIG,475,2202,Strong_afrob,1656,afb
+Nigeria,2005,NIG,475,2202,ThreeState_afrob,1438,afb
+Nigeria,2005,NIG,475,2202,Party_afrob,1810,afb
+Nigeria,2007,NIG,475,1128,Strong_pew,767,pew
+Nigeria,2008,NIG,475,2324,Army_afrob,1718,afb
+Nigeria,2008,NIG,475,2324,Strong_afrob,1750,afb
+Nigeria,2008,NIG,475,2324,ThreeState_afrob,1671,afb
+Nigeria,2008,NIG,475,2324,Party_afrob,1720,afb
+Nigeria,2010,NIG,475,1516,ThreeState_pew,1076,pew
+Nigeria,2011,NIG,475,1759,Army_wvs,1059,wvs
+Nigeria,2011,NIG,475,1759,Strong_wvs,1017,wvs
+Nigeria,2011,NIG,475,1759,EvDemoc_wvs,1613,wvs
+Nigeria,2011,NIG,475,1759,ImpDemoc_wvs,1574,wvs
+Nigeria,2012,NIG,475,2400,Army_afrob,1855,afb
+Nigeria,2012,NIG,475,2400,Strong_afrob,1990,afb
+Nigeria,2012,NIG,475,2400,ThreeState_afrob,1657,afb
+Nigeria,2012,NIG,475,2400,Party_afrob,2019,afb
+Nigeria,2013,NIG,475,1031,ThreeState_pew,660,pew
+Nigeria,2013,NIG,475,1031,Strong_pew,557,pew
+Nigeria,2013,NIG,475,1031,ImpDemoc_pew,856,pew
+Nigeria,2015,NIG,475,1047,Army_afrob,737,afb
+Nigeria,2015,NIG,475,1047,Strong_afrob,815,afb
+Nigeria,2015,NIG,475,1047,ThreeState_afrob,681,afb
+Nigeria,2015,NIG,475,1047,Party_afrob,832,afb
+Nigeria,2017,NIG,475,1110,Army_afrob,791,afb
+Nigeria,2017,NIG,475,1110,Strong_afrob,837,afb
+Nigeria,2017,NIG,475,1110,ThreeState_afrob,764,afb
+Nigeria,2017,NIG,475,1110,Party_afrob,903,afb
+Nigeria,2017,NIG,475,1110,EvDemoc_pew,866,pew
+Nigeria,2017,NIG,475,1110,Strong_pew.1,677,pew
+Nigeria,2017,NIG,475,1110,Army_pew,555,pew
+Norway,1992,NOR,385,1000,ThreeState_eb,883,eb
+Norway,1996,NOR,385,1127,Army_wvs,1062,wvs
+Norway,1996,NOR,385,1127,Strong_wvs,957,wvs
+Norway,1996,NOR,385,1127,Church_wvs,1056,wvs
+Norway,1996,NOR,385,1127,EvDemoc_wvs,1067,wvs
+Norway,2001,NOR,385,2052,Church_cses,1927,cses
+Norway,2007,NOR,385,1025,Army_wvs,955,wvs
+Norway,2007,NOR,385,1025,Strong_wvs,850,wvs
+Norway,2007,NOR,385,1025,EvDemoc_wvs,985,wvs
+Norway,2007,NOR,385,1025,ImpDemoc_wvs,981,wvs
+Norway,2008,NOR,385,1090,Army_evs,1058,evs
+Norway,2008,NOR,385,1090,Strong_evs,879,evs
+Norway,2008,NOR,385,1090,Church_evs,1029,evs
+Norway,2008,NOR,385,1090,EvDemoc_evs,1032,evs
+Norway,2012,NOR,385,1617,ImpDemoc_ess,1546,ess
+Pakistan,1997,PAK,770,733,EvDemoc_wvs,498,wvs
+Pakistan,2001,PAK,770,2000,Army_wvs,1808,wvs
+Pakistan,2001,PAK,770,2000,Strong_wvs,1180,wvs
+Pakistan,2001,PAK,770,2000,Church_wvs,1604,wvs
+Pakistan,2001,PAK,770,2000,EvDemoc_wvs,1586,wvs
+Pakistan,2002,PAK,770,2031,Strong_pew,853,pew
+Pakistan,2002,PAK,770,2031,ImpDemoc_pew,934,pew
+Pakistan,2005,PAK,770,1324,Army_asb,382,asb
+Pakistan,2005,PAK,770,1324,Strong_asb,339,asb
+Pakistan,2005,PAK,770,1324,EvDemoc_asb,944,asb
+Pakistan,2005,PAK,770,1324,Strong_pew,371,pew
+Pakistan,2005,PAK,770,1324,DemocSuit_sab,575,sab
+Pakistan,2005,PAK,770,1324,ThreeState_sab,295,sab
+Pakistan,2005,PAK,770,1324,Strong_sab,395,sab
+Pakistan,2005,PAK,770,1324,Army_sab,446,sab
+Pakistan,2005,PAK,770,1324,Elec_sab,757,sab
+Pakistan,2007,PAK,770,2008,Strong_pew,663,pew
+Pakistan,2007,PAK,770,2008,ImpDemoc_pew,984,pew
+Pakistan,2010,PAK,770,1970,ThreeState_pew,808,pew
+Pakistan,2011,PAK,770,1970,ThreeState_pew,867,pew
+Pakistan,2011,PAK,770,1970,Strong_pew,729,pew
+Pakistan,2012,PAK,770,1206,Army_wvs,451,wvs
+Pakistan,2012,PAK,770,1206,Strong_wvs,607,wvs
+Pakistan,2012,PAK,770,1206,EvDemoc_wvs,918,wvs
+Pakistan,2012,PAK,770,1206,ImpDemoc_wvs,1044,wvs
+Pakistan,2012,PAK,770,1206,ThreeState_pew,507,pew
+Pakistan,2012,PAK,770,1206,Strong_pew,374,pew
+Pakistan,2013,PAK,770,2487,ThreeState_sab,891,sab
+Pakistan,2013,PAK,770,2487,Strong_sab,777,sab
+Pakistan,2013,PAK,770,2487,Army_sab,1041,sab
+Panama,1996,PAN,95,1005,ThreeState_lb,752,lb
+Panama,1997,PAN,95,1021,ThreeState_lb,724,lb
+Panama,1998,PAN,95,1000,ThreeState_lb,714,lb
+Panama,2000,PAN,95,993,ThreeState_lb,616,lb
+Panama,2001,PAN,95,1000,ThreeState_lb,343,lb
+Panama,2002,PAN,95,1010,Church_lb,717,lb
+Panama,2002,PAN,95,1010,ThreeState_lb,560,lb
+Panama,2003,PAN,95,1004,Church_lb,609,lb
+Panama,2003,PAN,95,1004,ThreeState_lb,515,lb
+Panama,2004,PAN,95,1000,Church_lb,805,lb
+Panama,2004,PAN,95,1000,ThreeState_lb,637,lb
+Panama,2004,PAN,95,1000,ThreeState_lapop,735,lapop
+Panama,2004,PAN,95,1000,Church_lapop,701,lapop
+Panama,2004,PAN,95,1000,Strong_lapop_2,881,lapop
+Panama,2005,PAN,95,1008,Church_lb,723,lb
+Panama,2005,PAN,95,1008,ThreeState_lb,528,lb
+Panama,2006,PAN,95,1008,Church_lb,791,lb
+Panama,2006,PAN,95,1008,ThreeState_lb,555,lb
+Panama,2006,PAN,95,1008,ThreeState_lapop,639,lapop
+Panama,2006,PAN,95,1008,Church_lapop,381,lapop
+Panama,2006,PAN,95,1008,Strong_lapop_1,680,lapop
+Panama,2007,PAN,95,1008,Church_lb,764,lb
+Panama,2007,PAN,95,1008,ThreeState_lb,620,lb
+Panama,2008,PAN,95,1000,Church_lb,709,lb
+Panama,2008,PAN,95,1000,ThreeState_lb,560,lb
+Panama,2008,PAN,95,1000,ThreeState_lapop,835,lapop
+Panama,2008,PAN,95,1000,Church_lapop,658,lapop
+Panama,2008,PAN,95,1000,Strong_lapop_1,759,lapop
+Panama,2009,PAN,95,1000,Church_lb,800,lb
+Panama,2009,PAN,95,1000,ThreeState_lb,639,lb
+Panama,2010,PAN,95,1000,Church_lb,793,lb
+Panama,2010,PAN,95,1000,ThreeState_lb,609,lb
+Panama,2010,PAN,95,1000,ThreeState_lapop,785,lapop
+Panama,2010,PAN,95,1000,Church_lapop,710,lapop
+Panama,2010,PAN,95,1000,Strong_lapop_1,799,lapop
+Panama,2011,PAN,95,1000,Church_lb,821,lb
+Panama,2011,PAN,95,1000,ThreeState_lb,603,lb
+Panama,2012,PAN,95,1500,ThreeState_lapop,1191,lapop
+Panama,2012,PAN,95,1500,Church_lapop,978,lapop
+Panama,2012,PAN,95,1500,Strong_lapop_1,1142,lapop
+Panama,2013,PAN,95,1000,Church_lb,770,lb
+Panama,2013,PAN,95,1000,ThreeState_lb,486,lb
+Panama,2014,PAN,95,1508,ThreeState_lapop,909,lapop
+Panama,2014,PAN,95,1508,Church_lapop,711,lapop
+Panama,2015,PAN,95,1000,Church_lb,688,lb
+Panama,2015,PAN,95,1000,ThreeState_lb,444,lb
+Panama,2016,PAN,95,1000,Church_lb,729,lb
+Panama,2016,PAN,95,1000,ThreeState_lb,454,lb
+Panama,2017,PAN,95,1000,Church_lb,723,lb
+Panama,2017,PAN,95,1000,ThreeState_lb,460,lb
+Paraguay,1995,PAR,150,587,ThreeState_lb,303,lb
+Paraguay,1996,PAR,150,598,ThreeState_lb,355,lb
+Paraguay,1997,PAR,150,575,ThreeState_lb,255,lb
+Paraguay,1998,PAR,150,600,ThreeState_lb,308,lb
+Paraguay,2000,PAR,150,602,ThreeState_lb,278,lb
+Paraguay,2001,PAR,150,604,ThreeState_lb,209,lb
+Paraguay,2002,PAR,150,600,Church_lb,356,lb
+Paraguay,2002,PAR,150,600,ThreeState_lb,248,lb
+Paraguay,2003,PAR,150,1200,Church_lb,682,lb
+Paraguay,2003,PAR,150,1200,ThreeState_lb,469,lb
+Paraguay,2004,PAR,150,600,Church_lb,328,lb
+Paraguay,2004,PAR,150,600,ThreeState_lb,234,lb
+Paraguay,2005,PAR,150,1200,Church_lb,635,lb
+Paraguay,2005,PAR,150,1200,ThreeState_lb,389,lb
+Paraguay,2006,PAR,150,1200,Church_lb,647,lb
+Paraguay,2006,PAR,150,1200,ThreeState_lb,493,lb
+Paraguay,2006,PAR,150,1200,ThreeState_lapop,612,lapop
+Paraguay,2006,PAR,150,1200,Strong_lapop_1,973,lapop
+Paraguay,2007,PAR,150,1200,Church_lb,594,lb
+Paraguay,2007,PAR,150,1200,ThreeState_lb,395,lb
+Paraguay,2008,PAR,150,1200,Church_lb,843,lb
+Paraguay,2008,PAR,150,1200,ThreeState_lb,637,lb
+Paraguay,2008,PAR,150,1200,ThreeState_lapop,574,lapop
+Paraguay,2008,PAR,150,1200,Church_lapop,681,lapop
+Paraguay,2008,PAR,150,1200,Strong_lapop_1,897,lapop
+Paraguay,2009,PAR,150,1200,Church_lb,798,lb
+Paraguay,2009,PAR,150,1200,ThreeState_lb,546,lb
+Paraguay,2010,PAR,150,1200,Church_lb,952,lb
+Paraguay,2010,PAR,150,1200,ThreeState_lb,583,lb
+Paraguay,2010,PAR,150,1200,ThreeState_lapop,835,lapop
+Paraguay,2010,PAR,150,1200,Church_lapop,654,lapop
+Paraguay,2010,PAR,150,1200,Strong_lapop_1,1023,lapop
+Paraguay,2011,PAR,150,1200,Church_lb,914,lb
+Paraguay,2011,PAR,150,1200,ThreeState_lb,648,lb
+Paraguay,2012,PAR,150,1501,ThreeState_lapop,918,lapop
+Paraguay,2012,PAR,150,1501,Church_lapop,953,lapop
+Paraguay,2012,PAR,150,1501,Strong_lapop_1,1188,lapop
+Paraguay,2013,PAR,150,1200,Church_lb,1020,lb
+Paraguay,2013,PAR,150,1200,ThreeState_lb,602,lb
+Paraguay,2014,PAR,150,1503,ThreeState_lapop,825,lapop
+Paraguay,2014,PAR,150,1503,Church_lapop,812,lapop
+Paraguay,2015,PAR,150,1200,Church_lb,814,lb
+Paraguay,2015,PAR,150,1200,ThreeState_lb,523,lb
+Paraguay,2016,PAR,150,1200,Church_lb,1038,lb
+Paraguay,2016,PAR,150,1200,ThreeState_lb,632,lb
+Paraguay,2017,PAR,150,1200,Church_lb,910,lb
+Paraguay,2017,PAR,150,1200,ThreeState_lb,659,lb
+Peru,1995,PER,135,1226,ThreeState_lb,642,lb
+Peru,1996,PER,135,1200,ThreeState_lb,752,lb
+Peru,1996,PER,135,1200,Army_wvs,860,wvs
+Peru,1996,PER,135,1200,Strong_wvs,664,wvs
+Peru,1996,PER,135,1200,Church_wvs,896,wvs
+Peru,1996,PER,135,1200,EvDemoc_wvs,990,wvs
+Peru,1997,PER,135,1054,ThreeState_lb,631,lb
+Peru,1998,PER,135,1045,ThreeState_lb,657,lb
+Peru,2000,PER,135,1046,ThreeState_lb,670,lb
+Peru,2001,PER,135,1023,ThreeState_lb,635,lb
+Peru,2001,PER,135,1023,Army_wvs,810,wvs
+Peru,2001,PER,135,1023,Strong_wvs,569,wvs
+Peru,2001,PER,135,1023,Church_wvs,856,wvs
+Peru,2001,PER,135,1023,EvDemoc_wvs,909,wvs
+Peru,2002,PER,135,711,Church_lb,408,lb
+Peru,2002,PER,135,711,ThreeState_lb,392,lb
+Peru,2002,PER,135,711,Strong_pew,391,pew
+Peru,2002,PER,135,711,ImpDemoc_pew,455,pew
+Peru,2003,PER,135,1200,Church_lb,700,lb
+Peru,2003,PER,135,1200,ThreeState_lb,598,lb
+Peru,2004,PER,135,1200,Church_lb,683,lb
+Peru,2004,PER,135,1200,ThreeState_lb,541,lb
+Peru,2005,PER,135,1200,Church_lb,733,lb
+Peru,2005,PER,135,1200,ThreeState_lb,476,lb
+Peru,2006,PER,135,2032,Church_lb,1397,lb
+Peru,2006,PER,135,2032,ThreeState_lb,1109,lb
+Peru,2006,PER,135,2032,Army_wvs,1292,wvs
+Peru,2006,PER,135,2032,Strong_wvs,955,wvs
+Peru,2006,PER,135,2032,EvDemoc_wvs,1682,wvs
+Peru,2006,PER,135,2032,ImpDemoc_wvs,1735,wvs
+Peru,2006,PER,135,2032,ThreeState_lapop,1265,lapop
+Peru,2006,PER,135,2032,Church_lapop,1028,lapop
+Peru,2006,PER,135,2032,Strong_lapop_1,1584,lapop
+Peru,2006,PER,135,2032,Church_cses,1359,cses
+Peru,2007,PER,135,800,Church_lb,477,lb
+Peru,2007,PER,135,800,ThreeState_lb,379,lb
+Peru,2007,PER,135,800,Strong_pew,424,pew
+Peru,2007,PER,135,800,ImpDemoc_pew,552,pew
+Peru,2008,PER,135,1200,Church_lb,757,lb
+Peru,2008,PER,135,1200,ThreeState_lb,540,lb
+Peru,2008,PER,135,1200,ThreeState_lapop,760,lapop
+Peru,2008,PER,135,1200,Church_lapop,722,lapop
+Peru,2008,PER,135,1200,Strong_lapop_1,920,lapop
+Peru,2009,PER,135,1200,Church_lb,807,lb
+Peru,2009,PER,135,1200,ThreeState_lb,623,lb
+Peru,2010,PER,135,1200,Church_lb,858,lb
+Peru,2010,PER,135,1200,ThreeState_lb,732,lb
+Peru,2010,PER,135,1200,ThreeState_lapop,770,lapop
+Peru,2010,PER,135,1200,Church_lapop,597,lapop
+Peru,2010,PER,135,1200,Strong_lapop_1,925,lapop
+Peru,2011,PER,135,1200,Church_lb,872,lb
+Peru,2011,PER,135,1200,ThreeState_lb,706,lb
+Peru,2012,PER,135,1500,Army_wvs,964,wvs
+Peru,2012,PER,135,1500,Strong_wvs,533,wvs
+Peru,2012,PER,135,1500,EvDemoc_wvs,1317,wvs
+Peru,2012,PER,135,1500,ImpDemoc_wvs,1299,wvs
+Peru,2012,PER,135,1500,ThreeState_lapop,1015,lapop
+Peru,2012,PER,135,1500,Church_lapop,872,lapop
+Peru,2012,PER,135,1500,Strong_lapop_1,1154,lapop
+Peru,2013,PER,135,1200,Church_lb,854,lb
+Peru,2013,PER,135,1200,ThreeState_lb,666,lb
+Peru,2014,PER,135,1500,ThreeState_lapop,918,lapop
+Peru,2014,PER,135,1500,Church_lapop,841,lapop
+Peru,2015,PER,135,1000,Church_lb,650,lb
+Peru,2015,PER,135,1000,ThreeState_lb,559,lb
+Peru,2015,PER,135,1000,ImpDemoc_pew,620,pew
+Peru,2016,PER,135,1200,Church_lb,829,lb
+Peru,2016,PER,135,1200,ThreeState_lb,635,lb
+Peru,2017,PER,135,1000,Church_lb,595,lb
+Peru,2017,PER,135,1000,ThreeState_lb,451,lb
+Peru,2017,PER,135,1000,EvDemoc_pew,580,pew
+Peru,2017,PER,135,1000,Strong_pew.1,680,pew
+Peru,2017,PER,135,1000,Army_pew,560,pew
+Philippines,1996,PHI,840,1200,Army_wvs,553,wvs
+Philippines,1996,PHI,840,1200,Strong_wvs,407,wvs
+Philippines,1996,PHI,840,1200,Church_wvs,895,wvs
+Philippines,1996,PHI,840,1200,EvDemoc_wvs,997,wvs
+Philippines,2001,PHI,840,1200,Army_wvs,606,wvs
+Philippines,2001,PHI,840,1200,Strong_wvs,445,wvs
+Philippines,2001,PHI,840,1200,Church_wvs,942,wvs
+Philippines,2001,PHI,840,1200,EvDemoc_wvs,979,wvs
+Philippines,2002,PHI,840,700,ThreeState_asnb,452,asnb
+Philippines,2002,PHI,840,700,Army_asnb,449,asnb
+Philippines,2002,PHI,840,700,DemocExtent_asnb,621,asnb
+Philippines,2002,PHI,840,700,DemocSuit_asnb,562,asnb
+Philippines,2002,PHI,840,700,Party_asnb,487,asnb
+Philippines,2002,PHI,840,700,Strong_asnb,492,asnb
+Philippines,2002,PHI,840,700,Strong_pew,287,pew
+Philippines,2002,PHI,840,700,ImpDemoc_pew,539,pew
+Philippines,2004,PHI,840,1200,Army_asb,768,asb
+Philippines,2004,PHI,840,1200,Strong_asb,825,asb
+Philippines,2004,PHI,840,1200,EvDemoc_asb,966,asb
+Philippines,2004,PHI,840,1200,Church_cses,865,cses
+Philippines,2005,PHI,840,1200,ThreeState_asnb,604,asnb
+Philippines,2005,PHI,840,1200,Army_asnb,879,asnb
+Philippines,2005,PHI,840,1200,DemocExtent_asnb,833,asnb
+Philippines,2005,PHI,840,1200,DemocSuit_asnb,939,asnb
+Philippines,2005,PHI,840,1200,Party_asnb,784,asnb
+Philippines,2005,PHI,840,1200,Strong_asnb,724,asnb
+Philippines,2007,PHI,840,1000,Army_asb,596,asb
+Philippines,2007,PHI,840,1000,Strong_asb,481,asb
+Philippines,2007,PHI,840,1000,EvDemoc_asb,658,asb
+Philippines,2010,PHI,840,1200,ThreeState_asnb,651,asnb
+Philippines,2010,PHI,840,1200,Army_asnb,901,asnb
+Philippines,2010,PHI,840,1200,DemocSuit_asnb,745,asnb
+Philippines,2010,PHI,840,1200,Party_asnb,810,asnb
+Philippines,2010,PHI,840,1200,Strong_asnb,772,asnb
+Philippines,2010,PHI,840,1200,Church_asnb,899,asnb
+Philippines,2012,PHI,840,1200,Army_wvs,567,wvs
+Philippines,2012,PHI,840,1200,Strong_wvs,477,wvs
+Philippines,2012,PHI,840,1200,EvDemoc_wvs,898,wvs
+Philippines,2012,PHI,840,1200,ImpDemoc_wvs,973,wvs
+Philippines,2014,PHI,840,1200,ThreeState_asnb,559,asnb
+Philippines,2014,PHI,840,1200,Army_asnb,849,asnb
+Philippines,2014,PHI,840,1200,DemocSuit_asnb,624,asnb
+Philippines,2014,PHI,840,1200,Party_asnb,839,asnb
+Philippines,2014,PHI,840,1200,Strong_asnb,797,asnb
+Philippines,2014,PHI,840,1200,Church_asnb,952,asnb
+Philippines,2015,PHI,840,1000,ImpDemoc_pew,550,pew
+Philippines,2017,PHI,840,1000,EvDemoc_pew,820,pew
+Philippines,2017,PHI,840,1000,Strong_pew.1,470,pew
+Philippines,2017,PHI,840,1000,Army_pew,560,pew
+Poland,1992,POL,290,1025,Strong_ndb,608,ndb
+Poland,1992,POL,290,1025,ThreeState_ndb,495,ndb
+Poland,1993,POL,290,980,Army_ndb,854,ndb
+Poland,1993,POL,290,980,Strong_ndb,614,ndb
+Poland,1993,POL,290,980,ThreeState_ndb,631,ndb
+Poland,1995,POL,290,949,Army_ndb,905,ndb
+Poland,1995,POL,290,949,Strong_ndb,642,ndb
+Poland,1997,POL,290,1153,Church_wvs,785,wvs
+Poland,1998,POL,290,1141,Army_ndb,1056,ndb
+Poland,1998,POL,290,1141,Strong_ndb,823,ndb
+Poland,1998,POL,290,1141,ThreeState_ndb,784,ndb
+Poland,1999,POL,290,1095,Army_evs,804,evs
+Poland,1999,POL,290,1095,Strong_evs,766,evs
+Poland,1999,POL,290,1095,Church_evs,857,evs
+Poland,1999,POL,290,1095,EvDemoc_evs,795,evs
+Poland,2001,POL,290,1794,Army_ndb,1586,ndb
+Poland,2001,POL,290,1794,Strong_ndb,1094,ndb
+Poland,2001,POL,290,1794,Church_cses,1249,cses
+Poland,2002,POL,290,500,Strong_pew,205,pew
+Poland,2002,POL,290,500,ImpDemoc_pew,280,pew
+Poland,2004,POL,290,943,Army_ndb,820,ndb
+Poland,2004,POL,290,943,Strong_ndb,429,ndb
+Poland,2004,POL,290,943,ThreeState_ndb,341,ndb
+Poland,2005,POL,290,1000,Army_wvs,687,wvs
+Poland,2005,POL,290,1000,Strong_wvs,613,wvs
+Poland,2005,POL,290,1000,EvDemoc_wvs,727,wvs
+Poland,2005,POL,290,1000,ImpDemoc_wvs,860,wvs
+Poland,2007,POL,290,504,Strong_pew,287,pew
+Poland,2007,POL,290,504,ImpDemoc_pew,252,pew
+Poland,2008,POL,290,1510,Army_evs,1146,evs
+Poland,2008,POL,290,1510,Strong_evs,1048,evs
+Poland,2008,POL,290,1510,Church_evs,1209,evs
+Poland,2008,POL,290,1510,EvDemoc_evs,1124,evs
+Poland,2009,POL,290,1000,Strong_pew,560,pew
+Poland,2009,POL,290,1000,ImpDemoc_pew,510,pew
+Poland,2012,POL,290,1840,ImpDemoc_ess,1468,ess
+Poland,2012,POL,290,1840,Army_wvs,1261,wvs
+Poland,2012,POL,290,1840,Strong_wvs,1332,wvs
+Poland,2012,POL,290,1840,EvDemoc_wvs,1360,wvs
+Poland,2012,POL,290,1840,ImpDemoc_wvs,1603,wvs
+Poland,2017,POL,290,1160,EvDemoc_pew,893,pew
+Poland,2017,POL,290,1160,Strong_pew.1,882,pew
+Poland,2017,POL,290,1160,Army_pew,986,pew
+Portugal,1988,POR,235,1000,ThreeState_eb,842,eb
+Portugal,1992,POR,235,1000,ThreeState_eb,828,eb
+Portugal,1999,POR,235,1000,Army_evs,747,evs
+Portugal,1999,POR,235,1000,Strong_evs,501,evs
+Portugal,1999,POR,235,1000,Church_evs,853,evs
+Portugal,1999,POR,235,1000,EvDemoc_evs,810,evs
+Portugal,2002,POR,235,1303,Church_cses,1050,cses
+Portugal,2005,POR,235,2801,Church_cses,2440,cses
+Portugal,2008,POR,235,1553,Army_evs,1111,evs
+Portugal,2008,POR,235,1553,Strong_evs,637,evs
+Portugal,2008,POR,235,1553,Church_evs,1305,evs
+Portugal,2008,POR,235,1553,EvDemoc_evs,1278,evs
+Portugal,2012,POR,235,2097,ImpDemoc_ess,1663,ess
+Qatar,2010,QAT,694,1060,ImpDemoc_wvs,896,wvs
+Romania,1992,ROM,360,998,Strong_ndb,733,ndb
+Romania,1993,ROM,360,1000,Army_ndb,811,ndb
+Romania,1993,ROM,360,1000,Strong_ndb,685,ndb
+Romania,1995,ROM,360,996,Army_ndb,874,ndb
+Romania,1995,ROM,360,996,Strong_ndb,743,ndb
+Romania,1998,ROM,360,1192,Army_ndb,965,ndb
+Romania,1998,ROM,360,1192,Strong_ndb,868,ndb
+Romania,1998,ROM,360,1192,Army_wvs,780,wvs
+Romania,1998,ROM,360,1192,Church_wvs,902,wvs
+Romania,1998,ROM,360,1192,EvDemoc_wvs,958,wvs
+Romania,1999,ROM,360,1146,Army_evs,671,evs
+Romania,1999,ROM,360,1146,Strong_evs,324,evs
+Romania,1999,ROM,360,1146,Church_evs,761,evs
+Romania,1999,ROM,360,1146,EvDemoc_evs,856,evs
+Romania,2001,ROM,360,1001,Army_ndb,808,ndb
+Romania,2001,ROM,360,1001,Strong_ndb,651,ndb
+Romania,2004,ROM,360,1913,Army_ndb,1617,ndb
+Romania,2004,ROM,360,1913,Strong_ndb,1339,ndb
+Romania,2004,ROM,360,1913,ThreeState_ndb,1143,ndb
+Romania,2004,ROM,360,1913,Church_cses,1421,cses
+Romania,2005,ROM,360,1776,Army_wvs,1164,wvs
+Romania,2005,ROM,360,1776,EvDemoc_wvs,1478,wvs
+Romania,2005,ROM,360,1776,ImpDemoc_wvs,1483,wvs
+Romania,2008,ROM,360,1489,Army_evs,940,evs
+Romania,2008,ROM,360,1489,Strong_evs,355,evs
+Romania,2008,ROM,360,1489,Church_evs,1136,evs
+Romania,2008,ROM,360,1489,EvDemoc_evs,1085,evs
+Romania,2012,ROM,360,1503,Army_wvs,924,wvs
+Romania,2012,ROM,360,1503,EvDemoc_wvs,1201,wvs
+Romania,2012,ROM,360,1503,ImpDemoc_wvs,1278,wvs
+Russia,1994,RUS,365,3535,Army_ndb,2740,ndb
+Russia,1994,RUS,365,3535,Strong_ndb,1419,ndb
+Russia,1995,RUS,365,1951,Army_ndb,1727,ndb
+Russia,1995,RUS,365,1951,Army_wvs,1287,wvs
+Russia,1995,RUS,365,1951,Strong_wvs,819,wvs
+Russia,1995,RUS,365,1951,Church_wvs,836,wvs
+Russia,1995,RUS,365,1951,EvDemoc_wvs,877,wvs
+Russia,1996,RUS,365,3973,Army_ndb,3507,ndb
+Russia,1998,RUS,365,1904,Army_ndb,1582,ndb
+Russia,1999,RUS,365,2500,Army_evs,1687,evs
+Russia,1999,RUS,365,2500,Strong_evs,1058,evs
+Russia,1999,RUS,365,2500,Church_evs,1195,evs
+Russia,1999,RUS,365,2500,EvDemoc_evs,1186,evs
+Russia,2000,RUS,365,3507,Army_ndb,3021,ndb
+Russia,2001,RUS,365,2000,Army_ndb,1707,ndb
+Russia,2002,RUS,365,1002,Strong_pew,210,pew
+Russia,2002,RUS,365,1002,ImpDemoc_pew,371,pew
+Russia,2003,RUS,365,1601,Army_ndb,1373,ndb
+Russia,2004,RUS,365,1496,Army_ndb,1305,ndb
+Russia,2004,RUS,365,1496,Strong_ndb,961,ndb
+Russia,2004,RUS,365,1496,ThreeState_ndb,395,ndb
+Russia,2004,RUS,365,1496,Church_cses,902,cses
+Russia,2005,RUS,365,1002,Strong_pew,281,pew
+Russia,2006,RUS,365,1000,Army_wvs,710,wvs
+Russia,2006,RUS,365,1000,Strong_wvs,357,wvs
+Russia,2006,RUS,365,1000,EvDemoc_wvs,658,wvs
+Russia,2006,RUS,365,1000,ImpDemoc_wvs,699,wvs
+Russia,2006,RUS,365,1000,Strong_pew,290,pew
+Russia,2007,RUS,365,1002,Army_ndb,818,ndb
+Russia,2007,RUS,365,1002,Strong_pew,271,pew
+Russia,2007,RUS,365,1002,ImpDemoc_pew,411,pew
+Russia,2008,RUS,365,1504,Strong_pew,496,pew
+Russia,2008,RUS,365,1504,Army_evs,1072,evs
+Russia,2008,RUS,365,1504,Strong_evs,534,evs
+Russia,2008,RUS,365,1504,Church_evs,952,evs
+Russia,2008,RUS,365,1504,EvDemoc_evs,939,evs
+Russia,2009,RUS,365,1000,Strong_pew,290,pew
+Russia,2009,RUS,365,1000,ImpDemoc_pew,410,pew
+Russia,2011,RUS,365,1000,Army_wvs,747,wvs
+Russia,2011,RUS,365,1000,Strong_wvs,215,wvs
+Russia,2011,RUS,365,1000,EvDemoc_wvs,674,wvs
+Russia,2011,RUS,365,1000,ImpDemoc_wvs,707,wvs
+Russia,2011,RUS,365,1000,Strong_pew,320,pew
+Russia,2012,RUS,365,2337,ImpDemoc_ess,1278,ess
+Russia,2012,RUS,365,2337,Strong_pew,748,pew
+Russia,2012,RUS,365,2337,ImpDemoc_pew,1215,pew
+Russia,2017,RUS,365,1002,EvDemoc_pew,681,pew
+Russia,2017,RUS,365,1002,Strong_pew.1,431,pew
+Russia,2017,RUS,365,1002,Army_pew,651,pew
+Rwanda,2007,RWA,517,1507,ImpDemoc_wvs,1441,wvs
+Rwanda,2012,RWA,517,1527,Army_wvs,813,wvs
+Rwanda,2012,RWA,517,1527,Strong_wvs,1085,wvs
+Rwanda,2012,RWA,517,1527,EvDemoc_wvs,1258,wvs
+Rwanda,2012,RWA,517,1527,ImpDemoc_wvs,1344,wvs
+Sao Tome and Principe,2015,STP,403,1196,Army_afrob,948,afb
+Sao Tome and Principe,2015,STP,403,1196,Strong_afrob,809,afb
+Sao Tome and Principe,2015,STP,403,1196,ThreeState_afrob,604,afb
+Sao Tome and Principe,2015,STP,403,1196,Party_afrob,911,afb
+Saudi Arabia,2003,SAU,670,1502,Church_wvs,924,wvs
+Saudi Arabia,2011,SAU,670,1404,Church_arb,756,arb
+Saudi Arabia,2011,SAU,670,1404,Strong_arb_1,699,arb
+Saudi Arabia,2011,SAU,670,1404,EvDemoc_arb,1033,arb
+Saudi Arabia,2011,SAU,670,1404,DemocSuit_arb,691,arb
+Senegal,2003,SEN,433,1147,Army_afrob,864,afb
+Senegal,2003,SEN,433,1147,Strong_afrob,879,afb
+Senegal,2003,SEN,433,1147,ThreeState_afrob,858,afb
+Senegal,2003,SEN,433,1147,Party_afrob,869,afb
+Senegal,2005,SEN,433,1200,Army_afrob,967,afb
+Senegal,2005,SEN,433,1200,Strong_afrob,1029,afb
+Senegal,2005,SEN,433,1200,ThreeState_afrob,905,afb
+Senegal,2005,SEN,433,1200,Party_afrob,917,afb
+Senegal,2008,SEN,433,1200,Army_afrob,831,afb
+Senegal,2008,SEN,433,1200,Strong_afrob,1038,afb
+Senegal,2008,SEN,433,1200,ThreeState_afrob,836,afb
+Senegal,2008,SEN,433,1200,Party_afrob,1080,afb
+Senegal,2012,SEN,433,1200,Army_afrob,974,afb
+Senegal,2012,SEN,433,1200,Strong_afrob,1066,afb
+Senegal,2012,SEN,433,1200,ThreeState_afrob,1049,afb
+Senegal,2012,SEN,433,1200,Party_afrob,1057,afb
+Senegal,2013,SEN,433,800,ThreeState_pew,664,pew
+Senegal,2013,SEN,433,800,Strong_pew,584,pew
+Senegal,2013,SEN,433,800,ImpDemoc_pew,624,pew
+Senegal,2014,SEN,433,1200,Army_afrob,1012,afb
+Senegal,2014,SEN,433,1200,Strong_afrob,1110,afb
+Senegal,2014,SEN,433,1200,ThreeState_afrob,1020,afb
+Senegal,2014,SEN,433,1200,Party_afrob,1069,afb
+Senegal,2017,SEN,433,1083,EvDemoc_pew,834,pew
+Senegal,2017,SEN,433,1083,Strong_pew.1,888,pew
+Senegal,2017,SEN,433,1083,Army_pew,639,pew
+Serbia,1996,SER,345,1280,Army_wvs,991,wvs
+Serbia,1996,SER,345,1280,Strong_wvs,786,wvs
+Serbia,1996,SER,345,1280,Church_wvs,986,wvs
+Serbia,1996,SER,345,1280,EvDemoc_wvs,988,wvs
+Serbia,1998,SER,345,1000,Army_ndb,905,ndb
+Serbia,1998,SER,345,1000,Strong_ndb,652,ndb
+Serbia,2000,SER,345,1000,Army_ndb,897,ndb
+Serbia,2000,SER,345,1000,Strong_ndb,764,ndb
+Serbia,2001,SER,345,1200,Army_wvs,962,wvs
+Serbia,2001,SER,345,1200,Strong_wvs,882,wvs
+Serbia,2001,SER,345,1200,Church_wvs,895,wvs
+Serbia,2001,SER,345,1200,EvDemoc_wvs,996,wvs
+Serbia,2002,SER,345,1000,Army_ndb,847,ndb
+Serbia,2005,SER,345,1220,Army_wvs,824,wvs
+Serbia,2005,SER,345,1220,Strong_wvs,689,wvs
+Serbia,2005,SER,345,1220,EvDemoc_wvs,1079,wvs
+Serbia,2005,SER,345,1220,ImpDemoc_wvs,981,wvs
+Serbia,2008,SER,345,1512,Army_evs,946,evs
+Serbia,2008,SER,345,1512,Strong_evs,421,evs
+Serbia,2008,SER,345,1512,Church_evs,1115,evs
+Serbia,2008,SER,345,1512,EvDemoc_evs,1161,evs
+Sierra Leone,2012,SIE,451,1190,Army_afrob,983,afb
+Sierra Leone,2012,SIE,451,1190,Strong_afrob,1021,afb
+Sierra Leone,2012,SIE,451,1190,ThreeState_afrob,899,afb
+Sierra Leone,2012,SIE,451,1190,Party_afrob,1002,afb
+Sierra Leone,2015,SIE,451,1191,Army_afrob,975,afb
+Sierra Leone,2015,SIE,451,1191,Strong_afrob,1049,afb
+Sierra Leone,2015,SIE,451,1191,ThreeState_afrob,700,afb
+Sierra Leone,2015,SIE,451,1191,Party_afrob,1104,afb
+Singapore,2002,SIN,830,1512,Army_wvs,1294,wvs
+Singapore,2002,SIN,830,1512,Strong_wvs,1086,wvs
+Singapore,2002,SIN,830,1512,Church_wvs,1380,wvs
+Singapore,2004,SIN,830,800,Army_asb,455,asb
+Singapore,2004,SIN,830,800,Strong_asb,434,asb
+Singapore,2004,SIN,830,800,EvDemoc_asb,631,asb
+Singapore,2006,SIN,830,1012,ThreeState_asnb,595,asnb
+Singapore,2006,SIN,830,1012,Army_asnb,939,asnb
+Singapore,2006,SIN,830,1012,DemocExtent_asnb,919,asnb
+Singapore,2006,SIN,830,1012,DemocSuit_asnb,982,asnb
+Singapore,2006,SIN,830,1012,Party_asnb,895,asnb
+Singapore,2006,SIN,830,1012,Strong_asnb,876,asnb
+Singapore,2006,SIN,830,1012,Army_asb,683,asb
+Singapore,2006,SIN,830,1012,Strong_asb,739,asb
+Singapore,2006,SIN,830,1012,EvDemoc_asb,861,asb
+Singapore,2010,SIN,830,1000,ThreeState_asnb,474,asnb
+Singapore,2010,SIN,830,1000,Army_asnb,864,asnb
+Singapore,2010,SIN,830,1000,DemocSuit_asnb,907,asnb
+Singapore,2010,SIN,830,1000,Party_asnb,793,asnb
+Singapore,2010,SIN,830,1000,Strong_asnb,868,asnb
+Singapore,2010,SIN,830,1000,Church_asnb,791,asnb
+Singapore,2012,SIN,830,1972,Army_wvs,1463,wvs
+Singapore,2012,SIN,830,1972,Strong_wvs,974,wvs
+Singapore,2012,SIN,830,1972,EvDemoc_wvs,1785,wvs
+Singapore,2012,SIN,830,1972,ImpDemoc_wvs,1749,wvs
+Singapore,2014,SIN,830,1039,ThreeState_asnb,439,asnb
+Singapore,2014,SIN,830,1039,Army_asnb,803,asnb
+Singapore,2014,SIN,830,1039,DemocSuit_asnb,831,asnb
+Singapore,2014,SIN,830,1039,Party_asnb,738,asnb
+Singapore,2014,SIN,830,1039,Strong_asnb,742,asnb
+Singapore,2014,SIN,830,1039,Church_asnb,805,asnb
+Slovakia,1992,SLO,317,562,Strong_ndb,429,ndb
+Slovakia,1992,SLO,317,562,ThreeState_ndb,363,ndb
+Slovakia,1993,SLO,317,531,Army_ndb,505,ndb
+Slovakia,1993,SLO,317,531,Strong_ndb,400,ndb
+Slovakia,1993,SLO,317,531,ThreeState_ndb,362,ndb
+Slovakia,1995,SLO,317,1010,Army_ndb,1001,ndb
+Slovakia,1995,SLO,317,1010,Strong_ndb,834,ndb
+Slovakia,1998,SLO,317,923,Army_ndb,871,ndb
+Slovakia,1998,SLO,317,923,Strong_ndb,713,ndb
+Slovakia,1998,SLO,317,923,Army_wvs,835,wvs
+Slovakia,1998,SLO,317,923,Strong_wvs,697,wvs
+Slovakia,1998,SLO,317,923,Church_wvs,763,wvs
+Slovakia,1998,SLO,317,923,EvDemoc_wvs,811,wvs
+Slovakia,1999,SLO,317,1331,Army_evs,1136,evs
+Slovakia,1999,SLO,317,1331,Strong_evs,973,evs
+Slovakia,1999,SLO,317,1331,Church_evs,1020,evs
+Slovakia,1999,SLO,317,1331,EvDemoc_evs,996,evs
+Slovakia,2001,SLO,317,1002,Army_ndb,927,ndb
+Slovakia,2001,SLO,317,1002,Strong_ndb,672,ndb
+Slovakia,2002,SLO,317,500,Strong_pew,430,pew
+Slovakia,2002,SLO,317,500,ImpDemoc_pew,365,pew
+Slovakia,2004,SLO,317,1036,Army_ndb,960,ndb
+Slovakia,2004,SLO,317,1036,Strong_ndb,741,ndb
+Slovakia,2004,SLO,317,1036,ThreeState_ndb,491,ndb
+Slovakia,2007,SLO,317,450,Strong_pew,396,pew
+Slovakia,2007,SLO,317,450,ImpDemoc_pew,284,pew
+Slovakia,2008,SLO,317,1509,Army_evs,1310,evs
+Slovakia,2008,SLO,317,1509,Strong_evs,1150,evs
+Slovakia,2008,SLO,317,1509,Church_evs,1203,evs
+Slovakia,2008,SLO,317,1509,EvDemoc_evs,1147,evs
+Slovakia,2009,SLO,317,1001,Strong_pew,811,pew
+Slovakia,2009,SLO,317,1001,ImpDemoc_pew,430,pew
+Slovakia,2012,SLO,317,1823,ImpDemoc_ess,1437,ess
+Slovenia,1992,SLV,349,869,Strong_ndb,250,ndb
+Slovenia,1993,SLV,349,984,Army_ndb,841,ndb
+Slovenia,1993,SLV,349,984,Strong_ndb,541,ndb
+Slovenia,1995,SLV,349,997,Army_ndb,884,ndb
+Slovenia,1995,SLV,349,997,Strong_ndb,640,ndb
+Slovenia,1995,SLV,349,997,Army_wvs,889,wvs
+Slovenia,1995,SLV,349,997,Strong_wvs,710,wvs
+Slovenia,1995,SLV,349,997,Church_wvs,786,wvs
+Slovenia,1995,SLV,349,997,EvDemoc_wvs,802,wvs
+Slovenia,1998,SLV,349,974,Army_ndb,945,ndb
+Slovenia,1998,SLV,349,974,Strong_ndb,824,ndb
+Slovenia,1999,SLV,349,1006,Army_evs,924,evs
+Slovenia,1999,SLV,349,1006,Strong_evs,734,evs
+Slovenia,1999,SLV,349,1006,Church_evs,849,evs
+Slovenia,1999,SLV,349,1006,EvDemoc_evs,833,evs
+Slovenia,2001,SLV,349,1098,Army_ndb,988,ndb
+Slovenia,2001,SLV,349,1098,Strong_ndb,756,ndb
+Slovenia,2004,SLV,349,1002,Army_ndb,950,ndb
+Slovenia,2004,SLV,349,1002,Strong_ndb,807,ndb
+Slovenia,2004,SLV,349,1002,ThreeState_ndb,595,ndb
+Slovenia,2004,SLV,349,1002,Church_cses,736,cses
+Slovenia,2005,SLV,349,1037,Army_wvs,913,wvs
+Slovenia,2005,SLV,349,1037,Strong_wvs,765,wvs
+Slovenia,2005,SLV,349,1037,EvDemoc_wvs,806,wvs
+Slovenia,2005,SLV,349,1037,ImpDemoc_wvs,803,wvs
+Slovenia,2008,SLV,349,1366,Army_evs,1276,evs
+Slovenia,2008,SLV,349,1366,Strong_evs,968,evs
+Slovenia,2008,SLV,349,1366,Church_evs,1165,evs
+Slovenia,2008,SLV,349,1366,EvDemoc_evs,1131,evs
+Slovenia,2011,SLV,349,1069,Army_wvs,940,wvs
+Slovenia,2011,SLV,349,1069,Strong_wvs,715,wvs
+Slovenia,2011,SLV,349,1069,EvDemoc_wvs,792,wvs
+Slovenia,2011,SLV,349,1069,ImpDemoc_wvs,881,wvs
+Slovenia,2012,SLV,349,1223,ImpDemoc_ess,961,ess
+South Africa,1996,SAF,560,2935,Army_wvs,1911,wvs
+South Africa,1996,SAF,560,2935,Strong_wvs,1676,wvs
+South Africa,1996,SAF,560,2935,Church_wvs,2137,wvs
+South Africa,1996,SAF,560,2935,EvDemoc_wvs,2281,wvs
+South Africa,1999,SAF,560,2200,Army_afrob,1657,afb
+South Africa,1999,SAF,560,2200,Strong_afrob,1464,afb
+South Africa,1999,SAF,560,2200,ThreeState_afrob,1322,afb
+South Africa,1999,SAF,560,2200,Party_afrob,1236,afb
+South Africa,2001,SAF,560,3000,Army_wvs,2139,wvs
+South Africa,2001,SAF,560,3000,Strong_wvs,1775,wvs
+South Africa,2001,SAF,560,3000,Church_wvs,2294,wvs
+South Africa,2001,SAF,560,3000,EvDemoc_wvs,2491,wvs
+South Africa,2002,SAF,560,700,Strong_pew,343,pew
+South Africa,2002,SAF,560,700,ImpDemoc_pew,469,pew
+South Africa,2003,SAF,560,2400,Army_afrob,1843,afb
+South Africa,2003,SAF,560,2400,Strong_afrob,1745,afb
+South Africa,2003,SAF,560,2400,ThreeState_afrob,1361,afb
+South Africa,2003,SAF,560,2400,Party_afrob,1614,afb
+South Africa,2005,SAF,560,2400,Army_afrob,1730,afb
+South Africa,2005,SAF,560,2400,Strong_afrob,1538,afb
+South Africa,2005,SAF,560,2400,ThreeState_afrob,1554,afb
+South Africa,2005,SAF,560,2400,Party_afrob,1584,afb
+South Africa,2006,SAF,560,2988,Army_wvs,1807,wvs
+South Africa,2006,SAF,560,2988,Strong_wvs,1507,wvs
+South Africa,2006,SAF,560,2988,EvDemoc_wvs,2563,wvs
+South Africa,2006,SAF,560,2988,ImpDemoc_wvs,2728,wvs
+South Africa,2008,SAF,560,2400,Army_afrob,1603,afb
+South Africa,2008,SAF,560,2400,Strong_afrob,1512,afb
+South Africa,2008,SAF,560,2400,ThreeState_afrob,1601,afb
+South Africa,2008,SAF,560,2400,Party_afrob,1510,afb
+South Africa,2012,SAF,560,2399,Army_afrob,1651,afb
+South Africa,2012,SAF,560,2399,Strong_afrob,1679,afb
+South Africa,2012,SAF,560,2399,ThreeState_afrob,1723,afb
+South Africa,2012,SAF,560,2399,Party_afrob,1630,afb
+South Africa,2013,SAF,560,815,Army_wvs,374,wvs
+South Africa,2013,SAF,560,815,Strong_wvs,301,wvs
+South Africa,2013,SAF,560,815,EvDemoc_wvs,556,wvs
+South Africa,2013,SAF,560,815,ImpDemoc_wvs,660,wvs
+South Africa,2013,SAF,560,815,ThreeState_pew,481,pew
+South Africa,2013,SAF,560,815,Strong_pew,489,pew
+South Africa,2013,SAF,560,815,ImpDemoc_pew,432,pew
+South Africa,2015,SAF,560,1000,Army_afrob,671,afb
+South Africa,2015,SAF,560,1000,Strong_afrob,799,afb
+South Africa,2015,SAF,560,1000,ThreeState_afrob,638,afb
+South Africa,2015,SAF,560,1000,Party_afrob,722,afb
+South Africa,2017,SAF,560,1295,EvDemoc_pew,855,pew
+South Africa,2017,SAF,560,1295,Strong_pew.1,648,pew
+South Africa,2017,SAF,560,1295,Army_pew,544,pew
+South Korea,1996,ROK,732,1249,Army_wvs,1173,wvs
+South Korea,1996,ROK,732,1249,Strong_wvs,846,wvs
+South Korea,1996,ROK,732,1249,Church_wvs,1133,wvs
+South Korea,1996,ROK,732,1249,EvDemoc_wvs,1045,wvs
+South Korea,2001,ROK,732,1200,Army_wvs,1072,wvs
+South Korea,2001,ROK,732,1200,Strong_wvs,779,wvs
+South Korea,2001,ROK,732,1200,Church_wvs,965,wvs
+South Korea,2001,ROK,732,1200,EvDemoc_wvs,902,wvs
+South Korea,2002,ROK,732,700,Strong_pew,427,pew
+South Korea,2002,ROK,732,700,ImpDemoc_pew,301,pew
+South Korea,2003,ROK,732,1500,ThreeState_asnb,741,asnb
+South Korea,2003,ROK,732,1500,Army_asnb,1347,asnb
+South Korea,2003,ROK,732,1500,DemocExtent_asnb,1431,asnb
+South Korea,2003,ROK,732,1500,DemocSuit_asnb,1263,asnb
+South Korea,2003,ROK,732,1500,Party_asnb,1301,asnb
+South Korea,2003,ROK,732,1500,Strong_asnb,1266,asnb
+South Korea,2003,ROK,732,1500,Army_asb,986,asb
+South Korea,2003,ROK,732,1500,Strong_asb,531,asb
+South Korea,2003,ROK,732,1500,EvDemoc_asb,1264,asb
+South Korea,2004,ROK,732,1500,Army_asb,930,asb
+South Korea,2004,ROK,732,1500,Strong_asb,665,asb
+South Korea,2004,ROK,732,1500,EvDemoc_asb,1104,asb
+South Korea,2004,ROK,732,1500,Church_cses,1272,cses
+South Korea,2005,ROK,732,1200,Army_wvs,1105,wvs
+South Korea,2005,ROK,732,1200,Strong_wvs,629,wvs
+South Korea,2005,ROK,732,1200,EvDemoc_wvs,926,wvs
+South Korea,2005,ROK,732,1200,ImpDemoc_wvs,1125,wvs
+South Korea,2006,ROK,732,1023,Army_asb,686,asb
+South Korea,2006,ROK,732,1023,Strong_asb,402,asb
+South Korea,2006,ROK,732,1023,EvDemoc_asb,901,asb
+South Korea,2010,ROK,732,1200,Army_wvs,1097,wvs
+South Korea,2010,ROK,732,1200,Strong_wvs,604,wvs
+South Korea,2010,ROK,732,1200,EvDemoc_wvs,892,wvs
+South Korea,2010,ROK,732,1200,ImpDemoc_wvs,1090,wvs
+South Korea,2011,ROK,732,1207,ThreeState_asnb,791,asnb
+South Korea,2011,ROK,732,1207,Army_asnb,1102,asnb
+South Korea,2011,ROK,732,1207,DemocSuit_asnb,992,asnb
+South Korea,2011,ROK,732,1207,Party_asnb,1061,asnb
+South Korea,2011,ROK,732,1207,Strong_asnb,966,asnb
+South Korea,2011,ROK,732,1207,Church_asnb,1004,asnb
+South Korea,2015,ROK,732,1005,ThreeState_asnb,633,asnb
+South Korea,2015,ROK,732,1005,Army_asnb,899,asnb
+South Korea,2015,ROK,732,1005,DemocSuit_asnb,844,asnb
+South Korea,2015,ROK,732,1005,Party_asnb,840,asnb
+South Korea,2015,ROK,732,1005,Strong_asnb,777,asnb
+South Korea,2015,ROK,732,1005,Church_asnb,874,asnb
+South Korea,2015,ROK,732,1005,ImpDemoc_pew,623,pew
+South Korea,2017,ROK,732,1010,EvDemoc_pew,788,pew
+South Korea,2017,ROK,732,1010,Strong_pew.1,747,pew
+South Korea,2017,ROK,732,1010,Army_pew,919,pew
+South Sudan,2013,SSD,626,1200,Church_arb,877,arb
+South Sudan,2013,SSD,626,1200,Church_arb,877,arb
+South Sudan,2013,SSD,626,1200,Strong_arb_1,781,arb
+South Sudan,2013,SSD,626,1200,Strong_arb_1,781,arb
+South Sudan,2013,SSD,626,1200,EvDemoc_arb,999,arb
+South Sudan,2013,SSD,626,1200,EvDemoc_arb,999,arb
+South Sudan,2013,SSD,626,1200,DemocSuit_arb,690,arb
+South Sudan,2013,SSD,626,1200,DemocSuit_arb,690,arb
+Spain,1988,SPN,230,1013,ThreeState_eb,770,eb
+Spain,1992,SPN,230,1000,ThreeState_eb,780,eb
+Spain,1995,SPN,230,1211,Army_wvs,992,wvs
+Spain,1995,SPN,230,1211,Strong_wvs,730,wvs
+Spain,1995,SPN,230,1211,Church_wvs,1032,wvs
+Spain,1995,SPN,230,1211,EvDemoc_wvs,1079,wvs
+Spain,1999,SPN,230,1200,Army_evs,936,evs
+Spain,1999,SPN,230,1200,Strong_evs,745,evs
+Spain,1999,SPN,230,1200,Church_evs,1021,evs
+Spain,1999,SPN,230,1200,EvDemoc_evs,968,evs
+Spain,2000,SPN,230,1209,Army_wvs,1011,wvs
+Spain,2000,SPN,230,1209,Strong_wvs,820,wvs
+Spain,2000,SPN,230,1209,Church_wvs,1040,wvs
+Spain,2000,SPN,230,1209,EvDemoc_wvs,1059,wvs
+Spain,2004,SPN,230,1212,Church_cses,1110,cses
+Spain,2005,SPN,230,1200,Army_wvs,989,wvs
+Spain,2005,SPN,230,1200,Strong_wvs,686,wvs
+Spain,2005,SPN,230,1200,EvDemoc_wvs,1106,wvs
+Spain,2005,SPN,230,1200,ImpDemoc_wvs,1140,wvs
+Spain,2007,SPN,230,2482,Church_lb,2139,lb
+Spain,2008,SPN,230,1500,Church_lb,1296,lb
+Spain,2008,SPN,230,1500,Army_evs,1339,evs
+Spain,2008,SPN,230,1500,Strong_evs,1042,evs
+Spain,2008,SPN,230,1500,Church_evs,1352,evs
+Spain,2008,SPN,230,1500,EvDemoc_evs,1384,evs
+Spain,2009,SPN,230,1001,Church_lb,853,lb
+Spain,2009,SPN,230,1001,Strong_pew,781,pew
+Spain,2010,SPN,230,2483,Church_lb,2058,lb
+Spain,2011,SPN,230,1189,Army_wvs,1009,wvs
+Spain,2011,SPN,230,1189,Strong_wvs,544,wvs
+Spain,2011,SPN,230,1189,EvDemoc_wvs,1084,wvs
+Spain,2011,SPN,230,1189,ImpDemoc_wvs,1112,wvs
+Spain,2012,SPN,230,1852,ImpDemoc_ess,1558,ess
+Spain,2013,SPN,230,2459,Church_lb,2233,lb
+Spain,2013,SPN,230,2459,ThreeState_lb,1842,lb
+Spain,2015,SPN,230,1000,ThreeState_lb,784,lb
+Spain,2015,SPN,230,1000,ImpDemoc_pew,790,pew
+Spain,2017,SPN,230,1000,EvDemoc_pew,740,pew
+Spain,2017,SPN,230,1000,Strong_pew.1,840,pew
+Spain,2017,SPN,230,1000,Army_pew,860,pew
+Sri Lanka,2003,SRI,780,800,Army_asb,456,asb
+Sri Lanka,2003,SRI,780,800,Strong_asb,556,asb
+Sri Lanka,2003,SRI,780,800,EvDemoc_asb,703,asb
+Sri Lanka,2005,SRI,780,2243,Army_asb,1341,asb
+Sri Lanka,2005,SRI,780,2243,Strong_asb,1506,asb
+Sri Lanka,2005,SRI,780,2243,EvDemoc_asb,2091,asb
+Sri Lanka,2005,SRI,780,2243,DemocSuit_sab,1636,sab
+Sri Lanka,2005,SRI,780,2243,ThreeState_sab,1235,sab
+Sri Lanka,2005,SRI,780,2243,Strong_sab,522,sab
+Sri Lanka,2005,SRI,780,2243,Army_sab,1436,sab
+Sri Lanka,2005,SRI,780,2243,Elec_sab,2003,sab
+Sri Lanka,2013,SRI,780,1703,ThreeState_sab,1232,sab
+Sri Lanka,2013,SRI,780,1703,Strong_sab,958,sab
+Sri Lanka,2013,SRI,780,1703,Army_sab,1252,sab
+Sudan,2010,SUD,625,1538,Church_arb,1133,arb
+Sudan,2010,SUD,625,1538,Strong_arb_1,1007,arb
+Sudan,2010,SUD,625,1538,EvDemoc_arb,1239,arb
+Sudan,2010,SUD,625,1538,DemocSuit_arb,724,arb
+Sudan,2012,SUD,625,1199,Army_afrob,615,afb
+Sudan,2012,SUD,625,1199,Strong_afrob,764,afb
+Sudan,2012,SUD,625,1199,ThreeState_afrob,616,afb
+Sudan,2012,SUD,625,1199,Party_afrob,837,afb
+Sudan,2015,SUD,625,1200,Army_afrob,553,afb
+Sudan,2015,SUD,625,1200,Strong_afrob,722,afb
+Sudan,2015,SUD,625,1200,ThreeState_afrob,526,afb
+Sudan,2015,SUD,625,1200,Party_afrob,831,afb
+Suriname,2010,SUR,115,1516,ThreeState_lapop,1120,lapop
+Suriname,2010,SUR,115,1516,Church_lapop,1205,lapop
+Suriname,2010,SUR,115,1516,Strong_lapop_1,1309,lapop
+Suriname,2012,SUR,115,1501,ThreeState_lapop,1040,lapop
+Suriname,2012,SUR,115,1501,Church_lapop,1010,lapop
+Suriname,2012,SUR,115,1501,Strong_lapop_1,1204,lapop
+Suriname,2014,SUR,115,3998,ThreeState_lapop,2315,lapop
+Suriname,2014,SUR,115,3998,Church_lapop,2385,lapop
+Swaziland,2012,SWA,572,1200,Army_afrob,1036,afb
+Swaziland,2012,SWA,572,1200,ThreeState_afrob,550,afb
+Swaziland,2012,SWA,572,1200,Party_afrob,838,afb
+Swaziland,2015,SWA,572,1200,Army_afrob,1030,afb
+Swaziland,2015,SWA,572,1200,ThreeState_afrob,542,afb
+Swaziland,2015,SWA,572,1200,Party_afrob,775,afb
+Sweden,1996,SWD,380,1009,Army_wvs,949,wvs
+Sweden,1996,SWD,380,1009,Strong_wvs,723,wvs
+Sweden,1996,SWD,380,1009,Church_wvs,897,wvs
+Sweden,1996,SWD,380,1009,EvDemoc_wvs,935,wvs
+Sweden,1999,SWD,380,1015,Army_wvs,954,wvs
+Sweden,1999,SWD,380,1015,Strong_wvs,728,wvs
+Sweden,1999,SWD,380,1015,Church_wvs,902,wvs
+Sweden,1999,SWD,380,1015,EvDemoc_wvs,941,wvs
+Sweden,1999,SWD,380,1015,Army_evs,912,evs
+Sweden,1999,SWD,380,1015,Strong_evs,771,evs
+Sweden,1999,SWD,380,1015,Church_evs,938,evs
+Sweden,1999,SWD,380,1015,EvDemoc_evs,965,evs
+Sweden,2002,SWD,380,1060,Church_cses,973,cses
+Sweden,2006,SWD,380,1003,Army_wvs,947,wvs
+Sweden,2006,SWD,380,1003,Strong_wvs,811,wvs
+Sweden,2006,SWD,380,1003,EvDemoc_wvs,977,wvs
+Sweden,2006,SWD,380,1003,ImpDemoc_wvs,985,wvs
+Sweden,2009,SWD,380,1187,Army_evs,967,evs
+Sweden,2009,SWD,380,1187,Strong_evs,842,evs
+Sweden,2009,SWD,380,1187,Church_evs,980,evs
+Sweden,2009,SWD,380,1187,EvDemoc_evs,964,evs
+Sweden,2011,SWD,380,1206,Army_wvs,1055,wvs
+Sweden,2011,SWD,380,1206,Strong_wvs,834,wvs
+Sweden,2011,SWD,380,1206,EvDemoc_wvs,1124,wvs
+Sweden,2011,SWD,380,1206,ImpDemoc_wvs,1143,wvs
+Sweden,2012,SWD,380,1832,ImpDemoc_ess,1742,ess
+Sweden,2017,SWD,380,1000,EvDemoc_pew,920,pew
+Sweden,2017,SWD,380,1000,Strong_pew.1,900,pew
+Sweden,2017,SWD,380,1000,Army_pew,950,pew
+Switzerland,1996,SWZ,225,1212,Army_wvs,1059,wvs
+Switzerland,1996,SWZ,225,1212,Strong_wvs,706,wvs
+Switzerland,1996,SWZ,225,1212,Church_wvs,1011,wvs
+Switzerland,1996,SWZ,225,1212,EvDemoc_wvs,1024,wvs
+Switzerland,2003,SWZ,225,1418,Church_cses,1320,cses
+Switzerland,2007,SWZ,225,1241,Army_wvs,1196,wvs
+Switzerland,2007,SWZ,225,1241,Strong_wvs,1005,wvs
+Switzerland,2007,SWZ,225,1241,EvDemoc_wvs,1174,wvs
+Switzerland,2007,SWZ,225,1241,ImpDemoc_wvs,1194,wvs
+Switzerland,2008,SWZ,225,1272,Army_evs,1214,evs
+Switzerland,2008,SWZ,225,1272,Strong_evs,859,evs
+Switzerland,2008,SWZ,225,1272,Church_evs,1152,evs
+Switzerland,2008,SWZ,225,1272,EvDemoc_evs,1183,evs
+Switzerland,2012,SWZ,225,1477,ImpDemoc_ess,1380,ess
+Taiwan,1995,TAW,713,780,Army_wvs,622,wvs
+Taiwan,1995,TAW,713,780,Strong_wvs,439,wvs
+Taiwan,1995,TAW,713,780,Church_wvs,582,wvs
+Taiwan,1995,TAW,713,780,EvDemoc_wvs,692,wvs
+Taiwan,2001,TAW,713,2022,ThreeState_asnb,865,asnb
+Taiwan,2001,TAW,713,2022,Army_asnb,1696,asnb
+Taiwan,2001,TAW,713,2022,DemocExtent_asnb,1505,asnb
+Taiwan,2001,TAW,713,2022,DemocSuit_asnb,1229,asnb
+Taiwan,2001,TAW,713,2022,Party_asnb,1476,asnb
+Taiwan,2001,TAW,713,2022,Strong_asnb,1443,asnb
+Taiwan,2001,TAW,713,2022,Church_cses,1514,cses
+Taiwan,2004,TAW,713,1823,Church_cses,1318,cses
+Taiwan,2006,TAW,713,1587,ThreeState_asnb,749,asnb
+Taiwan,2006,TAW,713,1587,Army_asnb,1402,asnb
+Taiwan,2006,TAW,713,1587,DemocExtent_asnb,1325,asnb
+Taiwan,2006,TAW,713,1587,DemocSuit_asnb,1266,asnb
+Taiwan,2006,TAW,713,1587,Party_asnb,1317,asnb
+Taiwan,2006,TAW,713,1587,Strong_asnb,1215,asnb
+Taiwan,2006,TAW,713,1587,Army_asb,1106,asb
+Taiwan,2006,TAW,713,1587,Strong_asb,1207,asb
+Taiwan,2006,TAW,713,1587,EvDemoc_asb,1462,asb
+Taiwan,2006,TAW,713,1587,Army_wvs,1336,wvs
+Taiwan,2006,TAW,713,1587,Strong_wvs,630,wvs
+Taiwan,2006,TAW,713,1587,EvDemoc_wvs,1465,wvs
+Taiwan,2006,TAW,713,1587,ImpDemoc_wvs,1509,wvs
+Taiwan,2010,TAW,713,1592,ThreeState_asnb,794,asnb
+Taiwan,2010,TAW,713,1592,Army_asnb,1467,asnb
+Taiwan,2010,TAW,713,1592,DemocSuit_asnb,1175,asnb
+Taiwan,2010,TAW,713,1592,Party_asnb,1370,asnb
+Taiwan,2010,TAW,713,1592,Strong_asnb,1264,asnb
+Taiwan,2010,TAW,713,1592,Church_asnb,1367,asnb
+Taiwan,2012,TAW,713,1238,Army_wvs,997,wvs
+Taiwan,2012,TAW,713,1238,Strong_wvs,373,wvs
+Taiwan,2012,TAW,713,1238,EvDemoc_wvs,1086,wvs
+Taiwan,2012,TAW,713,1238,ImpDemoc_wvs,1136,wvs
+Taiwan,2014,TAW,713,1657,ThreeState_asnb,752,asnb
+Taiwan,2014,TAW,713,1657,Army_asnb,1539,asnb
+Taiwan,2014,TAW,713,1657,DemocSuit_asnb,1245,asnb
+Taiwan,2014,TAW,713,1657,Party_asnb,1449,asnb
+Taiwan,2014,TAW,713,1657,Strong_asnb,1333,asnb
+Taiwan,2014,TAW,713,1657,Church_asnb,1406,asnb
+Tajikistan,2005,TAJ,702,800,Army_asb,377,asb
+Tajikistan,2005,TAJ,702,800,Strong_asb,239,asb
+Tajikistan,2005,TAJ,702,800,EvDemoc_asb,445,asb
+Tanzania,1999,TAZ,510,2196,Army_afrob,2101,afb
+Tanzania,1999,TAZ,510,2196,Strong_afrob,2018,afb
+Tanzania,1999,TAZ,510,2196,ThreeState_afrob,1836,afb
+Tanzania,1999,TAZ,510,2196,Party_afrob,1329,afb
+Tanzania,2001,TAZ,510,1171,Army_wvs,972,wvs
+Tanzania,2001,TAZ,510,1171,Strong_wvs,1103,wvs
+Tanzania,2001,TAZ,510,1171,Church_wvs,992,wvs
+Tanzania,2001,TAZ,510,1171,EvDemoc_wvs,1062,wvs
+Tanzania,2002,TAZ,510,720,Strong_pew,504,pew
+Tanzania,2002,TAZ,510,720,ImpDemoc_pew,446,pew
+Tanzania,2003,TAZ,510,1200,Army_afrob,1035,afb
+Tanzania,2003,TAZ,510,1200,Strong_afrob,1030,afb
+Tanzania,2003,TAZ,510,1200,ThreeState_afrob,773,afb
+Tanzania,2003,TAZ,510,1200,Party_afrob,741,afb
+Tanzania,2005,TAZ,510,1248,Army_afrob,1022,afb
+Tanzania,2005,TAZ,510,1248,Strong_afrob,1020,afb
+Tanzania,2005,TAZ,510,1248,ThreeState_afrob,470,afb
+Tanzania,2005,TAZ,510,1248,Party_afrob,546,afb
+Tanzania,2007,TAZ,510,704,Strong_pew,514,pew
+Tanzania,2007,TAZ,510,704,ImpDemoc_pew,521,pew
+Tanzania,2008,TAZ,510,1208,Army_afrob,1081,afb
+Tanzania,2008,TAZ,510,1208,Strong_afrob,1104,afb
+Tanzania,2008,TAZ,510,1208,ThreeState_afrob,863,afb
+Tanzania,2008,TAZ,510,1208,Party_afrob,761,afb
+Tanzania,2012,TAZ,510,2400,Army_afrob,1903,afb
+Tanzania,2012,TAZ,510,2400,Strong_afrob,2167,afb
+Tanzania,2012,TAZ,510,2400,ThreeState_afrob,2028,afb
+Tanzania,2012,TAZ,510,2400,Party_afrob,1826,afb
+Tanzania,2014,TAZ,510,2386,Army_afrob,2054,afb
+Tanzania,2014,TAZ,510,2386,Strong_afrob,2122,afb
+Tanzania,2014,TAZ,510,2386,ThreeState_afrob,1365,afb
+Tanzania,2014,TAZ,510,2386,Party_afrob,1770,afb
+Tanzania,2015,TAZ,510,1000,ImpDemoc_pew,480,pew
+Tanzania,2017,TAZ,510,1061,EvDemoc_pew,859,pew
+Tanzania,2017,TAZ,510,1061,Strong_pew.1,605,pew
+Tanzania,2017,TAZ,510,1061,Army_pew,647,pew
+Thailand,2002,THI,800,1546,ThreeState_asnb,1295,asnb
+Thailand,2002,THI,800,1546,Army_asnb,1246,asnb
+Thailand,2002,THI,800,1546,DemocExtent_asnb,1428,asnb
+Thailand,2002,THI,800,1546,DemocSuit_asnb,1354,asnb
+Thailand,2002,THI,800,1546,Party_asnb,962,asnb
+Thailand,2002,THI,800,1546,Strong_asnb,1190,asnb
+Thailand,2003,THI,800,800,Army_asb,503,asb
+Thailand,2003,THI,800,800,Strong_asb,681,asb
+Thailand,2003,THI,800,800,EvDemoc_asb,774,asb
+Thailand,2004,THI,800,800,Army_asb,355,asb
+Thailand,2004,THI,800,800,Strong_asb,563,asb
+Thailand,2004,THI,800,800,EvDemoc_asb,792,asb
+Thailand,2006,THI,800,1546,ThreeState_asnb,1129,asnb
+Thailand,2006,THI,800,1546,Army_asnb,1109,asnb
+Thailand,2006,THI,800,1546,DemocExtent_asnb,1313,asnb
+Thailand,2006,THI,800,1546,DemocSuit_asnb,1357,asnb
+Thailand,2006,THI,800,1546,Party_asnb,1137,asnb
+Thailand,2006,THI,800,1546,Strong_asnb,1073,asnb
+Thailand,2007,THI,800,1000,Army_asb,459,asb
+Thailand,2007,THI,800,1000,Strong_asb,730,asb
+Thailand,2007,THI,800,1000,EvDemoc_asb,961,asb
+Thailand,2007,THI,800,1000,Army_wvs,463,wvs
+Thailand,2007,THI,800,1000,Strong_wvs,291,wvs
+Thailand,2007,THI,800,1000,EvDemoc_wvs,923,wvs
+Thailand,2007,THI,800,1000,ImpDemoc_wvs,947,wvs
+Thailand,2010,THI,800,1512,ThreeState_asnb,1031,asnb
+Thailand,2010,THI,800,1512,Army_asnb,1124,asnb
+Thailand,2010,THI,800,1512,DemocSuit_asnb,1215,asnb
+Thailand,2010,THI,800,1512,Party_asnb,1143,asnb
+Thailand,2010,THI,800,1512,Strong_asnb,1051,asnb
+Thailand,2010,THI,800,1512,Church_asnb,1336,asnb
+Thailand,2013,THI,800,1200,Army_wvs,781,wvs
+Thailand,2013,THI,800,1200,Strong_wvs,828,wvs
+Thailand,2013,THI,800,1200,EvDemoc_wvs,1102,wvs
+Thailand,2013,THI,800,1200,ImpDemoc_wvs,1054,wvs
+Thailand,2014,THI,800,1200,ThreeState_asnb,609,asnb
+Thailand,2014,THI,800,1200,Army_asnb,484,asnb
+Thailand,2014,THI,800,1200,DemocSuit_asnb,795,asnb
+Thailand,2014,THI,800,1200,Party_asnb,693,asnb
+Thailand,2014,THI,800,1200,Strong_asnb,660,asnb
+Thailand,2014,THI,800,1200,Church_asnb,992,asnb
+Togo,2012,TOG,461,1200,Army_afrob,740,afb
+Togo,2012,TOG,461,1200,Strong_afrob,900,afb
+Togo,2012,TOG,461,1200,ThreeState_afrob,918,afb
+Togo,2012,TOG,461,1200,Party_afrob,969,afb
+Togo,2014,TOG,461,1200,Army_afrob,803,afb
+Togo,2014,TOG,461,1200,Strong_afrob,1046,afb
+Togo,2014,TOG,461,1200,ThreeState_afrob,879,afb
+Togo,2014,TOG,461,1200,Party_afrob,989,afb
+Trinidad and Tobago,2006,TRI,52,1002,Army_wvs,783,wvs
+Trinidad and Tobago,2006,TRI,52,1002,Strong_wvs,643,wvs
+Trinidad and Tobago,2006,TRI,52,1002,EvDemoc_wvs,876,wvs
+Trinidad and Tobago,2006,TRI,52,1002,ImpDemoc_wvs,898,wvs
+Trinidad and Tobago,2010,TRI,52,1503,Army_wvs,1225,wvs
+Trinidad and Tobago,2010,TRI,52,1503,Strong_wvs,1067,wvs
+Trinidad and Tobago,2010,TRI,52,1503,EvDemoc_wvs,1223,wvs
+Trinidad and Tobago,2010,TRI,52,1503,ImpDemoc_wvs,1284,wvs
+Trinidad and Tobago,2010,TRI,52,1503,ThreeState_lapop,1010,lapop
+Trinidad and Tobago,2010,TRI,52,1503,Church_lapop,965,lapop
+Trinidad and Tobago,2010,TRI,52,1503,Strong_lapop_1,1259,lapop
+Trinidad and Tobago,2012,TRI,52,1500,ThreeState_lapop,992,lapop
+Trinidad and Tobago,2012,TRI,52,1500,Church_lapop,938,lapop
+Trinidad and Tobago,2012,TRI,52,1500,Strong_lapop_1,1245,lapop
+Trinidad and Tobago,2014,TRI,52,4198,ThreeState_lapop,3041,lapop
+Trinidad and Tobago,2014,TRI,52,4198,Church_lapop,2847,lapop
+Tunisia,2011,TUN,616,1196,Church_arb,839,arb
+Tunisia,2011,TUN,616,1196,Strong_arb_1,804,arb
+Tunisia,2011,TUN,616,1196,EvDemoc_arb,1024,arb
+Tunisia,2011,TUN,616,1196,DemocSuit_arb,585,arb
+Tunisia,2012,TUN,616,1000,Army_afrob,556,afb
+Tunisia,2012,TUN,616,1000,Strong_afrob,778,afb
+Tunisia,2012,TUN,616,1000,ThreeState_afrob,707,afb
+Tunisia,2012,TUN,616,1000,Party_afrob,574,afb
+Tunisia,2012,TUN,616,1000,ThreeState_pew,630,pew
+Tunisia,2012,TUN,616,1000,Strong_pew,610,pew
+Tunisia,2012,TUN,616,1000,ImpDemoc_pew,770,pew
+Tunisia,2013,TUN,616,1000,Church_arb,701,arb
+Tunisia,2013,TUN,616,1000,Strong_arb_1,736,arb
+Tunisia,2013,TUN,616,1000,EvDemoc_arb,852,arb
+Tunisia,2013,TUN,616,1000,DemocSuit_arb,369,arb
+Tunisia,2013,TUN,616,1000,Army_wvs,554,wvs
+Tunisia,2013,TUN,616,1000,Strong_wvs,452,wvs
+Tunisia,2013,TUN,616,1000,EvDemoc_wvs,856,wvs
+Tunisia,2013,TUN,616,1000,ImpDemoc_wvs,805,wvs
+Tunisia,2013,TUN,616,1000,ThreeState_pew,540,pew
+Tunisia,2013,TUN,616,1000,Strong_pew,530,pew
+Tunisia,2013,TUN,616,1000,ImpDemoc_pew,710,pew
+Tunisia,2014,TUN,616,1000,ThreeState_pew,480,pew
+Tunisia,2014,TUN,616,1000,Strong_pew,380,pew
+Tunisia,2014,TUN,616,1000,ImpDemoc_pew,920,pew
+Tunisia,2015,TUN,616,1000,Army_afrob,569,afb
+Tunisia,2015,TUN,616,1000,Strong_afrob,792,afb
+Tunisia,2015,TUN,616,1000,ThreeState_afrob,659,afb
+Tunisia,2015,TUN,616,1000,Party_afrob,676,afb
+Tunisia,2016,TUN,616,1199,Church_arb,1023,arb
+Tunisia,2016,TUN,616,1199,DemocSuit_arb,428,arb
+Tunisia,2016,TUN,616,1199,ThreeState_arb,585,arb
+Tunisia,2017,TUN,616,1004,EvDemoc_pew,532,pew
+Tunisia,2017,TUN,616,1004,Strong_pew.1,602,pew
+Tunisia,2017,TUN,616,1004,Army_pew,542,pew
+Turkey,1996,TUR,640,1907,Army_wvs,1191,wvs
+Turkey,1996,TUR,640,1907,Strong_wvs,994,wvs
+Turkey,1996,TUR,640,1907,Church_wvs,1505,wvs
+Turkey,1996,TUR,640,1907,EvDemoc_wvs,1545,wvs
+Turkey,2001,TUR,640,1206,Army_wvs,767,wvs
+Turkey,2001,TUR,640,1206,Strong_wvs,288,wvs
+Turkey,2001,TUR,640,1206,Church_wvs,948,wvs
+Turkey,2001,TUR,640,1206,EvDemoc_wvs,1001,wvs
+Turkey,2001,TUR,640,1206,Army_evs,828,evs
+Turkey,2001,TUR,640,1206,Strong_evs,366,evs
+Turkey,2001,TUR,640,1206,Church_evs,942,evs
+Turkey,2001,TUR,640,1206,EvDemoc_evs,994,evs
+Turkey,2002,TUR,640,1005,Strong_pew,573,pew
+Turkey,2002,TUR,640,1005,ImpDemoc_pew,754,pew
+Turkey,2005,TUR,640,1003,Strong_pew,652,pew
+Turkey,2007,TUR,640,971,Army_wvs,529,wvs
+Turkey,2007,TUR,640,971,Strong_wvs,332,wvs
+Turkey,2007,TUR,640,971,EvDemoc_wvs,808,wvs
+Turkey,2007,TUR,640,971,ImpDemoc_wvs,922,wvs
+Turkey,2007,TUR,640,971,Strong_pew,534,pew
+Turkey,2007,TUR,640,971,ImpDemoc_pew,719,pew
+Turkey,2009,TUR,640,2384,Army_evs,1257,evs
+Turkey,2009,TUR,640,2384,Strong_evs,752,evs
+Turkey,2009,TUR,640,2384,Church_evs,1829,evs
+Turkey,2009,TUR,640,2384,EvDemoc_evs,1734,evs
+Turkey,2010,TUR,640,1000,ThreeState_pew,760,pew
+Turkey,2011,TUR,640,1000,Army_wvs,634,wvs
+Turkey,2011,TUR,640,1000,Strong_wvs,345,wvs
+Turkey,2011,TUR,640,1000,EvDemoc_wvs,832,wvs
+Turkey,2011,TUR,640,1000,ImpDemoc_wvs,947,wvs
+Turkey,2011,TUR,640,1000,ThreeState_pew,660,pew
+Turkey,2011,TUR,640,1000,Strong_pew,610,pew
+Turkey,2012,TUR,640,1001,ThreeState_pew,711,pew
+Turkey,2012,TUR,640,1001,Strong_pew,681,pew
+Turkey,2015,TUR,640,947,Strong_pew,530,pew
+Turkey,2015,TUR,640,947,ImpDemoc_pew,474,pew
+Turkey,2017,TUR,640,1050,EvDemoc_pew,840,pew
+Turkey,2017,TUR,640,1050,Strong_pew.1,567,pew
+Turkey,2017,TUR,640,1050,Army_pew,914,pew
+Turkmenistan,2005,TKM,701,800,Army_asb,739,asb
+Turkmenistan,2005,TKM,701,800,Strong_asb,21,asb
+Turkmenistan,2005,TKM,701,800,EvDemoc_asb,200,asb
+Uganda,1999,UGA,500,2271,Army_afrob,1978,afb
+Uganda,1999,UGA,500,2271,Strong_afrob,1875,afb
+Uganda,1999,UGA,500,2271,ThreeState_afrob,1519,afb
+Uganda,1999,UGA,500,2271,Party_afrob,1184,afb
+Uganda,2001,UGA,500,1002,Army_wvs,637,wvs
+Uganda,2001,UGA,500,1002,Strong_wvs,680,wvs
+Uganda,2001,UGA,500,1002,Church_wvs,841,wvs
+Uganda,2001,UGA,500,1002,EvDemoc_wvs,884,wvs
+Uganda,2002,UGA,500,1008,Strong_pew,585,pew
+Uganda,2002,UGA,500,1008,ImpDemoc_pew,796,pew
+Uganda,2003,UGA,500,2400,Army_afrob,2037,afb
+Uganda,2003,UGA,500,2400,Strong_afrob,2165,afb
+Uganda,2003,UGA,500,2400,ThreeState_afrob,1796,afb
+Uganda,2003,UGA,500,2400,Party_afrob,1283,afb
+Uganda,2005,UGA,500,2400,Army_afrob,1829,afb
+Uganda,2005,UGA,500,2400,Strong_afrob,2174,afb
+Uganda,2005,UGA,500,2400,ThreeState_afrob,1463,afb
+Uganda,2005,UGA,500,2400,Party_afrob,1359,afb
+Uganda,2007,UGA,500,1122,Strong_pew,797,pew
+Uganda,2007,UGA,500,1122,ImpDemoc_pew,741,pew
+Uganda,2008,UGA,500,2431,Army_afrob,1901,afb
+Uganda,2008,UGA,500,2431,Strong_afrob,2081,afb
+Uganda,2008,UGA,500,2431,ThreeState_afrob,1923,afb
+Uganda,2008,UGA,500,2431,Party_afrob,1857,afb
+Uganda,2012,UGA,500,2400,Army_afrob,2139,afb
+Uganda,2012,UGA,500,2400,Strong_afrob,2220,afb
+Uganda,2012,UGA,500,2400,ThreeState_afrob,1901,afb
+Uganda,2012,UGA,500,2400,Party_afrob,1980,afb
+Uganda,2013,UGA,500,800,ThreeState_pew,664,pew
+Uganda,2013,UGA,500,800,Strong_pew,656,pew
+Uganda,2013,UGA,500,800,ImpDemoc_pew,632,pew
+Uganda,2015,UGA,500,1000,Army_afrob,798,afb
+Uganda,2015,UGA,500,1000,Strong_afrob,868,afb
+Uganda,2015,UGA,500,1000,ThreeState_afrob,641,afb
+Uganda,2015,UGA,500,1000,Party_afrob,728,afb
+Uganda,2015,UGA,500,1000,ImpDemoc_pew,750,pew
+Uganda,2017,UGA,500,1200,Army_afrob,1026,afb
+Uganda,2017,UGA,500,1200,Strong_afrob,1101,afb
+Uganda,2017,UGA,500,1200,ThreeState_afrob,968,afb
+Uganda,2017,UGA,500,1200,Party_afrob,967,afb
+Ukraine,1992,UKR,369,986,Strong_ndb,470,ndb
+Ukraine,1993,UKR,369,945,Army_ndb,839,ndb
+Ukraine,1993,UKR,369,945,Strong_ndb,425,ndb
+Ukraine,1993,UKR,369,945,ThreeState_ndb,547,ndb
+Ukraine,1995,UKR,369,1000,Army_ndb,831,ndb
+Ukraine,1995,UKR,369,1000,Strong_ndb,324,ndb
+Ukraine,1996,UKR,369,2811,Army_wvs,1831,wvs
+Ukraine,1996,UKR,369,2811,Strong_wvs,908,wvs
+Ukraine,1996,UKR,369,2811,Church_wvs,1459,wvs
+Ukraine,1996,UKR,369,2811,EvDemoc_wvs,1550,wvs
+Ukraine,1998,UKR,369,1161,Army_ndb,981,ndb
+Ukraine,1998,UKR,369,1161,Strong_ndb,505,ndb
+Ukraine,1999,UKR,369,1195,Army_evs,827,evs
+Ukraine,1999,UKR,369,1195,Strong_evs,387,evs
+Ukraine,1999,UKR,369,1195,Church_evs,773,evs
+Ukraine,1999,UKR,369,1195,EvDemoc_evs,770,evs
+Ukraine,2000,UKR,369,1592,Army_ndb,1354,ndb
+Ukraine,2000,UKR,369,1592,Strong_ndb,702,ndb
+Ukraine,2002,UKR,369,500,Strong_pew,155,pew
+Ukraine,2002,UKR,369,500,ImpDemoc_pew,320,pew
+Ukraine,2004,UKR,369,2000,Army_ndb,1740,ndb
+Ukraine,2004,UKR,369,2000,Strong_ndb,1033,ndb
+Ukraine,2004,UKR,369,2000,ThreeState_ndb,1150,ndb
+Ukraine,2006,UKR,369,1000,Army_wvs,620,wvs
+Ukraine,2006,UKR,369,1000,Strong_wvs,284,wvs
+Ukraine,2006,UKR,369,1000,EvDemoc_wvs,661,wvs
+Ukraine,2006,UKR,369,1000,ImpDemoc_wvs,812,wvs
+Ukraine,2007,UKR,369,500,Strong_pew,195,pew
+Ukraine,2007,UKR,369,500,ImpDemoc_pew,270,pew
+Ukraine,2008,UKR,369,1507,Army_evs,1139,evs
+Ukraine,2008,UKR,369,1507,Strong_evs,432,evs
+Ukraine,2008,UKR,369,1507,Church_evs,932,evs
+Ukraine,2008,UKR,369,1507,EvDemoc_evs,855,evs
+Ukraine,2009,UKR,369,1000,Strong_pew,200,pew
+Ukraine,2009,UKR,369,1000,ImpDemoc_pew,530,pew
+Ukraine,2011,UKR,369,1000,Army_wvs,873,wvs
+Ukraine,2011,UKR,369,1000,Strong_wvs,287,wvs
+Ukraine,2011,UKR,369,1000,EvDemoc_wvs,854,wvs
+Ukraine,2011,UKR,369,1000,ImpDemoc_wvs,811,wvs
+Ukraine,2011,UKR,369,1000,Strong_pew,300,pew
+Ukraine,2012,UKR,369,1990,ImpDemoc_ess,1359,ess
+Ukraine,2015,UKR,369,2079,ImpDemoc_pew,1435,pew
+United Kingdom,1988,UKG,200,1323,ThreeState_eb,1008,eb
+United Kingdom,1992,UKG,200,1319,ThreeState_eb,1000,eb
+United Kingdom,1998,UKG,200,1093,Army_wvs,987,wvs
+United Kingdom,1998,UKG,200,1093,Strong_wvs,745,wvs
+United Kingdom,1999,UKG,200,2000,Army_evs,1690,evs
+United Kingdom,1999,UKG,200,2000,Strong_evs,1272,evs
+United Kingdom,1999,UKG,200,2000,Church_evs,1475,evs
+United Kingdom,1999,UKG,200,2000,EvDemoc_evs,1490,evs
+United Kingdom,2005,UKG,200,860,Army_wvs,710,wvs
+United Kingdom,2005,UKG,200,860,Strong_wvs,575,wvs
+United Kingdom,2005,UKG,200,860,EvDemoc_wvs,707,wvs
+United Kingdom,2005,UKG,200,860,ImpDemoc_wvs,740,wvs
+United Kingdom,2005,UKG,200,860,Church_cses,762,cses
+United Kingdom,2008,UKG,200,2061,Army_evs,1738,evs
+United Kingdom,2008,UKG,200,2061,Strong_evs,1301,evs
+United Kingdom,2008,UKG,200,2061,Church_evs,1615,evs
+United Kingdom,2008,UKG,200,2061,EvDemoc_evs,1593,evs
+United Kingdom,2009,UKG,200,1000,Strong_pew,570,pew
+United Kingdom,2012,UKG,200,2184,ImpDemoc_ess,1841,ess
+United Kingdom,2015,UKG,200,999,ImpDemoc_pew,759,pew
+United Kingdom,2017,UKG,200,1066,EvDemoc_pew,895,pew
+United Kingdom,2017,UKG,200,1066,Strong_pew.1,757,pew
+United Kingdom,2017,UKG,200,1066,Army_pew,863,pew
+United States of America,1995,USA,2,1542,Army_wvs,1399,wvs
+United States of America,1995,USA,2,1542,Strong_wvs,1097,wvs
+United States of America,1995,USA,2,1542,Church_wvs,1331,wvs
+United States of America,1995,USA,2,1542,EvDemoc_wvs,1311,wvs
+United States of America,1999,USA,2,1542,Army_wvs,1399,wvs
+United States of America,1999,USA,2,1542,Strong_wvs,1097,wvs
+United States of America,1999,USA,2,1542,Church_wvs,1331,wvs
+United States of America,1999,USA,2,1542,EvDemoc_wvs,1311,wvs
+United States of America,2002,USA,2,1501,Strong_pew,946,pew
+United States of America,2002,USA,2,1501,ImpDemoc_pew,1261,pew
+United States of America,2004,USA,2,1066,Church_cses,985,cses
+United States of America,2006,USA,2,609,Army_wvs,512,wvs
+United States of America,2006,USA,2,609,Strong_wvs,393,wvs
+United States of America,2006,USA,2,609,EvDemoc_wvs,499,wvs
+United States of America,2006,USA,2,609,ImpDemoc_wvs,515,wvs
+United States of America,2006,USA,2,609,ThreeState_lapop,454,lapop
+United States of America,2006,USA,2,609,Church_lapop,564,lapop
+United States of America,2008,USA,2,1500,ThreeState_lapop,1180,lapop
+United States of America,2008,USA,2,1500,Church_lapop,1153,lapop
+United States of America,2009,USA,2,1006,Strong_pew,533,pew
+United States of America,2010,USA,2,1500,ThreeState_lapop,1241,lapop
+United States of America,2010,USA,2,1500,Church_lapop,1197,lapop
+United States of America,2011,USA,2,2232,Army_wvs,1788,wvs
+United States of America,2011,USA,2,2232,Strong_wvs,1415,wvs
+United States of America,2011,USA,2,2232,EvDemoc_wvs,1779,wvs
+United States of America,2011,USA,2,2232,ImpDemoc_wvs,1899,wvs
+United States of America,2012,USA,2,1500,ThreeState_lapop,1239,lapop
+United States of America,2012,USA,2,1500,Church_lapop,1182,lapop
+United States of America,2012,USA,2,1500,Strong_lapop_1,1384,lapop
+United States of America,2014,USA,2,1500,ThreeState_lapop,1150,lapop
+United States of America,2014,USA,2,1500,Church_lapop,1085,lapop
+United States of America,2015,USA,2,1003,ImpDemoc_pew,792,pew
+United States of America,2017,USA,2,1505,EvDemoc_pew,1294,pew
+United States of America,2017,USA,2,1505,Strong_pew.1,1144,pew
+United States of America,2017,USA,2,1505,Army_pew,1249,pew
+Uruguay,1995,URU,165,1262,ThreeState_lb,1012,lb
+Uruguay,1996,URU,165,1200,ThreeState_lb,964,lb
+Uruguay,1996,URU,165,1200,Army_wvs,1021,wvs
+Uruguay,1996,URU,165,1200,Strong_wvs,764,wvs
+Uruguay,1996,URU,165,1200,Church_wvs,1092,wvs
+Uruguay,1996,URU,165,1200,EvDemoc_wvs,1105,wvs
+Uruguay,1997,URU,165,1189,ThreeState_lb,1017,lb
+Uruguay,1998,URU,165,1199,ThreeState_lb,964,lb
+Uruguay,2000,URU,165,1200,ThreeState_lb,990,lb
+Uruguay,2001,URU,165,1200,ThreeState_lb,952,lb
+Uruguay,2002,URU,165,1187,Church_lb,931,lb
+Uruguay,2002,URU,165,1187,ThreeState_lb,908,lb
+Uruguay,2003,URU,165,1200,Church_lb,971,lb
+Uruguay,2003,URU,165,1200,ThreeState_lb,937,lb
+Uruguay,2004,URU,165,1200,Church_lb,1046,lb
+Uruguay,2004,URU,165,1200,ThreeState_lb,932,lb
+Uruguay,2005,URU,165,1200,Church_lb,1016,lb
+Uruguay,2005,URU,165,1200,ThreeState_lb,919,lb
+Uruguay,2006,URU,165,1200,Church_lb,1070,lb
+Uruguay,2006,URU,165,1200,ThreeState_lb,918,lb
+Uruguay,2006,URU,165,1200,Army_wvs,937,wvs
+Uruguay,2006,URU,165,1200,Strong_wvs,592,wvs
+Uruguay,2006,URU,165,1200,EvDemoc_wvs,1019,wvs
+Uruguay,2006,URU,165,1200,ImpDemoc_wvs,1108,wvs
+Uruguay,2006,URU,165,1200,ThreeState_lapop,946,lapop
+Uruguay,2006,URU,165,1200,Church_lapop,975,lapop
+Uruguay,2006,URU,165,1200,Strong_lapop_1,1113,lapop
+Uruguay,2007,URU,165,1200,Church_lb,1034,lb
+Uruguay,2007,URU,165,1200,ThreeState_lb,900,lb
+Uruguay,2008,URU,165,1200,Church_lb,1057,lb
+Uruguay,2008,URU,165,1200,ThreeState_lb,942,lb
+Uruguay,2008,URU,165,1200,ThreeState_lapop,946,lapop
+Uruguay,2008,URU,165,1200,Church_lapop,1026,lapop
+Uruguay,2008,URU,165,1200,Strong_lapop_1,1101,lapop
+Uruguay,2009,URU,165,1200,Church_lb,1081,lb
+Uruguay,2009,URU,165,1200,ThreeState_lb,978,lb
+Uruguay,2010,URU,165,1200,Church_lb,1097,lb
+Uruguay,2010,URU,165,1200,ThreeState_lb,901,lb
+Uruguay,2010,URU,165,1200,ThreeState_lapop,965,lapop
+Uruguay,2010,URU,165,1200,Church_lapop,1011,lapop
+Uruguay,2010,URU,165,1200,Strong_lapop_1,1102,lapop
+Uruguay,2011,URU,165,1200,Church_lb,1076,lb
+Uruguay,2011,URU,165,1200,ThreeState_lb,901,lb
+Uruguay,2011,URU,165,1200,Army_wvs,968,wvs
+Uruguay,2011,URU,165,1200,Strong_wvs,574,wvs
+Uruguay,2011,URU,165,1200,EvDemoc_wvs,1061,wvs
+Uruguay,2011,URU,165,1200,ImpDemoc_wvs,1106,wvs
+Uruguay,2012,URU,165,1500,ThreeState_lapop,1250,lapop
+Uruguay,2012,URU,165,1500,Church_lapop,1274,lapop
+Uruguay,2012,URU,165,1500,Strong_lapop_1,1381,lapop
+Uruguay,2013,URU,165,1200,Church_lb,1061,lb
+Uruguay,2013,URU,165,1200,ThreeState_lb,800,lb
+Uruguay,2014,URU,165,1512,ThreeState_lapop,1214,lapop
+Uruguay,2014,URU,165,1512,Church_lapop,1279,lapop
+Uruguay,2015,URU,165,1200,Church_lb,1068,lb
+Uruguay,2015,URU,165,1200,ThreeState_lb,910,lb
+Uruguay,2016,URU,165,1200,Church_lb,1033,lb
+Uruguay,2016,URU,165,1200,ThreeState_lb,817,lb
+Uruguay,2017,URU,165,1200,Church_lb,1010,lb
+Uruguay,2017,URU,165,1200,ThreeState_lb,835,lb
+Uzbekistan,2002,UZB,704,700,Strong_pew,266,pew
+Uzbekistan,2002,UZB,704,700,ImpDemoc_pew,294,pew
+Uzbekistan,2003,UZB,704,800,Army_asb,588,asb
+Uzbekistan,2003,UZB,704,800,Strong_asb,455,asb
+Uzbekistan,2003,UZB,704,800,EvDemoc_asb,608,asb
+Uzbekistan,2005,UZB,704,800,Army_asb,660,asb
+Uzbekistan,2005,UZB,704,800,Strong_asb,467,asb
+Uzbekistan,2005,UZB,704,800,EvDemoc_asb,530,asb
+Uzbekistan,2011,UZB,704,1500,Army_wvs,670,wvs
+Uzbekistan,2011,UZB,704,1500,Strong_wvs,484,wvs
+Uzbekistan,2011,UZB,704,1500,EvDemoc_wvs,1292,wvs
+Uzbekistan,2011,UZB,704,1500,ImpDemoc_wvs,1395,wvs
+Venezuela,1995,VEN,101,1200,ThreeState_lb,718,lb
+Venezuela,1996,VEN,101,1500,ThreeState_lb,933,lb
+Venezuela,1996,VEN,101,1500,Army_wvs,1044,wvs
+Venezuela,1996,VEN,101,1500,Strong_wvs,998,wvs
+Venezuela,1996,VEN,101,1500,Church_wvs,1253,wvs
+Venezuela,1996,VEN,101,1500,EvDemoc_wvs,1268,wvs
+Venezuela,1997,VEN,101,1200,ThreeState_lb,769,lb
+Venezuela,1998,VEN,101,1200,ThreeState_lb,724,lb
+Venezuela,2000,VEN,101,1200,ThreeState_lb,735,lb
+Venezuela,2000,VEN,101,1200,Army_wvs,894,wvs
+Venezuela,2000,VEN,101,1200,Strong_wvs,588,wvs
+Venezuela,2000,VEN,101,1200,Church_wvs,1092,wvs
+Venezuela,2000,VEN,101,1200,EvDemoc_wvs,1106,wvs
+Venezuela,2001,VEN,101,1200,ThreeState_lb,682,lb
+Venezuela,2002,VEN,101,700,Church_lb,485,lb
+Venezuela,2002,VEN,101,700,ThreeState_lb,509,lb
+Venezuela,2003,VEN,101,1200,Church_lb,786,lb
+Venezuela,2003,VEN,101,1200,ThreeState_lb,812,lb
+Venezuela,2004,VEN,101,1200,Church_lb,1001,lb
+Venezuela,2004,VEN,101,1200,ThreeState_lb,890,lb
+Venezuela,2005,VEN,101,1200,Church_lb,1049,lb
+Venezuela,2005,VEN,101,1200,ThreeState_lb,910,lb
+Venezuela,2006,VEN,101,1200,Church_lb,1066,lb
+Venezuela,2006,VEN,101,1200,ThreeState_lb,838,lb
+Venezuela,2006,VEN,101,1200,ThreeState_lapop,985,lapop
+Venezuela,2006,VEN,101,1200,Church_lapop,922,lapop
+Venezuela,2006,VEN,101,1200,Strong_lapop_1,1008,lapop
+Venezuela,2007,VEN,101,803,Church_lb,669,lb
+Venezuela,2007,VEN,101,803,ThreeState_lb,536,lb
+Venezuela,2008,VEN,101,1200,Church_lb,1026,lb
+Venezuela,2008,VEN,101,1200,ThreeState_lb,979,lb
+Venezuela,2008,VEN,101,1200,ThreeState_lapop,1110,lapop
+Venezuela,2008,VEN,101,1200,Church_lapop,999,lapop
+Venezuela,2008,VEN,101,1200,Strong_lapop_1,1123,lapop
+Venezuela,2009,VEN,101,1200,Church_lb,1084,lb
+Venezuela,2009,VEN,101,1200,ThreeState_lb,1017,lb
+Venezuela,2010,VEN,101,1200,Church_lb,1051,lb
+Venezuela,2010,VEN,101,1200,ThreeState_lb,1008,lb
+Venezuela,2010,VEN,101,1200,ThreeState_lapop,1019,lapop
+Venezuela,2010,VEN,101,1200,Church_lapop,857,lapop
+Venezuela,2010,VEN,101,1200,Strong_lapop_1,1091,lapop
+Venezuela,2011,VEN,101,1200,Church_lb,1033,lb
+Venezuela,2011,VEN,101,1200,ThreeState_lb,928,lb
+Venezuela,2012,VEN,101,1500,ThreeState_lapop,1321,lapop
+Venezuela,2012,VEN,101,1500,Church_lapop,1278,lapop
+Venezuela,2012,VEN,101,1500,Strong_lapop_1,1381,lapop
+Venezuela,2013,VEN,101,1000,Church_lb,934,lb
+Venezuela,2013,VEN,101,1000,ThreeState_lb,873,lb
+Venezuela,2013,VEN,101,1000,ThreeState_pew,900,pew
+Venezuela,2013,VEN,101,1000,Strong_pew,880,pew
+Venezuela,2013,VEN,101,1000,ImpDemoc_pew,750,pew
+Venezuela,2014,VEN,101,2952,ThreeState_lapop,2615,lapop
+Venezuela,2014,VEN,101,2952,Church_lapop,2194,lapop
+Venezuela,2015,VEN,101,1000,Church_lb,850,lb
+Venezuela,2015,VEN,101,1000,ThreeState_lb,835,lb
+Venezuela,2015,VEN,101,1000,ImpDemoc_pew,730,pew
+Venezuela,2016,VEN,101,1200,Church_lb,990,lb
+Venezuela,2016,VEN,101,1200,ThreeState_lb,921,lb
+Venezuela,2017,VEN,101,1000,Church_lb,769,lb
+Venezuela,2017,VEN,101,1000,ThreeState_lb,782,lb
+Venezuela,2017,VEN,101,1000,EvDemoc_pew,710,pew
+Venezuela,2017,VEN,101,1000,Strong_pew.1,810,pew
+Venezuela,2017,VEN,101,1000,Army_pew,740,pew
+Vietnam,2001,VNM,816,1000,Church_wvs,566,wvs
+Vietnam,2001,VNM,816,1000,EvDemoc_wvs,868,wvs
+Vietnam,2005,VNM,816,1200,ThreeState_asnb,861,asnb
+Vietnam,2005,VNM,816,1200,Army_asnb,768,asnb
+Vietnam,2005,VNM,816,1200,DemocExtent_asnb,1115,asnb
+Vietnam,2005,VNM,816,1200,DemocSuit_asnb,1100,asnb
+Vietnam,2005,VNM,816,1200,Party_asnb,416,asnb
+Vietnam,2005,VNM,816,1200,Strong_asnb,913,asnb
+Vietnam,2006,VNM,816,1200,Army_wvs,661,wvs
+Vietnam,2006,VNM,816,1200,Strong_wvs,926,wvs
+Vietnam,2006,VNM,816,1200,EvDemoc_wvs,960,wvs
+Vietnam,2006,VNM,816,1200,ImpDemoc_wvs,1124,wvs
+Vietnam,2010,VNM,816,1191,ThreeState_asnb,772,asnb
+Vietnam,2010,VNM,816,1191,Army_asnb,711,asnb
+Vietnam,2010,VNM,816,1191,DemocSuit_asnb,991,asnb
+Vietnam,2010,VNM,816,1191,Party_asnb,32,asnb
+Vietnam,2010,VNM,816,1191,Strong_asnb,818,asnb
+Vietnam,2010,VNM,816,1191,Church_asnb,874,asnb
+Vietnam,2015,VNM,816,1000,ImpDemoc_pew,380,pew
+Vietnam,2017,VNM,816,1000,EvDemoc_pew,870,pew
+Vietnam,2017,VNM,816,1000,Strong_pew.1,470,pew
+Vietnam,2017,VNM,816,1000,Army_pew,220,pew
+Yemen,2007,YEM,679,717,Church_arb,481,arb
+Yemen,2007,YEM,679,717,Strong_arb_2,528,arb
+Yemen,2007,YEM,679,717,EvDemoc_arb,511,arb
+Yemen,2007,YEM,679,717,DemocSuit_arb,253,arb
+Yemen,2011,YEM,679,1200,Church_arb,883,arb
+Yemen,2011,YEM,679,1200,Strong_arb_1,720,arb
+Yemen,2011,YEM,679,1200,EvDemoc_arb,894,arb
+Yemen,2011,YEM,679,1200,DemocSuit_arb,486,arb
+Yemen,2013,YEM,679,1200,Church_arb,794,arb
+Yemen,2013,YEM,679,1200,Strong_arb_1,768,arb
+Yemen,2013,YEM,679,1200,EvDemoc_arb,1038,arb
+Yemen,2013,YEM,679,1200,DemocSuit_arb,583,arb
+Yemen,2013,YEM,679,1200,Army_wvs,809,wvs
+Yemen,2013,YEM,679,1200,Strong_wvs,713,wvs
+Yemen,2013,YEM,679,1200,EvDemoc_wvs,961,wvs
+Yemen,2013,YEM,679,1200,ImpDemoc_wvs,950,wvs
+Zambia,1999,ZAM,551,1198,Army_afrob,1127,afb
+Zambia,1999,ZAM,551,1198,Strong_afrob,1071,afb
+Zambia,1999,ZAM,551,1198,ThreeState_afrob,887,afb
+Zambia,1999,ZAM,551,1198,Party_afrob,958,afb
+Zambia,2003,ZAM,551,1199,Army_afrob,1135,afb
+Zambia,2003,ZAM,551,1199,Strong_afrob,1085,afb
+Zambia,2003,ZAM,551,1199,ThreeState_afrob,843,afb
+Zambia,2003,ZAM,551,1199,Party_afrob,863,afb
+Zambia,2005,ZAM,551,1200,Army_afrob,1106,afb
+Zambia,2005,ZAM,551,1200,Strong_afrob,1071,afb
+Zambia,2005,ZAM,551,1200,ThreeState_afrob,770,afb
+Zambia,2005,ZAM,551,1200,Party_afrob,1031,afb
+Zambia,2007,ZAM,551,1500,Army_wvs,1100,wvs
+Zambia,2007,ZAM,551,1500,Strong_wvs,893,wvs
+Zambia,2007,ZAM,551,1500,EvDemoc_wvs,1326,wvs
+Zambia,2007,ZAM,551,1500,ImpDemoc_wvs,1384,wvs
+Zambia,2008,ZAM,551,1200,Army_afrob,1102,afb
+Zambia,2008,ZAM,551,1200,Strong_afrob,1078,afb
+Zambia,2008,ZAM,551,1200,ThreeState_afrob,960,afb
+Zambia,2008,ZAM,551,1200,Party_afrob,954,afb
+Zambia,2012,ZAM,551,1200,Army_afrob,1148,afb
+Zambia,2012,ZAM,551,1200,Strong_afrob,1026,afb
+Zambia,2012,ZAM,551,1200,ThreeState_afrob,1077,afb
+Zambia,2012,ZAM,551,1200,Party_afrob,1080,afb
+Zambia,2014,ZAM,551,1199,Army_afrob,1081,afb
+Zambia,2014,ZAM,551,1199,Strong_afrob,1046,afb
+Zambia,2014,ZAM,551,1199,ThreeState_afrob,890,afb
+Zambia,2014,ZAM,551,1199,Party_afrob,971,afb
+Zambia,2017,ZAM,551,1195,Army_afrob,1102,afb
+Zambia,2017,ZAM,551,1195,Strong_afrob,1093,afb
+Zambia,2017,ZAM,551,1195,ThreeState_afrob,971,afb
+Zambia,2017,ZAM,551,1195,Party_afrob,975,afb
+Zimbabwe,1999,ZIM,552,1200,Army_afrob,950,afb
+Zimbabwe,1999,ZIM,552,1200,Strong_afrob,930,afb
+Zimbabwe,1999,ZIM,552,1200,ThreeState_afrob,845,afb
+Zimbabwe,1999,ZIM,552,1200,Party_afrob,886,afb
+Zimbabwe,2001,ZIM,552,1002,Army_wvs,807,wvs
+Zimbabwe,2001,ZIM,552,1002,Strong_wvs,670,wvs
+Zimbabwe,2001,ZIM,552,1002,Church_wvs,748,wvs
+Zimbabwe,2001,ZIM,552,1002,EvDemoc_wvs,791,wvs
+Zimbabwe,2003,ZIM,552,1104,Army_afrob,884,afb
+Zimbabwe,2003,ZIM,552,1104,Strong_afrob,880,afb
+Zimbabwe,2003,ZIM,552,1104,ThreeState_afrob,524,afb
+Zimbabwe,2003,ZIM,552,1104,Party_afrob,644,afb
+Zimbabwe,2005,ZIM,552,1048,Army_afrob,882,afb
+Zimbabwe,2005,ZIM,552,1048,Strong_afrob,943,afb
+Zimbabwe,2005,ZIM,552,1048,ThreeState_afrob,694,afb
+Zimbabwe,2005,ZIM,552,1048,Party_afrob,927,afb
+Zimbabwe,2008,ZIM,552,1200,Army_afrob,947,afb
+Zimbabwe,2008,ZIM,552,1200,Strong_afrob,1022,afb
+Zimbabwe,2008,ZIM,552,1200,ThreeState_afrob,813,afb
+Zimbabwe,2008,ZIM,552,1200,Party_afrob,803,afb
+Zimbabwe,2011,ZIM,552,1499,Army_wvs,1228,wvs
+Zimbabwe,2011,ZIM,552,1499,Strong_wvs,1249,wvs
+Zimbabwe,2011,ZIM,552,1499,EvDemoc_wvs,1451,wvs
+Zimbabwe,2011,ZIM,552,1499,ImpDemoc_wvs,1358,wvs
+Zimbabwe,2012,ZIM,552,2400,Army_afrob,1889,afb
+Zimbabwe,2012,ZIM,552,2400,Strong_afrob,2052,afb
+Zimbabwe,2012,ZIM,552,2400,ThreeState_afrob,1895,afb
+Zimbabwe,2012,ZIM,552,2400,Party_afrob,1742,afb
+Zimbabwe,2014,ZIM,552,2400,Army_afrob,1789,afb
+Zimbabwe,2014,ZIM,552,2400,Strong_afrob,1909,afb
+Zimbabwe,2014,ZIM,552,2400,ThreeState_afrob,1748,afb
+Zimbabwe,2014,ZIM,552,2400,Party_afrob,1649,afb
+Zimbabwe,2017,ZIM,552,1200,Army_afrob,824,afb
+Zimbabwe,2017,ZIM,552,1200,Strong_afrob,941,afb
+Zimbabwe,2017,ZIM,552,1200,ThreeState_afrob,898,afb
+Zimbabwe,2017,ZIM,552,1200,Party_afrob,774,afb
