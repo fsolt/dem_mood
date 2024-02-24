@@ -12,17 +12,9 @@ title: |
   | Thermostatic Response to Democratic Change:
   | Degrees of Democratic Support or 
   | Researcher Degrees of Freedom?
-thanks: "Corresponding author: [yuehong-tai@uiowa.edu](mailto:yuehong-tai@uiowa.edu). Current version: `r format(Sys.time(), '%B %d, %Y')`.  Replication materials and complete revision history may be found at [https://github.com/fsolt/dem_mood](https://github.com/fsolt/dem_mood)."
-author:
-- Yue Hu
-  # affiliation: Tsinghua University
-- Yuehong Cassandra Tai
-  # affiliation: University of Iowa
-- Frederick Solt
-  # affiliation: University of Iowa
+thanks: "Corresponding author: [yhcasstai@psu.edu](mailto:yhcasstai@psu.edu). Current version: `r format(Sys.time(), '%B %d, %Y')`.  Replication materials and complete revision history may be found at [https://github.com/fsolt/dem_mood](https://github.com/fsolt/dem_mood)."
 anonymous: true  
-abstract: "Prominent recent work argues that support for democracy behaves thermostatically---that democratic erosion boosts democratic support while deepening democracy yields public backlash---and further contends that there is no evidence for the classic argument that democracy itself increases democratic support over time.  Here, we document how these conclusions depend on subtle choices in measurement coding that constitute 'researcher degrees of freedom': analyses employing alternative reasonable choices provide little or no support for the original conclusions. The fragility of the statistical results demonstrates that researcher degrees of freedom in measurement must be taken seriously and that the question of the relationship between democratic institutions and democratic support remains unsettled."
-keywords: ""
+keywords: "Democratic support, democracy, measurement, measurement coding"
 tables: true # enable longtable and booktabs
 citation_package: natbib
 fontsize: 12pt
@@ -58,8 +50,29 @@ header-includes:
       - \setcounter{totalnumber}{4}
 ---
 
+
+
+# Authors {-}
+-   Yue Hu, ORCID: <https://orcid.org/0000-0002-2829-3971>, Associate Professor, Department of Political Science, Tsinghua University, [yuehu\@tsinghua.edu.cn](mailto:yuehu@tsinghua.edu.cn){.email}
+-   Yuehong Cassandra Tai, ORCID: <https://orcid.org/0000-0001-7303-7443>, Postdoctoral Fellow, Center for Social Data Analytics, Pennsylvania State University, [yhcasstai\@psu.edu](mailto:yhcasstai@psu.edu){.email}
+-   Frederick Solt, corresponding author, ORCID: <https://orcid.org/0000-0002-3154-6132>, Associate Professor, Department of Political Science, University of Iowa, [frederick-solt\@uiowa.edu](mailto:frederick-solt@uiowa.edu){.email}
+
+\pagebreak
+# Abstract {-}
+
+Prominent recent work argues that support for democracy behaves thermostatically---that democratic erosion boosts democratic support while deepening democracy yields public backlash---and further contends that there is no evidence for the classic argument that democracy itself increases democratic support over time.  Here, we document how these conclusions depend on subtle choices in measurement coding that constitute 'researcher degrees of freedom': analyses employing alternative reasonable choices provide little or no support for the original conclusions. The fragility of the statistical results demonstrates that researcher degrees of freedom in measurement must be taken seriously and that the question of the relationship between democratic institutions and democratic support remains unsettled.
+
+\pagebreak
+
 \captionsetup[figure]{list=no}
 ```{r init, include=FALSE}
+# current_dir <- getwd()
+# Sys.setenv(RENV_PROJECT = current_dir)
+# if(!require(renv)) install.packages("renv")
+#  renv::init()
+# renv::restore()
+#  renv::load()
+
 options(tinytex.verbose = TRUE)
 chooseCRANmirror(graphics = FALSE, ind = 1)
 
@@ -321,12 +334,6 @@ body(small_multiple)[[19]] <- substitute(
 ```
 
 ```{r claassen_input, include=FALSE}
-if (!file.exists(here::here("data", "supdem raw survey marginals.csv"))) {
-  tempfile <- dataverse::get_file_by_doi("doi:10.7910/DVN/HWLW0J/RA8IJC") # AJPS replication file, not included in APSR replication
-  
-  writeBin(tempfile, here::here("data", "supdem raw survey marginals.csv"))
-  rm(tempfile)
-}
 
 # publication data
 sd <- read_csv(here::here("data", "supdem raw survey marginals.csv"), col_types = "cdcddcdc") %>% 
@@ -336,7 +343,7 @@ sd <- read_csv(here::here("data", "supdem raw survey marginals.csv"), col_types 
   rename(year = Year, project = Project) %>% 
   with_min_yrs(2) # Selecting data w. at least two years
 
-# corrected data
+# 
 if (!file.exists(here::here("data", "claassen_input_raw.csv"))) {
   claassen_input_raw <- DCPOtools:::claassen_setup(
     vars = read_csv(here::here("data-raw", "mood_dem.csv"),
@@ -708,17 +715,28 @@ map(miss, \(m) {
 ```
 
 ```{r df_apsr_list, eval=FALSE}
-# the if() below needs updated for the 16 versions
-if (!exists("results_path")) {
-  results_path <- here::here("data", "corrected", latest)
+
+for (i in by) {
+  for (j in miss) {
+    # Construct the path to check
+    path_to_check <- file.path(here::here("data", i, j))
+    
+    if (!dir.exists(path_to_check)) {
+      dir.create(path_to_check, recursive = TRUE, showWarnings = TRUE)
+      message("Created directory: ", path_to_check)
+    }
   
-  # Define OSF_PAT in .Renviron: https://docs.ropensci.org/osfr/articles/auth
-  if (!file.exists(file.path(results_path, paste0("supdem.stan.mod5-", latest, "-1.csv")))) {
-    dir.create(results_path, showWarnings = FALSE, recursive = TRUE)
-    osf_retrieve_node("vmxkn") %>%
-      osf_ls_files() %>% 
-      filter(str_detect(name, latest)) %>% 
-      osf_download(path = here::here("data", "corrected"))
+    csv_files <- list.files(path = path_to_check, pattern = "\\.csv$", full.names = TRUE)
+    if(length(csv_files) == 0) {
+      # If the file does not exist, download from OSF
+      message("Downloading: ", path_to_check)
+      # Retrieve the OSF node and list files
+      osf_retrieve_node("vmxkn") %>%
+        osf_ls_files(path = file.path(i, j)) %>%
+        osf_download(path = path_to_check)
+    } else {
+      message("File exists: ", path_to_check)
+    }
   }
 }
 
@@ -848,15 +866,15 @@ Finally, we used each of these sets of estimates to replicate the article's anal
 df_apsr_list <- rio::import(here("data", "df_apsr_list.rds"))
 
 by_names <- paste(c("Mixed",
-                    "Above Median",
-                    "Only Highest",
-                    "All But Lowest"),
+                    "Above Median",
+                    "Only Highest",
+                    "All But Lowest"),
                   "Coding Rule")
 
 miss_names <- c("Unsupportive",
                     "Supportive",
                     "Oppositional",
-                    "At Random")
+                    "At Random")
 
 m1_1_list <- map(by,
                  \(b) {
@@ -893,6 +911,7 @@ m1_1_tidy <- map(by_names,
                  }) %>% 
   bind_rows()
 ```
+
 
 ```{r regressionPlot, fig.cap= "The Effects of Democracy on the Change in Public Support", fig.width=7, fig.height=9}
 txt_caption <- strwrap("Notes: Replications of Claassen (2020, 47), Table 1, Model 1.1.  The mixed coding rule employed in Claassen (2020) along with that work's assumption that non-responses indicate a lack of support for democracy yield a larger negative point estimate of the coefficient for change in liberal democracy than most other combinations and a larger point estimate of the coefficient for the lagged level of liberal democracy than all other combinations.  In error-correction models like these, both coefficients must be interpreted together; see Figure 2.", width = 110) %>% 
@@ -1006,19 +1025,19 @@ sim_dem_mood <- function(m1_1_result) {
   return(sim_data11)
 }
 
-sim_m1_1_list <- map(by,
+sim_m1_1_list <- map(by_names,
                      \(b) {
-                       map(miss,
+                       map(miss_names,
                            \(m) {
                              sim_dem_mood(m1_1_list[[b]][[m]]) %>% 
                                mutate(by = factor(b,
-                                                  levels = by,
+                                                  levels = by_names,
                                                   labels = c("Mixed",
                                                              "Above Median",
                                                              "Only Highest",
                                                              "All But Lowest")),
                                       miss = factor(m,
-                                                    levels = miss,
+                                                    levels = miss_names,
                                                     labels = c("Unsupportive",
                                                                "Supportive",
                                                                "Oppositional",
@@ -1081,6 +1100,13 @@ That the evidence for such a perverse outcome depends entirely on researcher deg
 Alternate combinations of plausible coding rules and non-response treatments yield no support for the thermostatic theory.
 In fact, most show that increases in democracy work, over time, to increase the public's support, just as suggested by the classic theory that has been advanced in scholarship over more than a half century.
 These findings imply that those who want to advance democracy should do just that: they should push ahead.
+
+## Acknowledgments {.unlisted .unnumbered}
+
+
+Yue Hu acknowledges the support of the National Natural Science Foundation of China [72374116].
+Frederick Solt acknowledges the support of the Office of the Provost, University of Iowa.
+The three authors thank the editors and anonymous reviewers for their helpful comments.
 
 ## References {.unlisted .unnumbered}
 
