@@ -48,6 +48,7 @@ header-includes:
       - \setcounter{topnumber}{3}
       - \setcounter{bottomnumber}{3}
       - \setcounter{totalnumber}{4}
+      - \usepackage{float}
 ---
 
 
@@ -69,9 +70,7 @@ Prominent recent work argues that support for democracy behaves thermostatically
 # current_dir <- getwd()
 # Sys.setenv(RENV_PROJECT = current_dir)
 # if(!require(renv)) install.packages("renv")
-#  renv::init()
-# renv::restore()
-#  renv::load()
+# renv::load()
 
 options(tinytex.verbose = TRUE)
 chooseCRANmirror(graphics = FALSE, ind = 1)
