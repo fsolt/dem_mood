@@ -12,7 +12,7 @@ title: |
   | Thermostatic Response to Democratic Change:
   | Degrees of Democratic Support or 
   | Researcher Degrees of Freedom?
-thanks: "Corresponding author: [yhcasstai@psu.edu](mailto:yhcasstai@psu.edu). Current version: `r format(Sys.time(), '%B %d, %Y')`.  Replication materials and complete revision history may be found at [https://github.com/fsolt/dem_mood](https://github.com/fsolt/dem_mood)."
+thanks: "The three authors contributed equally to this work. Corresponding author: [yhcasstai@psu.edu](mailto:yhcasstai@psu.edu). Current version: `r format(Sys.time(), '%B %d, %Y')`.  Replication materials and complete revision history may be found at [https://github.com/fsolt/dem_mood](https://github.com/fsolt/dem_mood)."
 anonymous: true  
 keywords: "Democratic support, democracy, measurement, measurement coding"
 tables: true # enable longtable and booktabs
@@ -67,10 +67,6 @@ Prominent recent work argues that support for democracy behaves thermostatically
 
 \captionsetup[figure]{list=no}
 ```{r init, include=FALSE}
-# current_dir <- getwd()
-# Sys.setenv(RENV_PROJECT = current_dir)
-# if(!require(renv)) install.packages("renv")
-# renv::load()
 
 options(tinytex.verbose = TRUE)
 chooseCRANmirror(graphics = FALSE, ind = 1)
@@ -88,11 +84,27 @@ if (!require(cmdstanr)) {
                                          getOption("repos")))
   library(cmdstanr)
   install_cmdstan() # C++ toolchain required; see https://mc-stan.org/cmdstanr/articles/cmdstanr.html
+  cmdstanr::check_cmdstan_toolchain(fix = TRUE)
 }
 
 if (!require(pacman))
   install.packages("pacman")
 library(pacman)
+if (!require(rmarkdown))
+  install.packages("rmarkdown")
+if (!require(bookdown))
+  install.packages("bookdown")
+if (!require(loo))
+  install.packages("loo")
+if (!require(BiocManager))
+  install.packages("BiocManager")
+if (!require(posterior))
+  install.packages("posterior")
+if (!require(rstan))
+  install.packages("rstan")
+if (!require(insight))
+  install.packages("insight")
+
 
 p_install(janitor, force = FALSE)
 p_install_gh(c("fsolt/DCPOtools"), force = FALSE)
@@ -340,7 +352,7 @@ sd <- read_csv(here::here("data", "supdem raw survey marginals.csv"), col_types 
          country = countrycode::countrycode(Country, "country.name", "country.name"),
          dataset = "supdem") %>% 
   rename(year = Year, project = Project) %>% 
-  with_min_yrs(2) # Selecting data w. at least two years
+  DCPOtools::with_min_yrs(2) # Selecting data w. at least two years
 
 # 
 if (!file.exists(here::here("data", "claassen_input_raw.csv"))) {
@@ -474,12 +486,12 @@ miss <- c("lower", "upper", "theory", "mar") %>% # missing-data treatments
   set_names()
 
 claassen_input_raw <- map(by,
-                          \(b) {
+                          function(b) {
                             map(miss,
-                                \(m) dichotomize(base_input_raw, b, m))
+                                function(m) dichotomize(base_input_raw, b, m))
                           })
 
-claassen_input <- map(by, \(b) {
+claassen_input <- map(by, function(b) {
   rule <- claassen_input_raw %>% 
     pluck(b) 
   format_claassen(rule)
@@ -589,7 +601,7 @@ results_path <- here::here(file.path("data",
 dir.create(results_path, 
            showWarnings = FALSE, 
            recursive = TRUE)
-map(miss, \(m) {
+map(miss, function(m) {
   dir.create(file.path(results_path, m),
              showWarnings = FALSE, 
              recursive = TRUE)
@@ -626,7 +638,7 @@ results_path <- here::here(file.path("data",
 dir.create(results_path, 
            showWarnings = FALSE, 
            recursive = TRUE)
-map(miss, \(m) {
+map(miss, function(m) {
   dir.create(file.path(results_path, m),
              showWarnings = FALSE, 
              recursive = TRUE)
@@ -663,7 +675,7 @@ results_path <- here::here(file.path("data",
 dir.create(results_path, 
            showWarnings = FALSE, 
            recursive = TRUE)
-map(miss, \(m) {
+map(miss, function(m) {
   dir.create(file.path(results_path, m),
              showWarnings = FALSE, 
              recursive = TRUE)
@@ -700,7 +712,7 @@ results_path <- here::here(file.path("data",
 dir.create(results_path, 
            showWarnings = FALSE, 
            recursive = TRUE)
-map(miss, \(m) {
+map(miss, function(m) {
   dir.create(file.path(results_path, m),
              showWarnings = FALSE, 
              recursive = TRUE)
@@ -740,9 +752,9 @@ for (i in by) {
 }
 
 load_results <- function(by) {
-  b_results_path <- file.path("data", by)
+ # b_results_path <- file.path("data", by)
   map(miss,
-      \(m) {
+      function(m) {
         bm_results_path <- file.path("data", by, m)
         as_cmdstan_fit(here(bm_results_path,
                             list.files(here(bm_results_path), pattern = "csv$")))
@@ -757,9 +769,9 @@ lowest_output <- load_results("lowest")
 summarize_cm5_results <- function(cm5_input,
                                   cm5_output) {
   
-  miss <- c(lower = "lower", upper = "upper", mar = "mar", theory = "theory")
+miss <- c(lower = "lower", upper = "upper", mar = "mar", theory = "theory")
   
-  res <- map(miss, \(m) {  
+res <- map(miss, function(m) {  
     dat <- cm5_input %>% 
       pluck(m) %>% 
       pluck("data")
@@ -811,7 +823,7 @@ summarize_cm5_results <- function(cm5_input,
 claassen_input <- rio::import(here("data",
                                    "claassen_input.rds"))
 
-theta_summary <- map(by, \(b) {
+theta_summary <- map(by, function(b) {
   summarize_cm5_results(claassen_input[[b]],
                         get(paste0(b, "_output")))
 })
@@ -831,9 +843,9 @@ df_apsr <- read_csv(here::here("data", "dem_mood_apsr.csv"),
                                "country.name"))
 
 df_apsr_list <- map(by,
-                    \(b) {
+                    function(b) {
                       map(miss,
-                          \(m) {
+                          function(m) {
                             df_apsr %>%
                               left_join(theta_summary[[b]][[m]], 
                                         by = c("Year" = "year",
@@ -876,9 +888,9 @@ miss_names <- c("Unsupportive",
                     "At Random")
 
 m1_1_list <- map(by,
-                 \(b) {
+                 function(b) {
                    bm <- map(miss,
-                       \(m) {
+                       function(m) {
                          plm(diff(SupDem_trim, lag = 1) ~ 
                                plm::lag(SupDem_trim, 1:2) +
                                diff(Libdem_z, lag = 1) +
@@ -896,9 +908,9 @@ m1_1_list <- map(by,
 names(m1_1_list) <- by_names
 
 m1_1_tidy <- map(by_names,
-                 \(b) {
+                 function(b) {
                    map(miss_names,
-                       \(m) {
+                       function(m) {
                          tidy_result <- tidy(m1_1_list[[b]][[m]],
                                              conf.int = TRUE) %>% 
                            mutate(std.error = vcovHC_se(m1_1_list[[b]][[m]]),
@@ -1025,9 +1037,9 @@ sim_dem_mood <- function(m1_1_result) {
 }
 
 sim_m1_1_list <- map(by_names,
-                     \(b) {
+                     function(b) {
                        map(miss_names,
-                           \(m) {
+                           function(m) {
                              sim_dem_mood(m1_1_list[[b]][[m]]) %>% 
                                mutate(by = factor(b,
                                                   levels = by_names,
@@ -1101,7 +1113,6 @@ In fact, most show that increases in democracy work, over time, to increase the 
 These findings imply that those who want to advance democracy should do just that: they should push ahead.
 
 ## Acknowledgments {.unlisted .unnumbered}
-
 
 Yue Hu acknowledges the support of the National Natural Science Foundation of China [72374116].
 Frederick Solt acknowledges the support of the Office of the Provost, University of Iowa.
@@ -1177,6 +1188,7 @@ modelsummary(m1_1_list[1:2],
   kableExtra::kable_styling(font_size = 7) %>% 
   kableExtra::kable_styling(latex_options = "HOLD_position")
 ```
+
 ```{r m111tab2, results='asis'}
 modelsummary(m1_1_list[3:4],
              shape = "rbind",
